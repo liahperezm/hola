@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { allEntries, getEntry, guideRows, wordOfTheDay } from "./dictionary";
+import { allEntries, getEntry, guideRows, wordOfTheDay, unknownPlainWordConcepts } from "./dictionary";
+import { warningText } from "./false-friends";
 import { translateWithDictionary } from "./translate";
 
 const join = (segments: { text: string }[]) =>
@@ -124,5 +125,65 @@ describe("vulgar and offensive words", () => {
   it("can be a translation, after a country's other words", () => {
     expect(join(translateWithDictionary("Está copado", "AR", "MX").target)).toBe("Está chido");
     expect(join(translateWithDictionary("¡Qué cosito!", "AR", "CL").target)).toBe("¡Qué huevada!");
+  });
+});
+
+describe("plain words for everyday objects", () => {
+  it("translates the plain word when the other country has its own", () => {
+    const result = translateWithDictionary(
+      "Fui a la gasolinera a por gasolina",
+      "ES",
+      "AR",
+    );
+    expect(join(result.target)).toBe("Fui a la estación de servicio a por nafta");
+    expect(result.pairs.map((p) => p.to.text)).toEqual([
+      "estación de servicio",
+      "nafta",
+    ]);
+  });
+
+  it("leaves plain words alone when both countries say the same", () => {
+    const result = translateWithDictionary("Llené el tanque de gasolina", "DO", "MX");
+    expect(join(result.target)).toBe("Llené el tanque de gasolina");
+    expect(result.source.some((s) => s.highlight)).toBe(false);
+  });
+
+  it("never swaps plain words for slang", () => {
+    const result = translateWithDictionary("El niño tiene dinero", "DO", "AR");
+    expect(join(result.target)).toBe("El niño tiene dinero");
+  });
+
+  it("does not touch ambiguous words", () => {
+    const result = translateWithDictionary("Mi papá bebe jugo en Chile", "CO", "ES");
+    expect(join(result.target)).toBe("Mi papá bebe zumo en Chile");
+  });
+
+  it("only lists concepts that exist", () => {
+    expect(unknownPlainWordConcepts()).toEqual([]);
+  });
+});
+
+describe("false friends", () => {
+  it("warns when a harmless word is vulgar where the text is going", () => {
+    const { warnings } = translateWithDictionary("Cogí el móvil", "ES", "AR");
+    expect(warnings).toHaveLength(1);
+    expect(warningText(warnings[0])).toBe(
+      "En Argentina, «cogí» es una palabra vulgar. Mejor usa «tomar» o «agarrar».",
+    );
+  });
+
+  it("does not warn when the word is already vulgar where it comes from", () => {
+    expect(translateWithDictionary("Cogí el bus", "AR", "ES").warnings).toEqual([]);
+  });
+
+  it("does not warn for ordinary text", () => {
+    expect(translateWithDictionary("Qué chévere el carro", "DO", "CO").warnings).toEqual(
+      [],
+    );
+  });
+
+  it("warns about Cuban papaya from the Dominican Republic", () => {
+    const { warnings } = translateWithDictionary("Quiero una papaya", "DO", "CU");
+    expect(warnings.map((w) => w.word)).toEqual(["papaya"]);
   });
 });

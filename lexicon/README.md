@@ -32,7 +32,23 @@ drops vulgar or offensive words and everyday words with another common meaning (
 The translator swaps every word it knows, so *padre* (Mexico: "cool") would turn "mi padre" into
 "mi genial".
 
-Slang, false friends and idioms are not in the app yet. Their meanings are written in English, and the app
+False friends that are vulgar in one of the app's countries are exported by a second script, so the
+translator can warn ("En Argentina, «cogí» es una palabra vulgar. Mejor usa «tomar» o «agarrar»."):
+
+```bash
+python3 lexicon/scripts/export_false_friends.py && pnpm test
+```
+
+It writes `src/lib/false-friends.generated.ts`. Spanish alternatives and extra verb forms live in the
+script (`INSTEAD`, `FORMS`). Harmless meaning changes (*carro*, *pena*, *ahorita*) are not warned about
+yet, because their meanings are written in English.
+
+The plain Spanish word for an everyday object (*gasolina*, *acera*, *mochila*) is also translated
+when the other country has its own word. Only concepts listed in `PLAIN_WORDS` in
+`src/lib/dictionary.ts` get this, so plain words are never swapped for slang (*niño* → *pibe*) and
+ambiguous words (*papa*, *bebe*, *Chile*) are left alone.
+
+Slang and idioms are not in the app yet. Their meanings are written in English, and the app
 is in Spanish.
 
 The SQLite database and the Wiktionary import below are for analysis and future features. Their output

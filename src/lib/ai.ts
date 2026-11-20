@@ -4,6 +4,7 @@ import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod";
 import { DIALECTS, type DialectCode } from "./dialects";
 import { slugify } from "./dictionary";
+import { findFalseFriends } from "./false-friends";
 import type { PhraseEntry } from "./phrase";
 import type { Segment, TermPair, Translation } from "./translate";
 
@@ -138,6 +139,7 @@ export async function translateWithAi(
         to: { text: term.target },
         meaning: term.meaning,
       })),
+      warnings: findFalseFriends(text, from, to),
       via: "ai",
     },
     entries,

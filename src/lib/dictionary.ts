@@ -618,6 +618,76 @@ function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] 
 
 const CONCEPTS = mergeConcepts(HAND_CONCEPTS, IMPORTED_CONCEPTS);
 
+/*
+ * Everyday objects whose plain Spanish word is also translated, so "gasolina"
+ * written in Spain becomes "nafta" for Argentina. Only concepts listed here:
+ * swapping plain words for slang ("niño" → "pibe") or ambiguous words ("papa",
+ * "bebe", "Chile", "manejar un equipo") would change what people mean.
+ */
+const PLAIN_WORDS: Record<string, string[]> = {
+  autobus: ["autobús"],
+  carro: ["carro"],
+  boleto: ["boleto"],
+  maleta: ["maleta"],
+  maletero: ["maletero"],
+  acera: ["acera"],
+  piscina: ["piscina"],
+  apartamento: ["apartamento"],
+  gasolina: ["gasolina"],
+  gasolinera: ["gasolinera"],
+  embotellamiento: ["embotellamiento"],
+  alquilar: ["alquilar"],
+  aguacate: ["aguacate"],
+  banana: ["banana"],
+  durazno: ["durazno"],
+  fresa: ["fresa"],
+  frijoles: ["frijoles"],
+  "judias-verdes": ["judías verdes"],
+  jugo: ["jugo"],
+  mantequilla: ["mantequilla"],
+  pajita: ["pajita"],
+  palomitas: ["palomitas de maíz", "palomitas"],
+  pastel: ["pastel"],
+  pina: ["piña"],
+  sandwich: ["sándwich"],
+  "hot-dog": ["hot dog"],
+  "cafe-negro": ["café negro"],
+  aperitivos: ["aperitivos"],
+  boligrafo: ["bolígrafo"],
+  celular: ["teléfono celular", "celular"],
+  computadora: ["computadora"],
+  estampilla: ["estampilla"],
+  grapadora: ["grapadora"],
+  mochila: ["mochila"],
+  camiseta: ["camiseta"],
+  refrigerador: ["refrigerador"],
+  sueter: ["suéter"],
+  lentes: ["lentes"],
+  "traje-de-bano": ["traje de baño"],
+  "zapatillas-deportivas": ["zapatillas deportivas"],
+  chaqueta: ["chaqueta"],
+  pavo: ["pavo"],
+  mosquito: ["mosquito"],
+  basurero: ["basurero"],
+  chupete: ["chupete"],
+};
+
+export type PlainWord = { conceptId: string; text: string; meaning: string };
+
+/** Plain words a dialect writes for things it has no word of its own for. */
+export function plainWordsFor(dialect: DialectCode): PlainWord[] {
+  return Object.entries(PLAIN_WORDS).flatMap(([conceptId, words]) => {
+    const concept = CONCEPTS.find((c) => c.id === conceptId);
+    if (!concept || concept.terms[dialect]?.length) return [];
+    return words.map((text) => ({ conceptId, text, meaning: concept.meaning }));
+  });
+}
+
+/** For tests: concepts in PLAIN_WORDS that the dictionary does not have. */
+export function unknownPlainWordConcepts(): string[] {
+  return Object.keys(PLAIN_WORDS).filter((id) => !CONCEPTS.some((c) => c.id === id));
+}
+
 export type Entry = TermDetail & {
   /** Stable id used in URLs and favorites: "DO.a-la-brigandina". */
   id: string;
@@ -778,3 +848,4 @@ export function wordOfTheDay(date: Date): Entry {
   );
   return candidates[day % candidates.length];
 }
+
