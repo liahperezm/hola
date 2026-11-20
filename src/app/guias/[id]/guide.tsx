@@ -13,7 +13,7 @@ import {
 } from "@/components/ui";
 import { DIALECTS } from "@/lib/dialects";
 import { guideRows, normalize, type GuideId } from "@/lib/dictionary";
-import { useGuidePair } from "@/lib/storage";
+import { useDialectPair } from "@/lib/storage";
 
 export function Guide({
   id,
@@ -26,7 +26,7 @@ export function Guide({
   emoji: string;
   subtitle: string;
 }) {
-  const [pair, setPair] = useGuidePair();
+  const [pair, setPair] = useDialectPair();
   const [query, setQuery] = useState("");
 
   const rows = useMemo(() => {
@@ -75,6 +75,11 @@ export function Guide({
                     </p>
                     <p className="text-[17px] font-extrabold">
                       {capitalize(row.to.display)}
+                      {normalize(row.from.display) === normalize(row.to.display) && (
+                        <span className="ml-2 rounded-full bg-bg px-2 py-0.5 align-middle text-[12px] font-semibold text-muted">
+                          igual
+                        </span>
+                      )}
                     </p>
                   </div>
                   {target && (

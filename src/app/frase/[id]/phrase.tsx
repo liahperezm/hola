@@ -121,19 +121,19 @@ function PhraseView({
         ))}
       </div>
 
-      <div role="tabpanel" className="mx-1">
+      <div role="tabpanel">
         {tab === "definicion" && (
-          <div>
+          <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <p className="text-[17px] leading-relaxed text-body">
               {entry.definition ?? entry.meaning}
             </p>
             {entry.example && (
-              <blockquote className="mt-6 border-l-[3px] border-lavender pl-4 text-[16.5px] leading-normal text-muted italic">
+              <blockquote className="mt-5 border-l-[3px] border-lavender pl-4 text-[16.5px] leading-normal text-muted italic">
                 <Example text={entry.example} term={entry.text} />
               </blockquote>
             )}
             {entry.antonyms && entry.antonyms.length > 0 && (
-              <p className="mt-7 text-[15.5px] leading-normal text-muted">
+              <p className="mt-6 border-t border-line pt-5 text-[15.5px] leading-normal text-muted">
                 <span className="mb-1 block text-[13px] font-bold text-navy">
                   Lo contrario
                 </span>
@@ -144,7 +144,7 @@ function PhraseView({
         )}
 
         {tab === "origen" && (
-          <div>
+          <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <CountryLabel code={entry.dialect} />
             <p className="mt-4 text-[17px] leading-relaxed text-body">
               {entry.origin ??
@@ -154,7 +154,7 @@ function PhraseView({
         )}
 
         {tab === "otros" && (
-          <div className="-mx-1">
+          <div>
             <ListCard>
               {others.map((o) => (
                 <li key={o.id}>
@@ -170,7 +170,7 @@ function PhraseView({
         )}
 
         {entry.id.startsWith("ai.") && (
-          <p className="mt-8 text-sm text-muted">
+          <p className="mx-1 mt-6 text-sm text-muted">
             Explicación generada con IA. Puede contener errores.
           </p>
         )}

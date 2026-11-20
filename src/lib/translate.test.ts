@@ -69,6 +69,14 @@ describe("dictionary", () => {
     expect(wordOfTheDay(new Date(2026, 10, 21)).id).not.toBe(morning.id);
   });
 
+  it("lists every concept of a guide whatever the countries", () => {
+    const a = guideRows("comida", "DO", "AR").map((r) => r.conceptId);
+    const b = guideRows("comida", "ES", "PE").map((r) => r.conceptId);
+    expect(a).toEqual(b);
+    const juice = guideRows("comida", "DO", "AR").find((r) => r.conceptId === "jugo");
+    expect([juice?.from.display, juice?.to.display]).toEqual(["jugo", "jugo"]);
+  });
+
   it("has unique ids", () => {
     const ids = allEntries().map((e) => e.id);
     expect(new Set(ids).size).toBe(ids.length);

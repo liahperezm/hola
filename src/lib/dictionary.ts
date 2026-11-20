@@ -665,17 +665,15 @@ export function withGender(words: string[]): string {
 }
 
 /**
- * Rows of a mini guide between two dialects. A concept shows when either side
- * has a word of its own.
+ * Rows of a mini guide between two dialects. Every guide always lists all of
+ * its concepts; a country without a word of its own shows the neutral meaning.
  */
 export function guideRows(
   guide: GuideId,
   from: DialectCode,
   to: DialectCode,
 ): GuideRow[] {
-  return CONCEPTS.filter(
-    (c) => c.guide === guide && (c.terms[from] || c.terms[to]),
-  ).map((c) => {
+  return CONCEPTS.filter((c) => c.guide === guide).map((c) => {
     const toWords = c.terms[to];
     return {
       conceptId: c.id,

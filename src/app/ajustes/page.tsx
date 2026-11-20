@@ -3,13 +3,11 @@
 import { useEffect, useState } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
 import { PageHeader, SectionTitle } from "@/components/ui";
-import { useDialectPair, useFavorites } from "@/lib/storage";
+import { useDialectPair } from "@/lib/storage";
 
 export default function Settings() {
   const [pair, setPair] = useDialectPair();
-  const { favorites, clear } = useFavorites();
   const [aiAvailable, setAiAvailable] = useState<boolean | null>(null);
-  const [confirming, setConfirming] = useState(false);
 
   useEffect(() => {
     fetch("/api/translate")
@@ -28,45 +26,6 @@ export default function Settings() {
         El traductor abre con estos países.
       </p>
       <DialectSwitcher value={pair} onChange={setPair} />
-
-      <SectionTitle>Guardados</SectionTitle>
-      <div className="flex items-center justify-between rounded-[22px] bg-white px-5 py-4 shadow-card">
-        <p className="text-[15px] text-muted">
-          {favorites.length === 1
-            ? "1 palabra guardada"
-            : `${favorites.length} palabras guardadas`}
-        </p>
-        {favorites.length > 0 &&
-          (confirming ? (
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => setConfirming(false)}
-                className="rounded-full px-4 py-2 text-sm font-bold hover:bg-bg"
-              >
-                Cancelar
-              </button>
-              <button
-                type="button"
-                onClick={() => {
-                  clear();
-                  setConfirming(false);
-                }}
-                className="rounded-full bg-danger px-4 py-2 text-sm font-bold text-white"
-              >
-                Borrar todo
-              </button>
-            </div>
-          ) : (
-            <button
-              type="button"
-              onClick={() => setConfirming(true)}
-              className="rounded-full px-4 py-2 text-sm font-bold text-danger hover:bg-bg"
-            >
-              Borrar
-            </button>
-          ))}
-      </div>
 
       <SectionTitle>Sobre Hola</SectionTitle>
       <div className="space-y-3 rounded-[22px] bg-white px-5 py-5 text-[15px] leading-relaxed text-muted shadow-card">

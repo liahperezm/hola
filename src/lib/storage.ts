@@ -121,16 +121,9 @@ const asPair = (v: unknown): DialectPair => {
     : DEFAULT_PAIR;
 };
 
-/** The dialects the translator opens with. */
+/** The two countries used everywhere: translator, guides and settings. */
 export function useDialectPair() {
   return useStored("hola.dialects", DEFAULT_PAIR, asPair);
-}
-
-const GUIDE_PAIR: DialectPair = { from: "DO", to: "AR" };
-
-/** The guides remember their own pair, like the Básicos screen (Rep. Dom. → Argentina). */
-export function useGuidePair() {
-  return useStored("hola.guide-dialects", GUIDE_PAIR, asPair);
 }
 
 /** Words the AI explained, kept so their detail page still opens later. */
