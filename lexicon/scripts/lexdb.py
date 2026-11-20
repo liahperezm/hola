@@ -18,8 +18,9 @@ def normalize(term: str) -> str:
 
 
 def kind_for(term: str, default_multi: str = "phrase") -> str:
-    core = re.sub(r"[¿?¡!]", "", term).strip()
-    return "word" if " " not in core else default_multi
+    # "catire / catira" lists two forms of one word.
+    parts = [re.sub(r"[¿?¡!]", "", p).strip() for p in term.split("/")]
+    return "word" if all(" " not in p for p in parts) else default_multi
 
 
 def connect(path) -> sqlite3.Connection:

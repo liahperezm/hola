@@ -56,6 +56,13 @@ This writes `lexicon/build/hola_lexicon.html`, a searchable page with filters fo
 false friends and what's in the app, plus a per-concept table. It also writes `lexicon/build/hola_lexicon.csv`
 for spreadsheet review. Run `build.py` first.
 
+For an Excel workbook with tabs for words by country, all entries, false friends, idioms and countries:
+
+```bash
+pip install openpyxl
+python3 lexicon/scripts/export_excel.py   # writes lexicon/build/Hola_lexico.xlsx
+```
+
 ### Add the full Wiktionary lexicon
 
 1. Download `kaikki.org-dictionary-Spanish.jsonl` from https://kaikki.org/dictionary/Spanish/ (about 1 GB).
