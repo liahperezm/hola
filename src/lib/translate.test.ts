@@ -82,3 +82,29 @@ describe("dictionary", () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 });
+
+describe("imported lexicon", () => {
+  it("translates words from the imported concepts", () => {
+    const result = translateWithDictionary("Me tomé una birra en la pileta", "AR", "MX");
+    expect(join(result.target)).toBe("Me tomé una chela en la alberca");
+  });
+
+  it("adds countries to hand-made concepts without changing their first word", () => {
+    expect(join(translateWithDictionary("Quiero un zumo", "ES", "DO").target)).toBe(
+      "Quiero un jugo",
+    );
+  });
+
+  it("leaves everyday words with other meanings alone", () => {
+    for (const text of ["Tengo un perro", "La cola del banco", "Una llave y un piso", "Un plato de pasta"]) {
+      for (const from of ["MX", "CO", "CL", "AR"] as const) {
+        expect(translateWithDictionary(text, from, "ES").via).toBe("none");
+      }
+    }
+  });
+
+  it("lists imported concepts in their guide", () => {
+    const rows = guideRows("comida", "AR", "MX").map((r) => [r.from.display, r.to.display]);
+    expect(rows).toContainEqual(["birra", "chela"]);
+  });
+});

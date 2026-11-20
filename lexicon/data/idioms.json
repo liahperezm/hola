@@ -1,0 +1,1255 @@
+{
+ "_format": "Idioms and proverbs. [idiom, kind (idiom|proverb), countries, register, meaning in English, literal translation, example in Spanish, regional variants/notes]",
+ "idioms": [
+  [
+   "meter la pata",
+   "idiom",
+   "ALL",
+   "informal",
+   "to put your foot in it; make a blunder",
+   "to put in the paw",
+   "Metí la pata cuando le pregunté por su ex.",
+   ""
+  ],
+  [
+   "tomar el pelo",
+   "idiom",
+   "ALL",
+   "informal",
+   "to pull someone's leg; tease",
+   "to take the hair",
+   "¿Me estás tomando el pelo?",
+   "AR: 'cargar' / 'boludear'; MX: 'vacilar'"
+  ],
+  [
+   "costar un ojo de la cara",
+   "idiom",
+   "ALL",
+   "informal",
+   "to cost an arm and a leg",
+   "to cost an eye from the face",
+   "El alquiler cuesta un ojo de la cara.",
+   "ES also: 'costar un riñón'"
+  ],
+  [
+   "no tener pelos en la lengua",
+   "idiom",
+   "ALL",
+   "informal",
+   "to speak one's mind bluntly",
+   "to have no hairs on the tongue",
+   "Mi abuela no tiene pelos en la lengua.",
+   ""
+  ],
+  [
+   "ser pan comido",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be a piece of cake",
+   "to be eaten bread",
+   "El examen fue pan comido.",
+   "MX: 'está papa'; AR: 'es un boleto'"
+  ],
+  [
+   "estar como pez en el agua",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be in one's element",
+   "to be like a fish in water",
+   "",
+   ""
+  ],
+  [
+   "dar en el clavo",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to hit the nail on the head",
+   "to hit on the nail",
+   "Diste en el clavo.",
+   ""
+  ],
+  [
+   "echar una mano",
+   "idiom",
+   "ALL",
+   "informal",
+   "to lend a hand",
+   "to throw a hand",
+   "¿Me echas una mano con la mudanza?",
+   "MX also: 'echar la mano'; AR: 'dar una mano'"
+  ],
+  [
+   "llover a cántaros",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to rain cats and dogs",
+   "to rain by the pitcherful",
+   "",
+   "ES also: 'caer chuzos de punta'"
+  ],
+  [
+   "ponerse las pilas",
+   "idiom",
+   "ALL",
+   "informal",
+   "to get your act together; get moving",
+   "to put in the batteries",
+   "¡Ponte las pilas, que viene el examen!",
+   ""
+  ],
+  [
+   "estar en las nubes",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be daydreaming",
+   "to be in the clouds",
+   "",
+   "Also 'estar en la luna'; MX: 'estar en la luna de Valencia'"
+  ],
+  [
+   "hablar por los codos",
+   "idiom",
+   "ALL",
+   "informal",
+   "to talk nonstop",
+   "to talk through the elbows",
+   "",
+   ""
+  ],
+  [
+   "tirar la casa por la ventana",
+   "idiom",
+   "ALL",
+   "informal",
+   "to spare no expense",
+   "to throw the house out the window",
+   "Para la boda tiraron la casa por la ventana.",
+   ""
+  ],
+  [
+   "ser uña y carne",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be inseparable",
+   "to be fingernail and flesh",
+   "",
+   "MX: 'ser como uña y mugre'"
+  ],
+  [
+   "estar entre la espada y la pared",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to be between a rock and a hard place",
+   "between the sword and the wall",
+   "",
+   ""
+  ],
+  [
+   "buscarle tres pies al gato",
+   "idiom",
+   "ES ALL",
+   "informal",
+   "to overcomplicate things; look for problems",
+   "to look for three feet on the cat",
+   "",
+   "AR/UY/CL: 'buscarle la quinta pata al gato'; MX: 'buscarle ruido al chicharrón'"
+  ],
+  [
+   "buscarle la quinta pata al gato",
+   "idiom",
+   "AR UY CL PY",
+   "informal",
+   "to overcomplicate things",
+   "to look for the cat's fifth leg",
+   "",
+   ""
+  ],
+  [
+   "ir al grano",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to get to the point",
+   "to go to the grain",
+   "Vamos al grano.",
+   ""
+  ],
+  [
+   "echar leña al fuego",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to add fuel to the fire",
+   "to throw firewood on the fire",
+   "",
+   ""
+  ],
+  [
+   "quedarse de piedra",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be stunned",
+   "to be left as stone",
+   "",
+   ""
+  ],
+  [
+   "dormirse en los laureles",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to rest on one's laurels",
+   "to fall asleep on the laurels",
+   "",
+   ""
+  ],
+  [
+   "tener la sartén por el mango",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be in control",
+   "to hold the frying pan by the handle",
+   "",
+   ""
+  ],
+  [
+   "ver las estrellas",
+   "idiom",
+   "ALL",
+   "informal",
+   "to see stars (from pain)",
+   "to see the stars",
+   "",
+   ""
+  ],
+  [
+   "cuando las ranas críen pelo",
+   "idiom",
+   "ALL",
+   "informal",
+   "when pigs fly; never",
+   "when frogs grow hair",
+   "Te pagará cuando las ranas críen pelo.",
+   "MX: 'cuando la marrana tuerza el rabo'"
+  ],
+  [
+   "a otro perro con ese hueso",
+   "idiom",
+   "ALL",
+   "informal",
+   "I don't buy it; tell it to someone else",
+   "to another dog with that bone",
+   "",
+   ""
+  ],
+  [
+   "dar gato por liebre",
+   "idiom",
+   "ALL",
+   "informal",
+   "to rip someone off; pass off something inferior",
+   "to give cat instead of hare",
+   "",
+   ""
+  ],
+  [
+   "estar frito",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be done for, in big trouble",
+   "to be fried",
+   "",
+   "AR: 'estar al horno'"
+  ],
+  [
+   "sacar de quicio",
+   "idiom",
+   "ALL",
+   "informal",
+   "to drive someone crazy",
+   "to take off the hinge",
+   "",
+   ""
+  ],
+  [
+   "no dar el brazo a torcer",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to not give in",
+   "to not let the arm be twisted",
+   "",
+   ""
+  ],
+  [
+   "llevarse como perro y gato",
+   "idiom",
+   "ALL",
+   "informal",
+   "to fight like cats and dogs",
+   "",
+   "",
+   ""
+  ],
+  [
+   "matar dos pájaros de un tiro",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to kill two birds with one stone",
+   "to kill two birds with one shot",
+   "",
+   ""
+  ],
+  [
+   "consultar con la almohada",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to sleep on it",
+   "to consult with the pillow",
+   "",
+   ""
+  ],
+  [
+   "pagar los platos rotos",
+   "idiom",
+   "ALL",
+   "informal",
+   "to take the blame for others",
+   "to pay for the broken plates",
+   "",
+   "ES: 'pagar el pato'"
+  ],
+  [
+   "ponerse rojo como un tomate",
+   "idiom",
+   "ALL",
+   "informal",
+   "to blush deeply",
+   "to turn red as a tomato",
+   "",
+   ""
+  ],
+  [
+   "no ver tres en un burro",
+   "idiom",
+   "ES",
+   "informal",
+   "to be practically blind",
+   "to not see three on a donkey",
+   "",
+   ""
+  ],
+  [
+   "estar como una cabra",
+   "idiom",
+   "ES",
+   "informal",
+   "to be crazy",
+   "to be like a goat",
+   "",
+   "MX: 'estar zafado'; AR: 'estar del tomate'"
+  ],
+  [
+   "estar del tomate",
+   "idiom",
+   "AR UY",
+   "informal",
+   "to be crazy",
+   "to be of the tomato",
+   "",
+   ""
+  ],
+  [
+   "ser la gota que colma el vaso",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to be the last straw",
+   "the drop that fills the glass",
+   "",
+   "AR/MX: 'la gota que derramó el vaso'"
+  ],
+  [
+   "tirar la toalla",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to throw in the towel",
+   "",
+   "",
+   ""
+  ],
+  [
+   "al pan, pan y al vino, vino",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to call a spade a spade",
+   "bread is bread and wine is wine",
+   "",
+   ""
+  ],
+  [
+   "no hay moros en la costa",
+   "idiom",
+   "ES ALL",
+   "informal",
+   "the coast is clear",
+   "there are no Moors on the coast",
+   "",
+   "Historical phrase; some find it culturally insensitive."
+  ],
+  [
+   "estar hecho polvo",
+   "idiom",
+   "ES ALL",
+   "informal",
+   "to be exhausted",
+   "to be made dust",
+   "",
+   "MX: 'estar molido'; CO: 'estar mamado'"
+  ],
+  [
+   "no pegar ojo",
+   "idiom",
+   "ES ALL",
+   "informal",
+   "to not sleep a wink",
+   "to not stick an eye",
+   "",
+   "LatAm: 'no pegar el ojo'"
+  ],
+  [
+   "estar en la edad del pavo",
+   "idiom",
+   "ES",
+   "informal",
+   "to be at the awkward teenage stage",
+   "to be in the age of the turkey",
+   "",
+   ""
+  ],
+  [
+   "empezar la casa por el tejado",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to put the cart before the horse",
+   "to start the house from the roof",
+   "",
+   ""
+  ],
+  [
+   "tener mala pata",
+   "idiom",
+   "ALL",
+   "informal",
+   "to have bad luck",
+   "to have a bad paw",
+   "",
+   ""
+  ],
+  [
+   "echar agua al mar",
+   "idiom",
+   "ALL",
+   "informal",
+   "to do something pointless",
+   "to pour water into the sea",
+   "",
+   ""
+  ],
+  [
+   "como agua para chocolate",
+   "idiom",
+   "MX",
+   "informal",
+   "boiling mad; also passionate",
+   "like water for (hot) chocolate",
+   "Estaba como agua para chocolate.",
+   ""
+  ],
+  [
+   "estar hasta la madre",
+   "idiom",
+   "MX",
+   "vulgar",
+   "to be totally fed up; or packed full",
+   "to be up to the mother",
+   "",
+   ""
+  ],
+  [
+   "echar los perros",
+   "idiom",
+   "CO VE MX",
+   "slang",
+   "to flirt with someone",
+   "to throw the dogs",
+   "",
+   "MX/CU also: 'tirar los perros'"
+  ],
+  [
+   "dar papaya",
+   "idiom",
+   "CO",
+   "slang",
+   "to make yourself an easy target",
+   "to give papaya",
+   "No dé papaya.",
+   "Related saying: 'papaya puesta, papaya partida'"
+  ],
+  [
+   "hacer la vaca",
+   "idiom",
+   "PE",
+   "slang",
+   "to skip school",
+   "to do the cow",
+   "",
+   "MX: 'irse de pinta'; AR: 'hacerse la rata'; CL: 'hacer la cimarra'; ES: 'hacer pellas/novillos'; CO: 'capar clase'; VE: 'jubilarse'; UY: 'hacerse la rabona'"
+  ],
+  [
+   "irse de pinta",
+   "idiom",
+   "MX",
+   "slang",
+   "to skip school",
+   "",
+   "",
+   ""
+  ],
+  [
+   "hacerse la rata",
+   "idiom",
+   "AR",
+   "slang",
+   "to skip school",
+   "to make oneself the rat",
+   "",
+   ""
+  ],
+  [
+   "hacer novillos",
+   "idiom",
+   "ES",
+   "informal",
+   "to skip school",
+   "",
+   "",
+   "Also 'hacer pellas', 'hacer campana'"
+  ],
+  [
+   "capar clase",
+   "idiom",
+   "CO",
+   "slang",
+   "to skip school",
+   "to castrate class",
+   "",
+   ""
+  ],
+  [
+   "hacerse la rabona",
+   "idiom",
+   "UY AR",
+   "slang",
+   "to skip school",
+   "",
+   "",
+   ""
+  ],
+  [
+   "hacer la cimarra",
+   "idiom",
+   "CL",
+   "slang",
+   "to skip school",
+   "",
+   "",
+   ""
+  ],
+  [
+   "jubilarse",
+   "idiom",
+   "VE",
+   "slang",
+   "to skip school (also 'to retire')",
+   "",
+   "",
+   ""
+  ],
+  [
+   "ser más papista que el papa",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to be more Catholic than the Pope",
+   "",
+   "",
+   ""
+  ],
+  [
+   "más vale tarde que nunca",
+   "proverb",
+   "ALL",
+   "neutral",
+   "better late than never",
+   "",
+   "",
+   ""
+  ],
+  [
+   "en boca cerrada no entran moscas",
+   "proverb",
+   "ALL",
+   "neutral",
+   "silence is golden; keep your mouth shut",
+   "flies don't enter a closed mouth",
+   "",
+   ""
+  ],
+  [
+   "no hay mal que por bien no venga",
+   "proverb",
+   "ALL",
+   "neutral",
+   "every cloud has a silver lining",
+   "there's no bad from which good doesn't come",
+   "",
+   ""
+  ],
+  [
+   "camarón que se duerme se lo lleva la corriente",
+   "proverb",
+   "ALL",
+   "neutral",
+   "you snooze, you lose",
+   "the shrimp that sleeps is carried away by the current",
+   "",
+   ""
+  ],
+  [
+   "dime con quién andas y te diré quién eres",
+   "proverb",
+   "ALL",
+   "neutral",
+   "you are judged by the company you keep",
+   "",
+   "",
+   ""
+  ],
+  [
+   "ojos que no ven, corazón que no siente",
+   "proverb",
+   "ALL",
+   "neutral",
+   "out of sight, out of mind; what you don't know won't hurt you",
+   "",
+   "",
+   ""
+  ],
+  [
+   "a caballo regalado no se le mira el diente",
+   "proverb",
+   "ALL",
+   "neutral",
+   "don't look a gift horse in the mouth",
+   "",
+   "",
+   "Variant: 'no se le mira el colmillo'"
+  ],
+  [
+   "más vale pájaro en mano que cien volando",
+   "proverb",
+   "ALL",
+   "neutral",
+   "a bird in the hand is worth two in the bush",
+   "",
+   "",
+   ""
+  ],
+  [
+   "al mal tiempo, buena cara",
+   "proverb",
+   "ALL",
+   "neutral",
+   "keep your chin up in tough times",
+   "to bad weather, good face",
+   "",
+   ""
+  ],
+  [
+   "a lo hecho, pecho",
+   "proverb",
+   "ALL",
+   "neutral",
+   "own up to what you've done",
+   "to what's done, chest",
+   "",
+   ""
+  ],
+  [
+   "el que madruga, Dios lo ayuda",
+   "proverb",
+   "ALL",
+   "neutral",
+   "the early bird catches the worm",
+   "God helps who rises early",
+   "",
+   ""
+  ],
+  [
+   "no por mucho madrugar amanece más temprano",
+   "proverb",
+   "ALL",
+   "neutral",
+   "you can't rush things",
+   "getting up earlier won't make the sun rise sooner",
+   "",
+   ""
+  ],
+  [
+   "perro que ladra no muerde",
+   "proverb",
+   "ALL",
+   "neutral",
+   "his bark is worse than his bite",
+   "a barking dog doesn't bite",
+   "",
+   ""
+  ],
+  [
+   "del dicho al hecho hay mucho trecho",
+   "proverb",
+   "ALL",
+   "neutral",
+   "easier said than done",
+   "",
+   "",
+   ""
+  ],
+  [
+   "a quien madruga, Dios le ayuda",
+   "proverb",
+   "ES",
+   "neutral",
+   "the early bird catches the worm",
+   "",
+   "",
+   ""
+  ],
+  [
+   "cría cuervos y te sacarán los ojos",
+   "proverb",
+   "ALL",
+   "neutral",
+   "bite the hand that feeds you",
+   "raise crows and they'll peck out your eyes",
+   "",
+   ""
+  ],
+  [
+   "en casa de herrero, cuchillo de palo",
+   "proverb",
+   "ALL",
+   "neutral",
+   "the shoemaker's children go barefoot",
+   "in the blacksmith's house, a wooden knife",
+   "",
+   ""
+  ],
+  [
+   "más sabe el diablo por viejo que por diablo",
+   "proverb",
+   "ALL",
+   "neutral",
+   "wisdom comes with age",
+   "the devil knows more for being old than for being the devil",
+   "",
+   ""
+  ],
+  [
+   "el que no llora no mama",
+   "proverb",
+   "ALL",
+   "neutral",
+   "the squeaky wheel gets the grease",
+   "who doesn't cry doesn't nurse",
+   "",
+   ""
+  ],
+  [
+   "donde manda capitán no manda marinero",
+   "proverb",
+   "ALL",
+   "neutral",
+   "the boss's word is final",
+   "",
+   "",
+   ""
+  ],
+  [
+   "a buen entendedor, pocas palabras bastan",
+   "proverb",
+   "ALL",
+   "neutral",
+   "a word to the wise is enough",
+   "",
+   "",
+   ""
+  ],
+  [
+   "agua que no has de beber, déjala correr",
+   "proverb",
+   "ALL",
+   "neutral",
+   "don't meddle in what doesn't concern you",
+   "water you won't drink, let it flow",
+   "",
+   ""
+  ],
+  [
+   "más vale prevenir que curar",
+   "proverb",
+   "ALL",
+   "neutral",
+   "better safe than sorry",
+   "",
+   "",
+   ""
+  ],
+  [
+   "quien mucho abarca, poco aprieta",
+   "proverb",
+   "ALL",
+   "neutral",
+   "don't bite off more than you can chew",
+   "",
+   "",
+   ""
+  ],
+  [
+   "de tal palo, tal astilla",
+   "proverb",
+   "ALL",
+   "neutral",
+   "like father, like son",
+   "from such a stick, such a splinter",
+   "",
+   ""
+  ],
+  [
+   "no hay que vender la piel del oso antes de cazarlo",
+   "proverb",
+   "ALL",
+   "neutral",
+   "don't count your chickens before they hatch",
+   "",
+   "",
+   ""
+  ],
+  [
+   "la curiosidad mató al gato",
+   "proverb",
+   "ALL",
+   "neutral",
+   "curiosity killed the cat",
+   "",
+   "",
+   ""
+  ],
+  [
+   "el hábito no hace al monje",
+   "proverb",
+   "ALL",
+   "neutral",
+   "don't judge a book by its cover",
+   "the habit doesn't make the monk",
+   "",
+   ""
+  ],
+  [
+   "aunque la mona se vista de seda, mona se queda",
+   "proverb",
+   "ALL",
+   "neutral",
+   "you can't make a silk purse from a sow's ear",
+   "even dressed in silk, a monkey stays a monkey",
+   "",
+   ""
+  ],
+  [
+   "a falta de pan, buenas son tortas",
+   "proverb",
+   "ALL",
+   "neutral",
+   "beggars can't be choosers",
+   "",
+   "",
+   ""
+  ],
+  [
+   "no todo lo que brilla es oro",
+   "proverb",
+   "ALL",
+   "neutral",
+   "all that glitters is not gold",
+   "",
+   "",
+   ""
+  ],
+  [
+   "poner los cuernos",
+   "idiom",
+   "ALL",
+   "informal",
+   "to cheat on a partner",
+   "to put on horns",
+   "",
+   "MX also: 'ponerle el cuerno'; AR: 'meter los cuernos'"
+  ],
+  [
+   "estar en la luna",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be absent-minded",
+   "to be on the moon",
+   "",
+   ""
+  ],
+  [
+   "salir el tiro por la culata",
+   "idiom",
+   "ALL",
+   "informal",
+   "to backfire",
+   "the shot comes out the butt of the gun",
+   "",
+   ""
+  ],
+  [
+   "ser un cero a la izquierda",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be a nobody; useless",
+   "to be a zero on the left",
+   "",
+   ""
+  ],
+  [
+   "hacer la vista gorda",
+   "idiom",
+   "ALL",
+   "informal",
+   "to turn a blind eye",
+   "to make the fat eye",
+   "",
+   ""
+  ],
+  [
+   "tener la cabeza en las nubes",
+   "idiom",
+   "ALL",
+   "informal",
+   "to have one's head in the clouds",
+   "",
+   "",
+   ""
+  ],
+  [
+   "lavar los trapos sucios en casa",
+   "idiom",
+   "ALL",
+   "neutral",
+   "don't air your dirty laundry",
+   "",
+   "",
+   ""
+  ],
+  [
+   "hacer de tripas corazón",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to pluck up courage",
+   "to make heart from guts",
+   "",
+   ""
+  ],
+  [
+   "ser harina de otro costal",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to be a different kettle of fish",
+   "to be flour from another sack",
+   "",
+   ""
+  ],
+  [
+   "estar más sano que una manzana",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be fit as a fiddle",
+   "",
+   "",
+   ""
+  ],
+  [
+   "al que le quede el saco, que se lo ponga",
+   "proverb",
+   "MX ALL",
+   "neutral",
+   "if the shoe fits, wear it",
+   "",
+   "",
+   "ES: 'el que se pica, ajos come'"
+  ],
+  [
+   "el que se pica, ajos come",
+   "proverb",
+   "ES",
+   "neutral",
+   "if the shoe fits, wear it",
+   "who gets stung eats garlic",
+   "",
+   ""
+  ],
+  [
+   "no hay tos",
+   "idiom",
+   "MX",
+   "slang",
+   "no problem",
+   "there's no cough",
+   "",
+   ""
+  ],
+  [
+   "echar la casa por la ventana",
+   "idiom",
+   "ALL",
+   "informal",
+   "to splurge",
+   "",
+   "",
+   "Variant of 'tirar la casa por la ventana'"
+  ],
+  [
+   "ser un viva la Pepa",
+   "idiom",
+   "ES CO VE",
+   "informal",
+   "to be carefree, irresponsible",
+   "",
+   "",
+   ""
+  ],
+  [
+   "estar en el horno",
+   "idiom",
+   "AR UY",
+   "slang",
+   "to be in big trouble",
+   "to be in the oven",
+   "",
+   "Also 'estar al horno'"
+  ],
+  [
+   "tirar manteca al techo",
+   "idiom",
+   "AR",
+   "informal",
+   "to waste money extravagantly",
+   "to throw butter at the ceiling",
+   "",
+   ""
+  ],
+  [
+   "meter la mula",
+   "idiom",
+   "AR",
+   "slang",
+   "to cheat, scam",
+   "to put in the mule",
+   "",
+   ""
+  ],
+  [
+   "ser un pan de Dios",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be a kind-hearted person",
+   "to be a bread of God",
+   "",
+   "AR: 'ser un pedazo de pan'"
+  ],
+  [
+   "no tener ni pies ni cabeza",
+   "idiom",
+   "ALL",
+   "neutral",
+   "to make no sense",
+   "to have neither feet nor head",
+   "",
+   ""
+  ],
+  [
+   "a todo dar",
+   "idiom",
+   "MX",
+   "informal",
+   "awesome",
+   "",
+   "",
+   "Also 'a toda madre' (vulgar)"
+  ],
+  [
+   "hacer una vaquita",
+   "idiom",
+   "ALL",
+   "informal",
+   "to chip in money together",
+   "to make a little cow",
+   "",
+   "MX: 'hacer una coperacha'; CO: 'hacer una vaca'"
+  ],
+  [
+   "estar pato",
+   "idiom",
+   "PE",
+   "slang",
+   "to be broke",
+   "",
+   "",
+   "Also 'estar misio'"
+  ],
+  [
+   "estar en la lona",
+   "idiom",
+   "ALL",
+   "informal",
+   "to be down and out, broke",
+   "",
+   "",
+   ""
+  ],
+  [
+   "a la chilena",
+   "idiom",
+   "CL ALL",
+   "neutral",
+   "bicycle kick (soccer)",
+   "Chilean-style",
+   "",
+   "Called 'chilena' in many countries; ES: 'chilena' or 'tijera'"
+  ],
+  [
+   "sacar canas verdes",
+   "idiom",
+   "ALL",
+   "informal",
+   "to drive someone up the wall",
+   "to give someone green gray hairs",
+   "",
+   ""
+  ],
+  [
+   "más feo que pegarle a la madre",
+   "idiom",
+   "AR",
+   "vulgar",
+   "extremely ugly or bad",
+   "",
+   "",
+   ""
+  ],
+  [
+   "no es moco de pavo",
+   "idiom",
+   "ALL",
+   "informal",
+   "it's no small thing",
+   "it's not turkey snot",
+   "",
+   ""
+  ],
+  [
+   "al que nace pa' tamal del cielo le caen las hojas",
+   "proverb",
+   "MX",
+   "informal",
+   "you can't escape your destiny",
+   "",
+   "",
+   ""
+  ],
+  [
+   "el flojo trabaja doble",
+   "proverb",
+   "ALL",
+   "neutral",
+   "the lazy man works twice",
+   "",
+   "",
+   ""
+  ],
+  [
+   "chivo que rompe tambor con su pellejo paga",
+   "proverb",
+   "VE",
+   "informal",
+   "you break it, you pay for it",
+   "the goat that breaks the drum pays with its hide",
+   "",
+   ""
+  ],
+  [
+   "cada loco con su tema",
+   "proverb",
+   "ALL",
+   "informal",
+   "to each their own",
+   "each madman with his theme",
+   "",
+   ""
+  ],
+  [
+   "el que no tiene de inga tiene de mandinga",
+   "proverb",
+   "PE",
+   "informal",
+   "everyone in Peru has mixed ancestry",
+   "",
+   "",
+   ""
+  ],
+  [
+   "en todas partes se cuecen habas",
+   "proverb",
+   "ALL",
+   "neutral",
+   "it happens everywhere / no place is perfect",
+   "beans are cooked everywhere",
+   "",
+   ""
+  ]
+ ]
+}

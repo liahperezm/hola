@@ -78,7 +78,17 @@ in the Claude Console as well.
 
 ## Adding words
 
-Add a concept to `CONCEPTS` in `src/lib/dictionary.ts`:
+There are two sources of words:
+
+- **Hand-made concepts** (`HAND_CONCEPTS` in `src/lib/dictionary.ts`), with pronunciation, definitions and
+  origin stories. These always come first.
+- **The imported lexicon** (`lexicon/`): 22 countries of regional vocabulary, slang, false friends and
+  idioms. Its concepts are exported to `src/lib/lexicon.generated.ts` by
+  `python3 lexicon/scripts/export_app.py`. See `lexicon/README.md`.
+
+To hand-write a concept:
+
+Add a concept to `HAND_CONCEPTS` in `src/lib/dictionary.ts`:
 
 ```ts
 {

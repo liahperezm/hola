@@ -1,0 +1,1135 @@
+{
+ "_format": "Words whose meaning changes by country. Each sense: [country codes, register, English meaning, optional note]. These are the most important entries for learners to avoid embarrassment.",
+ "words": [
+  {
+   "t": "coger",
+   "s": [
+    [
+     "ES CU DO PR ALL",
+     "neutral",
+     "to take, grab, catch (a bus)"
+    ],
+    [
+     "MX AR UY PY VE CR GT HN SV NI PA BO",
+     "vulgar",
+     "to have sex",
+     "Use 'tomar' or 'agarrar' instead."
+    ]
+   ]
+  },
+  {
+   "t": "concha",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "seashell"
+    ],
+    [
+     "MX",
+     "neutral",
+     "sweet bread roll with shell-patterned topping"
+    ],
+    [
+     "AR UY CL PE",
+     "vulgar",
+     "female genitals",
+     "Also in the insult 'concha de tu madre'."
+    ]
+   ]
+  },
+  {
+   "t": "pija / pijo",
+   "s": [
+    [
+     "ES",
+     "informal",
+     "posh, preppy person"
+    ],
+    [
+     "AR UY GT HN SV NI",
+     "vulgar",
+     "penis"
+    ]
+   ]
+  },
+  {
+   "t": "bicho",
+   "s": [
+    [
+     "ALL",
+     "informal",
+     "bug, creepy-crawly"
+    ],
+    [
+     "SV HN",
+     "informal",
+     "kid"
+    ],
+    [
+     "PR",
+     "vulgar",
+     "penis"
+    ]
+   ]
+  },
+  {
+   "t": "papaya",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "papaya (fruit)"
+    ],
+    [
+     "CU",
+     "vulgar",
+     "female genitals",
+     "Say 'fruta bomba'."
+    ],
+    [
+     "CO",
+     "slang",
+     "an easy opportunity ('dar papaya' = leave yourself exposed)"
+    ]
+   ]
+  },
+  {
+   "t": "guagua",
+   "s": [
+    [
+     "CU PR DO",
+     "neutral",
+     "bus"
+    ],
+    [
+     "CL EC BO PE",
+     "informal",
+     "baby"
+    ]
+   ]
+  },
+  {
+   "t": "torta",
+   "s": [
+    [
+     "AR UY VE CL PE BO",
+     "neutral",
+     "cake"
+    ],
+    [
+     "MX",
+     "neutral",
+     "sandwich on a roll"
+    ],
+    [
+     "ES",
+     "informal",
+     "a slap; also a flat cake",
+     "'Darse una torta' = to crash/fall."
+    ]
+   ]
+  },
+  {
+   "t": "tortilla",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "potato omelette"
+    ],
+    [
+     "MX GT SV HN NI US",
+     "neutral",
+     "thin corn or flour flatbread"
+    ]
+   ]
+  },
+  {
+   "t": "pendejo",
+   "s": [
+    [
+     "MX US GT HN SV NI",
+     "vulgar",
+     "idiot, jerk (strong insult)"
+    ],
+    [
+     "AR UY",
+     "informal",
+     "kid, young person (mildly dismissive)"
+    ],
+    [
+     "ES",
+     "vulgar",
+     "pubic hair"
+    ]
+   ]
+  },
+  {
+   "t": "chaqueta",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "jacket"
+    ],
+    [
+     "MX",
+     "vulgar",
+     "masturbation (slang)",
+     "Use 'chamarra' for jacket."
+    ]
+   ]
+  },
+  {
+   "t": "arrecho",
+   "s": [
+    [
+     "VE",
+     "informal",
+     "angry; also tough, impressive"
+    ],
+    [
+     "CO PE GT HN SV NI CR",
+     "vulgar",
+     "sexually aroused"
+    ]
+   ]
+  },
+  {
+   "t": "polla",
+   "s": [
+    [
+     "ES",
+     "vulgar",
+     "penis"
+    ],
+    [
+     "CL",
+     "neutral",
+     "lottery"
+    ],
+    [
+     "CO EC PE",
+     "neutral",
+     "betting pool"
+    ],
+    [
+     "ALL",
+     "neutral",
+     "young hen, pullet"
+    ]
+   ]
+  },
+  {
+   "t": "cajeta",
+   "s": [
+    [
+     "MX",
+     "neutral",
+     "goat-milk caramel spread"
+    ],
+    [
+     "AR UY PY",
+     "vulgar",
+     "female genitals"
+    ]
+   ]
+  },
+  {
+   "t": "bollo",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "bun, sweet roll"
+    ],
+    [
+     "CU",
+     "vulgar",
+     "female genitals"
+    ],
+    [
+     "CO",
+     "neutral",
+     "wrapped corn dough (bollo de mazorca)"
+    ]
+   ]
+  },
+  {
+   "t": "pinche",
+   "s": [
+    [
+     "MX",
+     "vulgar",
+     "damn, lousy (intensifier)"
+    ],
+    [
+     "ES",
+     "neutral",
+     "kitchen assistant"
+    ],
+    [
+     "CR",
+     "informal",
+     "stingy"
+    ],
+    [
+     "CL",
+     "informal",
+     "a fling, casual partner"
+    ]
+   ]
+  },
+  {
+   "t": "fresa",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "strawberry"
+    ],
+    [
+     "MX",
+     "informal",
+     "snobbish, preppy person"
+    ]
+   ]
+  },
+  {
+   "t": "pena",
+   "s": [
+    [
+     "ES ALL",
+     "neutral",
+     "sorrow; pity ('qué pena' = what a shame)"
+    ],
+    [
+     "MX CO VE CR GT HN SV NI PA",
+     "neutral",
+     "embarrassment ('me da pena' = I'm embarrassed/shy)"
+    ]
+   ]
+  },
+  {
+   "t": "ahorita",
+   "s": [
+    [
+     "MX GT",
+     "informal",
+     "in a moment / later (often not immediately)"
+    ],
+    [
+     "CU DO PR VE CO",
+     "informal",
+     "right now / just now"
+    ]
+   ]
+  },
+  {
+   "t": "carro",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "cart (e.g., shopping cart)"
+    ],
+    [
+     "MX CO VE CU PR DO CR PA GT HN SV NI PE EC US",
+     "neutral",
+     "car"
+    ]
+   ]
+  },
+  {
+   "t": "cola",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "tail; queue; glue"
+    ],
+    [
+     "AR UY CL",
+     "informal",
+     "bottom, butt"
+    ],
+    [
+     "VE",
+     "informal",
+     "a ride ('pedir cola')"
+    ]
+   ]
+  },
+  {
+   "t": "paja",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "straw (dry grass)"
+    ],
+    [
+     "ES AR UY",
+     "vulgar",
+     "masturbation; in AR/UY also 'laziness' ('me da paja')"
+    ],
+    [
+     "PE",
+     "slang",
+     "cool, great ('¡qué paja!')"
+    ]
+   ]
+  },
+  {
+   "t": "chucha",
+   "s": [
+    [
+     "CL PE EC",
+     "vulgar",
+     "damn! (exclamation; originally female genitals)"
+    ],
+    [
+     "CO",
+     "slang",
+     "body odor (armpit)"
+    ]
+   ]
+  },
+  {
+   "t": "pico",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "beak; peak; pickaxe; 'y pico' = and a bit"
+    ],
+    [
+     "CL",
+     "vulgar",
+     "penis"
+    ]
+   ]
+  },
+  {
+   "t": "vaina",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "pod, sheath"
+    ],
+    [
+     "VE CO DO PA PR",
+     "informal",
+     "thing, stuff, situation ('¡qué vaina!')"
+    ]
+   ]
+  },
+  {
+   "t": "chucho",
+   "s": [
+    [
+     "ES MX GT SV HN",
+     "informal",
+     "dog, mutt"
+    ],
+    [
+     "AR UY",
+     "slang",
+     "chill, fear"
+    ],
+    [
+     "SV",
+     "informal",
+     "stingy"
+    ]
+   ]
+  },
+  {
+   "t": "chimba",
+   "s": [
+    [
+     "CO",
+     "vulgar",
+     "cool/awesome ('¡qué chimba!'); originally female genitals"
+    ]
+   ]
+  },
+  {
+   "t": "pisto",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "vegetable stew (like ratatouille)"
+    ],
+    [
+     "GT SV HN",
+     "informal",
+     "money"
+    ]
+   ]
+  },
+  {
+   "t": "guapo",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "handsome, good-looking"
+    ],
+    [
+     "CU PR DO",
+     "informal",
+     "angry, upset ('estar guapo')"
+    ],
+    [
+     "PY",
+     "informal",
+     "hard-working"
+    ]
+   ]
+  },
+  {
+   "t": "bravo",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "brave; fierce; bravo!"
+    ],
+    [
+     "MX CO VE CU PR DO CR PA",
+     "informal",
+     "angry ('está bravo')"
+    ]
+   ]
+  },
+  {
+   "t": "boliche",
+   "s": [
+    [
+     "AR UY",
+     "informal",
+     "nightclub; small shop"
+    ],
+    [
+     "CL",
+     "informal",
+     "small store"
+    ],
+    [
+     "MX",
+     "neutral",
+     "bowling alley"
+    ]
+   ]
+  },
+  {
+   "t": "antro",
+   "s": [
+    [
+     "ES ALL",
+     "informal",
+     "dive, sleazy place"
+    ],
+    [
+     "MX",
+     "informal",
+     "nightclub (neutral)"
+    ]
+   ]
+  },
+  {
+   "t": "bodega",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "wine cellar; winery"
+    ],
+    [
+     "PE VE CU",
+     "neutral",
+     "corner shop"
+    ],
+    [
+     "MX",
+     "neutral",
+     "warehouse; storage room"
+    ]
+   ]
+  },
+  {
+   "t": "grifo",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "faucet, tap"
+    ],
+    [
+     "PE",
+     "neutral",
+     "gas station"
+    ],
+    [
+     "MX",
+     "slang",
+     "high (on marijuana)"
+    ]
+   ]
+  },
+  {
+   "t": "tinto",
+   "s": [
+    [
+     "ES ALL",
+     "neutral",
+     "red wine"
+    ],
+    [
+     "CO",
+     "neutral",
+     "small black coffee"
+    ]
+   ]
+  },
+  {
+   "t": "plátano",
+   "s": [
+    [
+     "ES MX",
+     "neutral",
+     "banana"
+    ],
+    [
+     "CO VE PR DO CU PE CR PA",
+     "neutral",
+     "plantain (cooking banana)"
+    ]
+   ]
+  },
+  {
+   "t": "chamarra",
+   "s": [
+    [
+     "MX",
+     "neutral",
+     "jacket"
+    ],
+    [
+     "GT",
+     "neutral",
+     "blanket"
+    ]
+   ]
+  },
+  {
+   "t": "manteca",
+   "s": [
+    [
+     "ALL ES MX",
+     "neutral",
+     "lard"
+    ],
+    [
+     "AR UY",
+     "neutral",
+     "butter"
+    ]
+   ]
+  },
+  {
+   "t": "chaleco",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "vest, waistcoat"
+    ],
+    [
+     "CL",
+     "neutral",
+     "sweater"
+    ]
+   ]
+  },
+  {
+   "t": "pulóver",
+   "s": [
+    [
+     "AR UY",
+     "neutral",
+     "sweater"
+    ],
+    [
+     "CU",
+     "neutral",
+     "T-shirt"
+    ]
+   ]
+  },
+  {
+   "t": "mono",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "monkey"
+    ],
+    [
+     "ES",
+     "informal",
+     "cute; also overalls/jumpsuit"
+    ],
+    [
+     "CO",
+     "informal",
+     "blond(e)"
+    ]
+   ]
+  },
+  {
+   "t": "macho",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "male; macho"
+    ],
+    [
+     "CR",
+     "informal",
+     "blond / fair-skinned person"
+    ]
+   ]
+  },
+  {
+   "t": "pelado",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "peeled; bald"
+    ],
+    [
+     "CO",
+     "informal",
+     "kid"
+    ],
+    [
+     "MX VE",
+     "informal",
+     "broke; MX also 'rude/vulgar person'"
+    ],
+    [
+     "PA",
+     "informal",
+     "kid ('pelao')"
+    ]
+   ]
+  },
+  {
+   "t": "chino",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "Chinese"
+    ],
+    [
+     "MX",
+     "informal",
+     "curly (hair)"
+    ],
+    [
+     "CO",
+     "informal",
+     "kid"
+    ],
+    [
+     "ES",
+     "informal",
+     "corner store run by Chinese owners"
+    ],
+    [
+     "PE",
+     "informal",
+     "neighborhood shop ('el chino de la esquina')"
+    ]
+   ]
+  },
+  {
+   "t": "goma",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "rubber; eraser (ES); gum"
+    ],
+    [
+     "GT HN SV NI CR",
+     "informal",
+     "hangover"
+    ],
+    [
+     "AR",
+     "neutral",
+     "tire"
+    ],
+    [
+     "ES",
+     "informal",
+     "condom ('goma')"
+    ]
+   ]
+  },
+  {
+   "t": "ratón",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "mouse"
+    ],
+    [
+     "VE PA",
+     "informal",
+     "hangover"
+    ]
+   ]
+  },
+  {
+   "t": "caña",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "cane; fishing rod"
+    ],
+    [
+     "ES",
+     "informal",
+     "small draft beer"
+    ],
+    [
+     "CL",
+     "informal",
+     "hangover"
+    ],
+    [
+     "CU",
+     "slang",
+     "one peso"
+    ]
+   ]
+  },
+  {
+   "t": "timbre",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "doorbell"
+    ],
+    [
+     "MX",
+     "neutral",
+     "postage stamp"
+    ]
+   ]
+  },
+  {
+   "t": "camión",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "truck"
+    ],
+    [
+     "MX",
+     "neutral",
+     "bus"
+    ]
+   ]
+  },
+  {
+   "t": "micro",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "microphone (short)"
+    ],
+    [
+     "CL",
+     "neutral",
+     "bus"
+    ],
+    [
+     "AR",
+     "neutral",
+     "long-distance coach"
+    ]
+   ]
+  },
+  {
+   "t": "pluma",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "feather"
+    ],
+    [
+     "MX",
+     "neutral",
+     "pen"
+    ],
+    [
+     "PR DO",
+     "informal",
+     "faucet"
+    ]
+   ]
+  },
+  {
+   "t": "padre",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "father; priest"
+    ],
+    [
+     "MX",
+     "informal",
+     "cool, great ('¡qué padre!')"
+    ]
+   ]
+  },
+  {
+   "t": "madre",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "mother"
+    ],
+    [
+     "MX",
+     "vulgar",
+     "in many vulgar expressions: 'me vale madre' (I don't care), 'a toda madre' (awesome), 'madrazo' (big hit)"
+    ]
+   ]
+  },
+  {
+   "t": "sapo",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "toad"
+    ],
+    [
+     "CO VE",
+     "slang",
+     "snitch"
+    ],
+    [
+     "CL",
+     "informal",
+     "nosy; a lucky shot ('al sapo')"
+    ]
+   ]
+  },
+  {
+   "t": "piña",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "pineapple; pine cone"
+    ],
+    [
+     "AR UY",
+     "slang",
+     "a punch"
+    ],
+    [
+     "PE",
+     "slang",
+     "bad luck"
+    ]
+   ]
+  },
+  {
+   "t": "remera",
+   "s": [
+    [
+     "AR UY PY",
+     "neutral",
+     "T-shirt"
+    ]
+   ]
+  },
+  {
+   "t": "playera",
+   "s": [
+    [
+     "MX",
+     "neutral",
+     "T-shirt"
+    ],
+    [
+     "ES",
+     "neutral",
+     "canvas sneaker; beach shoe"
+    ]
+   ]
+  },
+  {
+   "t": "chompa",
+   "s": [
+    [
+     "PE BO EC",
+     "neutral",
+     "sweater"
+    ],
+    [
+     "CO",
+     "neutral",
+     "hoodie, jacket"
+    ]
+   ]
+  },
+  {
+   "t": "guiso",
+   "s": [
+    [
+     "ALL",
+     "neutral",
+     "stew"
+    ],
+    [
+     "VE",
+     "slang",
+     "shady deal; easy job"
+    ]
+   ]
+  },
+  {
+   "t": "fome",
+   "s": [
+    [
+     "CL",
+     "informal",
+     "boring"
+    ]
+   ]
+  },
+  {
+   "t": "huevón",
+   "s": [
+    [
+     "ALL",
+     "vulgar",
+     "lazy person; idiot"
+    ],
+    [
+     "CL PE",
+     "slang",
+     "dude (friendly between friends)"
+    ],
+    [
+     "MX",
+     "vulgar",
+     "lazy"
+    ]
+   ]
+  },
+  {
+   "t": "boludo",
+   "s": [
+    [
+     "AR UY",
+     "slang",
+     "dude (friends) / idiot (insult)"
+    ]
+   ]
+  },
+  {
+   "t": "gallego",
+   "s": [
+    [
+     "ES",
+     "neutral",
+     "Galician"
+    ],
+    [
+     "AR UY CU",
+     "informal",
+     "any Spaniard"
+    ]
+   ]
+  },
+  {
+   "t": "gabacho",
+   "s": [
+    [
+     "ES",
+     "slang",
+     "French person (pejorative)"
+    ],
+    [
+     "MX",
+     "slang",
+     "American; the USA ('el gabacho')"
+    ]
+   ]
+  },
+  {
+   "t": "mamar gallo",
+   "s": [
+    [
+     "VE CO",
+     "slang",
+     "to tease, joke around"
+    ]
+   ]
+  },
+  {
+   "t": "zapatilla",
+   "s": [
+    [
+     "ES AR CL PE",
+     "neutral",
+     "sneaker"
+    ],
+    [
+     "MX",
+     "neutral",
+     "women's heeled shoe"
+    ]
+   ]
+  },
+  {
+   "t": "durazno",
+   "s": [
+    [
+     "MX AR CL CO PE UY PY BO",
+     "neutral",
+     "peach"
+    ],
+    [
+     "ES",
+     "neutral",
+     "a variety of peach (rare)"
+    ]
+   ]
+  }
+ ]
+}

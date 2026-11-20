@@ -1,4 +1,5 @@
 import { DIALECTS, type DialectCode } from "./dialects";
+import { IMPORTED_CONCEPTS } from "./lexicon.generated";
 
 export type GuideId = "basicos" | "oficina" | "viaje" | "comida";
 
@@ -27,7 +28,8 @@ type Concept = {
   id: string;
   /** What it means in neutral Spanish. Used when a dialect has no word of its own. */
   meaning: string;
-  guide: GuideId;
+  /** Which mini guide lists it. Without one it is only in the translator and search. */
+  guide?: GuideId;
   /** Local ways to say it. The first is the one a translation uses. */
   terms: Partial<Record<DialectCode, string[]>>;
   /** Extra detail for the first term of a dialect. */
@@ -40,7 +42,7 @@ type Concept = {
  * Starter dictionary. Each concept lists only words that are distinctive in a
  * country; a country without its own word falls back to `meaning`.
  */
-const CONCEPTS: Concept[] = [
+const HAND_CONCEPTS: Concept[] = [
   // Básicos
   {
     id: "oye",
@@ -562,6 +564,54 @@ const CONCEPTS: Concept[] = [
   },
 ];
 
+/** A concept from the imported lexicon (see lexicon/README.md). */
+export type ImportedConcept = {
+  id: string;
+  meaning: string;
+  guide?: GuideId;
+  terms: Partial<Record<DialectCode, string[]>>;
+  /** Id of a hand-made concept to add these words to. */
+  mergeInto?: string;
+};
+
+/**
+ * Hand-made concepts plus the imported lexicon. Hand-made words always come
+ * first, and a word a dialect already lists elsewhere is never added twice.
+ */
+function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] {
+  const byId = new Map(hand.map((c) => [c.id, { ...c, terms: { ...c.terms } }]));
+  const taken = new Set<string>();
+  for (const c of byId.values()) {
+    for (const [code, words] of Object.entries(c.terms)) {
+      words?.forEach((w) => taken.add(`${code}.${slugify(w)}`));
+    }
+  }
+  for (const item of imported) {
+    const target = item.mergeInto ? byId.get(item.mergeInto) : undefined;
+    if (!target && byId.has(item.id)) continue;
+    const concept: Concept = target ?? {
+      id: item.id,
+      meaning: item.meaning,
+      guide: item.guide,
+      terms: {},
+    };
+    for (const [code, words] of Object.entries(item.terms)) {
+      const dialect = code as DialectCode;
+      const fresh = (words ?? []).filter((w) => {
+        const key = `${dialect}.${slugify(w)}`;
+        if (taken.has(key)) return false;
+        taken.add(key);
+        return true;
+      });
+      if (fresh.length) concept.terms[dialect] = [...(concept.terms[dialect] ?? []), ...fresh];
+    }
+    if (!target && Object.keys(concept.terms).length) byId.set(concept.id, concept);
+  }
+  return [...byId.values()];
+}
+
+const CONCEPTS = mergeConcepts(HAND_CONCEPTS, IMPORTED_CONCEPTS);
+
 export type Entry = TermDetail & {
   /** Stable id used in URLs and favorites: "DO.a-la-brigandina". */
   id: string;
@@ -569,7 +619,7 @@ export type Entry = TermDetail & {
   text: string;
   meaning: string;
   conceptId: string;
-  guide: GuideId;
+  guide?: GuideId;
 };
 
 export function slugify(text: string): string {

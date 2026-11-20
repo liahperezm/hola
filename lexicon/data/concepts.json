@@ -1,0 +1,304 @@
+{
+  "_format": "Each concept is one meaning. 'v' lists [term, space-separated country codes, optional note, optional register]. Register defaults to neutral. ALL = understood everywhere.",
+  "concepts": [
+    {"key": "bus", "en": "bus", "cat": "transport", "v": [
+      ["autobús", "ES ALL"], ["camión", "MX", "In Mexico 'camión' is the city bus; elsewhere it means truck."],
+      ["guagua", "CU PR DO", "Also used in the Canary Islands. In Chile/Andes 'guagua' means baby."],
+      ["colectivo", "AR PY"], ["bondi", "AR", "Slang.", "informal"], ["micro", "CL"],
+      ["bus", "CO CR PA EC SV GT HN NI"], ["buseta", "CO VE EC", "Smaller urban bus."],
+      ["ómnibus", "UY PE"], ["camioneta", "GT", "Extra-urban 'chicken bus'."], ["chiva", "PA CO", "Colorful rural bus (CO) / minibus (PA)."]]},
+    {"key": "car", "en": "car", "cat": "transport", "v": [
+      ["coche", "ES MX"], ["carro", "MX CO VE CU PR DO CR PA GT HN SV NI PE EC US"],
+      ["auto", "AR CL UY PY BO ALL"], ["máquina", "CU", "Classic American cars / shared taxis.", "informal"]]},
+    {"key": "truck", "en": "truck / pickup", "cat": "transport", "v": [
+      ["camión", "ALL"], ["camioneta", "MX AR CL PE", "Pickup or van."], ["troca", "MX US", "Northern Mexico & US; from English 'truck'.", "informal"]]},
+    {"key": "drive", "en": "to drive", "cat": "transport", "v": [
+      ["conducir", "ES ALL"], ["manejar", "MX AR CO VE CL PE CU PR DO CR PA GT HN SV NI EC BO UY PY US"]]},
+    {"key": "take_transport", "en": "to take (a bus, taxi)", "cat": "transport", "v": [
+      ["coger", "ES CU DO PR", "VULGAR in Mexico, Argentina, Uruguay, Venezuela and much of Latin America — use 'tomar' there."],
+      ["tomar", "ALL MX AR CL CO PE VE UY PY BO EC CR PA GT HN SV NI"], ["agarrar", "AR UY MX", "Informal."]]},
+    {"key": "ticket", "en": "ticket (bus/train)", "cat": "transport", "v": [
+      ["billete", "ES"], ["boleto", "MX AR PE VE BO UY PY GT ALL"], ["pasaje", "CL PE CO EC"], ["tiquete", "CO CR"]]},
+    {"key": "traffic_jam", "en": "traffic jam", "cat": "transport", "v": [
+      ["atasco", "ES"], ["embotellamiento", "ALL MX AR"], ["tráfico", "MX"], ["trancón", "CO"], ["taco", "CL"],
+      ["presa", "CR"], ["tapón", "PR DO"], ["cola", "VE"], ["tranque", "PA"]]},
+    {"key": "gas_station", "en": "gas station", "cat": "transport", "v": [
+      ["gasolinera", "ES MX ALL"], ["estación de servicio", "AR UY CL ALL"], ["bomba", "CO VE PR"], ["bencinera", "CL"], ["grifo", "PE", "In Peru 'grifo' is a gas station; in Spain it is a tap."]]},
+    {"key": "gasoline", "en": "gasoline / petrol", "cat": "transport", "v": [
+      ["gasolina", "ALL"], ["nafta", "AR UY PY"], ["bencina", "CL"]]},
+    {"key": "car_trunk", "en": "car trunk / boot", "cat": "transport", "v": [
+      ["maletero", "ES"], ["cajuela", "MX"], ["baúl", "AR UY CO"], ["maleta", "CL"], ["maletera", "PE"], ["cajuela", "CR"]]},
+    {"key": "sidewalk", "en": "sidewalk / pavement", "cat": "city", "v": [
+      ["acera", "ES CU PR DO VE CR PA GT HN SV NI ALL"], ["banqueta", "MX"], ["vereda", "AR UY CL PE"], ["andén", "CO"]]},
+    {"key": "city_block", "en": "city block", "cat": "city", "v": [
+      ["manzana", "ES AR"], ["cuadra", "MX AR CO CL PE VE UY PY BO EC CR GT HN SV NI PA"]]},
+    {"key": "apartment", "en": "apartment / flat", "cat": "home", "v": [
+      ["piso", "ES"], ["apartamento", "ALL ES CO VE CU PR DO CR PA GT HN SV NI UY"], ["departamento", "MX AR CL PE BO PY EC"], ["depa", "MX", "Informal.", "informal"], ["depto", "AR CL", "Abbreviation.", "informal"]]},
+    {"key": "pool", "en": "swimming pool", "cat": "home", "v": [
+      ["piscina", "ES ALL"], ["alberca", "MX"], ["pileta", "AR UY PY"]]},
+    {"key": "faucet", "en": "faucet / tap", "cat": "home", "v": [
+      ["grifo", "ES"], ["llave", "MX CO VE PE CL CR PA GT HN SV NI EC BO"], ["canilla", "AR UY PY"], ["pluma", "PR DO", "Informal."], ["caño", "PE", "Informal."]]},
+    {"key": "fridge", "en": "refrigerator", "cat": "home", "v": [
+      ["nevera", "ES CO VE PR DO"], ["frigorífico", "ES"], ["refrigerador", "MX CL CR GT HN SV NI ALL"], ["refri", "MX", "", "informal"],
+      ["heladera", "AR UY PY"], ["refrigeradora", "PE EC GT CR"]]},
+    {"key": "light_bulb", "en": "light bulb", "cat": "home", "v": [
+      ["bombilla", "ES"], ["foco", "MX EC PE BO PY"], ["bombillo", "CO VE CU"], ["bombita", "AR UY"], ["lamparita", "AR UY"], ["ampolleta", "CL"]]},
+    {"key": "trash_can", "en": "trash can", "cat": "home", "v": [
+      ["cubo de la basura", "ES"], ["papelera", "ES", "Small wastepaper basket."], ["bote de basura", "MX"], ["tacho de basura", "AR PE UY"],
+      ["caneca", "CO"], ["zafacón", "PR DO"], ["basurero", "CL MX CR ALL"]]},
+    {"key": "computer", "en": "computer", "cat": "technology", "v": [
+      ["ordenador", "ES"], ["computadora", "MX AR PE VE UY PY BO CU DO PR CR PA GT HN SV NI ALL"], ["computador", "CO CL"], ["compu", "AR MX", "", "informal"]]},
+    {"key": "cell_phone", "en": "cell phone / mobile", "cat": "technology", "v": [
+      ["móvil", "ES"], ["celular", "MX AR CO CL PE VE UY PY BO EC CU DO PR CR PA GT HN SV NI US"], ["cel", "MX", "", "informal"], ["celu", "AR UY", "", "informal"]]},
+    {"key": "pen", "en": "ballpoint pen", "cat": "school", "v": [
+      ["bolígrafo", "ES ALL"], ["boli", "ES", "", "informal"], ["pluma", "MX"], ["birome", "AR UY PY"], ["lápiz pasta", "CL"],
+      ["lapicero", "PE CR GT HN SV NI"], ["esfero", "CO EC"]]},
+    {"key": "juice", "en": "juice", "cat": "food", "v": [
+      ["zumo", "ES"], ["jugo", "MX AR CO CL PE VE UY PY BO EC CU DO PR CR PA GT HN SV NI US ALL"]]},
+    {"key": "avocado", "en": "avocado", "cat": "food", "v": [
+      ["aguacate", "ES MX CO VE CU DO PR CR PA GT HN SV NI ALL"], ["palta", "AR CL UY PE BO"]]},
+    {"key": "peach", "en": "peach", "cat": "food", "v": [
+      ["melocotón", "ES"], ["durazno", "MX AR CL UY PY CO PE BO ALL"]]},
+    {"key": "strawberry", "en": "strawberry", "cat": "food", "v": [
+      ["fresa", "ES MX CO VE CR PA GT HN SV NI CU DO PR ALL"], ["frutilla", "AR CL UY BO PY EC"]]},
+    {"key": "banana", "en": "banana", "cat": "food", "v": [
+      ["plátano", "ES MX CU", "In many countries 'plátano' means plantain."], ["banana", "AR UY PY"], ["banano", "CO CR GT"],
+      ["guineo", "PR DO EC"], ["cambur", "VE"]]},
+    {"key": "pineapple", "en": "pineapple", "cat": "food", "v": [
+      ["piña", "ALL ES MX CO CL PE VE"], ["ananá", "AR UY PY"]]},
+    {"key": "papaya", "en": "papaya", "cat": "food", "v": [
+      ["papaya", "ALL", "Avoid in Cuba — vulgar slang there."], ["fruta bomba", "CU"], ["lechosa", "VE DO PR"]]},
+    {"key": "potato", "en": "potato", "cat": "food", "v": [
+      ["patata", "ES"], ["papa", "MX AR CO CL PE VE UY PY BO EC CU DO PR CR PA GT HN SV NI US", "Also Canary Islands and Andalusia."]]},
+    {"key": "beans", "en": "beans", "cat": "food", "v": [
+      ["judías", "ES"], ["alubias", "ES"], ["frijoles", "MX CU CO CR GT HN SV NI PA"], ["porotos", "AR CL UY PY BO"],
+      ["caraotas", "VE"], ["habichuelas", "PR DO"], ["frejoles", "PE EC"]]},
+    {"key": "green_beans", "en": "green beans", "cat": "food", "v": [
+      ["judías verdes", "ES"], ["ejotes", "MX GT HN SV"], ["chauchas", "AR UY"], ["porotos verdes", "CL"], ["vainitas", "PE VE EC"], ["habichuelas", "CO"]]},
+    {"key": "corn_cob", "en": "corn on the cob", "cat": "food", "v": [
+      ["mazorca", "ES CO ALL"], ["elote", "MX GT HN SV NI CR"], ["choclo", "AR CL PE BO EC UY"], ["jojoto", "VE"]]},
+    {"key": "popcorn", "en": "popcorn", "cat": "food", "v": [
+      ["palomitas", "ES MX"], ["pochoclo", "AR"], ["pororó", "PY UY"], ["cabritas", "CL"], ["canchita", "PE"], ["crispetas", "CO"],
+      ["cotufas", "VE"], ["poporopo", "GT"], ["rositas de maíz", "CU"]]},
+    {"key": "drinking_straw", "en": "drinking straw", "cat": "food", "v": [
+      ["pajita", "ES"], ["popote", "MX"], ["pitillo", "CO VE"], ["bombilla", "CL"], ["sorbete", "AR UY PE EC"],
+      ["pajilla", "CR GT"], ["sorbeto", "PR"], ["calimete", "DO"], ["carrizo", "PA"]]},
+    {"key": "cake", "en": "cake", "cat": "food", "v": [
+      ["tarta", "ES"], ["pastel", "MX GT HN SV NI ALL"], ["torta", "AR UY VE PE BO CL", "In Mexico 'torta' is a sandwich."],
+      ["bizcocho", "PR DO"], ["ponqué", "CO VE"], ["queque", "CR PE"], ["cake", "PA"]]},
+    {"key": "sandwich", "en": "sandwich", "cat": "food", "v": [
+      ["bocadillo", "ES", "On baguette-style bread."], ["sándwich", "ALL"], ["torta", "MX", "On a bolillo/telera roll."], ["sánguche", "AR PE", "", "informal"], ["sánduche", "EC CO"]]},
+    {"key": "hot_dog", "en": "hot dog", "cat": "food", "v": [
+      ["perrito caliente", "ES"], ["hot dog", "MX US"], ["pancho", "AR UY"], ["completo", "CL"], ["perro caliente", "CO VE"], ["perro", "CO", "", "informal"]]},
+    {"key": "butter", "en": "butter", "cat": "food", "v": [
+      ["mantequilla", "ALL"], ["manteca", "AR UY", "Elsewhere 'manteca' means lard."]]},
+    {"key": "cookie", "en": "cookie / biscuit", "cat": "food", "v": [
+      ["galleta", "ALL"], ["galletita", "AR UY"]]},
+    {"key": "beer", "en": "beer (informal)", "cat": "food", "v": [
+      ["cerveza", "ALL"], ["caña", "ES", "Small draft beer."], ["birra", "AR UY ES CR"], ["chela", "MX PE CL GT SV HN"], ["pola", "CO"], ["fría", "VE PR DO"]]},
+    {"key": "coffee_black", "en": "black coffee", "cat": "food", "v": [
+      ["café solo", "ES"], ["café americano", "MX ALL"], ["tinto", "CO", "In Spain 'tinto' is red wine."], ["café negro", "ALL"], ["cafecito", "CU PR", "Small strong coffee."]]},
+    {"key": "tshirt", "en": "T-shirt", "cat": "clothing", "v": [
+      ["camiseta", "ES CO ALL"], ["playera", "MX"], ["remera", "AR UY PY"], ["polera", "CL BO"], ["polo", "PE"], ["franela", "VE"], ["pulóver", "CU"]]},
+    {"key": "sweater", "en": "sweater / jumper", "cat": "clothing", "v": [
+      ["jersey", "ES"], ["suéter", "MX CO VE CR PA GT HN SV NI PR DO ALL"], ["chompa", "PE BO EC"], ["pulóver", "AR UY"], ["chaleco", "CL", "Elsewhere 'chaleco' is a vest."], ["buzo", "AR UY", "Sweatshirt."]]},
+    {"key": "jacket", "en": "jacket", "cat": "clothing", "v": [
+      ["chaqueta", "ES CO VE CL ALL", "In Mexico 'chaqueta' is also vulgar slang; prefer 'chamarra'."], ["chamarra", "MX"], ["campera", "AR UY PY"],
+      ["casaca", "PE"], ["chumpa", "GT SV HN"]]},
+    {"key": "jeans", "en": "jeans", "cat": "clothing", "v": [
+      ["vaqueros", "ES"], ["tejanos", "ES"], ["jeans", "ALL AR CL PE"], ["pantalones de mezclilla", "MX"], ["bluyín", "CO VE"], ["pitusa", "CU"], ["mahones", "PR"]]},
+    {"key": "swimsuit", "en": "swimsuit", "cat": "clothing", "v": [
+      ["bañador", "ES"], ["traje de baño", "MX ALL"], ["malla", "AR UY"], ["vestido de baño", "CO"], ["trusa", "CU PE"]]},
+    {"key": "sneakers", "en": "sneakers / trainers", "cat": "clothing", "v": [
+      ["zapatillas", "ES AR CL PE"], ["deportivas", "ES"], ["tenis", "MX CO CR GT HN SV NI"], ["championes", "UY"], ["zapatos de goma", "VE"], ["tenis", "PR DO"]]},
+    {"key": "glasses", "en": "eyeglasses", "cat": "clothing", "v": [
+      ["gafas", "ES CO"], ["lentes", "MX CL PE BO EC ALL"], ["anteojos", "AR UY"], ["espejuelos", "CU PR"]]},
+    {"key": "kite", "en": "kite (toy)", "cat": "objects", "v": [
+      ["cometa", "ES CO PE"], ["papalote", "MX CU"], ["barrilete", "AR GT"], ["volantín", "CL"], ["chiringa", "PR"], ["papagayo", "VE"],
+      ["piscucha", "SV"], ["chichigua", "DO"]]},
+    {"key": "pacifier", "en": "pacifier / dummy", "cat": "objects", "v": [
+      ["chupete", "ES AR CL UY"], ["chupón", "MX PE"], ["chupo", "CO"], ["bobo", "PR"]]},
+    {"key": "stamp", "en": "postage stamp", "cat": "objects", "v": [
+      ["sello", "ES"], ["estampilla", "AR CO CL PE VE UY ALL"], ["timbre", "MX"]]},
+    {"key": "backpack", "en": "backpack", "cat": "objects", "v": [
+      ["mochila", "ALL"], ["morral", "CO VE"]]},
+    {"key": "money_slang", "en": "money (slang)", "cat": "slang", "v": [
+      ["dinero", "ALL", "Neutral term.", "neutral"], ["pasta", "ES", "", "informal"], ["lana", "MX", "", "informal"], ["varo", "MX", "Usually plural 'varos'.", "informal"],
+      ["plata", "AR CO CL PE UY VE BO EC PY", "", "informal"], ["guita", "AR UY", "", "informal"], ["chavos", "PR", "", "informal"],
+      ["cuartos", "DO", "", "informal"], ["reales", "VE NI", "", "informal"], ["pisto", "GT SV HN", "", "informal"], ["harina", "CR", "", "informal"], ["billete", "CO", "", "informal"]]},
+    {"key": "kid", "en": "kid / child (informal)", "cat": "people", "v": [
+      ["niño", "ALL", "", "neutral"], ["crío", "ES", "", "informal"], ["chaval", "ES", "", "informal"], ["chamaco", "MX", "", "informal"], ["escuincle", "MX", "", "informal"],
+      ["pibe", "AR UY", "", "informal"], ["cabro chico", "CL", "", "informal"], ["chamo", "VE", "Also 'dude'.", "informal"], ["pelado", "CO", "", "informal"],
+      ["chino", "CO", "", "informal"], ["chibolo", "PE", "", "informal"], ["patojo", "GT", "", "informal"], ["cipote", "HN SV NI", "", "informal"],
+      ["chigüín", "NI", "", "informal"], ["güila", "CR", "", "informal"], ["gurí", "UY AR", "Guaraní origin.", "informal"], ["botija", "UY", "", "informal"],
+      ["chango", "BO", "Also NW Argentina.", "informal"], ["pelao", "PA", "", "informal"], ["carajillo", "CR", "", "informal"], ["bicho", "SV HN", "Vulgar in Puerto Rico.", "informal"]]},
+    {"key": "baby", "en": "baby", "cat": "people", "v": [
+      ["bebé", "ALL"], ["guagua", "CL EC BO PE", "In the Caribbean 'guagua' is a bus."], ["nene", "AR PR ES", "Also 'young child'.", "informal"]]},
+    {"key": "friend_dude", "en": "friend / dude / mate", "cat": "people", "v": [
+      ["amigo", "ALL", "", "neutral"], ["tío", "ES", "Also 'uncle'.", "informal"], ["colega", "ES", "", "informal"],
+      ["güey", "MX", "Also spelled 'wey'. Can be an insult depending on tone.", "slang"], ["cuate", "MX", "", "informal"], ["carnal", "MX", "", "slang"],
+      ["compa", "MX GT HN SV NI", "", "informal"], ["che", "AR UY PY", "Used as 'hey' when addressing someone.", "informal"], ["boludo", "AR", "Friendly between friends, insult otherwise.", "slang"],
+      ["bo", "UY", "", "informal"], ["parce", "CO", "Short for 'parcero'.", "slang"], ["llave", "CO", "", "slang"],
+      ["pana", "VE EC PR DO PA", "", "informal"], ["chamo", "VE", "", "informal"], ["weón", "CL", "Also 'huevón'; friendly or insulting depending on tone.", "slang"],
+      ["pata", "PE", "", "slang"], ["causa", "PE", "", "slang"], ["mae", "CR", "", "slang"], ["maje", "HN SV NI", "", "slang"],
+      ["asere", "CU", "", "slang"], ["socio", "CU", "", "informal"], ["mano", "PR MX", "Short for 'hermano'.", "informal"], ["fren", "PA", "From English 'friend'.", "slang"],
+      ["ñaño", "EC", "Literally sibling.", "informal"], ["cheró", "SV", "", "slang"], ["alero", "HN", "", "slang"], ["bróder", "DO CU PR", "", "slang"]]},
+    {"key": "boyfriend", "en": "boyfriend / girlfriend", "cat": "people", "v": [
+      ["novio / novia", "ALL"], ["pololo / polola", "CL"], ["jevo / jeva", "PR DO CU VE", "'Jeva' also means woman/girl.", "informal"], ["flaco / flaca", "PE", "", "informal"],
+      ["jaña", "NI", "Girlfriend.", "informal"], ["chavo / chava", "MX", "Boy/girl, also boyfriend/girlfriend.", "informal"]]},
+    {"key": "blond", "en": "blond(e) / fair-skinned person", "cat": "people", "v": [
+      ["rubio", "ALL ES AR CL"], ["güero", "MX"], ["mono", "CO"], ["catire", "VE"], ["canche", "GT"], ["chele", "SV HN NI"], ["macho", "CR"], ["gringo", "PE CL", "Informal; can also mean foreigner/American.", "informal"]]},
+    {"key": "cool", "en": "cool / great / awesome", "cat": "slang", "v": [
+      ["genial", "ALL", "", "neutral"], ["guay", "ES", "", "informal"], ["mola", "ES", "Verb: 'esto mola'.", "slang"], ["chido", "MX", "", "slang"], ["padre", "MX", "'¡Qué padre!'", "informal"],
+      ["chingón", "MX", "", "vulgar"], ["chévere", "VE CO PR EC PE DO PA CU", "", "informal"], ["bacán", "CL PE EC CU", "", "slang"], ["bacano", "CO DO", "", "slang"],
+      ["copado", "AR", "", "slang"], ["bárbaro", "AR UY", "", "informal"], ["macanudo", "AR UY", "", "informal"], ["de más", "UY", "", "slang"],
+      ["tuanis", "CR", "", "slang"], ["¡qué chiva!", "CR", "", "slang"], ["chilero", "GT", "", "slang"], ["chivo", "SV", "", "slang"], ["cachimbón", "SV", "", "slang"],
+      ["macizo", "HN", "", "slang"], ["tuani", "NI", "", "slang"], ["brutal", "PR", "", "slang"], ["nítido", "PR", "", "slang"], ["jevi", "DO", "From English 'heavy'.", "slang"],
+      ["priti", "PA", "From English 'pretty'.", "slang"], ["la raja", "CL", "", "vulgar"], ["paja", "PE", "'¡Qué paja!' In Spain/Argentina 'paja' is vulgar or means laziness.", "slang"],
+      ["fino", "VE", "", "slang"], ["qué chimba", "CO", "Originally vulgar; very common among young people.", "vulgar"], ["full", "EC", "Intensifier: 'full bueno'.", "slang"]]},
+    {"key": "boring", "en": "boring", "cat": "slang", "v": [
+      ["aburrido", "ALL"], ["fome", "CL", "", "informal"], ["un rollo", "ES", "", "informal"], ["un embole", "AR", "", "slang"], ["una mamera", "CO", "", "slang"], ["una ladilla", "VE", "Also 'an annoying person/thing'.", "slang"]]},
+    {"key": "work_verb", "en": "to work (informal)", "cat": "slang", "v": [
+      ["trabajar", "ALL", "", "neutral"], ["currar", "ES", "", "slang"], ["chambear", "MX PE GT SV HN", "", "informal"], ["laburar", "AR UY", "", "informal"],
+      ["camellar", "CO", "", "slang"], ["pinchar", "CU", "", "slang"], ["bretear", "CR", "", "slang"], ["pegar", "CL", "Noun: 'la pega' (the job).", "slang"]]},
+    {"key": "job_noun", "en": "job (informal)", "cat": "slang", "v": [
+      ["trabajo", "ALL", "", "neutral"], ["curro", "ES", "", "slang"], ["chamba", "MX PE GT SV HN NI", "", "informal"], ["laburo", "AR UY", "", "informal"], ["camello", "CO", "", "slang"],
+      ["pega", "CL", "", "slang"], ["brete", "CR", "", "slang"], ["pincha", "CU", "", "slang"], ["guiso", "VE", "", "slang"]]},
+    {"key": "party", "en": "party (informal)", "cat": "slang", "v": [
+      ["fiesta", "ALL", "", "neutral"], ["juerga", "ES", "", "informal"], ["fiestón", "ES MX", "", "informal"], ["pachanga", "MX", "", "informal"], ["reventón", "MX", "", "informal"],
+      ["rumba", "CO VE", "", "informal"], ["parranda", "CO VE PR DO", "", "informal"], ["carrete", "CL", "Verb: 'carretear'.", "slang"], ["jarana", "PE", "", "informal"],
+      ["tono", "PE", "", "slang"], ["joda", "AR UY", "Also 'joke'.", "slang"], ["bonche", "VE", "", "slang"], ["vacilón", "PR DO", "", "informal"], ["bembé", "CU", "", "informal"]]},
+    {"key": "hangover", "en": "hangover", "cat": "slang", "v": [
+      ["resaca", "ES AR UY ALL"], ["cruda", "MX", "", "informal"], ["guayabo", "CO", "", "informal"], ["ratón", "VE", "", "informal"],
+      ["caña", "CL", "", "informal"], ["chuchaqui", "EC", "", "informal"], ["goma", "GT HN SV NI CR", "", "informal"], ["ratón", "PA"]]},
+    {"key": "drunk", "en": "drunk (informal)", "cat": "slang", "v": [
+      ["borracho", "ALL", "", "neutral"], ["pedo", "MX", "'Andar pedo'.", "slang"], ["en pedo", "AR UY", "", "vulgar"], ["curado", "CL", "", "slang"],
+      ["jumo", "PR DO", "", "slang"], ["bolo", "GT HN SV", "", "slang"], ["chumado", "EC", "", "slang"], ["mamado", "MX", "Also 'buff/muscular' in Mexico.", "slang"],
+      ["pedo / con una pea", "VE", "'Agarrar una pea' = get drunk.", "slang"], ["pedo", "ES", "'Ir pedo' (to be drunk).", "slang"]]},
+    {"key": "police_slang", "en": "the police (slang)", "cat": "slang", "v": [
+      ["policía", "ALL", "", "neutral"], ["poli", "ES MX", "", "informal"], ["madero", "ES", "", "slang"], ["pasma", "ES", "", "slang"], ["chota", "MX", "", "slang"],
+      ["tira", "MX", "", "slang"], ["cana", "AR UY", "Also 'jail'.", "slang"], ["yuta", "AR", "", "slang"], ["paco", "CL", "Considered derogatory by police.", "slang"],
+      ["tombo", "CO PE", "", "slang"], ["chepo", "HN", "", "slang"], ["jara", "MX", "", "slang"]]},
+    {"key": "stingy", "en": "stingy / cheap (person)", "cat": "slang", "v": [
+      ["tacaño", "ALL", "", "neutral"], ["agarrado", "ES AR", "", "informal"], ["rácano", "ES", "", "informal"], ["codo", "MX", "", "informal"],
+      ["amarrete", "AR UY PE", "", "informal"], ["pichirre", "VE", "", "informal"], ["pinche", "CR", "In Mexico 'pinche' is a vulgar intensifier.", "informal"], ["coñete", "CL", "", "informal"], ["duro", "CO", "'Duro' = tight-fisted.", "informal"]]},
+    {"key": "ok_agreed", "en": "OK / agreed / sure", "cat": "expressions", "v": [
+      ["de acuerdo", "ALL", "", "neutral"], ["vale", "ES", "", "informal"], ["órale", "MX", "", "informal"], ["sale", "MX", "", "informal"], ["va", "MX", "", "informal"],
+      ["dale", "AR UY CU PR DO CO", "", "informal"], ["listo", "CO", "", "informal"], ["de una", "CO EC", "Right away / sure.", "slang"], ["ya", "CL PE BO", "", "informal"],
+      ["ta", "UY", "", "informal"], ["tató", "DO", "", "slang"], ["ofi", "PA", "From English 'OK fine'.", "slang"], ["cheque", "HN", "", "slang"], ["simón", "MX EC", "", "slang"]]},
+    {"key": "whats_up", "en": "what's up? (greeting)", "cat": "expressions", "v": [
+      ["¿qué tal?", "ALL", "", "neutral"], ["¿qué pasa?", "ES", "", "informal"], ["¿qué onda?", "MX GT SV HN AR CL UY", "", "informal"], ["¿qué pedo?", "MX", "", "vulgar"],
+      ["¿qué hubo? / ¿quiubo?", "CO MX CL", "", "informal"], ["¿qué más?", "CO", "", "informal"], ["¿qué hay?", "ALL", "", "informal"],
+      ["¿qué bolá?", "CU", "", "slang"], ["¿qué lo que?", "DO", "", "slang"], ["¿qué es la que hay?", "PR", "", "slang"], ["¿qué xopá?", "PA", "Reversed '¿qué pasó?'.", "slang"],
+      ["¿qué fue?", "EC", "", "slang"], ["¡habla!", "PE", "'¡Habla, causa!'", "slang"], ["¿cómo estái?", "CL", "", "slang"], ["¿qué hongo?", "MX", "Playful.", "slang"],
+      ["¿qué tranza?", "MX", "", "slang"], ["diay", "CR", "Interjection: 'well...', 'so...'.", "slang"], ["upe", "CR", "Calling at a door: 'anyone home?'.", "informal"], ["épale", "VE", "", "informal"]]},
+    {"key": "very", "en": "very (intensifier)", "cat": "expressions", "v": [
+      ["muy", "ALL", "", "neutral"], ["súper", "ALL", "", "informal"], ["mazo", "ES", "Madrid slang.", "slang"], ["cantidad", "ES", "", "slang"], ["re-", "AR UY PY", "Prefix: 're lindo'.", "informal"],
+      ["bien", "MX", "'Bien bonito'.", "informal"], ["burda de", "VE", "", "slang"], ["full", "EC VE", "", "slang"], ["demasiado", "CO", "'Demasiado bueno' = really good.", "informal"],
+      ["harto", "CL", "'Harto bueno' = very good; also 'a lot'.", "informal"], ["un montón", "ALL", "", "informal"], ["un chin", "DO", "Opposite: 'a little bit'.", "slang"]]},
+    {"key": "a_lot", "en": "a lot / lots", "cat": "expressions", "v": [
+      ["mucho", "ALL", "", "neutral"], ["un montón", "ALL"], ["mogollón", "ES", "", "slang"], ["un chingo", "MX", "", "vulgar"], ["un buen", "MX", "", "informal"],
+      ["una banda", "AR", "", "slang"], ["un toco", "AR", "", "slang"], ["una pila", "UY AR CU", "", "informal"], ["harto", "CL CO", "", "informal"], ["burda", "VE", "", "slang"], ["buco", "PA", "", "slang"]]},
+    {"key": "right_now", "en": "right now / right away", "cat": "expressions", "v": [
+      ["ahora mismo", "ALL"], ["enseguida", "ALL"], ["ahorita", "MX GT HN SV NI CR CU DO PR VE CO", "Ambiguous: can mean 'right now' or 'in a while' depending on country and tone."],
+      ["al tiro", "CL", "", "slang"], ["al toque", "AR PE UY", "", "slang"], ["ya mismo", "EC ES", "In Ecuador often means 'soon', not 'immediately'."], ["de una", "CO EC", "", "slang"]]},
+    {"key": "thing_stuff", "en": "thing / thingamajig", "cat": "expressions", "v": [
+      ["cosa", "ALL"], ["chisme", "ES", "Also 'gossip' everywhere.", "informal"], ["cacharro", "ES", "", "informal"], ["chunche", "CR GT HN SV NI", "", "informal"],
+      ["vaina", "VE CO DO PA", "Extremely versatile.", "informal"], ["coroto", "VE CO", "Usually plural: 'mis corotos' = my stuff.", "informal"], ["chereque", "NI", "", "slang"],
+      ["cachivache", "ALL", "", "informal"], ["huevada", "CL", "", "vulgar"], ["chingadera", "MX", "", "vulgar"], ["cosito", "AR UY", "", "informal"], ["vuelta", "CO", "An errand / a 'thing' to do.", "informal"]]},
+    {"key": "annoyed", "en": "to get angry", "cat": "emotions", "v": [
+      ["enfadarse", "ES"], ["enojarse", "MX AR CO CL PE VE UY PY BO EC CR PA GT HN SV NI CU DO PR ALL"], ["cabrearse", "ES", "", "informal"],
+      ["calentarse", "AR UY", "Be careful: in some countries 'caliente' implies arousal.", "informal"], ["emputarse", "MX CO", "", "vulgar"], ["arrecharse", "VE", "Means 'get aroused' in Colombia/Central America/Peru.", "informal"],
+      ["picarse", "ALL", "To get offended.", "informal"], ["achorarse", "PE", "", "slang"], ["agüitarse", "MX", "To get sad/bummed, not angry.", "informal"]]},
+    {"key": "embarrassment", "en": "embarrassment / how embarrassing", "cat": "emotions", "v": [
+      ["vergüenza", "ALL"], ["qué vergüenza", "ES ALL"], ["qué pena", "MX CO CR GT HN SV NI VE", "In Spain 'qué pena' = 'what a shame/pity'."], ["qué roche", "PE", "", "slang"],
+      ["qué palta", "PE", "", "slang"], ["qué oso", "MX CO", "", "slang"], ["qué plancha", "CO", "", "slang"], ["qué corte", "ES", "", "informal"], ["qué papelón", "AR UY", "", "informal"]]},
+    {"key": "gossip_person", "en": "gossip / nosy person", "cat": "people", "v": [
+      ["chismoso", "ALL"], ["cotilla", "ES"], ["metiche", "MX CR GT", "", "informal"], ["sapo", "CO VE CL", "In Colombia/Venezuela also 'snitch'.", "informal"],
+      ["shute", "GT", "", "slang"], ["chambroso", "SV", "", "slang"], ["copuchento", "CL", "", "informal"], ["bochinchero", "PR VE", "", "informal"]]},
+    {"key": "snob", "en": "snob / posh person", "cat": "people", "v": [
+      ["pijo", "ES", "", "informal"], ["fresa", "MX", "", "informal"], ["cheto", "AR UY", "", "slang"], ["concheto", "AR", "", "slang"], ["cuico", "CL", "", "slang"],
+      ["pituco", "PE CL AR", "", "informal"], ["gomelo", "CO", "", "slang"], ["sifrino", "VE", "", "slang"], ["jailón", "BO", "", "slang"], ["pelucón", "EC", "", "slang"],
+      ["comemierda", "CU PR", "", "vulgar"], ["pipirisnais", "MX", "Playful.", "slang"]]},
+    {"key": "tacky", "en": "tacky / low-class (often offensive)", "cat": "people", "v": [
+      ["hortera", "ES", "", "informal"], ["cutre", "ES", "Shabby.", "informal"], ["naco", "MX", "Classist; can be offensive.", "offensive"], ["grasa", "AR", "Classist.", "offensive"],
+      ["flaite", "CL", "Classist.", "offensive"], ["huachafo", "PE", "", "informal"], ["ñero", "CO", "Classist.", "offensive"], ["corroncho", "CO", "Can be regionalist.", "offensive"],
+      ["chabacano", "ALL", "", "neutral"], ["mañé", "VE", "", "slang"], ["cafre", "PR", "", "slang"], ["plancha", "UY", "", "offensive"]]},
+    {"key": "to_flirt", "en": "to flirt / hit on someone", "cat": "relationships", "v": [
+      ["coquetear", "ALL"], ["ligar", "ES MX", "", "informal"], ["tirar los perros", "MX CU", "", "slang"], ["echar los perros", "CO VE", "", "slang"],
+      ["tirar onda", "AR CL", "", "slang"], ["chamuyar", "AR UY", "Also 'to sweet-talk/bullshit'.", "slang"], ["levantar", "AR MX", "To pick someone up.", "slang"],
+      ["afilar", "AR", "Old-fashioned.", "slang"], ["jotear", "CL", "", "slang"], ["caerle", "MX", "'Le caí bien' = she liked me.", "informal"]]},
+    {"key": "to_mess_up", "en": "to mess up / screw up", "cat": "expressions", "v": [
+      ["meter la pata", "ALL", "", "informal"], ["cagarla", "ALL", "", "vulgar"], ["liarla", "ES", "", "informal"], ["regarla", "MX", "", "slang"], ["embarrarla", "CO CL", "", "informal"],
+      ["mandarse una macana", "AR UY", "", "informal"], ["mandarse una cagada", "AR", "", "vulgar"], ["pifiarla", "MX AR", "", "informal"], ["chingarla", "MX", "", "vulgar"]]},
+    {"key": "to_eat_slang", "en": "to eat (slang) / food", "cat": "slang", "v": [
+      ["comer", "ALL", "", "neutral"], ["jalar", "ES", "", "slang"], ["papear", "ES", "", "slang"], ["morfar", "AR UY", "Noun: 'el morfi'.", "slang"], ["jamar", "CU PE", "Noun: 'la jama'.", "slang"],
+      ["tragar", "ALL", "To scarf down.", "informal"], ["rancho", "MX", "Food (military/prison origin).", "slang"]]},
+    {"key": "house_slang", "en": "house / home (slang)", "cat": "slang", "v": [
+      ["casa", "ALL", "", "neutral"], ["queli", "ES", "", "slang"], ["chante", "MX", "", "slang"], ["cantón", "MX", "", "slang"], ["jato", "PE", "", "slang"], ["cueva", "ALL", "", "slang"],
+      ["gao", "CU", "", "slang"], ["chantin", "PA", "", "slang"], ["caleta", "EC", "", "slang"], ["rancho", "VE CR", "Shack / humble home.", "informal"]]},
+    {"key": "cigarette", "en": "cigarette (slang)", "cat": "slang", "v": [
+      ["cigarrillo", "ALL"], ["pitillo", "ES", "", "informal"], ["piti", "ES", "", "slang"], ["pucho", "AR UY CL PE", "", "slang"], ["frajo", "MX", "", "slang"], ["tabaco", "CU", "Also a cigar."]]},
+    {"key": "fake", "en": "fake / knockoff", "cat": "slang", "v": [
+      ["falso", "ALL"], ["de imitación", "ALL"], ["chafa", "MX", "Low quality.", "slang"], ["pirata", "MX CO PE", "", "informal"], ["trucho", "AR UY", "", "slang"],
+      ["chimbo", "VE CO", "", "slang"], ["bamba", "PE", "", "slang"], ["chiviado", "CO", "", "slang"], ["de juguete", "ALL"]]},
+    {"key": "for_real", "en": "for real? / really?", "cat": "expressions", "v": [
+      ["¿en serio?", "ALL"], ["¿de verdad?", "ALL"], ["¿neta?", "MX", "", "slang"], ["¿a poco?", "MX", "", "informal"], ["¿posta?", "AR UY", "", "slang"],
+      ["¿en serio, weón?", "CL", "", "vulgar"], ["¿de veras?", "MX ALL", "", "informal"], ["¿en verdad?", "ALL"], ["¿sí o qué?", "CO", "", "informal"]]},
+    {"key": "no_way", "en": "no way! (surprise)", "cat": "expressions", "v": [
+      ["¡no me digas!", "ALL"], ["¡no manches!", "MX", "", "slang"], ["¡no mames!", "MX", "", "vulgar"], ["¡no jodas!", "ES VE CO", "", "vulgar"], ["¡ni de coña!", "ES", "'No way' as refusal.", "vulgar"],
+      ["¡ni en pedo!", "AR", "'No way' as refusal.", "vulgar"], ["¡ni cagando!", "CL AR", "Refusal.", "vulgar"], ["¡no puede ser!", "ALL"], ["¡qué fuerte!", "ES", "", "informal"],
+      ["¡chuta!", "BO EC CL", "", "informal"], ["¡híjole!", "MX", "", "informal"], ["¡a la gran!", "GT SV HN", "", "informal"], ["¡na' guará!", "VE", "Lara state.", "slang"],
+      ["¡nojoda!", "VE CO", "Caribbean coast.", "vulgar"], ["¡puchica!", "SV GT HN", "", "informal"], ["¡asu!", "PE", "", "informal"], ["¡chuleta!", "PA", "", "slang"], ["¡chuzo!", "PA", "", "slang"],
+      ["¡wepa!", "PR", "Celebration: 'hooray!'.", "slang"], ["¡acho!", "PR", "", "slang"], ["¡nderakore!", "PY", "Guaraní.", "slang"]]},
+    {"key": "watch_out", "en": "watch out! / careful!", "cat": "expressions", "v": [
+      ["¡cuidado!", "ALL"], ["¡ojo!", "ALL", "", "informal"], ["¡aguas!", "MX", "", "slang"], ["¡pilas!", "CO EC VE", "", "slang"], ["¡abusado!", "MX", "", "slang"],
+      ["¡ponete chiva!", "NI", "", "slang"], ["¡guarda!", "AR UY", "", "informal"], ["¡atento!", "ALL"]]},
+    {"key": "foreigner", "en": "foreigner / American (informal)", "cat": "people", "v": [
+      ["extranjero", "ALL"], ["guiri", "ES", "Tourist/foreigner.", "slang"], ["gringo", "MX CO PE CL AR CR ALL", "Mostly Americans; in AR/UY historically any foreigner.", "informal"],
+      ["yuma", "CU", "Foreigner; also the USA ('la Yuma').", "slang"], ["gabacho", "MX", "American; in Spain, French person.", "slang"], ["musiú", "VE", "", "slang"], ["catire", "VE", "", "informal"]]},
+    {"key": "store_corner", "en": "corner store / convenience shop", "cat": "city", "v": [
+      ["tienda", "ALL"], ["chino", "ES", "Informal, after the many Chinese-owned shops.", "informal"], ["tiendita", "MX"], ["abarrotes", "MX PE", "Grocery store."], ["kiosco", "AR UY"],
+      ["almacén", "AR UY CL"], ["colmado", "DO PR"], ["bodega", "PE VE CU", "In Spain 'bodega' = wine cellar."], ["pulpería", "CR HN NI SV"], ["abasto", "VE"], ["despensa", "AR"], ["boliche", "CL", "In AR/UY 'boliche' = nightclub."]]},
+    {"key": "nightclub", "en": "nightclub", "cat": "city", "v": [
+      ["discoteca", "ALL"], ["disco", "ALL", "", "informal"], ["antro", "MX", "Elsewhere 'antro' = dive/dump.", "informal"], ["boliche", "AR UY"], ["discote", "ES", "", "slang"], ["rumbeadero", "CO", "", "slang"]]},
+    {"key": "ride_lift", "en": "a ride / a lift", "cat": "transport", "v": [
+      ["llevar (en coche)", "ALL"], ["aventón", "MX", "'Dar un aventón'.", "informal"], ["jalón", "CR GT HN", "", "informal"], ["bola", "CU", "'Pedir bola'.", "slang"],
+      ["botella", "CU", "Hitchhiking: 'coger botella'.", "slang"], ["cola", "VE", "'Dar la cola'.", "informal"], ["pon", "PR", "'Pedir pon'.", "slang"], ["raite", "MX SV HN US", "From English 'ride'.", "slang"], ["un aventón", "ALL"]]},
+    {"key": "to_hang_out", "en": "to hang out", "cat": "slang", "v": [
+      ["pasar el rato", "ALL"], ["quedar", "ES", "'Quedar con amigos' = meet up.", "informal"], ["janguear", "PR DO", "From English 'hang out'.", "slang"], ["parkear", "PA", "", "slang"],
+      ["parchar", "CO", "Noun: 'el parche' (the group/plan).", "slang"], ["vacilar", "MX PE", "Also 'to joke around'.", "informal"], ["juntarse", "CL AR", "", "informal"],
+      ["cotorrear", "MX", "To chat.", "informal"], ["rolar", "MX", "", "slang"]]},
+    {"key": "broke", "en": "broke (no money)", "cat": "slang", "v": [
+      ["sin dinero", "ALL"], ["pelado", "VE CO MX", "", "informal"], ["sin un duro", "ES", "", "informal"], ["sin blanca", "ES", "", "informal"], ["sin un mango", "AR UY", "", "slang"],
+      ["seco", "CL", "", "slang"], ["chiro", "EC", "", "slang"], ["misio", "PE", "", "slang"], ["arrancado", "CU PR", "", "slang"], ["limpio", "ALL", "", "informal"], ["bruja", "MX", "'Estar bruja'.", "slang"]]},
+    {"key": "laziness", "en": "laziness / can't be bothered", "cat": "slang", "v": [
+      ["pereza", "ALL"], ["flojera", "MX CL PE", "", "informal"], ["hueva", "MX", "'Me da hueva'.", "vulgar"], ["fiaca", "AR UY", "", "slang"],
+      ["paja", "AR UY", "'Me da paja'. Vulgar sense in Spain.", "slang"], ["mamera", "CO", "", "slang"], ["ladilla", "VE", "", "slang"], ["galbana", "ES", "", "informal"]]},
+    {"key": "dog_informal", "en": "dog / mutt (informal)", "cat": "animals", "v": [
+      ["perro", "ALL"], ["chucho", "ES MX GT SV HN", "", "informal"], ["firulais", "MX", "Generic 'doggy'.", "informal"], ["pichicho", "AR", "", "informal"],
+      ["quiltro", "CL", "Mutt.", "informal"], ["satô", "PR", "Mutt; also spelled 'sato'.", "informal"], ["chusco", "PE", "Mutt.", "informal"], ["cuzco", "UY", "Small dog.", "informal"]]},
+    {"key": "mosquito", "en": "mosquito", "cat": "animals", "v": [
+      ["mosquito", "ALL ES AR CL"], ["zancudo", "CO VE PE MX GT HN SV NI CR EC"], ["moquito", "PR", "Colloquial pronunciation."]]},
+    {"key": "turkey", "en": "turkey", "cat": "animals", "v": [
+      ["pavo", "ALL ES AR CL CO"], ["guajolote", "MX"], ["chompipe", "GT HN SV NI CR"], ["guanajo", "CU"], ["pisco", "CO", "Regional."]]},
+    {"key": "coat_hanger", "en": "clothes hanger", "cat": "home", "v": [
+      ["percha", "ES PR"], ["gancho", "MX CO VE DO PA"], ["perchero", "AR"], ["percha", "AR UY"], ["colgador", "CL PE"], ["armador", "PE"]]},
+    {"key": "earrings", "en": "earrings", "cat": "clothing", "v": [
+      ["pendientes", "ES"], ["aretes", "MX PE GT HN SV NI CO"], ["aros", "AR UY CL"], ["zarcillos", "VE"], ["candongas", "CO", "Hoop earrings."], ["pantallas", "PR", "Large earrings."]]},
+    {"key": "cocktail_snacks", "en": "appetizers / snacks", "cat": "food", "v": [
+      ["aperitivo", "ES"], ["tapas", "ES"], ["botana", "MX"], ["picada", "AR UY"], ["picoteo", "CL"], ["pasapalos", "VE"], ["boca", "CR"], ["pasabocas", "CO"], ["piqueo", "PE"], ["bocadillos", "CU"]]},
+    {"key": "chili_pepper", "en": "chili pepper", "cat": "food", "v": [
+      ["guindilla", "ES"], ["chile", "MX GT HN SV NI CR"], ["ají", "AR CL CO PE VE UY BO EC CU PR DO"], ["picante", "ALL", "Spicy."]]},
+    {"key": "pig_pork", "en": "pig / pork", "cat": "food", "v": [
+      ["cerdo", "ALL"], ["cochino", "ES MX VE", "Also 'dirty'."], ["puerco", "MX CU"], ["chancho", "AR CL PE BO EC UY"], ["marrano", "CO", ""], ["lechón", "PR CU DO", "Roast suckling pig."]]},
+    {"key": "fun_great_time", "en": "to have a great time", "cat": "expressions", "v": [
+      ["pasarlo bien", "ALL"], ["pasarlo bomba", "ES", "", "informal"], ["pasarla de pelos", "MX", "", "informal"], ["pasarla bomba", "AR", "", "informal"],
+      ["pasarlo chancho", "CL", "", "slang"], ["gozar", "CU PR DO CO VE", "", "informal"], ["pasarla chévere", "VE CO", "", "informal"]]},
+    {"key": "understand_slang", "en": "do you get it? / to understand (slang)", "cat": "expressions", "v": [
+      ["¿entiendes?", "ALL"], ["¿me explico?", "ALL"], ["¿cachái?", "CL", "", "slang"], ["cachar", "CL EC PE", "", "slang"], ["¿me captas?", "MX", "", "informal"],
+      ["¿me entendés?", "AR UY", "Voseo.", "informal"], ["manyar", "PE AR", "", "slang"], ["¿sabes?", "ES", "", "informal"], ["¿me pillas?", "ES", "", "slang"], ["¿me copias?", "CO VE", "", "slang"]]},
+    {"key": "excuse_me_pardon", "en": "pardon? / sorry, what?", "cat": "expressions", "v": [
+      ["¿perdón?", "ALL"], ["¿cómo?", "ALL ES"], ["¿mande?", "MX EC", "Polite."], ["¿qué?", "ALL", "Can sound rude.", "informal"], ["¿ah?", "CO VE", "", "informal"], ["¿cómo dice?", "ALL", "Formal."]]}
+  ]
+}
