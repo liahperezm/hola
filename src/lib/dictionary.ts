@@ -36,7 +36,11 @@ type Concept = {
   details?: Partial<Record<DialectCode, TermDetail>>;
   /** Extra detail for any other word, by its text. */
   wordDetails?: Record<string, TermDetail>;
+  /** Words that are vulgar or offensive, by their text. Never used as a translation. */
+  registers?: Record<string, Register>;
 };
+
+export type Register = "vulgar" | "offensive";
 
 /*
  * Starter dictionary. Each concept lists only words that are distinctive in a
@@ -572,6 +576,7 @@ export type ImportedConcept = {
   terms: Partial<Record<DialectCode, string[]>>;
   /** Id of a hand-made concept to add these words to. */
   mergeInto?: string;
+  registers?: Record<string, Register>;
 };
 
 /**
@@ -605,6 +610,7 @@ function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] 
       });
       if (fresh.length) concept.terms[dialect] = [...(concept.terms[dialect] ?? []), ...fresh];
     }
+    if (item.registers) concept.registers = { ...concept.registers, ...item.registers };
     if (!target && Object.keys(concept.terms).length) byId.set(concept.id, concept);
   }
   return [...byId.values()];
@@ -620,6 +626,8 @@ export type Entry = TermDetail & {
   meaning: string;
   conceptId: string;
   guide?: GuideId;
+  /** Set when the word is vulgar or offensive. */
+  register?: Register;
 };
 
 export function slugify(text: string): string {
@@ -659,6 +667,7 @@ function buildEntries(): Map<string, Entry> {
           meaning: concept.meaning,
           conceptId: concept.id,
           guide: concept.guide,
+          register: concept.registers?.[text],
           ...detail,
           definition:
             detail?.definition ?? defaultDefinition(concept.meaning, dialect),
@@ -680,14 +689,19 @@ export function entriesFor(dialect: DialectCode): Entry[] {
   return [...ENTRIES.values()].filter((e) => e.dialect === dialect);
 }
 
-/** The word a dialect uses for a concept, or the neutral meaning. */
+/** A dialect's words for a concept, without vulgar or offensive ones. */
+function cleanWords(concept: Concept, dialect: DialectCode): string[] {
+  return (concept.terms[dialect] ?? []).filter((w) => !concept.registers?.[w]);
+}
+
+/** The word a dialect uses for a concept, or the neutral meaning. Never vulgar. */
 export function equivalent(
   conceptId: string,
   dialect: DialectCode,
 ): { text: string; entry?: Entry } {
   const concept = CONCEPT_BY_ID.get(conceptId);
   if (!concept) return { text: "" };
-  const first = concept.terms[dialect]?.[0];
+  const first = cleanWords(concept, dialect)[0];
   if (!first) return { text: concept.meaning };
   return { text: first, entry: ENTRIES.get(`${dialect}.${slugify(first)}`) };
 }
@@ -724,16 +738,16 @@ export function guideRows(
   to: DialectCode,
 ): GuideRow[] {
   return CONCEPTS.filter((c) => c.guide === guide).map((c) => {
-    const toWords = c.terms[to];
+    const toWords = cleanWords(c, to);
     return {
       conceptId: c.id,
       from: {
         ...equivalent(c.id, from),
-        display: withGender(c.terms[from] ?? [c.meaning]),
+        display: withGender(cleanWords(c, from).length ? cleanWords(c, from) : [c.meaning]),
       },
       to: {
         ...equivalent(c.id, to),
-        display: toWords ? withGender(toWords.slice(0, 2)).split(", ")[0] : c.meaning,
+        display: toWords.length ? withGender(toWords.slice(0, 2)).split(", ")[0] : c.meaning,
       },
     };
   });
@@ -753,7 +767,7 @@ export function otherWays(
   if (!concept) return [];
   return Object.entries(concept.terms).flatMap(([code, words]) => {
     const dialect = code as DialectCode;
-    const first = words?.[0];
+    const first = words?.find((w) => !concept.registers?.[w]);
     if (dialect === except || !first) return [];
     return [{ dialect, text: first, id: `${dialect}.${slugify(first)}` }];
   });

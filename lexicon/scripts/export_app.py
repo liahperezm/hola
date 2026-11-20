@@ -4,8 +4,8 @@ Usage: python3 lexicon/scripts/export_app.py
 
 Only concepts listed in APP_CONCEPTS go into the app, with the neutral Spanish
 meaning the app shows and the guide that lists them (None = translator and
-search only). Terms are dropped when they are vulgar or offensive, or when they
-are everyday Spanish words with another common meaning: the translator swaps
+search only). Vulgar and offensive terms are kept and labeled in `registers`. Terms are
+dropped when they are everyday Spanish words with another common meaning: the translator swaps
 every word it knows, so "padre" (MX: cool) would turn "mi padre" into "mi genial".
 """
 from __future__ import annotations
@@ -95,6 +95,36 @@ APP_CONCEPTS: dict[str, tuple[str, str | None, str | None]] = {
     "nightclub": ("discoteca", None, None),
     "foreigner": ("extranjero", None, None),
     "cigarette": ("cigarrillo", None, None),
+    "friend_dude": ("amigo", "basicos", None),
+    "for_real": ("de verdad", "basicos", "verdad"),
+    "ok_agreed": ("de acuerdo", "basicos", None),
+    "right_now": ("ahora mismo", "basicos", None),
+    "no_way": ("¡no me digas!", "basicos", None),
+    "watch_out": ("¡cuidado!", "basicos", None),
+    "understand_slang": ("¿entiendes?", "basicos", None),
+    "excuse_me_pardon": ("¿perdón?", "basicos", None),
+    "thing_stuff": ("cosa", None, None),
+    "a_lot": ("mucho", None, None),
+    "drunk": ("borracho", None, None),
+    "police_slang": ("policía", None, None),
+    "stingy": ("tacaño", None, None),
+    "snob": ("esnob", None, None),
+    "tacky": ("de mal gusto", None, None),
+    "to_mess_up": ("equivocarse", None, None),
+    "laziness": ("pereza", None, None),
+    "broke": ("sin dinero", None, None),
+    "annoyed": ("enojarse", None, None),
+    "embarrassment": ("qué vergüenza", None, None),
+    "gossip_person": ("chismoso", None, None),
+    "to_flirt": ("coquetear", None, None),
+    "to_hang_out": ("pasar el rato", None, None),
+    "work_verb": ("trabajar", "oficina", None),
+    "to_eat_slang": ("comer", None, None),
+    "house_slang": ("casa", None, None),
+    "fun_great_time": ("pasarlo bien", None, None),
+    "ride_lift": ("llevar a alguien en carro", "viaje", None),
+    "coat_hanger": ("gancho de ropa", None, None),
+    "earrings": ("aretes", None, None),
 }
 
 # Everyday words with another common meaning. Never put these in the translator.
@@ -111,7 +141,20 @@ AMBIGUOUS = {
     "tinto", "torta", "grifo", "chompa", "moquito", "pisco", "kiosco", "abasto", "disco", "antro", "cueva",
     "vereda", "andén", "baúl", "piti", "gabacho", "yuma", "musiú", "guiri", "jeva", "jevo",
     "celular", "máquina", "pasaje", "mola", "nítido", "joda", "tono", "¡habla!", "épale", "tapón", "perro",
-    "tabaco", "buzo", "chavo", "chava", "lana", "despensa",
+    "tabaco", "buzo", "chavo", "chava", "lana", "despensa", "vale", "órale", "bien", "cantidad", "harto",
+    "un buen", "una banda", "un toco", "una pila", "burda", "buco", "al toque", "de una", "simón", "ta",
+    "tató", "ofi", "cheque", "poli", "tira", "cana", "paco", "tombo", "jara", "chota", "madero", "pasma",
+    "duro", "agarrado", "codo", "picarse", "calentarse", "seco", "limpio", "bruja", "arrancado", "misio",
+    "chiro", "vuelta", "chisme", "cacharro", "rancho", "jalar", "tragar", "papear", "queli", "gao",
+    "levantar", "afilar", "caerle", "liarla", "regarla", "pifiarla", "embarrarla", "curado", "jumo",
+    "bolo", "pedo", "mamado", "corroncho", "grasa", "plancha", "cafre", "fresa", "cheto", "concheto",
+    "cuico", "sapo", "metiche", "socio", "llave", "mae", "maje", "bo", "compa", "ñaño", "fren",
+    "cuate", "hueva", "fiaca", "galbana", "ladilla", "flojera", "mamera", "vacilar", "rolar",
+    "quedar", "juntarse", "gozar", "parchar", "colgador", "armador", "percha", "perchero", "candongas",
+    "pantallas", "zarcillos", "bola", "botella", "pon", "jalón", "raite", "cola", "aventón",
+    "¿cómo?", "¿qué?", "¿ah?", "¿sabes?", "cachar", "manyar", "¡ojo!", "¡guarda!", "¡atento!",
+    "¡aguas!", "¡pilas!", "¡abusado!", "¡chuta!", "¡asu!", "¡chuleta!", "¡chuzo!", "¡acho!",
+    "ahorita", "ya mismo", "enseguida", "un montón", "coroto", "vaina", "pegar", "cantón", "¡wepa!", "agüitarse",
 }
 # Kept despite another meaning because the regional sense dominates in that country.
 KEEP_IN = {("AR", "birra"), ("UY", "birra"), ("ES", "birra"), ("MX", "chela"), ("PE", "chela"), ("CL", "chela"),
@@ -126,7 +169,8 @@ KEEP_IN = {("AR", "birra"), ("UY", "birra"), ("ES", "birra"), ("MX", "chela"), (
            ("MX", "güero"), ("VE", "catire"),
            ("ES", "piti"), ("ES", "deportivas")}
 
-BLOCKED_REGISTERS = {"vulgar", "offensive"}
+# Vulgar and offensive words are included but labeled; the app never picks them as a translation.
+MARKED_REGISTERS = {"vulgar", "offensive"}
 
 
 def slug(text: str) -> str:
@@ -151,13 +195,13 @@ def main():
     dropped = 0
     for key, (meaning, guide, existing) in APP_CONCEPTS.items():
         terms: dict[str, list[str]] = {}
+        registers: dict[str, str] = {}
         for v in concepts[key]["v"]:
             term, countries = v[0], v[1].split()
             register = v[3] if len(v) > 3 else "neutral"
-            if register in BLOCKED_REGISTERS:
-                dropped += 1
-                continue
             for word in split_term(term):
+                if register in MARKED_REGISTERS:
+                    registers[word] = register
                 for code in countries:
                     if code not in APP_DIALECTS:
                         continue
@@ -170,7 +214,13 @@ def main():
                         lst.append(word)
         if not terms:
             continue
+        # Labeled words go last so a country's first, default word is never vulgar.
+        for code, words in terms.items():
+            words.sort(key=lambda w: w in registers)
         item = {"id": existing or slug(meaning), "meaning": meaning, "terms": terms}
+        used = {w for ws in terms.values() for w in ws}
+        if any(w in registers for w in used):
+            item["registers"] = {w: r for w, r in registers.items() if w in used}
         if guide:
             item["guide"] = guide
         if existing:

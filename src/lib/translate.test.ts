@@ -108,3 +108,26 @@ describe("imported lexicon", () => {
     expect(rows).toContainEqual(["birra", "chela"]);
   });
 });
+
+describe("vulgar and offensive words", () => {
+  it("are in the dictionary and labeled", () => {
+    expect(getEntry("MX.chingon")?.register).toBe("vulgar");
+    expect(getEntry("MX.naco")?.register).toBe("offensive");
+    expect(getEntry("MX.chido")?.register).toBeUndefined();
+  });
+
+  it("are understood when translating from them", () => {
+    const result = translateWithDictionary("Está chingón", "MX", "AR");
+    expect(join(result.target)).toBe("Está copado");
+  });
+
+  it("are never picked as a translation", () => {
+    for (const e of allEntries()) {
+      if (!e.register) continue;
+      for (const to of ["DO", "CO", "AR", "MX", "VE", "PR", "CU", "ES", "CL", "UY", "PE"] as const) {
+        const target = translateWithDictionary(e.text, e.dialect, to).pairs[0]?.to.id;
+        if (target) expect(getEntry(target)?.register).toBeUndefined();
+      }
+    }
+  });
+});
