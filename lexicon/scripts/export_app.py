@@ -169,7 +169,7 @@ KEEP_IN = {("AR", "birra"), ("UY", "birra"), ("ES", "birra"), ("MX", "chela"), (
            ("MX", "güero"), ("VE", "catire"),
            ("ES", "piti"), ("ES", "deportivas")}
 
-# Vulgar and offensive words are included but labeled; the app never picks them as a translation.
+# Vulgar and offensive words are included and labeled in the app.
 MARKED_REGISTERS = {"vulgar", "offensive"}
 
 
@@ -214,7 +214,7 @@ def main():
                         lst.append(word)
         if not terms:
             continue
-        # Labeled words go last so a country's first, default word is never vulgar.
+        # Labeled words go last, so a country's default translation is a neutral word when it has one.
         for code, words in terms.items():
             words.sort(key=lambda w: w in registers)
         item = {"id": existing or slug(meaning), "meaning": meaning, "terms": terms}

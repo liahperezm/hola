@@ -36,7 +36,7 @@ type Concept = {
   details?: Partial<Record<DialectCode, TermDetail>>;
   /** Extra detail for any other word, by its text. */
   wordDetails?: Record<string, TermDetail>;
-  /** Words that are vulgar or offensive, by their text. Never used as a translation. */
+  /** Words that are vulgar or offensive, by their text. Shown with a label. */
   registers?: Record<string, Register>;
 };
 
@@ -689,19 +689,14 @@ export function entriesFor(dialect: DialectCode): Entry[] {
   return [...ENTRIES.values()].filter((e) => e.dialect === dialect);
 }
 
-/** A dialect's words for a concept, without vulgar or offensive ones. */
-function cleanWords(concept: Concept, dialect: DialectCode): string[] {
-  return (concept.terms[dialect] ?? []).filter((w) => !concept.registers?.[w]);
-}
-
-/** The word a dialect uses for a concept, or the neutral meaning. Never vulgar. */
+/** The word a dialect uses for a concept, or the neutral meaning. */
 export function equivalent(
   conceptId: string,
   dialect: DialectCode,
 ): { text: string; entry?: Entry } {
   const concept = CONCEPT_BY_ID.get(conceptId);
   if (!concept) return { text: "" };
-  const first = cleanWords(concept, dialect)[0];
+  const first = concept.terms[dialect]?.[0];
   if (!first) return { text: concept.meaning };
   return { text: first, entry: ENTRIES.get(`${dialect}.${slugify(first)}`) };
 }
@@ -738,16 +733,16 @@ export function guideRows(
   to: DialectCode,
 ): GuideRow[] {
   return CONCEPTS.filter((c) => c.guide === guide).map((c) => {
-    const toWords = cleanWords(c, to);
+    const toWords = c.terms[to];
     return {
       conceptId: c.id,
       from: {
         ...equivalent(c.id, from),
-        display: withGender(cleanWords(c, from).length ? cleanWords(c, from) : [c.meaning]),
+        display: withGender(c.terms[from] ?? [c.meaning]),
       },
       to: {
         ...equivalent(c.id, to),
-        display: toWords.length ? withGender(toWords.slice(0, 2)).split(", ")[0] : c.meaning,
+        display: toWords ? withGender(toWords.slice(0, 2)).split(", ")[0] : c.meaning,
       },
     };
   });
@@ -767,7 +762,7 @@ export function otherWays(
   if (!concept) return [];
   return Object.entries(concept.terms).flatMap(([code, words]) => {
     const dialect = code as DialectCode;
-    const first = words?.find((w) => !concept.registers?.[w]);
+    const first = words?.[0];
     if (dialect === except || !first) return [];
     return [{ dialect, text: first, id: `${dialect}.${slugify(first)}` }];
   });

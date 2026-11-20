@@ -121,13 +121,8 @@ describe("vulgar and offensive words", () => {
     expect(join(result.target)).toBe("Está copado");
   });
 
-  it("are never picked as a translation", () => {
-    for (const e of allEntries()) {
-      if (!e.register) continue;
-      for (const to of ["DO", "CO", "AR", "MX", "VE", "PR", "CU", "ES", "CL", "UY", "PE"] as const) {
-        const target = translateWithDictionary(e.text, e.dialect, to).pairs[0]?.to.id;
-        if (target) expect(getEntry(target)?.register).toBeUndefined();
-      }
-    }
+  it("can be a translation, after a country's other words", () => {
+    expect(join(translateWithDictionary("Está copado", "AR", "MX").target)).toBe("Está chido");
+    expect(join(translateWithDictionary("¡Qué cosito!", "AR", "CL").target)).toBe("¡Qué huevada!");
   });
 });
