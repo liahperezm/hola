@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { voiceRate } from "./storage";
 
 /** Reads text aloud with a voice for the dialect when the device has one. */
 export function speak(text: string, lang: string) {
@@ -9,6 +10,7 @@ export function speak(text: string, lang: string) {
   synth.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
+  utterance.rate = voiceRate();
   const voices = synth.getVoices();
   utterance.voice =
     voices.find((v) => v.lang.replace("_", "-") === lang) ??

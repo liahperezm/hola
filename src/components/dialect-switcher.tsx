@@ -1,10 +1,11 @@
 "use client";
 
-import { ArrowLeftRight, Check, X } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { ArrowLeftRight, Check } from "lucide-react";
+import { useState } from "react";
 import { DIALECT_CODES, DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { DialectPair } from "@/lib/storage";
 import { Flag } from "./flag";
+import { Sheet } from "./sheet";
 
 type Side = "from" | "to";
 
@@ -102,55 +103,39 @@ function DialectPicker({
   onClose: () => void;
   onChoose: (code: DialectCode) => void;
 }) {
-  const ref = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    const dialog = ref.current;
-    if (!dialog) return;
-    if (open && !dialog.open) dialog.showModal();
-    if (!open && dialog.open) dialog.close();
-  }, [open]);
-
   return (
-    <dialog
-      ref={ref}
-      aria-labelledby="dialect-picker-title"
-      onClose={onClose}
-      onClick={(e) => {
-        if (e.target === e.currentTarget) onClose();
-      }}
-      className="sheet m-0 mt-auto max-h-[85dvh] w-full max-w-none bg-transparent p-0 backdrop:bg-navy/40 sm:mx-auto sm:max-w-md"
-    >
-      <div className="rounded-t-[30px] bg-white px-6 pt-3 pb-[max(env(safe-area-inset-bottom),1.5rem)] text-navy">
-        <div className="mx-auto mb-4 h-[5px] w-10 rounded-full bg-line" />
-        <div className="mb-2 flex items-center justify-between">
-          <h2 id="dialect-picker-title" className="text-lg font-bold">{title}</h2>
+    <Sheet open={open} title={title} onClose={onClose}>
+      <CountryList selected={selected} onChoose={onChoose} />
+    </Sheet>
+  );
+}
+
+/** Every country as a list of buttons; used by the picker and the welcome. */
+export function CountryList({
+  selected,
+  onChoose,
+  exclude,
+}: {
+  selected?: DialectCode;
+  onChoose: (code: DialectCode) => void;
+  exclude?: DialectCode;
+}) {
+  return (
+    <ul className="max-h-[65dvh] overflow-y-auto">
+      {DIALECT_CODES.filter((code) => code !== exclude).map((code) => (
+        <li key={code}>
           <button
             type="button"
-            aria-label="Cerrar"
-            onClick={onClose}
-            className="-mr-2 grid size-10 place-items-center rounded-full hover:bg-bg"
+            onClick={() => onChoose(code)}
+            aria-current={code === selected}
+            className="flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg"
           >
-            <X className="size-5" />
+            <Flag code={code} className="text-2xl" />
+            <span className="flex-1">{DIALECTS[code].name}</span>
+            {code === selected && <Check className="size-5" strokeWidth={3} />}
           </button>
-        </div>
-        <ul className="max-h-[65dvh] overflow-y-auto">
-          {DIALECT_CODES.map((code) => (
-            <li key={code}>
-              <button
-                type="button"
-                onClick={() => onChoose(code)}
-                aria-current={code === selected}
-                className="flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg"
-              >
-                <Flag code={code} className="text-2xl" />
-                <span className="flex-1">{DIALECTS[code].name}</span>
-                {code === selected && <Check className="size-5" strokeWidth={3} />}
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </dialog>
+        </li>
+      ))}
+    </ul>
   );
 }

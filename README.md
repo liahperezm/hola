@@ -47,6 +47,27 @@ only the dictionary is used.
 Favorites, settings and AI explanations are stored in the browser
 (`localStorage`). There are no accounts.
 
+## First visit and returning visits
+
+- **First visit:** a welcome screen, then "¿De dónde es tu español?" and
+  "¿Con quién quieres hablar?". The answers become the translator's countries.
+  A short tip sits in the empty translator until the first translation.
+- **First saved word:** a one-time sheet explains how to install the app
+  (Chrome's own prompt on Android, the Share menu steps on iPhone), since an
+  installed app keeps its saved words safer than a browser tab.
+- **Returning visits:** straight to the translator with the same countries.
+- **Ajustes:** the two countries, voice speed, install help, "Sugerir una
+  palabra" (shown when `NEXT_PUBLIC_FEEDBACK_EMAIL` is set) and replaying the
+  welcome.
+
+## Accessibility
+
+Built and checked against WCAG 2.2 AA (Section 508 references WCAG 2.0 AA):
+axe-core reports no violations on any screen, text meets 4.5:1 contrast, every
+control has a visible focus ring and a spoken name, the word page uses the ARIA
+tabs pattern, focus moves to the translation after translating, and the app
+works at 320px wide, in landscape, and with reduced motion.
+
 ## Run it
 
 Requires Node 22+ and pnpm 9.

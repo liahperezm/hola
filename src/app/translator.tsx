@@ -22,7 +22,7 @@ import { DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { PhraseEntry } from "@/lib/phrase";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
-import { rememberAiEntries, useDialectPair } from "@/lib/storage";
+import { rememberAiEntries, useDialectPair, useSeen } from "@/lib/storage";
 import {
   translateWithDictionary,
   type Segment,
@@ -46,6 +46,7 @@ export function Translator() {
   const [loading, setLoading] = useState<"ai" | "photo" | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [aiAvailable, setAiAvailable] = useState(false);
+  const tip = useSeen("translate-tip");
   const fileInput = useRef<HTMLInputElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
   const resultCard = useRef<HTMLElement>(null);
@@ -99,11 +100,12 @@ export function Translator() {
       setError(null);
       const local = translateWithDictionary(clean, from, to);
       setResult(local);
+      tip.markSeen();
       if (local.via === "none" && aiAvailable && from !== to) {
         void askAi(clean, from, to, false);
       }
     },
-    [aiAvailable, askAi, pair.from, pair.to],
+    [aiAvailable, askAi, pair.from, pair.to, tip.markSeen],
   );
 
   const changePair = (next: { from: DialectCode; to: DialectCode }) => {
@@ -277,6 +279,13 @@ export function Translator() {
             className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] placeholder:text-placeholder focus-visible:outline-none"
           />
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+          {!tip.seen && !text && (
+            <p className="text-center text-[14px] text-muted">
+              {aiAvailable
+                ? "Escribe una frase, dicta con el micrófono o toma una foto."
+                : "Escribe una frase o dicta con el micrófono."}
+            </p>
+          )}
           <div className="relative mt-4 flex h-[68px] items-center justify-center">
             {text.trim() ? (
               <button

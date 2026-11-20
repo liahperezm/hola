@@ -9,7 +9,9 @@ import { DIALECTS, termLabel } from "@/lib/dialects";
 import { getEntry, otherWays, type Entry } from "@/lib/dictionary";
 import type { PhraseEntry } from "@/lib/phrase";
 import { speak } from "@/lib/speech";
-import { useAiEntry, useFavorites, useHydrated } from "@/lib/storage";
+import { useAiEntry, useFavorites, useHydrated, useSeen } from "@/lib/storage";
+import { isInstalled } from "@/lib/install";
+import { InstallSheet } from "@/components/install-sheet";
 
 type Tab = "definicion" | "origen" | "otros";
 
@@ -56,8 +58,19 @@ function PhraseView({
   ];
   const [tab, setTab] = useState<Tab>("definicion");
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
-  const { isFavorite, toggle } = useFavorites();
+  const { favorites, isFavorite, toggle } = useFavorites();
   const saved = isFavorite(entry.id);
+  const installTip = useSeen("install-tip");
+  const [installOpen, setInstallOpen] = useState(false);
+
+  const save = () => {
+    // After the very first saved word, suggest installing so it is kept safe.
+    if (!saved && favorites.length === 0 && !installTip.seen && !isInstalled()) {
+      installTip.markSeen();
+      setInstallOpen(true);
+    }
+    toggle(entry);
+  };
   const label = termLabel(entry.text, entry.dialect);
   const summary = `${capitalize(entry.text)} (${label.toLowerCase()}): ${entry.definition ?? entry.meaning}`;
 
@@ -79,7 +92,7 @@ function PhraseView({
         <IconButton
           label="Guardar"
           pressed={saved}
-          onClick={() => toggle(entry)}
+          onClick={save}
         >
           <Bookmark className={`size-[19px] ${saved ? "fill-navy" : ""}`} />
         </IconButton>
@@ -206,6 +219,11 @@ function PhraseView({
           </p>
         )}
       </div>
+      <InstallSheet
+        open={installOpen}
+        onClose={() => setInstallOpen(false)}
+        reason="¡Guardaste tu primera palabra!"
+      />
     </main>
   );
 }

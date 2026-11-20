@@ -152,3 +152,28 @@ export function useHydrated(): boolean {
     () => false,
   );
 }
+
+const asBoolean = (v: unknown) => v === true;
+
+/** One-time moments: the welcome, the first-translation tip, the install tip. */
+export type Moment = "welcome" | "translate-tip" | "install-tip";
+
+export function useSeen(moment: Moment) {
+  const [seen, setSeen] = useStored(`hola.seen.${moment}`, false, asBoolean);
+  const markSeen = useCallback(() => setSeen(true), [setSeen]);
+  const reset = useCallback(() => setSeen(false), [setSeen]);
+  return { seen, markSeen, reset };
+}
+
+export type VoiceSpeed = "normal" | "lenta";
+
+const asSpeed = (v: unknown): VoiceSpeed => (v === "lenta" ? "lenta" : "normal");
+
+export function useVoiceSpeed() {
+  return useStored<VoiceSpeed>("hola.voice-speed", "normal", asSpeed);
+}
+
+/** Read outside React, by speak(). */
+export function voiceRate(): number {
+  return read("hola.voice-speed", "normal", asSpeed) === "lenta" ? 0.7 : 1;
+}
