@@ -46,6 +46,16 @@ python3 lexicon/scripts/build.py
 
 This produces `lexicon/build/hola_es.db` (SQLite) and `build/hola_es.json` (the same data as nested JSON for the app bundle). The build checks every country code.
 
+### Browse everything
+
+```bash
+python3 lexicon/scripts/export_viewer.py
+```
+
+This writes `lexicon/build/hola_lexicon.html`, a searchable page with filters for country, type, register,
+false friends and what's in the app, plus a per-concept table. It also writes `lexicon/build/hola_lexicon.csv`
+for spreadsheet review. Run `build.py` first.
+
 ### Add the full Wiktionary lexicon
 
 1. Download `kaikki.org-dictionary-Spanish.jsonl` from https://kaikki.org/dictionary/Spanish/ (about 1 GB).
