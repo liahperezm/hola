@@ -1,5 +1,5 @@
 import type { DialectCode } from "./dialects";
-import type { TermDetail } from "./dictionary";
+import type { Register, TermDetail } from "./dictionary";
 
 /** A word or phrase the detail page can show: from the dictionary or the AI. */
 export type PhraseEntry = TermDetail & {
@@ -7,4 +7,5 @@ export type PhraseEntry = TermDetail & {
   dialect: DialectCode;
   text: string;
   meaning: string;
+  register?: Register;
 };

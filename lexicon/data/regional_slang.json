@@ -1,0 +1,3878 @@
+{
+ "_format": "Key = space-separated country codes. Each item: [term, register, English meaning, optional example in Spanish, optional note]. Register: neutral | informal | slang | vulgar | offensive.",
+ "ES": [
+  [
+   "flipar",
+   "slang",
+   "to be amazed / to freak out",
+   "Flipé con el concierto."
+  ],
+  [
+   "molar",
+   "slang",
+   "to be cool, to like",
+   "Me mola tu chaqueta."
+  ],
+  [
+   "majo",
+   "informal",
+   "nice, friendly (person)",
+   "Tu hermano es muy majo."
+  ],
+  [
+   "guay",
+   "informal",
+   "cool",
+   "¡Qué guay!"
+  ],
+  [
+   "tío / tía",
+   "informal",
+   "dude / guy / girl",
+   "Tío, ¿vienes o qué?"
+  ],
+  [
+   "chaval / chavala",
+   "informal",
+   "kid, young person"
+  ],
+  [
+   "currar",
+   "slang",
+   "to work",
+   "Mañana curro a las ocho."
+  ],
+  [
+   "vale",
+   "informal",
+   "OK",
+   "—¿Quedamos a las siete? —Vale."
+  ],
+  [
+   "hostia",
+   "vulgar",
+   "wow / damn (exclamation); also 'a smack'",
+   "¡Hostia, qué susto!"
+  ],
+  [
+   "ser la leche",
+   "informal",
+   "to be amazing (or unbelievably annoying)",
+   "Este móvil es la leche."
+  ],
+  [
+   "tener mala leche",
+   "informal",
+   "to be bad-tempered / mean-spirited"
+  ],
+  [
+   "estar de mala leche",
+   "informal",
+   "to be in a bad mood"
+  ],
+  [
+   "me la suda",
+   "vulgar",
+   "I don't give a damn"
+  ],
+  [
+   "botellón",
+   "informal",
+   "outdoor group drinking in public spaces"
+  ],
+  [
+   "quedarse a cuadros",
+   "informal",
+   "to be stunned / flabbergasted"
+  ],
+  [
+   "ir de tapas",
+   "neutral",
+   "to go bar-hopping eating small dishes"
+  ],
+  [
+   "estar como una cabra",
+   "informal",
+   "to be crazy",
+   "Mi vecino está como una cabra."
+  ],
+  [
+   "pijo / pija",
+   "informal",
+   "posh, preppy person"
+  ],
+  [
+   "cutre",
+   "informal",
+   "shabby, cheap-looking"
+  ],
+  [
+   "petarlo",
+   "slang",
+   "to be a huge success",
+   "La canción lo está petando."
+  ],
+  [
+   "mogollón",
+   "slang",
+   "a lot",
+   "Había mogollón de gente."
+  ],
+  [
+   "a tope",
+   "informal",
+   "full on / to the max",
+   "Estoy a tope de trabajo."
+  ],
+  [
+   "ser un rollo",
+   "informal",
+   "to be boring / a drag"
+  ],
+  [
+   "liarla",
+   "informal",
+   "to mess up / cause trouble",
+   "¡La has liado parda!"
+  ],
+  [
+   "ponerse morado",
+   "informal",
+   "to stuff oneself (with food)"
+  ],
+  [
+   "ni de coña",
+   "vulgar",
+   "no way",
+   "¿Saltar en paracaídas? Ni de coña."
+  ],
+  [
+   "dar la lata",
+   "informal",
+   "to pester / annoy"
+  ],
+  [
+   "pasta",
+   "informal",
+   "money"
+  ],
+  [
+   "guiri",
+   "slang",
+   "foreign tourist"
+  ],
+  [
+   "quedar",
+   "informal",
+   "to meet up (with someone)",
+   "¿Quedamos el sábado?"
+  ],
+  [
+   "madrugar",
+   "neutral",
+   "to get up early"
+  ],
+  [
+   "estar hasta las narices",
+   "informal",
+   "to be fed up"
+  ],
+  [
+   "estar hasta el moño",
+   "informal",
+   "to be fed up"
+  ],
+  [
+   "hacer el ganso",
+   "informal",
+   "to clown around"
+  ],
+  [
+   "hacerse el sueco",
+   "informal",
+   "to play dumb / pretend not to hear"
+  ],
+  [
+   "pagar el pato",
+   "informal",
+   "to take the blame (for others)"
+  ],
+  [
+   "dar plantón",
+   "informal",
+   "to stand someone up"
+  ],
+  [
+   "echar la bronca",
+   "informal",
+   "to tell someone off"
+  ],
+  [
+   "estar en el ajo",
+   "informal",
+   "to be in on it"
+  ],
+  [
+   "costar un riñón",
+   "informal",
+   "to cost an arm and a leg (lit. a kidney)"
+  ],
+  [
+   "cachondeo",
+   "informal",
+   "fooling around, joking",
+   "¡Esto es un cachondeo!"
+  ],
+  [
+   "chulo",
+   "informal",
+   "cool, nice-looking; also cocky",
+   "¡Qué chulo tu piso!"
+  ],
+  [
+   "pringado",
+   "slang",
+   "loser / sucker"
+  ],
+  [
+   "mazo",
+   "slang",
+   "very / a lot (Madrid)",
+   "Mola mazo."
+  ],
+  [
+   "chungo",
+   "slang",
+   "dodgy, bad, difficult",
+   "La cosa está chunga."
+  ],
+  [
+   "empollón",
+   "informal",
+   "nerd, swot (studies a lot)"
+  ],
+  [
+   "ligar",
+   "informal",
+   "to flirt / hook up"
+  ],
+  [
+   "estar pedo",
+   "slang",
+   "to be drunk"
+  ],
+  [
+   "no pasa nada",
+   "neutral",
+   "no problem / it's fine"
+  ],
+  [
+   "vaya tela",
+   "informal",
+   "unbelievable / what a mess"
+  ],
+  [
+   "ojo al dato",
+   "informal",
+   "pay attention to this"
+  ],
+  [
+   "¡venga!",
+   "informal",
+   "come on! / OK, bye!"
+  ]
+ ],
+ "MX": [
+  [
+   "güey / wey",
+   "slang",
+   "dude; also 'idiot' depending on tone",
+   "¿Qué onda, güey?"
+  ],
+  [
+   "¿qué onda?",
+   "informal",
+   "what's up?"
+  ],
+  [
+   "chido",
+   "slang",
+   "cool",
+   "Está bien chido tu carro."
+  ],
+  [
+   "padre",
+   "informal",
+   "great, cool",
+   "¡Qué padre!"
+  ],
+  [
+   "neta",
+   "slang",
+   "the truth; for real",
+   "¿Neta? / La neta, no sé."
+  ],
+  [
+   "no manches",
+   "slang",
+   "no way! / come on!",
+   "¡No manches, ganamos!"
+  ],
+  [
+   "no mames",
+   "vulgar",
+   "no way! (stronger)"
+  ],
+  [
+   "aguas",
+   "slang",
+   "watch out!",
+   "¡Aguas con el perro!"
+  ],
+  [
+   "órale",
+   "informal",
+   "OK / wow / come on (very versatile)"
+  ],
+  [
+   "ándale",
+   "informal",
+   "come on / hurry up / that's right"
+  ],
+  [
+   "ahorita",
+   "informal",
+   "right now / in a little while (ambiguous)"
+  ],
+  [
+   "chamba",
+   "informal",
+   "job, work"
+  ],
+  [
+   "chambear",
+   "informal",
+   "to work"
+  ],
+  [
+   "lana",
+   "informal",
+   "money"
+  ],
+  [
+   "cuate",
+   "informal",
+   "buddy"
+  ],
+  [
+   "carnal",
+   "slang",
+   "brother, close friend"
+  ],
+  [
+   "fresa",
+   "informal",
+   "snobbish, preppy person"
+  ],
+  [
+   "naco",
+   "offensive",
+   "tacky, low-class (classist)"
+  ],
+  [
+   "chela",
+   "slang",
+   "beer"
+  ],
+  [
+   "cruda",
+   "informal",
+   "hangover"
+  ],
+  [
+   "crudo",
+   "informal",
+   "hungover",
+   "Ando bien crudo."
+  ],
+  [
+   "pedo",
+   "vulgar",
+   "problem / fight / drunk ('¿qué pedo?' = what's up?)",
+   "No hay pedo."
+  ],
+  [
+   "no hay pedo",
+   "vulgar",
+   "no problem"
+  ],
+  [
+   "codo",
+   "informal",
+   "stingy"
+  ],
+  [
+   "gacho",
+   "slang",
+   "bad, mean, ugly",
+   "¡Qué gacho!"
+  ],
+  [
+   "estar de pelos",
+   "informal",
+   "to be great"
+  ],
+  [
+   "echar la hueva",
+   "vulgar",
+   "to laze around"
+  ],
+  [
+   "me vale",
+   "vulgar",
+   "I don't care (short for 'me vale madre')"
+  ],
+  [
+   "valer madre",
+   "vulgar",
+   "to not matter / to be ruined"
+  ],
+  [
+   "a poco",
+   "informal",
+   "really? no way?",
+   "¿A poco ya terminaste?"
+  ],
+  [
+   "sale",
+   "informal",
+   "OK / deal"
+  ],
+  [
+   "chafa",
+   "slang",
+   "low quality, fake"
+  ],
+  [
+   "pinche",
+   "vulgar",
+   "damn / lousy (intensifier)",
+   "Este pinche tráfico."
+  ],
+  [
+   "chingón",
+   "vulgar",
+   "awesome / badass"
+  ],
+  [
+   "chingar",
+   "vulgar",
+   "to screw (over) / bother; very versatile"
+  ],
+  [
+   "¿mande?",
+   "neutral",
+   "pardon? (polite)"
+  ],
+  [
+   "híjole",
+   "informal",
+   "wow / oh no / jeez"
+  ],
+  [
+   "agüitado",
+   "informal",
+   "bummed out, sad"
+  ],
+  [
+   "rajarse",
+   "informal",
+   "to back out, chicken out"
+  ],
+  [
+   "echar porras",
+   "informal",
+   "to cheer on"
+  ],
+  [
+   "estar hasta el gorro",
+   "informal",
+   "to be fed up"
+  ],
+  [
+   "chilango",
+   "informal",
+   "person from Mexico City"
+  ],
+  [
+   "jalar",
+   "informal",
+   "to work (function); to join in",
+   "¿Jalas al cine?"
+  ],
+  [
+   "aventón",
+   "informal",
+   "a ride / lift"
+  ],
+  [
+   "buena onda",
+   "informal",
+   "cool, nice (person or thing)"
+  ],
+  [
+   "mala onda",
+   "informal",
+   "uncool, mean"
+  ],
+  [
+   "chamaco",
+   "informal",
+   "kid"
+  ],
+  [
+   "escuincle",
+   "informal",
+   "kid, brat"
+  ],
+  [
+   "güero",
+   "informal",
+   "blond / light-skinned"
+  ],
+  [
+   "mamado",
+   "slang",
+   "buff, muscular"
+  ],
+  [
+   "chido / chida",
+   "slang",
+   "cool"
+  ],
+  [
+   "la neta del planeta",
+   "slang",
+   "the absolute best / the honest truth"
+  ],
+  [
+   "qué oso",
+   "slang",
+   "how embarrassing"
+  ],
+  [
+   "equis",
+   "slang",
+   "whatever / unimportant",
+   "Es equis."
+  ],
+  [
+   "estar crudo",
+   "informal",
+   "to be hungover"
+  ],
+  [
+   "popote",
+   "neutral",
+   "drinking straw"
+  ],
+  [
+   "camión",
+   "neutral",
+   "bus"
+  ],
+  [
+   "platicar",
+   "neutral",
+   "to chat (preferred over 'charlar')"
+  ],
+  [
+   "chiquito",
+   "informal",
+   "tiny (diminutives are extremely common)"
+  ],
+  [
+   "¿bueno?",
+   "neutral",
+   "hello? (answering the phone)"
+  ],
+  [
+   "¡ya llegó el gas!",
+   "informal",
+   "folk expression mimicking the gas-truck jingle"
+  ],
+  [
+   "hacer la parada",
+   "informal",
+   "to flag down a bus; to help someone out"
+  ],
+  [
+   "poner los cuernos",
+   "informal",
+   "to cheat on someone (also ES and elsewhere)"
+  ],
+  [
+   "ser barco",
+   "slang",
+   "to be a lenient teacher"
+  ],
+  [
+   "echar relajo",
+   "informal",
+   "to goof around"
+  ],
+  [
+   "fusca",
+   "slang",
+   "gun"
+  ],
+  [
+   "morro / morra",
+   "slang",
+   "kid / young guy / girl (northern Mexico)"
+  ],
+  [
+   "troca",
+   "informal",
+   "truck (northern Mexico)"
+  ],
+  [
+   "está cañón",
+   "slang",
+   "it's tough / intense"
+  ],
+  [
+   "sacar de onda",
+   "slang",
+   "to confuse / throw off"
+  ]
+ ],
+ "AR": [
+  [
+   "che",
+   "informal",
+   "hey (to address someone)",
+   "Che, ¿venís?"
+  ],
+  [
+   "boludo / boluda",
+   "slang",
+   "dude (friends) / idiot (insult)",
+   "¿Qué hacés, boludo?"
+  ],
+  [
+   "pibe / piba",
+   "informal",
+   "kid, young guy/girl"
+  ],
+  [
+   "laburo",
+   "informal",
+   "job"
+  ],
+  [
+   "laburar",
+   "informal",
+   "to work"
+  ],
+  [
+   "guita",
+   "slang",
+   "money"
+  ],
+  [
+   "mango",
+   "slang",
+   "a peso; money",
+   "No tengo un mango."
+  ],
+  [
+   "birra",
+   "informal",
+   "beer"
+  ],
+  [
+   "quilombo",
+   "slang",
+   "mess, chaos",
+   "¡Qué quilombo!"
+  ],
+  [
+   "copado",
+   "slang",
+   "cool"
+  ],
+  [
+   "bárbaro",
+   "informal",
+   "great"
+  ],
+  [
+   "re",
+   "informal",
+   "very (prefix)",
+   "Está re bueno."
+  ],
+  [
+   "mina",
+   "slang",
+   "woman, girl"
+  ],
+  [
+   "chabón",
+   "slang",
+   "guy, dude"
+  ],
+  [
+   "bondi",
+   "slang",
+   "bus"
+  ],
+  [
+   "hacerse el boludo",
+   "slang",
+   "to play dumb"
+  ],
+  [
+   "al pedo",
+   "vulgar",
+   "for nothing / idle",
+   "Estoy al pedo."
+  ],
+  [
+   "en pedo",
+   "vulgar",
+   "drunk"
+  ],
+  [
+   "ni en pedo",
+   "vulgar",
+   "no way"
+  ],
+  [
+   "garrón",
+   "slang",
+   "a bummer, a drag"
+  ],
+  [
+   "afanar",
+   "slang",
+   "to steal"
+  ],
+  [
+   "chamuyar",
+   "slang",
+   "to sweet-talk, to bullshit"
+  ],
+  [
+   "fiaca",
+   "slang",
+   "laziness"
+  ],
+  [
+   "posta",
+   "slang",
+   "for real",
+   "¿Posta?"
+  ],
+  [
+   "gil",
+   "slang",
+   "fool"
+  ],
+  [
+   "morfar",
+   "slang",
+   "to eat"
+  ],
+  [
+   "pucho",
+   "slang",
+   "cigarette"
+  ],
+  [
+   "trucho",
+   "slang",
+   "fake"
+  ],
+  [
+   "zarpado",
+   "slang",
+   "over the top; awesome"
+  ],
+  [
+   "flashear",
+   "slang",
+   "to imagine things / misread a situation",
+   "Flasheaste cualquiera."
+  ],
+  [
+   "bancar",
+   "informal",
+   "to support; to put up with",
+   "Te banco."
+  ],
+  [
+   "joda",
+   "slang",
+   "party / joke",
+   "Es joda."
+  ],
+  [
+   "boliche",
+   "informal",
+   "nightclub"
+  ],
+  [
+   "mate",
+   "neutral",
+   "traditional herbal infusion shared in a gourd"
+  ],
+  [
+   "chorro",
+   "slang",
+   "thief"
+  ],
+  [
+   "cana",
+   "slang",
+   "police; jail"
+  ],
+  [
+   "yuta",
+   "slang",
+   "police"
+  ],
+  [
+   "piola",
+   "slang",
+   "cool, low-key, clever"
+  ],
+  [
+   "bardo",
+   "slang",
+   "mess; trouble",
+   "Se armó bardo."
+  ],
+  [
+   "bardear",
+   "slang",
+   "to insult, provoke"
+  ],
+  [
+   "cualquiera",
+   "slang",
+   "nonsense ('decir cualquiera')"
+  ],
+  [
+   "una banda",
+   "slang",
+   "a lot",
+   "Te quiero una banda."
+  ],
+  [
+   "chorear",
+   "slang",
+   "to steal"
+  ],
+  [
+   "laucha",
+   "slang",
+   "clever, sneaky person"
+  ],
+  [
+   "mufa",
+   "slang",
+   "bad luck; jinx"
+  ],
+  [
+   "quedar como un gil",
+   "slang",
+   "to look like a fool"
+  ],
+  [
+   "tomar el pelo",
+   "informal",
+   "to pull someone's leg"
+  ],
+  [
+   "poner las pilas",
+   "informal",
+   "to get your act together"
+  ],
+  [
+   "estar al horno",
+   "slang",
+   "to be in big trouble"
+  ],
+  [
+   "mandar fruta",
+   "slang",
+   "to talk nonsense / make things up"
+  ],
+  [
+   "tirar onda",
+   "slang",
+   "to flirt"
+  ],
+  [
+   "chorizo",
+   "neutral",
+   "sausage (choripán = sausage sandwich)"
+  ],
+  [
+   "pileta",
+   "neutral",
+   "swimming pool"
+  ],
+  [
+   "colectivo",
+   "neutral",
+   "bus"
+  ],
+  [
+   "remera",
+   "neutral",
+   "T-shirt"
+  ],
+  [
+   "frutilla",
+   "neutral",
+   "strawberry"
+  ],
+  [
+   "manteca",
+   "neutral",
+   "butter"
+  ],
+  [
+   "dale",
+   "informal",
+   "OK / come on"
+  ],
+  [
+   "chau",
+   "informal",
+   "bye (from Italian 'ciao')"
+  ],
+  [
+   "fiesta de quince",
+   "neutral",
+   "quinceañera party"
+  ],
+  [
+   "boludez",
+   "slang",
+   "silly thing; trifle"
+  ],
+  [
+   "mala onda",
+   "informal",
+   "bad vibes / unkind"
+  ],
+  [
+   "pelotudo",
+   "vulgar",
+   "idiot (stronger than boludo)"
+  ],
+  [
+   "pochoclo",
+   "neutral",
+   "popcorn"
+  ],
+  [
+   "cheto",
+   "slang",
+   "posh"
+  ]
+ ],
+ "UY": [
+  [
+   "bo",
+   "informal",
+   "hey / dude",
+   "Bo, ¿vamos?"
+  ],
+  [
+   "ta",
+   "informal",
+   "OK",
+   "Ta, nos vemos."
+  ],
+  [
+   "gurí / gurisa",
+   "informal",
+   "kid, boy/girl"
+  ],
+  [
+   "botija",
+   "informal",
+   "kid"
+  ],
+  [
+   "de más",
+   "slang",
+   "great, awesome",
+   "¡Está de más!"
+  ],
+  [
+   "championes",
+   "neutral",
+   "sneakers"
+  ],
+  [
+   "una pila",
+   "informal",
+   "a lot"
+  ],
+  [
+   "bizcocho",
+   "neutral",
+   "pastry (sweet or savory)"
+  ],
+  [
+   "ómnibus",
+   "neutral",
+   "bus"
+  ],
+  [
+   "tremendo",
+   "informal",
+   "awesome; huge"
+  ],
+  [
+   "plancha",
+   "offensive",
+   "lower-class youth (classist)"
+  ],
+  [
+   "salado",
+   "slang",
+   "difficult / expensive",
+   "Está salado el alquiler."
+  ],
+  [
+   "vintén",
+   "slang",
+   "money (old coin)",
+   "No tengo un vintén."
+  ],
+  [
+   "termo y mate",
+   "neutral",
+   "thermos and mate, carried everywhere"
+  ],
+  [
+   "chivito",
+   "neutral",
+   "national steak sandwich"
+  ],
+  [
+   "refuerzo",
+   "neutral",
+   "sandwich (roll)"
+  ],
+  [
+   "guita",
+   "slang",
+   "money"
+  ],
+  [
+   "tá bien",
+   "informal",
+   "it's fine"
+  ],
+  [
+   "hacer la plancha",
+   "informal",
+   "to slack off"
+  ]
+ ],
+ "CL": [
+  [
+   "weón / huevón",
+   "slang",
+   "dude (friendly) / idiot (insult)",
+   "¿Qué onda, weón?"
+  ],
+  [
+   "¿cachái?",
+   "slang",
+   "you get it?"
+  ],
+  [
+   "cachar",
+   "slang",
+   "to understand; to catch (someone)"
+  ],
+  [
+   "po",
+   "informal",
+   "emphatic particle (from 'pues')",
+   "Sí po. / Ya po."
+  ],
+  [
+   "bacán",
+   "slang",
+   "cool"
+  ],
+  [
+   "fome",
+   "informal",
+   "boring"
+  ],
+  [
+   "pololo / polola",
+   "informal",
+   "boyfriend / girlfriend"
+  ],
+  [
+   "pololear",
+   "informal",
+   "to date"
+  ],
+  [
+   "carrete",
+   "slang",
+   "party"
+  ],
+  [
+   "carretear",
+   "slang",
+   "to party"
+  ],
+  [
+   "luca",
+   "slang",
+   "1,000 pesos"
+  ],
+  [
+   "gamba",
+   "slang",
+   "100 pesos"
+  ],
+  [
+   "al tiro",
+   "slang",
+   "right away"
+  ],
+  [
+   "guagua",
+   "informal",
+   "baby"
+  ],
+  [
+   "cabro / cabra",
+   "slang",
+   "kid, young person"
+  ],
+  [
+   "la raja",
+   "vulgar",
+   "awesome"
+  ],
+  [
+   "pega",
+   "slang",
+   "job"
+  ],
+  [
+   "flaite",
+   "offensive",
+   "lowlife, chav (classist)"
+  ],
+  [
+   "copete",
+   "slang",
+   "alcoholic drink"
+  ],
+  [
+   "taco",
+   "informal",
+   "traffic jam"
+  ],
+  [
+   "harto",
+   "informal",
+   "a lot; very"
+  ],
+  [
+   "cuático",
+   "slang",
+   "intense, extreme, crazy"
+  ],
+  [
+   "pucha",
+   "informal",
+   "darn"
+  ],
+  [
+   "sapo",
+   "informal",
+   "nosy"
+  ],
+  [
+   "fresco",
+   "informal",
+   "cheeky, shameless"
+  ],
+  [
+   "pasarlo chancho",
+   "slang",
+   "to have a great time"
+  ],
+  [
+   "choreado",
+   "slang",
+   "fed up, annoyed"
+  ],
+  [
+   "pichanga",
+   "informal",
+   "pickup soccer game"
+  ],
+  [
+   "once",
+   "neutral",
+   "afternoon tea / light evening meal"
+  ],
+  [
+   "completo",
+   "neutral",
+   "loaded hot dog"
+  ],
+  [
+   "me tinca",
+   "slang",
+   "I have a hunch / I feel like it"
+  ],
+  [
+   "ya po",
+   "slang",
+   "come on / OK then"
+  ],
+  [
+   "cuico",
+   "slang",
+   "posh person"
+  ],
+  [
+   "pituco",
+   "informal",
+   "posh"
+  ],
+  [
+   "al lote",
+   "slang",
+   "carelessly, any old way"
+  ],
+  [
+   "condoro",
+   "slang",
+   "a blunder"
+  ],
+  [
+   "mandarse un condoro",
+   "slang",
+   "to make a blunder"
+  ],
+  [
+   "filo",
+   "slang",
+   "never mind / whatever",
+   "Filo, no importa."
+  ],
+  [
+   "pico",
+   "vulgar",
+   "penis (vulgar). 'Y pico' meaning 'and a bit' is still fine."
+  ],
+  [
+   "la cagó",
+   "vulgar",
+   "wow / that's crazy (can be positive)"
+  ],
+  [
+   "chucha",
+   "vulgar",
+   "damn! (exclamation)"
+  ],
+  [
+   "poto",
+   "informal",
+   "butt"
+  ],
+  [
+   "polola",
+   "informal",
+   "girlfriend"
+  ],
+  [
+   "micro",
+   "neutral",
+   "bus"
+  ],
+  [
+   "polera",
+   "neutral",
+   "T-shirt"
+  ],
+  [
+   "palta",
+   "neutral",
+   "avocado"
+  ],
+  [
+   "frutilla",
+   "neutral",
+   "strawberry"
+  ],
+  [
+   "quiltro",
+   "informal",
+   "mutt (dog)"
+  ],
+  [
+   "bencina",
+   "neutral",
+   "gasoline"
+  ],
+  [
+   "mina",
+   "slang",
+   "attractive woman"
+  ],
+  [
+   "achuntar",
+   "slang",
+   "to get it right / hit the target"
+  ],
+  [
+   "apretado",
+   "informal",
+   "stingy"
+  ],
+  [
+   "altiro",
+   "slang",
+   "right away (spelling variant of 'al tiro')"
+  ],
+  [
+   "hacer la cimarra",
+   "slang",
+   "to skip school"
+  ]
+ ],
+ "CO": [
+  [
+   "parce / parcero",
+   "slang",
+   "buddy, mate"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "bacano",
+   "slang",
+   "cool"
+  ],
+  [
+   "qué chimba",
+   "vulgar",
+   "how cool! (originally vulgar)"
+  ],
+  [
+   "chimba",
+   "vulgar",
+   "cool (also vulgar for female genitals)"
+  ],
+  [
+   "camellar",
+   "slang",
+   "to work hard"
+  ],
+  [
+   "camello",
+   "slang",
+   "job"
+  ],
+  [
+   "guayabo",
+   "informal",
+   "hangover"
+  ],
+  [
+   "rumba",
+   "informal",
+   "party, partying"
+  ],
+  [
+   "rumbear",
+   "informal",
+   "to go partying"
+  ],
+  [
+   "¿qué más?",
+   "informal",
+   "what's up? / how are you?"
+  ],
+  [
+   "¿quiubo?",
+   "informal",
+   "what's up?"
+  ],
+  [
+   "listo",
+   "informal",
+   "OK, sure"
+  ],
+  [
+   "pola",
+   "slang",
+   "beer"
+  ],
+  [
+   "berraco / verraco",
+   "slang",
+   "tough, awesome; or furious",
+   "Ese man es muy berraco."
+  ],
+  [
+   "dar papaya",
+   "slang",
+   "to make yourself an easy target",
+   "No dé papaya con el celular."
+  ],
+  [
+   "tinto",
+   "neutral",
+   "small black coffee"
+  ],
+  [
+   "hágale",
+   "informal",
+   "go ahead / let's do it"
+  ],
+  [
+   "chino / china",
+   "informal",
+   "kid"
+  ],
+  [
+   "mono / mona",
+   "informal",
+   "blond(e)"
+  ],
+  [
+   "trancón",
+   "neutral",
+   "traffic jam"
+  ],
+  [
+   "paila",
+   "slang",
+   "too bad, tough luck",
+   "¡Paila!"
+  ],
+  [
+   "sapo",
+   "slang",
+   "snitch; nosy person"
+  ],
+  [
+   "mamera",
+   "slang",
+   "boredom, can't be bothered"
+  ],
+  [
+   "llave",
+   "slang",
+   "close friend"
+  ],
+  [
+   "a la orden",
+   "neutral",
+   "at your service (shopkeepers)"
+  ],
+  [
+   "de una",
+   "slang",
+   "sure, right away"
+  ],
+  [
+   "embarrarla",
+   "informal",
+   "to mess up"
+  ],
+  [
+   "estar mamado",
+   "slang",
+   "to be exhausted / fed up"
+  ],
+  [
+   "ñero",
+   "offensive",
+   "lowlife (classist)"
+  ],
+  [
+   "qué pena",
+   "neutral",
+   "excuse me / sorry (embarrassment)",
+   "Qué pena con usted."
+  ],
+  [
+   "regalar",
+   "neutral",
+   "to give (when ordering: '¿me regala un café?')"
+  ],
+  [
+   "gonorrea",
+   "offensive",
+   "extremely strong insult (Medellín slang)"
+  ],
+  [
+   "man",
+   "slang",
+   "guy (from English)",
+   "Ese man."
+  ],
+  [
+   "vieja",
+   "slang",
+   "woman, girl"
+  ],
+  [
+   "pelado / pelada",
+   "informal",
+   "kid; young person"
+  ],
+  [
+   "parche",
+   "slang",
+   "group of friends; plan",
+   "¿Cuál es el parche?"
+  ],
+  [
+   "parchar",
+   "slang",
+   "to hang out"
+  ],
+  [
+   "gomelo",
+   "slang",
+   "preppy, posh"
+  ],
+  [
+   "achicopalado",
+   "slang",
+   "down, depressed"
+  ],
+  [
+   "filo",
+   "slang",
+   "hunger",
+   "Tengo filo."
+  ],
+  [
+   "chucha",
+   "vulgar",
+   "body odor (armpit)"
+  ],
+  [
+   "pues",
+   "informal",
+   "filler / emphasis (Paisa)",
+   "Hágale, pues."
+  ],
+  [
+   "bobo",
+   "informal",
+   "silly; fool"
+  ],
+  [
+   "vaina",
+   "informal",
+   "thing; situation",
+   "¡Qué vaina!"
+  ],
+  [
+   "guaro",
+   "slang",
+   "aguardiente (anise liquor)"
+  ],
+  [
+   "lucas",
+   "slang",
+   "thousand pesos"
+  ],
+  [
+   "boleta",
+   "slang",
+   "tacky, embarrassing",
+   "¡Qué boleta!"
+  ],
+  [
+   "tusa",
+   "informal",
+   "heartbreak sadness"
+  ],
+  [
+   "estar en la olla",
+   "slang",
+   "to be in a bad situation"
+  ],
+  [
+   "la buena",
+   "slang",
+   "hello / what's good"
+  ],
+  [
+   "sumercé",
+   "informal",
+   "affectionate 'you' (Boyacá, Bogotá)"
+  ],
+  [
+   "dar lora",
+   "slang",
+   "to nag, bother"
+  ],
+  [
+   "echar los perros",
+   "slang",
+   "to flirt"
+  ],
+  [
+   "pilas",
+   "slang",
+   "watch out! be alert"
+  ]
+ ],
+ "VE": [
+  [
+   "chamo / chama",
+   "informal",
+   "kid; dude; girl"
+  ],
+  [
+   "pana",
+   "informal",
+   "friend"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "vaina",
+   "informal",
+   "thing; situation",
+   "¿Qué vaina es esa?"
+  ],
+  [
+   "burda",
+   "slang",
+   "very; a lot",
+   "Burda de bueno."
+  ],
+  [
+   "arrecho",
+   "slang",
+   "angry; also awesome/tough (VE). Means 'horny' in CO/CentAm/PE."
+  ],
+  [
+   "ladilla",
+   "slang",
+   "annoying person/thing; boring",
+   "¡Qué ladilla!"
+  ],
+  [
+   "catire / catira",
+   "informal",
+   "blond(e)"
+  ],
+  [
+   "cambur",
+   "neutral",
+   "banana; slang for a cushy government job"
+  ],
+  [
+   "coroto",
+   "informal",
+   "thing; belongings",
+   "Recoge tus corotos."
+  ],
+  [
+   "jalabolas",
+   "vulgar",
+   "suck-up, brown-noser"
+  ],
+  [
+   "echarle bolas",
+   "vulgar",
+   "to give it your all"
+  ],
+  [
+   "chimbo",
+   "slang",
+   "bad, low quality"
+  ],
+  [
+   "fino",
+   "slang",
+   "great",
+   "¡Fino!"
+  ],
+  [
+   "bonche",
+   "slang",
+   "party"
+  ],
+  [
+   "rumba",
+   "informal",
+   "party"
+  ],
+  [
+   "cotufas",
+   "neutral",
+   "popcorn"
+  ],
+  [
+   "caraotas",
+   "neutral",
+   "black beans"
+  ],
+  [
+   "reales",
+   "informal",
+   "money"
+  ],
+  [
+   "pelado",
+   "informal",
+   "broke"
+  ],
+  [
+   "¡na' guará!",
+   "slang",
+   "wow! (Lara state)"
+  ],
+  [
+   "épale",
+   "informal",
+   "hey!"
+  ],
+  [
+   "sifrino",
+   "slang",
+   "snob"
+  ],
+  [
+   "chalequear",
+   "slang",
+   "to tease, mock"
+  ],
+  [
+   "pea",
+   "slang",
+   "drunkenness ('agarrar una pea')"
+  ],
+  [
+   "ratón",
+   "informal",
+   "hangover"
+  ],
+  [
+   "pavoso",
+   "slang",
+   "unlucky; jinx"
+  ],
+  [
+   "¡nojoda!",
+   "vulgar",
+   "damn! / wow! (Zulia)"
+  ],
+  [
+   "guayabo",
+   "informal",
+   "heartbreak (VE) / hangover (CO)"
+  ],
+  [
+   "dar la cola",
+   "informal",
+   "to give a ride"
+  ],
+  [
+   "cola",
+   "informal",
+   "a lift; a queue"
+  ],
+  [
+   "mamar gallo",
+   "slang",
+   "to tease, joke around (also CO coast)"
+  ],
+  [
+   "papaya",
+   "slang",
+   "easy (as in 'es papaya')"
+  ],
+  [
+   "musiú",
+   "slang",
+   "foreigner"
+  ],
+  [
+   "malandro",
+   "slang",
+   "thug"
+  ],
+  [
+   "full",
+   "slang",
+   "a lot / very"
+  ],
+  [
+   "estar pelando bolas",
+   "vulgar",
+   "to be broke"
+  ],
+  [
+   "arepa",
+   "neutral",
+   "corn cake (national staple)"
+  ],
+  [
+   "tripear",
+   "slang",
+   "to enjoy, have fun"
+  ],
+  [
+   "jeva",
+   "slang",
+   "girlfriend; woman"
+  ],
+  [
+   "ponerse las pilas",
+   "informal",
+   "to get your act together"
+  ],
+  [
+   "no joda",
+   "vulgar",
+   "come on! / no way"
+  ]
+ ],
+ "PE": [
+  [
+   "causa",
+   "slang",
+   "buddy"
+  ],
+  [
+   "pata",
+   "slang",
+   "friend, guy"
+  ],
+  [
+   "chamba",
+   "informal",
+   "job"
+  ],
+  [
+   "jato",
+   "slang",
+   "house"
+  ],
+  [
+   "jatear",
+   "slang",
+   "to sleep"
+  ],
+  [
+   "chela",
+   "slang",
+   "beer"
+  ],
+  [
+   "bacán",
+   "slang",
+   "cool"
+  ],
+  [
+   "paja",
+   "slang",
+   "cool",
+   "¡Qué paja!"
+  ],
+  [
+   "pituco",
+   "informal",
+   "posh"
+  ],
+  [
+   "huachafo",
+   "informal",
+   "tacky, pretentious"
+  ],
+  [
+   "palta",
+   "slang",
+   "embarrassment ('qué palta')"
+  ],
+  [
+   "roche",
+   "slang",
+   "embarrassment ('qué roche')"
+  ],
+  [
+   "chibolo / chibola",
+   "informal",
+   "kid"
+  ],
+  [
+   "tombo",
+   "slang",
+   "police officer"
+  ],
+  [
+   "flaco / flaca",
+   "informal",
+   "boyfriend / girlfriend"
+  ],
+  [
+   "jama",
+   "slang",
+   "food"
+  ],
+  [
+   "jamear",
+   "slang",
+   "to eat"
+  ],
+  [
+   "luca",
+   "slang",
+   "one sol"
+  ],
+  [
+   "mancha",
+   "slang",
+   "group of friends"
+  ],
+  [
+   "al toque",
+   "slang",
+   "right away"
+  ],
+  [
+   "¡habla!",
+   "slang",
+   "hey! what's up?"
+  ],
+  [
+   "manyar",
+   "slang",
+   "to understand; to know"
+  ],
+  [
+   "chupar",
+   "slang",
+   "to drink alcohol"
+  ],
+  [
+   "piña",
+   "slang",
+   "bad luck",
+   "¡Qué piña!"
+  ],
+  [
+   "jalar",
+   "slang",
+   "to fail (an exam); to give a ride"
+  ],
+  [
+   "chancar",
+   "slang",
+   "to study hard"
+  ],
+  [
+   "tono",
+   "slang",
+   "party"
+  ],
+  [
+   "yapa",
+   "informal",
+   "a little extra thrown in (Andean)"
+  ],
+  [
+   "asu",
+   "informal",
+   "wow"
+  ],
+  [
+   "achorado",
+   "slang",
+   "aggressive, rude"
+  ],
+  [
+   "misio",
+   "slang",
+   "broke"
+  ],
+  [
+   "bamba",
+   "slang",
+   "fake"
+  ],
+  [
+   "canchita",
+   "neutral",
+   "popcorn"
+  ],
+  [
+   "choclo",
+   "neutral",
+   "corn on the cob"
+  ],
+  [
+   "chompa",
+   "neutral",
+   "sweater"
+  ],
+  [
+   "combi",
+   "neutral",
+   "minibus"
+  ],
+  [
+   "florear",
+   "slang",
+   "to exaggerate, embellish"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "bróder",
+   "slang",
+   "bro"
+  ],
+  [
+   "choche",
+   "slang",
+   "close friend"
+  ],
+  [
+   "pucha",
+   "informal",
+   "darn"
+  ],
+  [
+   "tener la cara de palo",
+   "informal",
+   "to be shameless"
+  ],
+  [
+   "estar misio",
+   "slang",
+   "to be broke"
+  ],
+  [
+   "hacerse la vaca",
+   "slang",
+   "to skip school"
+  ]
+ ],
+ "CU": [
+  [
+   "asere / acere",
+   "slang",
+   "buddy"
+  ],
+  [
+   "¿qué bolá?",
+   "slang",
+   "what's up?"
+  ],
+  [
+   "guagua",
+   "neutral",
+   "bus"
+  ],
+  [
+   "jeva",
+   "slang",
+   "girlfriend; woman"
+  ],
+  [
+   "yuma",
+   "slang",
+   "foreigner; the US ('la Yuma')"
+  ],
+  [
+   "pinchar",
+   "slang",
+   "to work"
+  ],
+  [
+   "fula",
+   "slang",
+   "US dollar; also bad"
+  ],
+  [
+   "bisne",
+   "slang",
+   "business, hustle"
+  ],
+  [
+   "jamar",
+   "slang",
+   "to eat"
+  ],
+  [
+   "estar en candela",
+   "slang",
+   "to be in trouble"
+  ],
+  [
+   "socio",
+   "informal",
+   "buddy"
+  ],
+  [
+   "coger botella",
+   "slang",
+   "to hitch a ride"
+  ],
+  [
+   "temba",
+   "slang",
+   "attractive middle-aged person"
+  ],
+  [
+   "fruta bomba",
+   "neutral",
+   "papaya (the word 'papaya' is vulgar in Cuba)"
+  ],
+  [
+   "pulóver",
+   "neutral",
+   "T-shirt"
+  ],
+  [
+   "máquina",
+   "informal",
+   "car (esp. classic American car)"
+  ],
+  [
+   "gao",
+   "slang",
+   "house"
+  ],
+  [
+   "mi puro / mi pura",
+   "slang",
+   "my dad / my mom"
+  ],
+  [
+   "está en llamas",
+   "slang",
+   "it's bad / difficult"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "ecobio",
+   "slang",
+   "brother, friend (Afro-Cuban origin)"
+  ],
+  [
+   "tremendo",
+   "informal",
+   "huge, incredible"
+  ],
+  [
+   "descarga",
+   "slang",
+   "jam session; a scolding"
+  ],
+  [
+   "no es fácil",
+   "informal",
+   "life is hard (catchphrase)"
+  ],
+  [
+   "resolver",
+   "informal",
+   "to get something by any means"
+  ],
+  [
+   "luchar",
+   "informal",
+   "to hustle to get by"
+  ],
+  [
+   "guanajo",
+   "informal",
+   "turkey; fool"
+  ],
+  [
+   "papaya",
+   "vulgar",
+   "female genitals (avoid for the fruit)"
+  ],
+  [
+   "bollo",
+   "vulgar",
+   "female genitals"
+  ],
+  [
+   "cajetilla",
+   "neutral",
+   "pack of cigarettes"
+  ],
+  [
+   "paladar",
+   "neutral",
+   "privately run home restaurant"
+  ],
+  [
+   "almendrón",
+   "informal",
+   "classic shared taxi"
+  ],
+  [
+   "piquete",
+   "slang",
+   "group of friends"
+  ]
+ ],
+ "PR": [
+  [
+   "boricua",
+   "informal",
+   "Puerto Rican"
+  ],
+  [
+   "chavos",
+   "informal",
+   "money"
+  ],
+  [
+   "janguear",
+   "slang",
+   "to hang out"
+  ],
+  [
+   "¡wepa!",
+   "slang",
+   "hooray! / yay!"
+  ],
+  [
+   "brutal",
+   "slang",
+   "awesome"
+  ],
+  [
+   "¡ay bendito!",
+   "informal",
+   "oh dear / poor thing"
+  ],
+  [
+   "corillo",
+   "slang",
+   "group of friends"
+  ],
+  [
+   "zafacón",
+   "neutral",
+   "trash can"
+  ],
+  [
+   "guagua",
+   "neutral",
+   "bus"
+  ],
+  [
+   "bicho",
+   "vulgar",
+   "penis (avoid for 'bug')"
+  ],
+  [
+   "jevo / jeva",
+   "slang",
+   "boyfriend / girlfriend"
+  ],
+  [
+   "pichear",
+   "slang",
+   "to ignore someone; to skip"
+  ],
+  [
+   "chinchorro",
+   "informal",
+   "small roadside bar"
+  ],
+  [
+   "nítido",
+   "slang",
+   "great"
+  ],
+  [
+   "¿qué es la que hay?",
+   "slang",
+   "what's up?"
+  ],
+  [
+   "mano / manito",
+   "informal",
+   "bro"
+  ],
+  [
+   "estar al garete",
+   "informal",
+   "to be out of control, adrift"
+  ],
+  [
+   "acho / chacho",
+   "slang",
+   "man! (from 'muchacho')"
+  ],
+  [
+   "bregar",
+   "informal",
+   "to deal with / handle; to work"
+  ],
+  [
+   "mahones",
+   "neutral",
+   "jeans"
+  ],
+  [
+   "chiringa",
+   "neutral",
+   "kite"
+  ],
+  [
+   "pon",
+   "slang",
+   "a ride ('pedir pon')"
+  ],
+  [
+   "revolú",
+   "informal",
+   "mess, chaos"
+  ],
+  [
+   "tapón",
+   "neutral",
+   "traffic jam"
+  ],
+  [
+   "china",
+   "neutral",
+   "orange (the fruit)"
+  ],
+  [
+   "guineo",
+   "neutral",
+   "banana"
+  ],
+  [
+   "gufear",
+   "slang",
+   "to joke around (from 'goof')"
+  ],
+  [
+   "pana",
+   "informal",
+   "friend"
+  ],
+  [
+   "dar cráneo",
+   "slang",
+   "to think hard"
+  ],
+  [
+   "un chin",
+   "informal",
+   "a little bit (also DO)"
+  ],
+  [
+   "bembé",
+   "informal",
+   "party"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "parquear",
+   "neutral",
+   "to park"
+  ],
+  [
+   "fiebre",
+   "slang",
+   "obsessed fan ('es un fiebre de los carros')"
+  ]
+ ],
+ "DO": [
+  [
+   "¿qué lo que?",
+   "slang",
+   "what's up?"
+  ],
+  [
+   "vaina",
+   "informal",
+   "thing; situation"
+  ],
+  [
+   "tíguere",
+   "slang",
+   "street-smart guy; hustler"
+  ],
+  [
+   "jevi",
+   "slang",
+   "cool"
+  ],
+  [
+   "un chin",
+   "informal",
+   "a little bit"
+  ],
+  [
+   "guagua",
+   "neutral",
+   "bus"
+  ],
+  [
+   "pana",
+   "informal",
+   "friend"
+  ],
+  [
+   "jeva",
+   "slang",
+   "girlfriend; woman"
+  ],
+  [
+   "cuartos",
+   "informal",
+   "money"
+  ],
+  [
+   "concho",
+   "informal",
+   "shared taxi; also mild exclamation"
+  ],
+  [
+   "motoconcho",
+   "informal",
+   "motorbike taxi"
+  ],
+  [
+   "bacano",
+   "slang",
+   "cool"
+  ],
+  [
+   "jartura",
+   "informal",
+   "being stuffed after eating"
+  ],
+  [
+   "jumo",
+   "slang",
+   "drunk"
+  ],
+  [
+   "colmado",
+   "neutral",
+   "corner store"
+  ],
+  [
+   "pariguayo",
+   "slang",
+   "party pooper; fool"
+  ],
+  [
+   "dime a ver",
+   "slang",
+   "what's up? / tell me"
+  ],
+  [
+   "tató",
+   "slang",
+   "OK, fine"
+  ],
+  [
+   "pique",
+   "informal",
+   "anger"
+  ],
+  [
+   "chichigua",
+   "neutral",
+   "kite"
+  ],
+  [
+   "zafacón",
+   "neutral",
+   "trash can"
+  ],
+  [
+   "habichuelas",
+   "neutral",
+   "beans"
+  ],
+  [
+   "habichuelas con dulce",
+   "neutral",
+   "sweet bean dessert for Lent"
+  ],
+  [
+   "vaina loca",
+   "slang",
+   "crazy thing"
+  ],
+  [
+   "un mangú",
+   "neutral",
+   "mashed plantain dish"
+  ],
+  [
+   "coro",
+   "slang",
+   "party; hanging out ('estar en coro')"
+  ],
+  [
+   "chercha",
+   "slang",
+   "chit-chat, joking around"
+  ],
+  [
+   "bonche",
+   "slang",
+   "party; group"
+  ],
+  [
+   "dar lengua",
+   "slang",
+   "to gossip"
+  ]
+ ],
+ "CR": [
+  [
+   "pura vida",
+   "informal",
+   "great / hello / thanks / goodbye (national catchphrase)"
+  ],
+  [
+   "mae",
+   "slang",
+   "dude"
+  ],
+  [
+   "tuanis",
+   "slang",
+   "cool"
+  ],
+  [
+   "brete",
+   "slang",
+   "job"
+  ],
+  [
+   "bretear",
+   "slang",
+   "to work"
+  ],
+  [
+   "¡qué chiva!",
+   "slang",
+   "how cool!"
+  ],
+  [
+   "diay",
+   "slang",
+   "well... / so... (interjection)"
+  ],
+  [
+   "tico / tica",
+   "informal",
+   "Costa Rican"
+  ],
+  [
+   "jupa",
+   "slang",
+   "head"
+  ],
+  [
+   "chunche",
+   "informal",
+   "thing, gadget"
+  ],
+  [
+   "harina",
+   "slang",
+   "money"
+  ],
+  [
+   "güila",
+   "informal",
+   "kid"
+  ],
+  [
+   "carajillo",
+   "informal",
+   "kid"
+  ],
+  [
+   "goma",
+   "informal",
+   "hangover"
+  ],
+  [
+   "presa",
+   "neutral",
+   "traffic jam"
+  ],
+  [
+   "birra",
+   "informal",
+   "beer"
+  ],
+  [
+   "rojo",
+   "slang",
+   "1,000 colones bill"
+  ],
+  [
+   "mejenga",
+   "informal",
+   "pickup soccer game"
+  ],
+  [
+   "pachuco",
+   "slang",
+   "rude, crude person or speech"
+  ],
+  [
+   "upe",
+   "informal",
+   "anybody home? (at the door)"
+  ],
+  [
+   "macho / macha",
+   "informal",
+   "blond(e)"
+  ],
+  [
+   "pinche",
+   "informal",
+   "stingy"
+  ],
+  [
+   "al chile",
+   "slang",
+   "seriously, for real"
+  ],
+  [
+   "estar de chuparse los dedos",
+   "informal",
+   "to be delicious"
+  ],
+  [
+   "jalar",
+   "slang",
+   "to date ('están jalando')"
+  ],
+  [
+   "jama",
+   "slang",
+   "food"
+  ],
+  [
+   "vara",
+   "slang",
+   "thing / matter",
+   "¡Qué vara!"
+  ],
+  [
+   "tata",
+   "informal",
+   "dad"
+  ],
+  [
+   "chema",
+   "slang",
+   "T-shirt"
+  ],
+  [
+   "playo",
+   "offensive",
+   "gay man (derogatory)"
+  ],
+  [
+   "pura paja",
+   "slang",
+   "nonsense, lies"
+  ],
+  [
+   "tener filo",
+   "slang",
+   "to be hungry"
+  ],
+  [
+   "boca",
+   "neutral",
+   "bar snack"
+  ],
+  [
+   "soda",
+   "neutral",
+   "small local diner"
+  ],
+  [
+   "con mucho gusto",
+   "neutral",
+   "you're welcome (standard reply to 'gracias')"
+  ]
+ ],
+ "GT": [
+  [
+   "chapín",
+   "informal",
+   "Guatemalan"
+  ],
+  [
+   "patojo / patoja",
+   "informal",
+   "kid"
+  ],
+  [
+   "chilero",
+   "slang",
+   "cool",
+   "¡Qué chilero!"
+  ],
+  [
+   "pisto",
+   "informal",
+   "money"
+  ],
+  [
+   "chucho",
+   "informal",
+   "dog"
+  ],
+  [
+   "cerote",
+   "vulgar",
+   "guy, dude (vulgar origin)"
+  ],
+  [
+   "shute",
+   "slang",
+   "nosy"
+  ],
+  [
+   "canche",
+   "informal",
+   "blond(e)"
+  ],
+  [
+   "chumpa",
+   "neutral",
+   "jacket"
+  ],
+  [
+   "¡a la gran!",
+   "informal",
+   "wow!"
+  ],
+  [
+   "chish",
+   "informal",
+   "yuck"
+  ],
+  [
+   "puchis",
+   "informal",
+   "darn / wow"
+  ],
+  [
+   "babosadas",
+   "informal",
+   "nonsense"
+  ],
+  [
+   "chirís",
+   "informal",
+   "little kid"
+  ],
+  [
+   "ishto / ixto",
+   "informal",
+   "kid (indigenous origin)"
+  ],
+  [
+   "camioneta",
+   "neutral",
+   "extra-urban 'chicken bus'"
+  ],
+  [
+   "bolo",
+   "slang",
+   "drunk"
+  ],
+  [
+   "chompipe",
+   "neutral",
+   "turkey"
+  ],
+  [
+   "chilerísimo",
+   "slang",
+   "very cool"
+  ],
+  [
+   "clavo",
+   "slang",
+   "problem, trouble"
+  ],
+  [
+   "mucha",
+   "slang",
+   "guys / everyone ('¿qué onda, mucha?')"
+  ],
+  [
+   "chance",
+   "slang",
+   "job",
+   "Tengo chance nuevo."
+  ],
+  [
+   "shuco",
+   "informal",
+   "dirty; Guatemalan street hot dog"
+  ],
+  [
+   "chispudo",
+   "informal",
+   "smart, clever"
+  ]
+ ],
+ "SV": [
+  [
+   "guanaco",
+   "informal",
+   "Salvadoran"
+  ],
+  [
+   "cipote / cipota",
+   "informal",
+   "kid"
+  ],
+  [
+   "chivo",
+   "slang",
+   "cool",
+   "¡Qué chivo!"
+  ],
+  [
+   "cachimbón",
+   "slang",
+   "awesome"
+  ],
+  [
+   "pisto",
+   "informal",
+   "money"
+  ],
+  [
+   "bayunco",
+   "slang",
+   "silly, goofy"
+  ],
+  [
+   "chele",
+   "informal",
+   "blond / fair-skinned"
+  ],
+  [
+   "chucho",
+   "informal",
+   "dog; also stingy"
+  ],
+  [
+   "pupusa",
+   "neutral",
+   "stuffed corn cake (national dish)"
+  ],
+  [
+   "bicho / bicha",
+   "informal",
+   "kid"
+  ],
+  [
+   "cheró",
+   "slang",
+   "friend"
+  ],
+  [
+   "maje",
+   "slang",
+   "dude; fool"
+  ],
+  [
+   "dundo",
+   "slang",
+   "dumb"
+  ],
+  [
+   "chambre",
+   "slang",
+   "gossip"
+  ],
+  [
+   "puchica",
+   "informal",
+   "darn"
+  ],
+  [
+   "pacha",
+   "neutral",
+   "baby bottle"
+  ],
+  [
+   "piscucha",
+   "neutral",
+   "kite"
+  ],
+  [
+   "vaya pues",
+   "informal",
+   "OK then"
+  ],
+  [
+   "bolo",
+   "slang",
+   "drunk"
+  ],
+  [
+   "chero",
+   "slang",
+   "friend (variant spelling)"
+  ],
+  [
+   "chamba",
+   "informal",
+   "job"
+  ],
+  [
+   "yuca",
+   "slang",
+   "difficult",
+   "Está yuca."
+  ]
+ ],
+ "HN": [
+  [
+   "catracho",
+   "informal",
+   "Honduran"
+  ],
+  [
+   "cipote / cipota",
+   "informal",
+   "kid"
+  ],
+  [
+   "maje",
+   "slang",
+   "dude"
+  ],
+  [
+   "pisto",
+   "informal",
+   "money"
+  ],
+  [
+   "macizo",
+   "slang",
+   "cool, great"
+  ],
+  [
+   "chele",
+   "informal",
+   "blond / fair-skinned"
+  ],
+  [
+   "chuco",
+   "informal",
+   "dirty"
+  ],
+  [
+   "alero",
+   "slang",
+   "friend"
+  ],
+  [
+   "pijudo",
+   "vulgar",
+   "awesome"
+  ],
+  [
+   "cheque",
+   "slang",
+   "OK, fine",
+   "Todo cheque."
+  ],
+  [
+   "chepo",
+   "slang",
+   "police"
+  ],
+  [
+   "bolo",
+   "slang",
+   "drunk"
+  ],
+  [
+   "pulpería",
+   "neutral",
+   "corner store"
+  ],
+  [
+   "chunche",
+   "informal",
+   "thing"
+  ],
+  [
+   "¡qué barbaridad!",
+   "informal",
+   "wow / how awful"
+  ],
+  [
+   "bichito",
+   "informal",
+   "little kid"
+  ],
+  [
+   "vaya pues",
+   "informal",
+   "OK then / bye"
+  ],
+  [
+   "chamba",
+   "informal",
+   "job"
+  ]
+ ],
+ "NI": [
+  [
+   "nica",
+   "informal",
+   "Nicaraguan"
+  ],
+  [
+   "pinolero",
+   "informal",
+   "Nicaraguan (after 'pinol' corn drink)"
+  ],
+  [
+   "chigüín",
+   "informal",
+   "kid"
+  ],
+  [
+   "chavalo / chavala",
+   "informal",
+   "boy / girl"
+  ],
+  [
+   "tuani",
+   "slang",
+   "cool"
+  ],
+  [
+   "maje",
+   "slang",
+   "dude"
+  ],
+  [
+   "chele",
+   "informal",
+   "blond / fair-skinned"
+  ],
+  [
+   "chunche",
+   "informal",
+   "thing"
+  ],
+  [
+   "¡chocho!",
+   "slang",
+   "wow! (exclamation; vulgar in other countries)"
+  ],
+  [
+   "ponerse chiva",
+   "slang",
+   "to be alert"
+  ],
+  [
+   "reales",
+   "informal",
+   "money"
+  ],
+  [
+   "jaña",
+   "slang",
+   "girlfriend"
+  ],
+  [
+   "chereque",
+   "slang",
+   "thing, gadget"
+  ],
+  [
+   "¡dale pues!",
+   "informal",
+   "OK then! / go ahead"
+  ],
+  [
+   "bróder",
+   "slang",
+   "bro"
+  ],
+  [
+   "chiche",
+   "informal",
+   "easy",
+   "Está chiche."
+  ],
+  [
+   "chela",
+   "slang",
+   "beer"
+  ],
+  [
+   "pulpería",
+   "neutral",
+   "corner store"
+  ],
+  [
+   "vos",
+   "neutral",
+   "you (informal; standard voseo)"
+  ],
+  [
+   "andar chiva",
+   "slang",
+   "to be alert / careful"
+  ]
+ ],
+ "PA": [
+  [
+   "¿qué xopá?",
+   "slang",
+   "what's up? (reversed '¿qué pasó?')"
+  ],
+  [
+   "chuleta",
+   "slang",
+   "wow! / damn! (exclamation)"
+  ],
+  [
+   "pelao / pelaa",
+   "informal",
+   "kid"
+  ],
+  [
+   "fren",
+   "slang",
+   "friend"
+  ],
+  [
+   "buco",
+   "slang",
+   "a lot"
+  ],
+  [
+   "pifioso",
+   "slang",
+   "show-off; flashy"
+  ],
+  [
+   "vaina",
+   "informal",
+   "thing"
+  ],
+  [
+   "chantin",
+   "slang",
+   "house"
+  ],
+  [
+   "guial",
+   "slang",
+   "girl (from English 'girl')"
+  ],
+  [
+   "priti",
+   "slang",
+   "cool, pretty"
+  ],
+  [
+   "mopri",
+   "slang",
+   "cousin; friend (reversed 'primo')"
+  ],
+  [
+   "ofi",
+   "slang",
+   "OK"
+  ],
+  [
+   "tranque",
+   "neutral",
+   "traffic jam"
+  ],
+  [
+   "chiva",
+   "neutral",
+   "minibus"
+  ],
+  [
+   "diablo rojo",
+   "informal",
+   "old painted bus"
+  ],
+  [
+   "chuzo",
+   "slang",
+   "wow!"
+  ],
+  [
+   "parkear",
+   "slang",
+   "to hang out"
+  ],
+  [
+   "juega vivo",
+   "slang",
+   "a sly, opportunistic person; cunning behavior"
+  ],
+  [
+   "chombo",
+   "offensive",
+   "Afro-Antillean person (derogatory)"
+  ],
+  [
+   "rakataka",
+   "slang",
+   "flashy, loud, tacky"
+  ],
+  [
+   "yeyé",
+   "slang",
+   "posh, preppy"
+  ],
+  [
+   "chichi",
+   "informal",
+   "baby"
+  ],
+  [
+   "camarón",
+   "slang",
+   "side job, gig"
+  ],
+  [
+   "¡ey!",
+   "informal",
+   "yes / hey"
+  ]
+ ],
+ "EC": [
+  [
+   "chuchaqui",
+   "informal",
+   "hangover"
+  ],
+  [
+   "ñaño / ñaña",
+   "informal",
+   "brother / sister; buddy"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "bacán",
+   "slang",
+   "cool"
+  ],
+  [
+   "full",
+   "slang",
+   "very; a lot",
+   "Full bueno."
+  ],
+  [
+   "pana",
+   "informal",
+   "friend"
+  ],
+  [
+   "guagua",
+   "informal",
+   "baby (Kichwa)"
+  ],
+  [
+   "¡achachay!",
+   "informal",
+   "brr, it's cold! (Kichwa)"
+  ],
+  [
+   "¡arrarray!",
+   "informal",
+   "ouch, it's hot! (Kichwa)"
+  ],
+  [
+   "chulla vida",
+   "informal",
+   "you only live once"
+  ],
+  [
+   "chulla",
+   "informal",
+   "single, lone (one of a pair)"
+  ],
+  [
+   "pelucón",
+   "slang",
+   "rich person"
+  ],
+  [
+   "cachar",
+   "slang",
+   "to understand"
+  ],
+  [
+   "chiro",
+   "slang",
+   "broke"
+  ],
+  [
+   "¿qué fue?",
+   "slang",
+   "what's up?"
+  ],
+  [
+   "simón",
+   "slang",
+   "yes"
+  ],
+  [
+   "chumado",
+   "slang",
+   "drunk"
+  ],
+  [
+   "ya mismo",
+   "informal",
+   "soon (not necessarily now)"
+  ],
+  [
+   "¿mande?",
+   "neutral",
+   "pardon?"
+  ],
+  [
+   "longo",
+   "offensive",
+   "derogatory term for indigenous people"
+  ],
+  [
+   "mijo / mija",
+   "informal",
+   "dear, honey (lit. my son/daughter)"
+  ],
+  [
+   "guambra",
+   "informal",
+   "kid, teenager (Kichwa)"
+  ],
+  [
+   "achachay",
+   "informal",
+   "it's cold"
+  ],
+  [
+   "bielas",
+   "slang",
+   "beers"
+  ],
+  [
+   "camello",
+   "slang",
+   "job"
+  ],
+  [
+   "de ley",
+   "slang",
+   "for sure",
+   "De ley vamos."
+  ],
+  [
+   "dar haciendo",
+   "informal",
+   "to do (something) for someone (Andean construction)",
+   "Dame pasando la sal."
+  ],
+  [
+   "man",
+   "slang",
+   "guy"
+  ],
+  [
+   "mi pana",
+   "informal",
+   "my friend"
+  ]
+ ],
+ "BO": [
+  [
+   "jailón / jailona",
+   "slang",
+   "snob, posh person"
+  ],
+  [
+   "¡qué macana!",
+   "informal",
+   "what a bummer!"
+  ],
+  [
+   "chango / changa",
+   "informal",
+   "kid, young person"
+  ],
+  [
+   "yapa",
+   "informal",
+   "a little extra"
+  ],
+  [
+   "cholita",
+   "neutral",
+   "Andean woman in traditional dress (context-sensitive)"
+  ],
+  [
+   "k'encha",
+   "slang",
+   "bad luck; jinx (Quechua)"
+  ],
+  [
+   "¡chuta!",
+   "informal",
+   "darn!"
+  ],
+  [
+   "llokalla",
+   "informal",
+   "boy (Quechua)"
+  ],
+  [
+   "camba",
+   "informal",
+   "person from the eastern lowlands"
+  ],
+  [
+   "colla",
+   "informal",
+   "person from the highlands"
+  ],
+  [
+   "trufi",
+   "neutral",
+   "shared taxi/minibus with fixed route"
+  ],
+  [
+   "api",
+   "neutral",
+   "hot purple corn drink"
+  ],
+  [
+   "salteña",
+   "neutral",
+   "baked savory pastry"
+  ],
+  [
+   "ya pues",
+   "informal",
+   "OK then / come on"
+  ],
+  [
+   "pues",
+   "informal",
+   "emphatic filler at sentence end"
+  ],
+  [
+   "chupar",
+   "slang",
+   "to drink alcohol"
+  ],
+  [
+   "achachi",
+   "informal",
+   "wow / oh my"
+  ],
+  [
+   "chojcho",
+   "slang",
+   "dirty, unkempt"
+  ],
+  [
+   "palta",
+   "neutral",
+   "avocado"
+  ],
+  [
+   "choclo",
+   "neutral",
+   "corn on the cob"
+  ]
+ ],
+ "PY": [
+  [
+   "che",
+   "informal",
+   "my (Guaraní, as in 'che ra'a' = my friend); also 'hey'"
+  ],
+  [
+   "nde",
+   "slang",
+   "you; used as exclamation"
+  ],
+  [
+   "¡nderakore!",
+   "slang",
+   "wow! / damn! (Guaraní)"
+  ],
+  [
+   "luego",
+   "informal",
+   "softening particle",
+   "Vení luego."
+  ],
+  [
+   "pio",
+   "informal",
+   "question particle (Guaraní)",
+   "¿Vos pio sos?"
+  ],
+  [
+   "piko",
+   "informal",
+   "question particle (Guaraní)"
+  ],
+  [
+   "jaha",
+   "slang",
+   "let's go (Guaraní)"
+  ],
+  [
+   "vyrorei",
+   "slang",
+   "nonsense, silly thing (Guaraní)"
+  ],
+  [
+   "porã",
+   "informal",
+   "good, pretty (Guaraní)"
+  ],
+  [
+   "kuñataí",
+   "informal",
+   "young woman (Guaraní)"
+  ],
+  [
+   "karai",
+   "informal",
+   "sir, gentleman (Guaraní)"
+  ],
+  [
+   "tereré",
+   "neutral",
+   "cold-brewed yerba mate (national drink)"
+  ],
+  [
+   "chipa",
+   "neutral",
+   "cheese bread"
+  ],
+  [
+   "pororó",
+   "neutral",
+   "popcorn"
+  ],
+  [
+   "guapo",
+   "informal",
+   "hard-working (not 'handsome')",
+   "Es muy guapo para el trabajo."
+  ],
+  [
+   "vaí",
+   "slang",
+   "ugly, bad (Guaraní)"
+  ],
+  [
+   "añamembý",
+   "vulgar",
+   "son of a gun (strong insult, Guaraní)"
+  ],
+  [
+   "mitaí",
+   "informal",
+   "boy (Guaraní)"
+  ],
+  [
+   "mitakuña",
+   "informal",
+   "girl (Guaraní)"
+  ],
+  [
+   "un poco",
+   "informal",
+   "softener for requests",
+   "Pasame un poco la sal."
+  ],
+  [
+   "jopara",
+   "neutral",
+   "mix of Spanish and Guaraní; also a stew"
+  ]
+ ],
+ "GQ": [
+  [
+   "vosotros",
+   "neutral",
+   "you (plural, informal) — Peninsular norm"
+  ],
+  [
+   "ordenador",
+   "neutral",
+   "computer (Peninsular norm)"
+  ],
+  [
+   "pichi",
+   "neutral",
+   "Creole language spoken on Bioko"
+  ],
+  [
+   "malamba",
+   "neutral",
+   "sugarcane alcoholic drink"
+  ]
+ ],
+ "US": [
+  [
+   "troca",
+   "informal",
+   "truck"
+  ],
+  [
+   "lonche",
+   "informal",
+   "lunch"
+  ],
+  [
+   "parquear",
+   "informal",
+   "to park"
+  ],
+  [
+   "marqueta",
+   "informal",
+   "market"
+  ],
+  [
+   "vacunar la carpeta",
+   "informal",
+   "to vacuum the carpet (Spanglish)"
+  ],
+  [
+   "rufo",
+   "informal",
+   "roof"
+  ],
+  [
+   "llamar para atrás",
+   "informal",
+   "to call back (calque)"
+  ],
+  [
+   "raite",
+   "informal",
+   "ride"
+  ],
+  [
+   "la migra",
+   "informal",
+   "immigration enforcement"
+  ],
+  [
+   "el bil",
+   "informal",
+   "the bill"
+  ],
+  [
+   "textear",
+   "informal",
+   "to text"
+  ],
+  [
+   "la yarda",
+   "informal",
+   "the yard"
+  ],
+  [
+   "aplicar",
+   "informal",
+   "to apply (for a job); standard is 'solicitar'"
+  ],
+  [
+   "pocho",
+   "offensive",
+   "Americanized Mexican-American (often derogatory)"
+  ],
+  [
+   "chicano",
+   "neutral",
+   "Mexican-American (identity term)"
+  ],
+  [
+   "Nuyorican",
+   "neutral",
+   "New York Puerto Rican"
+  ]
+ ],
+ "AR UY": [
+  [
+   "vos",
+   "neutral",
+   "you (informal singular; standard voseo)",
+   "¿Vos querés venir?"
+  ],
+  [
+   "boliche",
+   "informal",
+   "nightclub"
+  ],
+  [
+   "la verdad que sí",
+   "informal",
+   "honestly, yes"
+  ],
+  [
+   "macanudo",
+   "informal",
+   "great, nice"
+  ],
+  [
+   "mina",
+   "slang",
+   "woman"
+  ],
+  [
+   "chiquilín",
+   "informal",
+   "kid"
+  ],
+  [
+   "laburo",
+   "informal",
+   "job"
+  ]
+ ],
+ "GT SV HN NI CR": [
+  [
+   "pulpería",
+   "neutral",
+   "corner store"
+  ],
+  [
+   "chunche",
+   "informal",
+   "thing"
+  ],
+  [
+   "goma",
+   "informal",
+   "hangover"
+  ],
+  [
+   "chompipe",
+   "neutral",
+   "turkey"
+  ],
+  [
+   "bolo",
+   "slang",
+   "drunk (GT/SV/HN)"
+  ],
+  [
+   "andar con la goma",
+   "informal",
+   "to be hungover"
+  ]
+ ],
+ "CU PR DO": [
+  [
+   "guagua",
+   "neutral",
+   "bus"
+  ],
+  [
+   "chévere",
+   "informal",
+   "cool"
+  ],
+  [
+   "jeva",
+   "slang",
+   "girlfriend; woman"
+  ],
+  [
+   "mangú",
+   "neutral",
+   "mashed plantains (DO; also mofongo PR)"
+  ],
+  [
+   "¿qué tú quieres?",
+   "informal",
+   "what do you want? (subject before verb in questions)"
+  ]
+ ]
+}
