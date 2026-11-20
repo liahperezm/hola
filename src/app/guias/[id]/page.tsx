@@ -14,5 +14,12 @@ export default async function GuidePage({
   const { id } = await params;
   const guide = GUIDES.find((g) => g.id === id);
   if (!guide) notFound();
-  return <Guide id={guide.id} title={guide.title} />;
+  return (
+    <Guide
+      id={guide.id}
+      title={guide.title}
+      emoji={guide.emoji}
+      subtitle={guide.subtitle}
+    />
+  );
 }

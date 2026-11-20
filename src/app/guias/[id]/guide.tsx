@@ -1,15 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { CircleArrowRight } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { useMemo, useState } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
-import { SearchField, TitleBar, TermPairText } from "@/components/ui";
+import {
+  EmptyState,
+  ListCard,
+  PageHeader,
+  SearchField,
+  capitalize,
+} from "@/components/ui";
 import { DIALECTS } from "@/lib/dialects";
 import { guideRows, normalize, type GuideId } from "@/lib/dictionary";
 import { useGuidePair } from "@/lib/storage";
 
-export function Guide({ id, title }: { id: GuideId; title: string }) {
+export function Guide({
+  id,
+  title,
+  emoji,
+  subtitle,
+}: {
+  id: GuideId;
+  title: string;
+  emoji: string;
+  subtitle: string;
+}) {
   const [pair, setPair] = useGuidePair();
   const [query, setQuery] = useState("");
 
@@ -19,61 +35,71 @@ export function Guide({ id, title }: { id: GuideId; title: string }) {
       (r) =>
         !q ||
         normalize(r.from.display).includes(q) ||
-        normalize(r.to.text).includes(q),
+        normalize(r.to.display).includes(q),
     );
   }, [id, pair.from, pair.to, query]);
 
   return (
-    <div className="min-h-dvh bg-white">
-      <TitleBar title={title} back="/diccionario">
-        <div className="mt-12 mb-11">
-          <DialectSwitcher value={pair} onChange={setPair} />
-        </div>
-      </TitleBar>
+    <div className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
+      <PageHeader fallback="/explorar" />
+      <div className="mx-1 mt-5 mb-5">
+        <span aria-hidden className="text-[34px]">
+          {emoji}
+        </span>
+        <h1 className="mt-1 text-[32px] font-extrabold tracking-[-0.03em]">{title}</h1>
+        <p className="text-muted">{subtitle}</p>
+      </div>
+      <DialectSwitcher value={pair} onChange={setPair} />
+      <div className="mt-3">
+        <SearchField value={query} onChange={setQuery} placeholder="Busca en esta guía" />
+      </div>
 
-      <main className="px-8 pt-10 pb-12">
-        <SearchField value={query} onChange={setQuery} />
-        {rows.length === 0 ? (
-          <p className="mt-10 text-lg text-muted">
-            {query.trim()
-              ? `Nada coincide con «${query.trim()}».`
-              : `Todavía no hay palabras de ${title.toLowerCase()} para ${DIALECTS[pair.from].name} y ${DIALECTS[pair.to].name}.`}
-          </p>
-        ) : (
-          <ul className="mt-6">
+      {rows.length === 0 ? (
+        <EmptyState
+          title={
+            query.trim()
+              ? `Nada coincide con «${query.trim()}»`
+              : `Aún no hay palabras para ${DIALECTS[pair.from].name} y ${DIALECTS[pair.to].name}`
+          }
+        />
+      ) : (
+        <div className="mt-4">
+          <ListCard>
             {rows.map((row) => {
               const target = row.from.entry ?? row.to.entry;
               const content = (
                 <>
                   <div className="min-w-0 flex-1">
-                    <TermPairText from={row.from.display} to={row.to.display} />
+                    <p className="text-[15px] font-medium text-muted">
+                      {capitalize(row.from.display)}
+                    </p>
+                    <p className="text-[17px] font-extrabold">
+                      {capitalize(row.to.display)}
+                    </p>
                   </div>
                   {target && (
-                    <CircleArrowRight
-                      className="size-7 shrink-0 text-muted"
-                      strokeWidth={2}
-                    />
+                    <ChevronRight className="size-[18px] shrink-0 text-muted" />
                   )}
                 </>
               );
               return (
-                <li key={row.conceptId} className="border-b border-[#7f7f7f]/70">
+                <li key={row.conceptId}>
                   {target ? (
                     <Link
                       href={`/frase/${target.id}`}
-                      className="flex items-center gap-4 py-6 hover:bg-field/60"
+                      className="flex items-center gap-3 py-3.5"
                     >
                       {content}
                     </Link>
                   ) : (
-                    <div className="flex items-center gap-4 py-6">{content}</div>
+                    <div className="flex items-center gap-3 py-3.5">{content}</div>
                   )}
                 </li>
               );
             })}
-          </ul>
-        )}
-      </main>
+          </ListCard>
+        </div>
+      )}
     </div>
   );
 }

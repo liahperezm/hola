@@ -2,30 +2,31 @@
 
 import Link from "next/link";
 import {
-  BookText,
+  ArrowRight,
   Camera,
-  CircleArrowRight,
+  Check,
+  ChevronRight,
+  Copy,
   LoaderCircle,
   Mic,
-  Settings,
+  Share,
   Sparkles,
-  Volume1,
+  Volume2,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { CountryLabel } from "@/components/flag";
+import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
-import { Logo } from "@/components/logo";
-import { CardLink, TermPairText } from "@/components/ui";
+import { CountryLabel } from "@/components/flag";
+import { ListCard, SectionTitle, TabScreen, TopBar } from "@/components/ui";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { PhraseEntry } from "@/lib/phrase";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
 import { rememberAiEntries, useDialectPair } from "@/lib/storage";
 import {
-  isSingleTerm,
   translateWithDictionary,
   type Segment,
+  type TermPair,
   type Translation,
 } from "@/lib/translate";
 
@@ -144,232 +145,235 @@ export function Translator() {
     }
   };
 
-  const single = result && result.via !== "none" && isSingleTerm(result);
-  const singleFromId = single ? result.pairs[0].from.id : undefined;
-  const singleToId = single ? result.pairs[0].to.id : undefined;
+  const errorMessage = error ?? dictation.error;
 
   return (
-    <div className="flex min-h-dvh flex-col">
-      <header className="bg-navy px-8 pt-[max(env(safe-area-inset-top),1.25rem)] pb-16 text-white">
-        <div className="flex h-12 items-center justify-between">
-          <Link
-            href="/diccionario"
-            aria-label="Mi diccionario"
-            className="-ml-2 rounded-full p-2 hover:bg-white/10"
-          >
-            <BookText className="size-7" strokeWidth={2.25} />
-          </Link>
-          <Logo className="h-11" />
-          <Link
-            href="/ajustes"
-            aria-label="Ajustes"
-            className="-mr-2 rounded-full p-2 hover:bg-white/10"
-          >
-            <Settings className="size-7" strokeWidth={2.25} />
-          </Link>
-        </div>
-        <div className="mt-12">
-          <DialectSwitcher value={pair} onChange={changePair} />
-        </div>
-      </header>
+    <TabScreen>
+      <TopBar />
+      <div className="mt-4">
+        <DialectSwitcher value={pair} onChange={changePair} />
+      </div>
 
-      <main className="flex flex-1 flex-col">
-        <section className="bg-white px-8 pt-6 pb-8">
-          <div className="flex items-center justify-between">
-            <CountryLabel code={pair.from} />
-            {text && (
-              <button
-                type="button"
-                aria-label="Borrar texto"
-                onClick={clear}
-                className="-mr-2 rounded-full p-2 text-muted hover:bg-field"
-              >
-                <X className="size-5" />
-              </button>
-            )}
-          </div>
-
-          {result ? (
-            <>
-              <div className="mt-6 flex items-start gap-3">
-                <button
-                  type="button"
-                  onClick={edit}
-                  className="flex-1 text-left text-2xl leading-snug"
-                  aria-label="Editar texto"
-                >
-                  <Highlighted segments={result.source} />
-                </button>
-                {singleFromId && <DetailArrow id={singleFromId} />}
-              </div>
-              <SpeakButton
-                text={join(result.source)}
-                lang={DIALECTS[result.from].speechLang}
-              />
-            </>
-          ) : (
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                translate(text);
-              }}
+      {result ? (
+        <>
+          <section className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card">
+            <div className="flex items-center justify-between">
+              <CountryLabel code={result.from} />
+              <ClearButton onClick={clear} />
+            </div>
+            <button
+              type="button"
+              onClick={edit}
+              aria-label="Editar texto"
+              className="mt-2.5 block w-full text-left text-[23px] leading-snug font-medium tracking-[-0.01em] text-body"
             >
-              <textarea
-                ref={textArea}
-                value={text}
-                onChange={(e) => setText(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter" && !e.shiftKey) {
-                    e.preventDefault();
-                    translate(text);
-                  }
-                }}
-                enterKeyHint="go"
-                rows={3}
-                maxLength={500}
-                placeholder={dictation.listening ? "Te escucho…" : "Escribe"}
-                aria-label={`Texto en español de ${DIALECTS[pair.from].name}`}
-                className="mt-4 w-full resize-none bg-transparent text-2xl leading-snug outline-none placeholder:text-placeholder"
-              />
-              <div className="mt-2 flex items-center justify-end gap-5">
-                {text.trim() && (
-                  <button
-                    type="submit"
-                    className="mr-auto rounded-full bg-field px-5 py-2.5 text-sm font-bold tracking-[0.12em] text-navy uppercase hover:bg-[#e6e6ee]"
-                  >
-                    Traducir
-                  </button>
-                )}
-                {aiAvailable && (
-                  <>
-                    <input
-                      ref={fileInput}
-                      type="file"
-                      accept="image/*"
-                      capture="environment"
-                      className="hidden"
-                      onChange={(e) => {
-                        const file = e.target.files?.[0];
-                        e.target.value = "";
-                        if (file) void readPhoto(file);
-                      }}
-                    />
-                    <button
-                      type="button"
-                      aria-label="Traducir una foto"
-                      onClick={() => fileInput.current?.click()}
-                      disabled={loading === "photo"}
-                      className="rounded-full p-2 hover:bg-field"
-                    >
-                      {loading === "photo" ? (
-                        <LoaderCircle className="size-8 animate-spin" />
-                      ) : (
-                        <Camera className="size-8" strokeWidth={2} />
-                      )}
-                    </button>
-                  </>
-                )}
-                {dictation.supported && (
-                  <button
-                    type="button"
-                    aria-label={dictation.listening ? "Dejar de escuchar" : "Dictar"}
-                    aria-pressed={dictation.listening}
-                    onClick={dictation.listening ? dictation.stop : dictation.start}
-                    className={`grid size-[52px] place-items-center rounded-full bg-navy text-white transition ${
-                      dictation.listening ? "animate-pulse ring-8 ring-navy/15" : ""
-                    }`}
-                  >
-                    <Mic className="size-7" strokeWidth={2.25} />
-                  </button>
-                )}
-              </div>
-            </form>
-          )}
-          {(error || dictation.error) && (
-            <p role="alert" className="mt-4 text-[15px] text-[#a1262b]">
-              {error ?? dictation.error}
-            </p>
-          )}
-        </section>
+              <Highlighted segments={result.source} />
+            </button>
+            <div className="mt-3 flex gap-2">
+              <ActionButton
+                label="Escuchar"
+                onClick={() =>
+                  speak(join(result.source), DIALECTS[result.from].speechLang)
+                }
+              >
+                <Volume2 className="size-[18px]" />
+              </ActionButton>
+            </div>
 
-        {result && (
-          <section className="bg-white px-8 pb-8" aria-live="polite">
-            <hr className="mb-7 border-[#7f7f7f]/60" />
-            <CountryLabel code={result.to} />
-            {loading === "ai" ? (
-              <p className="mt-6 flex items-center gap-3 text-xl text-muted">
-                <LoaderCircle className="size-5 animate-spin" />
-                Traduciendo…
-              </p>
-            ) : result.via === "none" ? (
-              <NothingFound
-                text={join(result.source)}
-                aiAvailable={aiAvailable}
-              />
-            ) : (
-              <>
-                <div className="mt-6 flex items-start gap-3">
-                  <p className="flex-1 text-2xl leading-snug text-navy">
+            <hr className="my-[18px] border-line" />
+
+            <div aria-live="polite">
+              <CountryLabel code={result.to} />
+              {loading === "ai" ? (
+                <p className="mt-3 flex items-center gap-3 text-[18px] text-muted">
+                  <LoaderCircle className="size-5 animate-spin" />
+                  Traduciendo…
+                </p>
+              ) : (
+                <>
+                  <p className="mt-2.5 text-[23px] leading-snug font-medium tracking-[-0.01em]">
                     <Highlighted segments={result.target} />
                   </p>
-                  {singleToId && <DetailArrow id={singleToId} navy />}
-                </div>
-                <SpeakButton
-                  text={join(result.target)}
-                  lang={DIALECTS[result.to].speechLang}
-                  navy
+                  {result.via === "none" && (
+                    <p className="mt-2 text-sm text-muted">
+                      {aiAvailable
+                        ? "No encontramos nada regional que cambiar."
+                        : "No encontramos estas palabras en el diccionario de Hola."}
+                    </p>
+                  )}
+                  <TargetActions
+                    text={join(result.target)}
+                    lang={DIALECTS[result.to].speechLang}
+                  />
+                </>
+              )}
+            </div>
+          </section>
+
+          {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+
+          {!loading && result.via === "dictionary" && aiAvailable && (
+            <button
+              type="button"
+              onClick={() =>
+                void askAi(join(result.source), result.from, result.to, true)
+              }
+              className="mx-auto mt-4 flex items-center gap-2 text-[13.5px] font-semibold text-muted hover:text-navy"
+            >
+              <Sparkles className="size-4" />
+              Revisar toda la frase con IA
+            </button>
+          )}
+          {!loading && result.via === "ai" && (
+            <p className="mt-4 flex items-center justify-center gap-2 text-[13.5px] text-muted">
+              <Sparkles className="size-4" />
+              Traducido con IA. Puede contener errores.
+            </p>
+          )}
+
+          {!loading && result.pairs.length > 0 && (
+            <RegionalWords pairs={result.pairs} />
+          )}
+        </>
+      ) : (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            translate(text);
+          }}
+          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] bg-white px-[22px] py-[22px] shadow-card"
+        >
+          <div className="flex items-center justify-between">
+            <CountryLabel code={pair.from} />
+            {text && <ClearButton onClick={clear} />}
+          </div>
+          <textarea
+            ref={textArea}
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                translate(text);
+              }
+            }}
+            enterKeyHint="go"
+            maxLength={500}
+            placeholder={dictation.listening ? "Te escucho…" : "Escribe o habla…"}
+            aria-label={`Texto en español de ${DIALECTS[pair.from].name}`}
+            className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] outline-none placeholder:text-placeholder"
+          />
+          {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
+          <div className="relative mt-4 flex h-[68px] items-center justify-center">
+            {text.trim() ? (
+              <button
+                type="submit"
+                className="flex h-14 items-center gap-2 rounded-full bg-navy px-7 text-[16px] font-bold text-white shadow-[0_8px_20px_rgb(3_0_80/0.25)] active:scale-95"
+              >
+                Traducir
+                <ArrowRight className="size-5" />
+              </button>
+            ) : (
+              dictation.supported && (
+                <button
+                  type="button"
+                  aria-label={dictation.listening ? "Dejar de escuchar" : "Hablar"}
+                  aria-pressed={dictation.listening}
+                  onClick={dictation.listening ? dictation.stop : dictation.start}
+                  className={`grid size-[68px] place-items-center rounded-full bg-navy text-white shadow-[0_8px_20px_rgb(3_0_80/0.25)] transition active:scale-95 ${
+                    dictation.listening ? "animate-pulse ring-8 ring-navy/15" : ""
+                  }`}
+                >
+                  <Mic className="size-7" />
+                </button>
+              )
+            )}
+            {aiAvailable && (
+              <>
+                <input
+                  ref={fileInput}
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    e.target.value = "";
+                    if (file) void readPhoto(file);
+                  }}
                 />
-                {result.via === "dictionary" && aiAvailable && (
-                  <button
-                    type="button"
-                    onClick={() =>
-                      void askAi(join(result.source), result.from, result.to, true)
-                    }
-                    className="mt-6 flex items-center gap-2 text-sm font-bold tracking-[0.08em] text-muted uppercase hover:text-navy"
-                  >
-                    <Sparkles className="size-4" />
-                    Revisar toda la frase con IA
-                  </button>
-                )}
-                {result.via === "ai" && (
-                  <p className="mt-6 flex items-center gap-2 text-sm text-muted">
-                    <Sparkles className="size-4" />
-                    Traducido con IA. Puede contener errores.
-                  </p>
-                )}
+                <button
+                  type="button"
+                  aria-label="Traducir una foto"
+                  onClick={() => fileInput.current?.click()}
+                  disabled={loading === "photo"}
+                  className="absolute right-0 grid size-12 place-items-center rounded-full bg-bg hover:bg-lavender/60"
+                >
+                  {loading === "photo" ? (
+                    <LoaderCircle className="size-[22px] animate-spin" />
+                  ) : (
+                    <Camera className="size-[22px]" />
+                  )}
+                </button>
               </>
             )}
-          </section>
-        )}
-
-        <section className="flex-1 bg-gray px-6 pt-5 pb-[max(env(safe-area-inset-bottom),2rem)]">
-          {result && !single && result.pairs.length > 0 && !loading && (
-            <ul className="space-y-6">
-              {result.pairs.map((p) => (
-                <li key={`${p.from.text}-${p.to.text}`}>
-                  {p.from.id ? (
-                    <CardLink href={`/frase/${p.from.id}`}>
-                      <TermPairText from={p.from.text} to={p.to.text} />
-                    </CardLink>
-                  ) : (
-                    <div className="rounded-[22px] bg-white px-7 py-4">
-                      <TermPairText from={p.from.text} to={p.to.text} />
-                    </div>
-                  )}
-                </li>
-              ))}
-            </ul>
-          )}
-        </section>
-      </main>
-    </div>
+          </div>
+        </form>
+      )}
+    </TabScreen>
   );
+}
+
+function RegionalWords({ pairs }: { pairs: TermPair[] }) {
+  return (
+    <section>
+      <SectionTitle>
+        {pairs.length === 1 ? "1 palabra regional" : `${pairs.length} palabras regionales`}
+      </SectionTitle>
+      <ListCard>
+        {pairs.map((p) => {
+          const content = (
+            <>
+              <div className="min-w-0 flex-1">
+                <p className="flex flex-wrap items-center gap-x-2 text-[15.5px]">
+                  <span className="font-semibold text-muted">{p.from.text}</span>
+                  <ArrowRight className="size-[15px] text-muted" />
+                  <span className="font-extrabold">{p.to.text}</span>
+                </p>
+                <p className="mt-0.5 text-sm text-muted">{capitalizeFirst(p.meaning)}.</p>
+              </div>
+              {p.from.id && <ChevronRight className="size-[18px] shrink-0 text-muted" />}
+            </>
+          );
+          return (
+            <li key={`${p.from.text}-${p.to.text}`}>
+              {p.from.id ? (
+                <Link
+                  href={`/frase/${p.from.id}`}
+                  className="flex items-center gap-3 py-3"
+                >
+                  {content}
+                </Link>
+              ) : (
+                <div className="flex items-center gap-3 py-3">{content}</div>
+              )}
+            </li>
+          );
+        })}
+      </ListCard>
+    </section>
+  );
+}
+
+function capitalizeFirst(text: string) {
+  const clean = text.replace(/[.\s]+$/, "");
+  return clean.charAt(0).toUpperCase() + clean.slice(1);
 }
 
 function Highlighted({ segments }: { segments: Segment[] }) {
   return segments.map((s, i) =>
     s.highlight ? (
-      <strong key={i} className="font-bold">
+      <strong key={i} className="font-extrabold">
         {s.text}
       </strong>
     ) : (
@@ -378,54 +382,72 @@ function Highlighted({ segments }: { segments: Segment[] }) {
   );
 }
 
-function SpeakButton({
-  text,
-  lang,
-  navy,
+function ActionButton({
+  label,
+  onClick,
+  children,
 }: {
-  text: string;
-  lang: string;
-  navy?: boolean;
+  label: string;
+  onClick: () => void;
+  children: ReactNode;
 }) {
   return (
     <button
       type="button"
-      aria-label="Escuchar"
-      onClick={() => speak(text, lang)}
-      className={`mt-5 -ml-2 rounded-full p-2 hover:bg-field ${navy ? "text-navy" : "text-ink"}`}
+      aria-label={label}
+      onClick={onClick}
+      className="grid size-9 place-items-center rounded-full bg-bg transition hover:bg-lavender active:scale-95"
     >
-      <Volume1 className="size-7 fill-current" strokeWidth={2} />
+      {children}
     </button>
   );
 }
 
-function DetailArrow({ id, navy }: { id: string; navy?: boolean }) {
+function TargetActions({ text, lang }: { text: string; lang: string }) {
+  const [copied, setCopied] = useState(false);
+  const copy = async () => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  };
   return (
-    <Link
-      href={`/frase/${id}`}
-      aria-label="Ver definición y origen"
-      className={`mt-0.5 rounded-full p-1 hover:bg-field ${navy ? "text-navy/60" : "text-muted"}`}
-    >
-      <CircleArrowRight className="size-8" strokeWidth={2} />
-    </Link>
+    <div className="mt-3 flex gap-2">
+      <ActionButton label="Escuchar" onClick={() => speak(text, lang)}>
+        <Volume2 className="size-[18px]" />
+      </ActionButton>
+      <ActionButton label={copied ? "Copiado" : "Copiar"} onClick={() => void copy()}>
+        {copied ? <Check className="size-[18px]" /> : <Copy className="size-[18px]" />}
+      </ActionButton>
+      <ActionButton
+        label="Compartir"
+        onClick={() => {
+          if (navigator.share) void navigator.share({ text }).catch(() => {});
+          else void copy();
+        }}
+      >
+        <Share className="size-[18px]" />
+      </ActionButton>
+    </div>
   );
 }
 
-function NothingFound({
-  text,
-  aiAvailable,
-}: {
-  text: string;
-  aiAvailable: boolean;
-}) {
+function ClearButton({ onClick }: { onClick: () => void }) {
   return (
-    <div className="mt-6 space-y-3">
-      <p className="text-2xl leading-snug text-navy">{text}</p>
-      <p className="text-[15px] text-muted">
-        {aiAvailable
-          ? "No encontramos nada regional que cambiar."
-          : "Esta frase no está en el diccionario de Hola todavía."}
-      </p>
-    </div>
+    <button
+      type="button"
+      aria-label="Borrar texto"
+      onClick={onClick}
+      className="-mr-2 grid size-9 place-items-center rounded-full text-muted hover:bg-bg"
+    >
+      <X className="size-4" />
+    </button>
+  );
+}
+
+function ErrorText({ children }: { children: ReactNode }) {
+  return (
+    <p role="alert" className="mt-3 text-center text-sm text-danger">
+      {children}
+    </p>
   );
 }

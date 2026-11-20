@@ -1,7 +1,7 @@
 // Offline support: pages are network-first with a cached fallback, static
 // assets are cache-first. API calls always go to the network.
-const CACHE = "hola-v1";
-const PRECACHE = ["/", "/diccionario", "/diccionario/favoritos", "/ajustes"];
+const CACHE = "hola-v2";
+const PRECACHE = ["/", "/explorar", "/guardados", "/ajustes"];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(

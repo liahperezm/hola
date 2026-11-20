@@ -167,13 +167,3 @@ export function translateWithDictionary(
     via: pairs.length > 0 ? "dictionary" : "none",
   };
 }
-
-/** True when the whole input is a single dictionary term ("A la brigandina"). */
-export function isSingleTerm(translation: Translation): boolean {
-  return (
-    translation.pairs.length === 1 &&
-    translation.source.every(
-      (s) => s.highlight || s.text.replace(/[\s¿?¡!.,]/g, "") === "",
-    )
-  );
-}

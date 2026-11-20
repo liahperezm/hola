@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { allEntries, getEntry, guideRows } from "./dictionary";
-import { isSingleTerm, translateWithDictionary } from "./translate";
+import { allEntries, getEntry, guideRows, wordOfTheDay } from "./dictionary";
+import { translateWithDictionary } from "./translate";
 
 const join = (segments: { text: string }[]) =>
   segments.map((s) => s.text).join("");
@@ -44,15 +44,6 @@ describe("translateWithDictionary", () => {
     expect(result.via).toBe("none");
     expect(join(result.target)).toBe("Buenos días a todos");
   });
-
-  it("recognises a single term", () => {
-    expect(
-      isSingleTerm(translateWithDictionary("A la brigandina", "DO", "CO")),
-    ).toBe(true);
-    expect(
-      isSingleTerm(translateWithDictionary("Lo hizo a la brigandina", "DO", "CO")),
-    ).toBe(false);
-  });
 });
 
 describe("dictionary", () => {
@@ -68,6 +59,14 @@ describe("dictionary", () => {
     expect(pairs).toContainEqual(["ey tú", "che"]);
     expect(pairs).toContainEqual(["un lío, un arroz con mango", "quilombo"]);
     expect(pairs).toContainEqual(["carajito(a), chamaquito(a)", "pibe(a)"]);
+  });
+
+  it("picks a word of the day with a story, stable through the day", () => {
+    const morning = wordOfTheDay(new Date(2026, 10, 20, 8));
+    const night = wordOfTheDay(new Date(2026, 10, 20, 23));
+    expect(morning.id).toBe(night.id);
+    expect(morning.origin).toBeTruthy();
+    expect(wordOfTheDay(new Date(2026, 10, 21)).id).not.toBe(morning.id);
   });
 
   it("has unique ids", () => {

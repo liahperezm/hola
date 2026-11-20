@@ -1,35 +1,32 @@
-import { AR, CL, CO, CU, DO, ES, MX, PE, PR, UY, VE } from "country-flag-icons/react/1x1";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
 
-const FLAGS = { AR, CL, CO, CU, DO, ES, MX, PE, PR, UY, VE };
+/** "DO" → 🇩🇴, drawn by the device's emoji font. */
+export function flagEmoji(code: DialectCode): string {
+  return String.fromCodePoint(
+    ...[...code].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65),
+  );
+}
 
 export function Flag({
   code,
-  size = 26,
+  className = "text-xl",
 }: {
   code: DialectCode;
-  size?: number;
+  className?: string;
 }) {
-  const Svg = FLAGS[code];
   return (
-    <span
-      aria-hidden
-      className="inline-block shrink-0 overflow-hidden rounded-full ring-1 ring-black/15"
-      style={{ width: size, height: size }}
-    >
-      <Svg className="block h-full w-full" />
+    <span aria-hidden className={`leading-none ${className}`}>
+      {flagEmoji(code)}
     </span>
   );
 }
 
-/** "🇩🇴 REPÚBLICA DOMINICANA" label above a text. */
+/** "🇩🇴 República Dominicana" label above a text. */
 export function CountryLabel({ code }: { code: DialectCode }) {
   return (
-    <div className="flex items-center gap-4">
-      <Flag code={code} />
-      <span className="text-[13px] font-bold tracking-[0.14em] uppercase">
-        {DIALECTS[code].name}
-      </span>
+    <div className="flex items-center gap-2 text-[13.5px] font-semibold text-muted">
+      <Flag code={code} className="text-[17px]" />
+      {DIALECTS[code].name}
     </div>
   );
 }

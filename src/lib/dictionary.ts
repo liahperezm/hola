@@ -2,11 +2,16 @@ import { DIALECTS, type DialectCode } from "./dialects";
 
 export type GuideId = "basicos" | "oficina" | "viaje" | "comida";
 
-export const GUIDES: { id: GuideId; title: string; emoji: string }[] = [
-  { id: "basicos", title: "Básicos", emoji: "👋" },
-  { id: "oficina", title: "Oficina", emoji: "💼" },
-  { id: "viaje", title: "Viaje", emoji: "✈️" },
-  { id: "comida", title: "Comida", emoji: "🍲" },
+export const GUIDES: {
+  id: GuideId;
+  title: string;
+  emoji: string;
+  subtitle: string;
+}[] = [
+  { id: "basicos", title: "Básicos", emoji: "👋", subtitle: "Saludos y el día a día" },
+  { id: "viaje", title: "Viaje", emoji: "✈️", subtitle: "Transporte y hoteles" },
+  { id: "comida", title: "Comida", emoji: "🍲", subtitle: "Mercado y mesa" },
+  { id: "oficina", title: "Oficina", emoji: "💼", subtitle: "Reuniones y trabajo" },
 ];
 
 export type TermDetail = {
@@ -704,4 +709,15 @@ export function otherWays(
     if (dialect === except || !first) return [];
     return [{ dialect, text: first, id: `${dialect}.${slugify(first)}` }];
   });
+}
+
+/** A word with a story, different each day, the same for everyone. */
+export function wordOfTheDay(date: Date): Entry {
+  const candidates = [...ENTRIES.values()]
+    .filter((e) => e.origin && e.pronunciation)
+    .sort((a, b) => a.id.localeCompare(b.id));
+  const day = Math.floor(
+    Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000,
+  );
+  return candidates[day % candidates.length];
 }

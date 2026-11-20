@@ -8,7 +8,7 @@ import { Flag } from "./flag";
 
 type Side = "from" | "to";
 
-/** White pill: "REP. DOM. ⇄ COLOMBIA". Tap a side to pick its country. */
+/** "🇩🇴 Rep. Dom. ⇄ 🇨🇴 Colombia". Tap a country to change it. */
 export function DialectSwitcher({
   value,
   onChange,
@@ -32,23 +32,23 @@ export function DialectSwitcher({
 
   return (
     <>
-      <div className="grid h-[72px] grid-cols-[1fr_auto_1fr] items-center rounded-full bg-white text-ink">
-        <SideButton
+      <div className="grid grid-cols-[1fr_40px_1fr] items-center gap-2">
+        <CountryChip
           code={value.from}
-          label="Dialecto de origen"
+          label="Traducir de"
           onClick={() => setPicking("from")}
         />
         <button
           type="button"
-          aria-label="Intercambiar dialectos"
+          aria-label="Intercambiar países"
           onClick={() => onChange({ from: value.to, to: value.from })}
-          className="rounded-full p-2 transition hover:bg-field active:rotate-180"
+          className="grid size-10 place-items-center rounded-full bg-navy text-white transition active:rotate-180"
         >
-          <ArrowLeftRight className="size-6" strokeWidth={2.25} />
+          <ArrowLeftRight className="size-[18px]" />
         </button>
-        <SideButton
+        <CountryChip
           code={value.to}
-          label="Dialecto de destino"
+          label="Traducir a"
           onClick={() => setPicking("to")}
         />
       </div>
@@ -63,7 +63,7 @@ export function DialectSwitcher({
   );
 }
 
-function SideButton({
+function CountryChip({
   code,
   label,
   onClick,
@@ -77,9 +77,10 @@ function SideButton({
       type="button"
       aria-label={`${label}: ${DIALECTS[code].name}. Cambiar`}
       onClick={onClick}
-      className="mx-2 h-14 rounded-full px-3 text-[15px] leading-tight font-bold tracking-[0.14em] uppercase transition hover:bg-field"
+      className="flex h-12 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-[14.5px] font-semibold whitespace-nowrap shadow-card transition hover:bg-lavender/50"
     >
-      {DIALECTS[code].short}
+      <Flag code={code} />
+      <span className="truncate">{DIALECTS[code].short}</span>
     </button>
   );
 }
@@ -113,18 +114,17 @@ function DialectPicker({
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
       }}
-      className="sheet m-0 mt-auto max-h-[85dvh] w-full max-w-none bg-transparent p-0 backdrop:bg-black/40 sm:mx-auto sm:max-w-md"
+      className="sheet m-0 mt-auto max-h-[85dvh] w-full max-w-none bg-transparent p-0 backdrop:bg-navy/40 sm:mx-auto sm:max-w-md"
     >
-      <div className="rounded-t-[28px] bg-white px-6 pt-5 pb-[max(env(safe-area-inset-bottom),1.5rem)] text-ink">
-        <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-[13px] font-bold tracking-[0.14em] uppercase">
-            {title}
-          </h2>
+      <div className="rounded-t-[30px] bg-white px-6 pt-3 pb-[max(env(safe-area-inset-bottom),1.5rem)] text-navy">
+        <div className="mx-auto mb-4 h-[5px] w-10 rounded-full bg-line" />
+        <div className="mb-2 flex items-center justify-between">
+          <h2 className="text-lg font-bold">{title}</h2>
           <button
             type="button"
             aria-label="Cerrar"
             onClick={onClose}
-            className="-mr-2 rounded-full p-2 hover:bg-field"
+            className="-mr-2 grid size-10 place-items-center rounded-full hover:bg-bg"
           >
             <X className="size-5" />
           </button>
@@ -135,13 +135,12 @@ function DialectPicker({
               <button
                 type="button"
                 onClick={() => onChoose(code)}
-                className="flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-lg hover:bg-field"
+                aria-current={code === selected}
+                className="flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg"
               >
-                <Flag code={code} size={30} />
+                <Flag code={code} className="text-2xl" />
                 <span className="flex-1">{DIALECTS[code].name}</span>
-                {code === selected && (
-                  <Check className="size-5 text-navy" strokeWidth={3} />
-                )}
+                {code === selected && <Check className="size-5" strokeWidth={3} />}
               </button>
             </li>
           ))}
