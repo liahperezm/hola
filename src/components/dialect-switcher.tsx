@@ -75,12 +75,16 @@ function CountryChip({
   return (
     <button
       type="button"
-      aria-label={`${label}: ${DIALECTS[code].name}. Cambiar`}
       onClick={onClick}
       className="flex h-12 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-[14.5px] font-semibold whitespace-nowrap shadow-card transition hover:bg-lavender/50"
     >
       <Flag code={code} />
+      <span className="sr-only">{label}: </span>
       <span className="truncate">{DIALECTS[code].short}</span>
+      {DIALECTS[code].short !== DIALECTS[code].name && (
+        <span className="sr-only"> ({DIALECTS[code].name})</span>
+      )}
+      <span className="sr-only">. Cambiar país</span>
     </button>
   );
 }
@@ -110,6 +114,7 @@ function DialectPicker({
   return (
     <dialog
       ref={ref}
+      aria-labelledby="dialect-picker-title"
       onClose={onClose}
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose();
@@ -119,7 +124,7 @@ function DialectPicker({
       <div className="rounded-t-[30px] bg-white px-6 pt-3 pb-[max(env(safe-area-inset-bottom),1.5rem)] text-navy">
         <div className="mx-auto mb-4 h-[5px] w-10 rounded-full bg-line" />
         <div className="mb-2 flex items-center justify-between">
-          <h2 className="text-lg font-bold">{title}</h2>
+          <h2 id="dialect-picker-title" className="text-lg font-bold">{title}</h2>
           <button
             type="button"
             aria-label="Cerrar"

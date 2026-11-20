@@ -1,7 +1,7 @@
 /** The "hola" wordmark with its smile, in the current text color. */
 export function Logo({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 64 34" className={className} role="img" aria-label="hola">
+    <svg viewBox="0 0 64 34" className={className} role="img" aria-label="Hola">
       <text
         x="32"
         y="20"

@@ -7,6 +7,7 @@ import { Flag } from "@/components/flag";
 import {
   EmptyState,
   ListCard,
+  ResultCount,
   SearchField,
   SectionTitle,
   TabScreen,
@@ -41,6 +42,7 @@ export default function Explore() {
         <SearchField value={query} onChange={setQuery} />
       </div>
 
+      <ResultCount count={results.length} active={query.trim() !== ""} />
       {query.trim() ? (
         results.length === 0 ? (
           <EmptyState title={`No encontramos «${query.trim()}»`}>

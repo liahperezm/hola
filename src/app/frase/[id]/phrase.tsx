@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Bookmark, Share, Volume2 } from "lucide-react";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
 import { DIALECTS, termLabel } from "@/lib/dialects";
@@ -23,7 +23,7 @@ export function Phrase({ id }: { id: string }) {
 
   if (!entry) {
     return (
-      <div className="px-5 pt-[max(env(safe-area-inset-top),1rem)]">
+      <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)]">
         <PageHeader />
         {hydrated && (
           <EmptyState title="No encontramos esta palabra">
@@ -32,7 +32,7 @@ export function Phrase({ id }: { id: string }) {
             </Link>
           </EmptyState>
         )}
-      </div>
+      </main>
     );
   }
 
@@ -55,6 +55,7 @@ function PhraseView({
     ...(others.length > 0 ? [{ id: "otros" as const, label: "Otros países" }] : []),
   ];
   const [tab, setTab] = useState<Tab>("definicion");
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { isFavorite, toggle } = useFavorites();
   const saved = isFavorite(entry.id);
   const label = termLabel(entry.text, entry.dialect);
@@ -70,13 +71,13 @@ function PhraseView({
   };
 
   return (
-    <div className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-14">
+    <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-14">
       <PageHeader>
         <IconButton label="Compartir" onClick={() => void share()}>
           <Share className="size-[19px]" />
         </IconButton>
         <IconButton
-          label={saved ? "Quitar de guardados" : "Guardar"}
+          label="Guardar"
           pressed={saved}
           onClick={() => toggle(entry)}
         >
@@ -95,21 +96,45 @@ function PhraseView({
         <button
           type="button"
           onClick={() => speak(entry.text, DIALECTS[entry.dialect].speechLang)}
-          className="-ml-1 flex items-center gap-2 rounded-full px-1 text-[14.5px] text-muted hover:text-navy"
+          className="-ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 text-[14.5px] text-muted hover:text-navy"
         >
           <Volume2 className="size-4" />
+          <span className="sr-only">Escuchar: </span>
           {entry.pronunciation ?? "Escuchar"}
         </button>
       </div>
 
-      <div role="tablist" className="mx-1 mb-6 flex gap-[26px] border-b border-line">
-        {tabs.map((t) => (
+      <div
+        role="tablist"
+        aria-label="Secciones de la palabra"
+        className="mx-1 mb-6 flex gap-[26px] border-b border-line"
+      >
+        {tabs.map((t, i) => (
           <button
             key={t.id}
+            ref={(el) => {
+              tabRefs.current[i] = el;
+            }}
+            id={`tab-${t.id}`}
             type="button"
             role="tab"
             aria-selected={tab === t.id}
+            aria-controls={`panel-${t.id}`}
+            tabIndex={tab === t.id ? 0 : -1}
             onClick={() => setTab(t.id)}
+            onKeyDown={(e) => {
+              const last = tabs.length - 1;
+              const next =
+                e.key === "ArrowRight" ? (i === last ? 0 : i + 1)
+                : e.key === "ArrowLeft" ? (i === 0 ? last : i - 1)
+                : e.key === "Home" ? 0
+                : e.key === "End" ? last
+                : null;
+              if (next === null) return;
+              e.preventDefault();
+              setTab(tabs[next].id);
+              tabRefs.current[next]?.focus();
+            }}
             className={`-mb-px border-b-[3px] pb-3 text-[15.5px] transition ${
               tab === t.id
                 ? "border-navy font-bold text-navy"
@@ -121,7 +146,13 @@ function PhraseView({
         ))}
       </div>
 
-      <div role="tabpanel">
+      <div
+        role="tabpanel"
+        id={`panel-${tab}`}
+        aria-labelledby={`tab-${tab}`}
+        tabIndex={0}
+        className="rounded-[22px]"
+      >
         {tab === "definicion" && (
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <p className="text-[17px] leading-relaxed text-body">
@@ -175,7 +206,7 @@ function PhraseView({
           </p>
         )}
       </div>
-    </div>
+    </main>
   );
 }
 

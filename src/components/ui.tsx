@@ -24,10 +24,12 @@ const TABS: { href: string; label: string; icon: LucideIcon }[] = [
 /** A top-level screen: content plus the bottom tab bar. */
 export function TabScreen({ children }: { children: ReactNode }) {
   return (
-    <div className="flex min-h-dvh flex-col px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-[calc(86px+env(safe-area-inset-bottom))]">
-      {children}
+    <>
+      <main className="flex min-h-dvh flex-col px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-[calc(86px+env(safe-area-inset-bottom))]">
+        {children}
+      </main>
       <TabBar />
-    </div>
+    </>
   );
 }
 
@@ -47,7 +49,7 @@ function TabBar() {
                 href={href}
                 aria-current={active ? "page" : undefined}
                 className={`flex w-24 flex-col items-center gap-1 text-[11.5px] font-semibold ${
-                  active ? "text-navy" : "text-[#8f8da6]"
+                  active ? "text-navy" : "text-muted"
                 }`}
               >
                 <Icon className="size-[22px]" strokeWidth={active ? 2.25 : 2} />
@@ -68,7 +70,10 @@ export function TopBar({ title }: { title?: string }) {
       {title ? (
         <h1 className="text-[32px] font-extrabold tracking-[-0.03em]">{title}</h1>
       ) : (
-        <Logo className="h-9" />
+        <h1>
+          <Logo className="h-9" />
+          <span className="sr-only">, traductor de dialectos</span>
+        </h1>
       )}
       <IconLink href="/ajustes" label="Ajustes" icon={Settings} />
     </header>
@@ -153,14 +158,14 @@ export function SearchField({
   placeholder?: string;
 }) {
   return (
-    <label className="flex h-[52px] items-center gap-2.5 rounded-full bg-white px-[18px] shadow-card">
+    <label className="flex h-[52px] items-center gap-2.5 rounded-full bg-white px-[18px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy">
       <Search className="size-[18px] shrink-0 text-muted" />
       <input
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-transparent text-[15px] text-navy outline-none placeholder:text-muted"
+        className="w-full bg-transparent text-[15px] text-navy placeholder:text-muted focus-visible:outline-none"
       />
     </label>
   );
@@ -197,8 +202,13 @@ export function EmptyState({
   );
 }
 
-export function capitalize(text: string): string {
-  const i = text.search(/\p{L}/u);
-  if (i === -1) return text;
-  return text.slice(0, i) + text.charAt(i).toUpperCase() + text.slice(i + 1);
+/** Tells screen readers how many results a search found. */
+export function ResultCount({ count, active }: { count: number; active: boolean }) {
+  return (
+    <p role="status" className="sr-only">
+      {active ? (count === 1 ? "1 resultado" : `${count} resultados`) : ""}
+    </p>
+  );
 }
+
+export { capitalize } from "@/lib/text";

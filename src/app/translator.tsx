@@ -48,7 +48,15 @@ export function Translator() {
   const [aiAvailable, setAiAvailable] = useState(false);
   const fileInput = useRef<HTMLInputElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
+  const resultCard = useRef<HTMLElement>(null);
   const request = useRef(0);
+  const hasResult = result !== null;
+
+  // The text field disappears once there is a result, so keyboard and screen
+  // reader users are taken to the translation instead of the top of the page.
+  useEffect(() => {
+    if (hasResult) resultCard.current?.focus();
+  }, [hasResult]);
 
   useEffect(() => {
     fetch("/api/translate")
@@ -156,7 +164,12 @@ export function Translator() {
 
       {result ? (
         <>
-          <section className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card">
+          <section
+            ref={resultCard}
+            tabIndex={-1}
+            aria-label="Traducción"
+            className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card focus:outline-none"
+          >
             <div className="flex items-center justify-between">
               <CountryLabel code={result.from} />
               <ClearButton onClick={clear} />
@@ -164,10 +177,10 @@ export function Translator() {
             <button
               type="button"
               onClick={edit}
-              aria-label="Editar texto"
               className="mt-2.5 block w-full text-left text-[23px] leading-snug font-medium tracking-[-0.01em] text-body"
             >
               <Highlighted segments={result.source} />
+              <span className="sr-only">. Editar texto</span>
             </button>
             <div className="mt-3 flex gap-2">
               <ActionButton
@@ -241,7 +254,7 @@ export function Translator() {
             e.preventDefault();
             translate(text);
           }}
-          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] bg-white px-[22px] py-[22px] shadow-card"
+          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] bg-white px-[22px] py-[22px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy"
         >
           <div className="flex items-center justify-between">
             <CountryLabel code={pair.from} />
@@ -261,7 +274,7 @@ export function Translator() {
             maxLength={500}
             placeholder={dictation.listening ? "Te escucho…" : "Escribe o habla…"}
             aria-label={`Texto en español de ${DIALECTS[pair.from].name}`}
-            className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] outline-none placeholder:text-placeholder"
+            className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] placeholder:text-placeholder focus-visible:outline-none"
           />
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
           <div className="relative mt-4 flex h-[68px] items-center justify-center">
@@ -411,11 +424,11 @@ function TargetActions({ text, lang }: { text: string; lang: string }) {
     setTimeout(() => setCopied(false), 1500);
   };
   return (
-    <div className="mt-3 flex gap-2">
+    <div className="mt-3 flex items-center gap-2">
       <ActionButton label="Escuchar" onClick={() => speak(text, lang)}>
         <Volume2 className="size-[18px]" />
       </ActionButton>
-      <ActionButton label={copied ? "Copiado" : "Copiar"} onClick={() => void copy()}>
+      <ActionButton label="Copiar" onClick={() => void copy()}>
         {copied ? <Check className="size-[18px]" /> : <Copy className="size-[18px]" />}
       </ActionButton>
       <ActionButton
@@ -427,6 +440,9 @@ function TargetActions({ text, lang }: { text: string; lang: string }) {
       >
         <Share className="size-[18px]" />
       </ActionButton>
+      <span role="status" className="ml-1 text-[13px] font-semibold text-muted">
+        {copied ? "Copiado" : ""}
+      </span>
     </div>
   );
 }

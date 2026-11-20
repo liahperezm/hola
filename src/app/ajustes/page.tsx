@@ -17,7 +17,7 @@ export default function Settings() {
   }, []);
 
   return (
-    <div className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
+    <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
       <PageHeader />
       <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">Ajustes</h1>
 
@@ -42,6 +42,6 @@ export default function Settings() {
           «Agregar a pantalla de inicio».
         </p>
       </div>
-    </div>
+    </main>
   );
 }

@@ -8,6 +8,7 @@ import {
   EmptyState,
   ListCard,
   PageHeader,
+  ResultCount,
   SearchField,
   capitalize,
 } from "@/components/ui";
@@ -40,7 +41,7 @@ export function Guide({
   }, [id, pair.from, pair.to, query]);
 
   return (
-    <div className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
+    <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
       <PageHeader fallback="/explorar" />
       <div className="mx-1 mt-5 mb-5">
         <span aria-hidden className="text-[34px]">
@@ -105,6 +106,7 @@ export function Guide({
           </ListCard>
         </div>
       )}
-    </div>
+      <ResultCount count={rows.length} active={query.trim() !== ""} />
+    </main>
   );
 }

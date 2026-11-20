@@ -10,7 +10,7 @@ import "./globals.css";
 import { ServiceWorker } from "./service-worker";
 
 export const metadata: Metadata = {
-  title: "Hola · Traductor de dialectos",
+  title: { default: "Hola · Traductor de dialectos", template: "%s · Hola" },
   description:
     "Traduce palabras y frases entre los dialectos del español: República Dominicana, Colombia, Argentina, México y más.",
   applicationName: "Hola",

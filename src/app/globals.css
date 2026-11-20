@@ -5,7 +5,7 @@
   --color-navy: #030050;
   --color-body: #2e2c4d;
   --color-muted: #5e5c75;
-  --color-placeholder: #aeacc0;
+  --color-placeholder: #6b6982;
   --color-line: #e7e5f0;
   --color-lavender: #e6e3ff;
   --color-sky: #dceaff;
@@ -26,6 +26,15 @@ body {
   font-family: var(--font-sans);
   color: var(--color-navy);
   background: var(--color-bg);
+}
+
+/* A clear, consistent focus ring for keyboard users. In the base layer so a
+   component can replace it (the text fields ring their whole card instead). */
+@layer base {
+  :focus-visible {
+    outline: 3px solid var(--color-navy);
+    outline-offset: 3px;
+  }
 }
 
 input[type="search"]::-webkit-search-cancel-button {
