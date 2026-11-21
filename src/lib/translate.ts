@@ -1,4 +1,4 @@
-import { type DialectCode } from "./dialects";
+import { DIALECTS, type DialectCode } from "./dialects";
 import { entriesFor, equivalent, normalize, plainWordsFor, type Entry } from "./dictionary";
 import { findFalseFriends, type FalseFriendWarning } from "./false-friends";
 
@@ -141,31 +141,93 @@ function matchCase(replacement: string, original: string): string {
   return replacement;
 }
 
-/** Swaps every regional word or phrase the dictionary knows. */
+const ARTICLE_FOR: Record<string, { m: string; f: string }> = {
+  el: { m: "el", f: "la" },
+  la: { m: "el", f: "la" },
+  un: { m: "un", f: "una" },
+  una: { m: "un", f: "una" },
+  los: { m: "los", f: "las" },
+  las: { m: "los", f: "las" },
+  unos: { m: "unos", f: "unas" },
+  unas: { m: "unos", f: "unas" },
+};
+
+/** "…con la " + a masculine word → "…con el ". */
+function agreeArticle(before: string, gender: "m" | "f"): string {
+  return before.replace(/(\p{L}+)(\s+)$/u, (whole, word: string, space: string) => {
+    const forms = ARTICLE_FOR[word.toLowerCase()];
+    return forms ? matchCase(forms[gender], word) + space : whole;
+  });
+}
+
+type Edit =
+  | { kind: "word"; start: number; end: number; match: Match }
+  | { kind: "false-friend"; start: number; end: number; friend: FalseFriendWarning };
+
+/**
+ * Swaps every regional word or phrase the dictionary knows, and writes words
+ * that mean something else there as the listener would hear them: "Voy a
+ * coger un taxi" for Uruguay becomes "Voy a tener sexo con un taxi".
+ */
 export function translateWithDictionary(
   text: string,
   from: DialectCode,
   to: DialectCode,
 ): Translation {
-  const matches = findMatches(text, from);
+  const friends = findFalseFriends(text, from, to);
+  const overlaps = (m: Match) => friends.some((f) => m.start < f.end && m.end > f.start);
+  const edits: Edit[] = [
+    ...friends.map((friend) => ({
+      kind: "false-friend" as const,
+      start: friend.start,
+      end: friend.end,
+      friend,
+    })),
+    ...findMatches(text, from)
+      .filter((m) => !overlaps(m))
+      .map((match) => ({ kind: "word" as const, start: match.start, end: match.end, match })),
+  ].sort((x, y) => x.start - y.start);
+
   const source: Segment[] = [];
   const target: Segment[] = [];
   const pairs: TermPair[] = [];
   const seen = new Set<string>();
   let cursor = 0;
 
-  for (const match of matches) {
-    const before = text.slice(cursor, match.start);
+  for (const edit of edits) {
+    const before = text.slice(cursor, edit.start);
+    const original = text.slice(edit.start, edit.end);
+    cursor = edit.end;
+
+    if (edit.kind === "false-friend") {
+      const { friend } = edit;
+      if (before) {
+        source.push({ text: before });
+        target.push({ text: friend.gender ? agreeArticle(before, friend.gender) : before });
+      }
+      source.push({ text: original, highlight: true });
+      target.push({ text: matchCase(friend.literal, original), highlight: true });
+      const key = `ff.${normalize(original)}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        pairs.push({
+          from: { text: original.toLowerCase() },
+          to: { text: friend.literal },
+          meaning: `${friend.meaning} (vulgar en ${DIALECTS[to].name})`,
+        });
+      }
+      continue;
+    }
+
     if (before) {
       source.push({ text: before });
       target.push({ text: before });
     }
-    const original = text.slice(match.start, match.end);
+    const { match } = edit;
     const { pattern } = match;
     const { text: word, entry: toEntry } = equivalent(pattern.conceptId, to);
     const clean = word.replace(EDGE_PUNCTUATION, "");
     const replaced = matchCase(match.plural ? pluralize(clean) : clean, original);
-    cursor = match.end;
 
     // A plain word the other country also uses stays as ordinary text.
     if (!pattern.entry && normalize(clean) === normalize(pattern.text)) {
@@ -199,7 +261,7 @@ export function translateWithDictionary(
     source,
     target,
     pairs,
-    warnings: findFalseFriends(text, from, to),
+    warnings: friends,
     via: pairs.length > 0 ? "dictionary" : "none",
   };
 }

@@ -212,12 +212,11 @@ export function Translator() {
                   </p>
                   {result.via === "none" && (
                     <p className="mt-2 text-sm text-muted">
-                      {aiAvailable
-                        ? "No encontramos nada regional que cambiar."
-                        : "No encontramos estas palabras en el diccionario de Hola."}
+                      {`No encontramos palabras que se digan distinto en ${DIALECTS[result.to].name}.`}
                     </p>
                   )}
-                  {(result.warnings ?? []).map((w) => (
+                  {/* The dictionary writes these into the text; the AI does not. */}
+                  {result.via === "ai" && (result.warnings ?? []).map((w) => (
                     <p
                       key={w.word}
                       className="mt-3 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"

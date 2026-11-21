@@ -54,6 +54,44 @@ MEANING_ES = {
 }
 
 
+# What a listener in that country hears, written into the translation: "Voy a
+# coger un taxi" becomes "Voy a tener sexo con un taxi" for Uruguay. Nouns give
+# their gender so the article before them agrees ("la pija" -> "el pene").
+LITERAL_ES = {
+    "concha": {2: ("vulva", "f")},
+    "pija": {1: ("pene", "m")},
+    "bicho": {2: ("pene", "m")},
+    "papaya": {1: ("vulva", "f")},
+    "pendejo": {0: ("idiota", "m"), 2: ("vello púbico", "m")},
+    "chaqueta": {1: ("masturbación", "f")},
+    "arrecho": {1: ("excitado sexualmente", None)},
+    "polla": {0: ("pene", "m")},
+    "cajeta": {1: ("vulva", "f")},
+    "bollo": {1: ("vulva", "f")},
+    "pinche": {0: ("maldito", None)},
+    "paja": {1: ("masturbación", "f")},
+    "chucha": {0: ("carajo", None)},
+    "pico": {1: ("pene", "m")},
+    "chimba": {0: ("genial", None)},
+    "huevón": {0: ("idiota", None), 2: ("vago", None)},
+}
+
+# Verbs: the literal replacement for each written form.
+LITERAL_FORMS = {
+    "coger": {
+        "coger": "tener sexo con", "cojo": "tengo sexo con", "coges": "tienes sexo con",
+        "coge": "tiene sexo con", "cogemos": "tenemos sexo con", "cogen": "tienen sexo con",
+        "cogí": "tuve sexo con", "cogiste": "tuviste sexo con", "cogió": "tuvo sexo con",
+        "cogimos": "tuvimos sexo con", "cogieron": "tuvieron sexo con", "cogía": "tenía sexo con",
+        "cogías": "tenías sexo con", "cogían": "tenían sexo con", "coja": "tenga sexo con",
+        "cojas": "tengas sexo con", "cojan": "tengan sexo con", "cogiendo": "teniendo sexo con",
+        "cogido": "tenido sexo con", "cogida": "tenido sexo con", "cógelo": "ten sexo con él",
+        "cógela": "ten sexo con ella", "cogerlo": "tener sexo con él",
+        "cogerla": "tener sexo con ella", "cogeré": "tendré sexo con", "cogerá": "tendrá sexo con",
+    },
+}
+
+
 def senses(word, base):
     out = []
     for i, sense in enumerate(word["s"]):
@@ -71,6 +109,13 @@ def senses(word, base):
             if not meaning:
                 raise SystemExit(f"No Spanish meaning for {base} sense {i}: add it to MEANING_ES")
             out[-1]["meaning"] = meaning
+            literal = LITERAL_ES.get(base, {}).get(i)
+            if literal:
+                out[-1]["literal"] = literal[0]
+                if literal[1]:
+                    out[-1]["gender"] = literal[1]
+            elif base not in LITERAL_FORMS:
+                raise SystemExit(f"No literal Spanish for {base} sense {i}: add it to LITERAL_ES")
     return out
 
 
@@ -93,6 +138,8 @@ def main():
             "forms": forms + FORMS.get(forms[0], []),
             "senses": s,
         }
+        if forms[0] in LITERAL_FORMS:
+            entry["literalForms"] = LITERAL_FORMS[forms[0]]
         entries.append(entry)
 
     lines = [

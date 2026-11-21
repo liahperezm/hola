@@ -33,14 +33,16 @@ The translator swaps every word it knows, so *padre* (Mexico: "cool") would turn
 "mi genial".
 
 False friends that are vulgar in one of the app's countries are exported by a second script, so the
-translator can say what they mean there ("En Argentina, «coger» significa: tener sexo."):
+translator writes them the way a listener there hears them ("Voy a coger un taxi" for Uruguay is
+"Voy a tener sexo con un taxi"):
 
 ```bash
 python3 lexicon/scripts/export_false_friends.py && pnpm test
 ```
 
-It writes `src/lib/false-friends.generated.ts`. The Spanish meanings and extra verb forms live in the
-script (`MEANING_ES`, `FORMS`); the export stops if a vulgar meaning has no Spanish. Harmless meaning changes (*carro*, *pena*, *ahorita*) are not warned about
+It writes `src/lib/false-friends.generated.ts`. The Spanish meanings, the literal replacements (with each
+noun's gender, so the article agrees: "la pija" -> "el pene") and verb forms live in the script
+(`MEANING_ES`, `LITERAL_ES`, `LITERAL_FORMS`, `FORMS`); the export stops if a vulgar sense is missing one. Harmless meaning changes (*carro*, *pena*, *ahorita*) are not warned about
 yet, because their meanings are written in English.
 
 The plain Spanish word for an everyday object (*gasolina*, *acera*, *mochila*) is also translated

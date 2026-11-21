@@ -164,26 +164,35 @@ describe("plain words for everyday objects", () => {
 });
 
 describe("false friends", () => {
-  it("warns when a harmless word is vulgar where the text is going", () => {
-    const { warnings } = translateWithDictionary("Cogí el móvil", "ES", "AR");
-    expect(warnings).toHaveLength(1);
-    expect(warningText(warnings[0])).toBe(
-      "En Argentina, «coger» significa: tener sexo.",
-    );
+  it("writes what the listener hears into the translation", () => {
+    const result = translateWithDictionary("Voy a coger un taxi", "MX", "UY");
+    expect(join(result.target)).toBe("Voy a tener sexo con un taxi");
+    expect(result.via).toBe("dictionary");
+    expect(result.pairs[0]).toMatchObject({
+      from: { text: "coger" },
+      to: { text: "tener sexo con" },
+    });
   });
 
-  it("does not warn when the word is already vulgar where it comes from", () => {
-    expect(translateWithDictionary("Cogí el bus", "AR", "ES").warnings).toEqual([]);
+  it("conjugates and keeps capitals", () => {
+    const result = translateWithDictionary("Cogí el móvil", "ES", "AR");
+    expect(join(result.target)).toBe("Tuve sexo con el celu");
   });
 
-  it("does not warn for ordinary text", () => {
-    expect(translateWithDictionary("Qué chévere el carro", "DO", "CO").warnings).toEqual(
-      [],
-    );
+  it("makes the article agree with the new word", () => {
+    const result = translateWithDictionary("Me gusta la papaya", "DO", "CU");
+    expect(join(result.target)).toBe("Me gusta la vulva");
+    const pico = translateWithDictionary("Tengo una pija", "ES", "AR");
+    expect(join(pico.target)).toBe("Tengo un pene");
   });
 
-  it("warns about Cuban papaya from the Dominican Republic", () => {
-    const { warnings } = translateWithDictionary("Quiero una papaya", "DO", "CU");
-    expect(warnings.map((w) => w.word)).toEqual(["papaya"]);
+  it("leaves words alone where they are harmless", () => {
+    const result = translateWithDictionary("Voy a coger el bus", "AR", "ES");
+    expect(join(result.target)).toBe("Voy a coger el bus");
+  });
+
+  it("explains the meaning for AI translations", () => {
+    const [w] = translateWithDictionary("Cogí el bus", "ES", "AR").warnings;
+    expect(warningText(w)).toBe("En Argentina, «coger» significa: tener sexo.");
   });
 });
