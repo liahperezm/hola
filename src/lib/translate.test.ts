@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { DialectCode } from "./dialects";
-import { allEntries, getEntry, guideRows, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
+import { allEntries, getEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { warningText } from "./false-friends";
 import { translateWithDictionary } from "./translate";
 
@@ -276,5 +276,15 @@ describe("singular and plural", () => {
 
   it("does not treat singular words ending in s as plural", () => {
     expect(t("El autobús está lleno", "ES", "DO")).toBe("La guagua está llena");
+  });
+});
+
+describe("other countries", () => {
+  it("shows each word once, with every country that says it", () => {
+    const groups = otherWaysByWord("aguacate", "MX");
+    const palta = groups.find((g) => g.text === "palta");
+    expect(palta?.dialects.sort()).toEqual(["AR", "BO", "CL", "PE", "UY"]);
+    expect(groups.filter((g) => g.text === "palta")).toHaveLength(1);
+    expect(groups[0].text).toBe("palta"); // most widely used first
   });
 });

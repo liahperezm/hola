@@ -102,6 +102,7 @@ export const EN: Record<string, string> = {
   Definición: "Meaning",
   Origen: "Origin",
   "Otros países": "Other countries",
+  igual: "same",
   "Secciones de la palabra": "Sections",
   "Significa": "Means",
   "En español": "In Spanish",

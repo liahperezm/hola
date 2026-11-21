@@ -2,13 +2,13 @@
 
 import { Rich } from "@/components/rich";
 import Link from "next/link";
-import { Heart, Share, Volume2 } from "lucide-react";
+import { ChevronRight, Heart, Share, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
 import { DIALECTS, termLabel, termLabelEn } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
-import { getEntry, otherWays, type Entry } from "@/lib/dictionary";
+import { getEntry, normalize, otherWays, otherWaysByWord, type Entry } from "@/lib/dictionary";
 import type { PhraseEntry } from "@/lib/phrase";
 import { speak } from "@/lib/speech";
 import { useAiEntry, useFavorites, useHydrated, useSeen } from "@/lib/storage";
@@ -61,7 +61,7 @@ function PhraseView({
     ...(others.length > 0 ? [{ id: "otros" as const, label: "Otros países" }] : []),
   ];
   const [tab, setTab] = useState<Tab>("definicion");
-  const { t, language } = useT();
+  const { t, language, country } = useT();
   const learner = language === "en";
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { favorites, isFavorite, toggle } = useFavorites();
@@ -230,15 +230,32 @@ function PhraseView({
         {tab === "otros" && (
           <div>
             <ListCard>
-              {others.map((o) => (
-                <li key={o.id}>
-                  <Link href={`/frase/${o.id}`} className="flex items-center gap-3 py-3.5">
-                    <Flag code={o.dialect} />
-                    <span className="flex-1 text-[16px] font-semibold">{o.text}</span>
-                    <span className="text-[13px] text-muted">{DIALECTS[o.dialect].name}</span>
-                  </Link>
-                </li>
-              ))}
+              {otherWaysByWord(dictionaryEntry!.conceptId, entry.dialect).map((group) => {
+                const same = normalize(group.text) === normalize(entry.text);
+                return (
+                  <li key={group.id}>
+                    <Link href={`/frase/${group.id}`} className="flex items-center gap-3 py-3.5">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[16px] font-bold">
+                          {capitalize(group.text)}
+                          {same && (
+                            <span className="ml-2 rounded-full bg-bg px-2 py-0.5 align-middle text-[12px] font-semibold text-muted">
+                              {t("igual")}
+                            </span>
+                          )}
+                        </p>
+                        <p className="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[13px] text-muted">
+                          {group.dialects.map((d) => (
+                            <Flag key={d} code={d} className="text-[15px]" />
+                          ))}
+                          <span className="ml-0.5">{group.dialects.map((d) => country(d)).join(", ")}</span>
+                        </p>
+                      </div>
+                      <ChevronRight aria-hidden className="size-[18px] shrink-0 text-muted" />
+                    </Link>
+                  </li>
+                );
+              })}
             </ListCard>
           </div>
         )}

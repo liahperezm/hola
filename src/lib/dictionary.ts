@@ -1097,6 +1097,24 @@ export function otherWays(
   });
 }
 
+/**
+ * otherWays grouped by word: "palta" once, with every country that says it.
+ * Most widely used first.
+ */
+export function otherWaysByWord(
+  conceptId: string,
+  except: DialectCode,
+): { text: string; id: string; dialects: DialectCode[] }[] {
+  const groups = new Map<string, { text: string; id: string; dialects: DialectCode[] }>();
+  for (const o of otherWays(conceptId, except)) {
+    const key = normalize(o.text);
+    const group = groups.get(key);
+    if (group) group.dialects.push(o.dialect);
+    else groups.set(key, { text: o.text, id: o.id, dialects: [o.dialect] });
+  }
+  return [...groups.values()].sort((a, b) => b.dialects.length - a.dialects.length);
+}
+
 /** Days since 1970 on the reader's own calendar. */
 export function dayNumber(date: Date): number {
   return Math.floor(
