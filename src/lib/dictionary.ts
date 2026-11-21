@@ -902,6 +902,38 @@ export function plainWordsFor(dialect: DialectCode): PlainWord[] {
   });
 }
 
+/*
+ * Learner mode: standard Spanish from a translation service is made local
+ * with these words. Everyday objects, plus a few common words a learner
+ * should hear the local way ("dinero" -> "cuartos" in the Dominican Republic).
+ */
+const LEARNER_LOCAL: Record<string, string[]> = {
+  ...PLAIN_WORDS,
+  dinero: ["dinero"],
+  nino: ["niño", "niña"],
+  fiesta: ["fiesta"],
+  genial: ["genial"],
+  palomitas: ["palomitas de maíz", "palomitas", "rosetas de maíz"],
+  // Not "plátano": in the Caribbean and much of the Andes that is a plantain.
+  banana: ["banana"],
+  autobus: ["autobús", "bus"],
+  celular: ["teléfono celular", "teléfono móvil", "celular", "móvil"],
+};
+
+/** Standard Spanish words the learner translator can make local. */
+export function neutralWords(): PlainWord[] {
+  return Object.entries(LEARNER_LOCAL).flatMap(([conceptId, words]) => {
+    const concept = CONCEPTS.find((c) => c.id === conceptId);
+    if (!concept) return [];
+    return words.map((text) => ({ conceptId, text, meaning: concept.meaning, en: concept.en }));
+  });
+}
+
+/** A concept's meaning in standard Spanish ("autobús"), for the way back. */
+export function conceptMeaning(conceptId: string): string | undefined {
+  return CONCEPTS.find((c) => c.id === conceptId)?.meaning;
+}
+
 /** For tests: concepts in PLAIN_WORDS that the dictionary does not have. */
 export function unknownPlainWordConcepts(): string[] {
   return Object.keys(PLAIN_WORDS).filter((id) => !CONCEPTS.some((c) => c.id === id));

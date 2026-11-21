@@ -54,8 +54,9 @@ export const EN: Record<string, string> = {
   "Escribe en inglés…": "Type in English…",
   "Escribe en español…": "Type in Spanish…",
   "No pudimos traducir esto.": "We couldn't translate this.",
+  "Traducido con {service} y el diccionario de Hola.": "Translated with {service} and Hola's dictionary.",
   "Para traducir frases completas hace falta la traducción con IA, que todavía no está activada. Estas son las palabras que conocemos:":
-    "Translating full sentences needs AI translation, which isn't turned on yet. Here are the words we know:",
+    "Sentence translation isn't turned on yet. Here are the words we know:",
 
   // Welcome
   "Traduce entre los dialectos del español": "Translate between the dialects of Spanish",

@@ -46,9 +46,9 @@ export function LearnerTranslator() {
   const textArea = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    fetch("/api/translate")
-      .then((r) => r.json() as Promise<{ aiAvailable?: boolean }>)
-      .then((r) => setAiAvailable(Boolean(r.aiAvailable)))
+    fetch("/api/learn")
+      .then((r) => r.json() as Promise<{ sentences?: boolean }>)
+      .then((r) => setAiAvailable(Boolean(r.sentences)))
       .catch(() => setAiAvailable(false));
   }, []);
 
@@ -213,6 +213,11 @@ export function LearnerTranslator() {
                       ),
                     )}
                   </p>
+                  {result.credit && (
+                    <p className="mt-2 text-[13px] text-muted">
+                      {t("Traducido con {service} y el diccionario de Hola.", { service: result.credit })}
+                    </p>
+                  )}
                   {toSpanish && (
                     <div className="mt-3 flex gap-2">
                       <RoundButton label={t("Escuchar")} onClick={() => speak(targetText, spanishLang, 1)}>

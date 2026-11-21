@@ -1,5 +1,13 @@
 import { DIALECTS, type DialectCode } from "./dialects";
-import { entriesFor, equivalent, normalize, plainWordsFor, type Entry } from "./dictionary";
+import {
+  entriesFor,
+  equivalent,
+  conceptMeaning,
+  neutralWords,
+  normalize,
+  plainWordsFor,
+  type Entry,
+} from "./dictionary";
 import { findFalseFriends, type FalseFriendWarning } from "./false-friends";
 import {
   agreeAfter,
@@ -59,11 +67,27 @@ function tokenize(text: string): Token[] {
   }));
 }
 
-const patternCache = new Map<DialectCode, Pattern[]>();
+/** Where a text comes from: a country, or standard Spanish (learner mode). */
+type Source = DialectCode | "neutral";
 
-function patternsFor(dialect: DialectCode): Pattern[] {
+const patternCache = new Map<Source, Pattern[]>();
+
+function patternsFor(dialect: Source): Pattern[] {
   let patterns = patternCache.get(dialect);
+  if (!patterns && dialect === "neutral") {
+    patterns = neutralWords()
+      .map((w) => ({
+        tokens: normalize(w.text).split(" "),
+        conceptId: w.conceptId,
+        text: w.text,
+        meaning: w.meaning,
+        en: w.en,
+      }))
+      .sort((a, b) => b.tokens.length - a.tokens.length);
+    patternCache.set(dialect, patterns);
+  }
   if (!patterns) {
+    dialect = dialect as DialectCode;
     const own: Pattern[] = entriesFor(dialect).map((entry) => ({
       tokens: normalize(entry.text).split(" "),
       conceptId: entry.conceptId,
@@ -106,7 +130,7 @@ function matchesWord(token: string, word: string): "exact" | "plural" | null {
 
 type Match = { start: number; end: number; pattern: Pattern; plural: boolean };
 
-function findMatches(text: string, dialect: DialectCode): Match[] {
+function findMatches(text: string, dialect: Source): Match[] {
   const tokens = tokenize(text);
   const patterns = patternsFor(dialect);
   const matches: Match[] = [];
@@ -172,7 +196,20 @@ export function translateWithDictionary(
   from: DialectCode,
   to: DialectCode,
 ): Translation {
-  const friends = findFalseFriends(text, from, to);
+  return translateFrom(text, from, to);
+}
+
+/**
+ * Standard Spanish (from a translation service) made local: "Quiero palomitas
+ * en el autobús" for the Dominican Republic is "Quiero cocaleca en la guagua".
+ */
+export function localizeFromNeutral(text: string, to: DialectCode): Translation {
+  return translateFrom(text, "neutral", to);
+}
+
+function translateFrom(text: string, origin: Source, to: DialectCode): Translation {
+  const from: DialectCode = origin === "neutral" ? to : origin;
+  const friends = origin === "neutral" ? [] : findFalseFriends(text, origin, to);
   const overlaps = (m: Match) => friends.some((f) => m.start < f.end && m.end > f.start);
   const edits: Edit[] = [
     ...friends.map((friend) => ({
@@ -181,7 +218,7 @@ export function translateWithDictionary(
       end: friend.end,
       friend,
     })),
-    ...findMatches(text, from)
+    ...findMatches(text, origin)
       .filter((m) => !overlaps(m))
       .map((match) => ({ kind: "word" as const, start: match.start, end: match.end, match })),
   ].sort((x, y) => x.start - y.start);
@@ -293,4 +330,27 @@ export function translateWithDictionary(
     warnings: friends,
     via: pairs.length > 0 ? "dictionary" : "none",
   };
+}
+
+/**
+ * A country's words replaced by standard Spanish, so a translation service
+ * understands them: "Vamos en guagua" → "Vamos en autobús". Returns the words
+ * it replaced, for the learner's word list.
+ */
+export function neutralize(
+  text: string,
+  from: DialectCode,
+): { text: string; found: Entry[] } {
+  const found: Entry[] = [];
+  let out = "";
+  let cursor = 0;
+  for (const match of findMatches(text, from)) {
+    const entry = match.pattern.entry;
+    const meaning = entry ? conceptMeaning(entry.conceptId) : undefined;
+    out += text.slice(cursor, match.start);
+    out += entry && meaning ? meaning : text.slice(match.start, match.end);
+    if (entry && meaning && !found.some((f) => f.id === entry.id)) found.push(entry);
+    cursor = match.end;
+  }
+  return { text: out + text.slice(cursor), found };
 }

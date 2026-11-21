@@ -42,6 +42,7 @@ describe("POST /api/learn with the AI", () => {
 
   it("translates English into the country's Spanish and links known words", async () => {
     vi.stubEnv("ANTHROPIC_API_KEY", "test");
+    vi.stubEnv("LEARNER_ENGINE", "ai");
     parse.mockResolvedValue({
       stop_reason: "end_turn",
       parsed_output: {

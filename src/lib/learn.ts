@@ -26,6 +26,8 @@ export type LearnResult = {
   target: Segment[];
   words: LearnWord[];
   via: "ai" | "dictionary" | "none";
+  /** The translation service used, credited under the result. */
+  credit?: string;
 };
 
 /** "cell phone / mobile" → ["cell phone", "mobile"]; drops notes in brackets. */
