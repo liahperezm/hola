@@ -67,13 +67,35 @@ describe("translation services", () => {
     vi.stubEnv("AZURE_TRANSLATOR_KEY", "k");
     vi.stubEnv("AZURE_TRANSLATOR_REGION", "eastus");
     fetchMock.mockResolvedValue(Response.json([{ translations: [{ text: "Let's go by bus" }] }]));
-    const r = await learnWithService("Vamos en guagua", "DO", "to-english");
+    const r = await learnWithService("Vamos en guagua", "DO", "from-spanish");
     const [url, init] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(url).toContain("api.cognitive.microsofttranslator.com");
     expect(url).toContain("from=es&to=en");
     expect(JSON.parse(String(init.body))).toEqual([{ Text: "Vamos en autobús" }]);
     expect(join(r.target)).toBe("Let's go by bus");
     expect(r.words[0]).toMatchObject({ spanish: "guagua", english: "bus" });
+  });
+
+  it("translates from any language, not just English", async () => {
+    fetchMock.mockResolvedValue(
+      Response.json({ responseStatus: 200, responseData: { translatedText: "Quiero muchas palomitas" } }),
+    );
+    const r = await learnWithService("Je veux beaucoup de pop-corn", "DO", "to-spanish", "fr");
+    expect(String(fetchMock.mock.calls[0][0])).toContain("langpair=fr%7Ces");
+    expect(join(r.target)).toBe("Quiero mucha cocaleca");
+    expect(r.language).toBe("fr");
+  });
+
+  it("uses each service's own language codes", async () => {
+    fetchMock.mockResolvedValue(Response.json({ responseStatus: 200, responseData: { translatedText: "公共汽车" } }));
+    await learnWithService("guagua", "DO", "from-spanish", "zh");
+    expect(String(fetchMock.mock.calls[0][0])).toContain("langpair=es%7Czh-CN");
+
+    vi.stubEnv("DEEPL_API_KEY", "abc:fx");
+    fetchMock.mockResolvedValue(Response.json({ translations: [{ text: "ônibus" }] }));
+    await learnWithService("guagua", "DO", "from-spanish", "pt");
+    const [, init] = fetchMock.mock.calls[1] as [string, RequestInit];
+    expect(JSON.parse(String(init.body))).toMatchObject({ source_lang: "ES", target_lang: "PT-BR" });
   });
 
   it("falls back to the dictionary when the service fails", async () => {

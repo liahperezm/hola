@@ -1,7 +1,6 @@
 "use client";
 
-import { useUiLanguage } from "@/lib/i18n";
-import { useDialectPair, useHydrated, useSeen } from "@/lib/storage";
+import { useDialectPair, useHydrated, useOtherLanguage, useSeen } from "@/lib/storage";
 import { LearnerTranslator } from "./learner-translator";
 import { Translator } from "./translator";
 import { Welcome } from "./welcome";
@@ -10,7 +9,7 @@ export default function Home() {
   const hydrated = useHydrated();
   const welcome = useSeen("welcome");
   const [, setPair] = useDialectPair();
-  const [language] = useUiLanguage();
+  const [other] = useOtherLanguage();
 
   // Returning visitors get the translator straight away; only someone who has
   // never finished the welcome sees it.
@@ -24,6 +23,7 @@ export default function Home() {
       />
     );
   }
-  // Learners translate English ⇄ the Spanish they are learning.
-  return language === "en" ? <LearnerTranslator /> : <Translator />;
+  // Another language on one side goes through a translation service; Spanish
+  // dialect to Spanish dialect through the dictionary.
+  return other ? <LearnerTranslator /> : <Translator />;
 }

@@ -2,7 +2,6 @@
 
 import { ChevronRight, Download, MessageSquarePlus, Volume2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
-import { DialectSwitcher } from "@/components/dialect-switcher";
 import { InstallSheet } from "@/components/install-sheet";
 import { useT, useUiLanguage } from "@/lib/i18n";
 import { LanguageToggle } from "../welcome";
@@ -22,7 +21,7 @@ export default function Settings() {
   const { t, language } = useT();
   const [uiLanguage, setUiLanguage] = useUiLanguage();
   const hydrated = useHydrated();
-  const [pair, setPair] = useDialectPair();
+  const [pair] = useDialectPair();
   const [speed, setSpeed] = useVoiceSpeed();
   const [aiAvailable, setAiAvailable] = useState<boolean | null>(null);
   const [installOpen, setInstallOpen] = useState(false);
@@ -47,16 +46,6 @@ export default function Settings() {
         <LanguageToggle value={uiLanguage} onChange={setUiLanguage} />
       </div>
 
-      <SectionTitle>{t("Mis países")}</SectionTitle>
-      <div
-        aria-hidden
-        className="mx-1 mb-2 grid grid-cols-[1fr_40px_1fr] gap-2 text-[13px] font-semibold text-muted"
-      >
-        <span className="text-center">{t("Mi español")}</span>
-        <span />
-        <span className="text-center">{t("Traduzco a")}</span>
-      </div>
-      <DialectSwitcher value={pair} onChange={setPair} />
 
       <SectionTitle>{t("Voz")}</SectionTitle>
       <fieldset className="rounded-[22px] bg-white px-5 py-4 shadow-card">

@@ -1,12 +1,14 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { CountryList } from "@/components/dialect-switcher";
 import { Logo } from "@/components/logo";
 import type { DialectCode } from "@/lib/dialects";
+import { LanguageBadge } from "@/components/sides";
 import { useT, useUiLanguage, type UiLanguage } from "@/lib/i18n";
-import type { DialectPair } from "@/lib/storage";
+import { LANGUAGE_CODES, LANGUAGES } from "@/lib/languages";
+import { useOtherLanguage, type DialectPair } from "@/lib/storage";
 
 type Step = "hola" | "from" | "to" | "learn";
 
@@ -17,49 +19,73 @@ type Step = "hola" | "from" | "to" | "learn";
 export function Welcome({ onDone }: { onDone: (pair: DialectPair) => void }) {
   const [step, setStep] = useState<Step>("hola");
   const [from, setFrom] = useState<DialectCode | null>(null);
-  const [language, setLanguage] = useUiLanguage();
+  const [, setLanguage] = useUiLanguage();
+  const [, setOther] = useOtherLanguage();
   const { t } = useT();
   const heading = useRef<HTMLHeadingElement>(null);
 
   // Each step replaces the screen, so move focus to its heading.
   useEffect(() => {
-    if (step !== "hola") heading.current?.focus();
+    heading.current?.focus();
   }, [step]);
 
   if (step === "hola") {
+    const row =
+      "flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg";
     return (
-      <main className="flex min-h-dvh flex-col px-6 pt-[max(env(safe-area-inset-top),1rem)] pb-[max(env(safe-area-inset-bottom),2rem)]">
-        <LanguageToggle value={language} onChange={setLanguage} />
-        <div className="flex flex-1 flex-col justify-center">
-          <Logo className="h-16 self-start" />
-          <h1 className="mt-8 text-[34px] leading-[1.1] font-extrabold tracking-[-0.03em]">
-            {language === "en"
-              ? "Learn the Spanish people actually speak"
-              : t("Traduce entre los dialectos del español")}
-          </h1>
-          <p className="mt-4 text-[17px] leading-relaxed text-body">
-            {language === "en" ? (
-              <>
-                A Dominican says <b lang="es">guagua</b>, an Argentine says{" "}
-                <b lang="es">colectivo</b>: both mean bus. Learn the words, the meanings
-                and how they sound, country by country.
-              </>
-            ) : (
-              <>
-                Del <b>carajito</b> dominicano al <b>pibe</b> argentino: entiende y hazte
-                entender en cualquier país.
-              </>
-            )}
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => setStep(language === "en" ? "learn" : "from")}
-          className="flex h-14 w-full items-center justify-center gap-2 rounded-full bg-navy text-[16px] font-bold text-white"
+      <main className="px-5 pt-[max(env(safe-area-inset-top),1.5rem)] pb-10">
+        <Logo className="mx-1 h-14" />
+        <h1
+          ref={heading}
+          tabIndex={-1}
+          className="mx-1 mt-8 text-[30px] leading-tight font-extrabold tracking-[-0.03em] focus:outline-none"
         >
-          {t("Empezar")}
-          <ArrowRight className="size-5" />
-        </button>
+          ¿Qué idioma hablas?
+          <span lang="en" className="mt-1 block text-[20px] font-bold text-muted">
+            What language do you speak?
+          </span>
+        </h1>
+        <div className="mt-6 rounded-[22px] bg-white px-2 py-1 shadow-card">
+          <ul>
+            <li>
+              <button
+                type="button"
+                className={row}
+                onClick={() => {
+                  setLanguage("es");
+                  setOther(null);
+                  setStep("from");
+                }}
+              >
+                <span aria-hidden className="grid size-6 place-items-center rounded-full bg-navy text-[10px] font-bold text-white">
+                  ES
+                </span>
+                <span lang="es" className="flex-1">
+                  Español
+                </span>
+              </button>
+            </li>
+            {LANGUAGE_CODES.map((code) => (
+              <li key={code}>
+                <button
+                  type="button"
+                  className={row}
+                  onClick={() => {
+                    // The app's own text is Spanish or English for now.
+                    setLanguage("en");
+                    setOther({ code, side: "from" });
+                    setStep("learn");
+                  }}
+                >
+                  <LanguageBadge code={code} />
+                  <span lang={code} className="flex-1">
+                    {LANGUAGES[code].name}
+                  </span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </main>
     );
   }

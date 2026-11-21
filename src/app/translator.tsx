@@ -16,7 +16,7 @@ import {
   X,
 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
-import { DialectSwitcher } from "@/components/dialect-switcher";
+import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
 import { ListCard, SectionTitle, TabScreen, TopBar } from "@/components/ui";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
@@ -113,10 +113,13 @@ export function Translator() {
     [aiAvailable, askAi, pair.from, pair.to, tip.markSeen],
   );
 
-  const changePair = (next: { from: DialectCode; to: DialectCode }) => {
-    setPair(next);
-    if (result) translate(text, next.from, next.to);
-  };
+  // When the countries change, translate the same text again.
+  const lastPair = useRef(pair);
+  useEffect(() => {
+    if (lastPair.current.from === pair.from && lastPair.current.to === pair.to) return;
+    lastPair.current = pair;
+    if (result) translate(text);
+  }, [pair, result, text, translate]);
 
   const dictation = useDictation(DIALECTS[pair.from].speechLang, (heard, final) => {
     setText(heard);
@@ -166,7 +169,7 @@ export function Translator() {
     <TabScreen>
       <TopBar />
       <div className="mt-4">
-        <DialectSwitcher value={pair} onChange={changePair} />
+        <SidesBar />
       </div>
 
       {result ? (

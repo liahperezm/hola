@@ -29,7 +29,7 @@ describe("learner dictionary (no AI)", () => {
   });
 
   it("explains a country's words from Spanish", () => {
-    const r = learnWithDictionary("Vamos en guagua a comprar cocaleca", "DO", "to-english");
+    const r = learnWithDictionary("Vamos en guagua a comprar cocaleca", "DO", "from-spanish");
     expect(r.words.map((w) => w.english).sort()).toEqual(["bus", "popcorn"]);
   });
 });

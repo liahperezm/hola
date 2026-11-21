@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import {
-  ArrowLeftRight,
   ArrowRight,
-  ChevronDown,
   ChevronRight,
   LoaderCircle,
   Mic,
@@ -13,14 +11,13 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { CountryList } from "@/components/dialect-switcher";
-import { Flag } from "@/components/flag";
-import { Sheet } from "@/components/sheet";
+import { SidesBar } from "@/components/sides";
 import { ListCard, SectionTitle, TabScreen, TopBar, capitalize } from "@/components/ui";
 import { useT } from "@/lib/i18n";
 import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResult } from "@/lib/learn";
 import { speak, useDictation } from "@/lib/speech";
-import { useDialectPair } from "@/lib/storage";
+import { LANGUAGES } from "@/lib/languages";
+import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
 const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
@@ -31,16 +28,18 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
  * dictionary, and without the AI the dictionary lists the words it knows.
  */
 export function LearnerTranslator() {
-  const { t, countryShort, countryInSentence } = useT();
-  const [pair, setPair] = useDialectPair();
+  const { t, countryInSentence } = useT();
+  const [pair] = useDialectPair();
+  const [other] = useOtherLanguage();
   const dialect = pair.to;
-  const [direction, setDirection] = useState<LearnDirection>("to-spanish");
+  const language = other?.code ?? "en";
+  const direction: LearnDirection = other?.side === "to" ? "from-spanish" : "to-spanish";
+  const languageName = LANGUAGES[language].name;
   const [text, setText] = useState("");
   const [result, setResult] = useState<LearnResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [aiAvailable, setAiAvailable] = useState(false);
-  const [picking, setPicking] = useState(false);
   const request = useRef(0);
   const resultCard = useRef<HTMLElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
@@ -59,7 +58,7 @@ export function LearnerTranslator() {
 
   const toSpanish = direction === "to-spanish";
   const spanishLang = speechLangFor(dialect);
-  const dictation = useDictation(toSpanish ? "en-US" : spanishLang, (heard, final) => {
+  const dictation = useDictation(toSpanish ? LANGUAGES[language].speech : spanishLang, (heard, final) => {
     setText(heard);
     if (final) void translate(heard);
   });
@@ -69,7 +68,7 @@ export function LearnerTranslator() {
     if (!clean) return;
     const id = ++request.current;
     setError(null);
-    const local = learnWithDictionary(clean, to, dir);
+    const local = learnWithDictionary(clean, to, dir, language);
     setResult(local);
     if (local.target.length > 0 || !aiAvailable) return;
     setLoading(true);
@@ -77,7 +76,7 @@ export function LearnerTranslator() {
       const res = await fetch("/api/learn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: clean, dialect: to, direction: dir }),
+        body: JSON.stringify({ text: clean, dialect: to, direction: dir, language }),
       });
       const body = (await res.json()) as { result?: LearnResult; error?: string };
       if (id !== request.current) return;
@@ -98,62 +97,23 @@ export function LearnerTranslator() {
     requestAnimationFrame(() => textArea.current?.focus());
   };
 
-  const swap = () => {
-    const next: LearnDirection = toSpanish ? "to-english" : "to-spanish";
-    setDirection(next);
-    setText("");
-    edit();
-  };
-
-  const english = (
-    <span className="flex items-center gap-2">
-      <span aria-hidden className="grid size-6 place-items-center rounded-full bg-navy text-[10px] font-bold text-white">
-        EN
-      </span>
-      {t("Inglés")}
-    </span>
-  );
-  const spanish = (
-    <span className="flex items-center gap-2 whitespace-nowrap">
-      <Flag code={dialect} />
-      {countryShort(dialect)}
-    </span>
-  );
   const label = (side: "from" | "to") =>
-    (side === "from") === toSpanish ? t("Inglés") : t("Español de {country}", { country: countryInSentence(dialect) });
+    (side === "from") === toSpanish
+      ? languageName
+      : t("Español de {country}", { country: countryInSentence(dialect) });
 
   const targetText = result ? join(result.target) : "";
 
   return (
     <TabScreen>
       <TopBar />
-      <div className="mt-4 grid grid-cols-[1fr_40px_1fr] items-center gap-2">
-        <div className="flex h-12 items-center justify-center rounded-full bg-white px-3 text-[14.5px] font-semibold shadow-card">
-          {toSpanish ? english : spanish}
-        </div>
-        <button
-          type="button"
-          aria-label={t("Cambiar la dirección")}
-          onClick={swap}
-          className="grid size-10 place-items-center rounded-full bg-navy text-white transition active:rotate-180"
-        >
-          <ArrowLeftRight className="size-[18px]" />
-        </button>
-        {toSpanish ? (
-          <button
-            type="button"
-            onClick={() => setPicking(true)}
-            className="flex h-12 min-w-0 items-center justify-center gap-1 rounded-full bg-white px-2 text-[14.5px] font-semibold whitespace-nowrap shadow-card"
-          >
-            {spanish}
-            <ChevronDown aria-hidden className="size-4" />
-            <span className="sr-only">. {t("Cambiar el español que aprendes")}</span>
-          </button>
-        ) : (
-          <div className="flex h-12 items-center justify-center rounded-full bg-white px-3 text-[14.5px] font-semibold shadow-card">
-            {english}
-          </div>
-        )}
+      <div className="mt-4">
+        <SidesBar
+          onChange={() => {
+            setText("");
+            edit();
+          }}
+        />
       </div>
 
       {result ? (
@@ -181,7 +141,7 @@ export function LearnerTranslator() {
             <button
               type="button"
               onClick={edit}
-              lang={toSpanish ? "en" : "es"}
+              lang={toSpanish ? language : "es"}
               className="mt-2.5 block w-full text-left text-[23px] leading-snug font-medium text-body"
             >
               {result.source}
@@ -200,7 +160,7 @@ export function LearnerTranslator() {
               ) : targetText ? (
                 <>
                   <p
-                    lang={toSpanish ? "es" : "en"}
+                    lang={toSpanish ? "es" : language}
                     className="mt-2.5 text-[23px] leading-snug font-medium"
                   >
                     {result.target.map((s, i) =>
@@ -303,7 +263,8 @@ export function LearnerTranslator() {
           <textarea
             ref={textArea}
             value={text}
-            lang={toSpanish ? "en" : "es"}
+            lang={toSpanish ? language : "es"}
+            dir="auto"
             onChange={(e) => setText(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
@@ -317,7 +278,7 @@ export function LearnerTranslator() {
               dictation.listening
                 ? t("Te escucho…")
                 : toSpanish
-                  ? t("Escribe en inglés…")
+                  ? t("Escribe en {language}…", { language: languageName })
                   : t("Escribe en español…")
             }
             aria-label={label("from")}
@@ -351,16 +312,6 @@ export function LearnerTranslator() {
         </form>
       )}
 
-      <Sheet open={picking} title="¿Qué español quieres aprender?" onClose={() => setPicking(false)}>
-        <CountryList
-          selected={dialect}
-          onChoose={(code) => {
-            setPair({ from: pair.from === code ? pair.to : pair.from, to: code });
-            setPicking(false);
-            if (result) void translate(result.source, direction, code);
-          }}
-        />
-      </Sheet>
     </TabScreen>
   );
 }

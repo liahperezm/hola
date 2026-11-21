@@ -1,4 +1,5 @@
 import { DIALECTS, type DialectCode } from "./dialects";
+import type { LanguageCode } from "./languages";
 import { allEntries, normalize, type Entry } from "./dictionary";
 import type { Segment } from "./translate";
 
@@ -8,7 +9,7 @@ import type { Segment } from "./translate";
  * single words and short phrases through each concept's English meaning.
  */
 
-export type LearnDirection = "to-spanish" | "to-english";
+export type LearnDirection = "to-spanish" | "from-spanish";
 
 export type LearnWord = {
   /** The Spanish word or phrase, as used in that country. */
@@ -22,6 +23,8 @@ export type LearnWord = {
 export type LearnResult = {
   direction: LearnDirection;
   dialect: DialectCode;
+  /** The other language. */
+  language: LanguageCode;
   source: string;
   target: Segment[];
   words: LearnWord[];
@@ -68,10 +71,15 @@ export function learnWithDictionary(
   text: string,
   dialect: DialectCode,
   direction: LearnDirection,
+  language: LanguageCode = "en",
 ): LearnResult {
   const words = dialectWords(dialect);
   const query = normalize(text).replace(/^(a|an|the|to) /, "");
-  const base = { direction, dialect, source: text };
+  const base = { direction, dialect, language, source: text };
+  // The dictionary's meanings are in English; other languages need a service.
+  if (language !== "en" && direction === "to-spanish") {
+    return { ...base, target: [], words: [], via: "none" };
+  }
 
   if (direction === "to-spanish") {
     const exact = words.find((e) => glosses(e.en ?? "").includes(query));

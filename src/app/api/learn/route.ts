@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { AiRefusedError, aiAvailable, translateForLearner } from "@/lib/ai";
 import { DIALECT_CODES } from "@/lib/dialects";
+import { LANGUAGE_CODES } from "@/lib/languages";
 import { learnWithDictionary } from "@/lib/learn";
 import { learnWithService, serviceAvailable } from "@/lib/learn-service";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
@@ -8,7 +9,8 @@ import { allowRequest, clientKey } from "@/lib/rate-limit";
 const Body = z.object({
   text: z.string().trim().min(1).max(500),
   dialect: z.enum(DIALECT_CODES),
-  direction: z.enum(["to-spanish", "to-english"]),
+  direction: z.enum(["to-spanish", "from-spanish"]),
+  language: z.enum(LANGUAGE_CODES).optional().default("en"),
 });
 
 /*
@@ -42,8 +44,8 @@ async function translate(request: Request, input: unknown) {
   if (!parsed.success) {
     return Response.json({ error: "Invalid text or country." }, { status: 400 });
   }
-  const { text, dialect, direction } = parsed.data;
-  const dictionary = learnWithDictionary(text, dialect, direction);
+  const { text, dialect, direction, language } = parsed.data;
+  const dictionary = learnWithDictionary(text, dialect, direction, language);
   const which = engine();
 
   // A single word the dictionary knows needs no service at all.
@@ -60,8 +62,8 @@ async function translate(request: Request, input: unknown) {
   try {
     const result =
       which === "ai"
-        ? await translateForLearner(text, dialect, direction)
-        : await learnWithService(text, dialect, direction);
+        ? await translateForLearner(text, dialect, direction, language)
+        : await learnWithService(text, dialect, direction, language);
     return Response.json({ result });
   } catch (error) {
     if (!(error instanceof AiRefusedError)) console.error("Learner translation failed", error);

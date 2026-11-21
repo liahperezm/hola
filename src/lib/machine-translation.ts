@@ -1,7 +1,7 @@
 import "server-only";
 
 /*
- * Machine translation between English and standard Spanish, for the learner
+ * Machine translation between another language and standard Spanish, for the learner
  * mode. Hola's dictionary then makes the Spanish local (see learn-service.ts).
  *
  * The service is picked by which key is set:
@@ -12,7 +12,8 @@ import "server-only";
  * Set MACHINE_TRANSLATION=off to turn it off.
  */
 
-export type Lang = "en" | "es";
+/** "es" or one of the languages in languages.ts. */
+export type Lang = string;
 export type MtProvider = "deepl" | "azure" | "mymemory";
 
 export const PROVIDER_NAMES: Record<MtProvider, string> = {
@@ -54,6 +55,12 @@ async function call(url: string, init?: RequestInit): Promise<unknown> {
   return res.json();
 }
 
+// DeepL wants a regional variant for some target languages.
+const DEEPL_TARGET: Record<string, string> = { en: "EN-US", pt: "PT-BR", zh: "ZH-HANS" };
+// Microsoft and MyMemory codes that differ from ours.
+const AZURE_CODE: Record<string, string> = { zh: "zh-Hans" };
+const MYMEMORY_CODE: Record<string, string> = { zh: "zh-CN" };
+
 const TRANSLATORS: Record<MtProvider, (text: string, from: Lang, to: Lang) => Promise<string>> = {
   async deepl(text, from, to) {
     const apiKey = process.env.DEEPL_API_KEY ?? "";
@@ -64,14 +71,14 @@ const TRANSLATORS: Record<MtProvider, (text: string, from: Lang, to: Lang) => Pr
       body: JSON.stringify({
         text: [text],
         source_lang: from.toUpperCase(),
-        target_lang: to === "en" ? "EN-US" : "ES",
+        target_lang: DEEPL_TARGET[to] ?? to.toUpperCase(),
       }),
     })) as { translations?: { text?: string }[] };
     return body.translations?.[0]?.text ?? "";
   },
 
   async azure(text, from, to) {
-    const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${from}&to=${to}`;
+    const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${AZURE_CODE[from] ?? from}&to=${AZURE_CODE[to] ?? to}`;
     const body = (await call(url, {
       method: "POST",
       headers: {
@@ -85,7 +92,10 @@ const TRANSLATORS: Record<MtProvider, (text: string, from: Lang, to: Lang) => Pr
   },
 
   async mymemory(text, from, to) {
-    const params = new URLSearchParams({ q: text, langpair: `${from}|${to}` });
+    const params = new URLSearchParams({
+      q: text,
+      langpair: `${MYMEMORY_CODE[from] ?? from}|${MYMEMORY_CODE[to] ?? to}`,
+    });
     if (process.env.MYMEMORY_EMAIL) params.set("de", process.env.MYMEMORY_EMAIL);
     const body = (await call(`https://api.mymemory.translated.net/get?${params}`)) as {
       responseStatus?: number | string;

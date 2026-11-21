@@ -2,6 +2,7 @@ import "server-only";
 import type { DialectCode } from "./dialects";
 import { getEntry } from "./dictionary";
 import { findFalseFriends } from "./false-friends";
+import type { LanguageCode } from "./languages";
 import type { LearnDirection, LearnResult, LearnWord } from "./learn";
 import { PROVIDER_NAMES, machineTranslate, mtProvider } from "./machine-translation";
 import { localizeFromNeutral, neutralize } from "./translate";
@@ -40,12 +41,13 @@ export async function learnWithService(
   text: string,
   dialect: DialectCode,
   direction: LearnDirection,
+  language: LanguageCode = "en",
 ): Promise<LearnResult & { credit: string }> {
   const provider = mtProvider();
   const credit = provider ? PROVIDER_NAMES[provider] : "";
 
   if (direction === "to-spanish") {
-    const standard = safeForCountry(await machineTranslate(text, "en", "es"), dialect);
+    const standard = safeForCountry(await machineTranslate(text, language, "es"), dialect);
     const local = localizeFromNeutral(standard, dialect);
     const words: LearnWord[] = local.pairs.map((p) => ({
       spanish: p.to.text,
@@ -53,16 +55,16 @@ export async function learnWithService(
       pronunciation: p.to.id ? getEntry(p.to.id)?.pronunciation : undefined,
       id: p.to.id,
     }));
-    return { direction, dialect, source: text, target: local.target, words, via: "dictionary", credit };
+    return { direction, dialect, language, source: text, target: local.target, words, via: "dictionary", credit };
   }
 
   const { text: standard, found } = neutralize(text, dialect);
-  const english = await machineTranslate(standard, "es", "en");
+  const translated = await machineTranslate(standard, "es", language);
   const words: LearnWord[] = found.map((e) => ({
     spanish: e.text,
     english: e.en ?? e.meaning,
     pronunciation: e.pronunciation,
     id: e.id,
   }));
-  return { direction, dialect, source: text, target: [{ text: english }], words, via: "dictionary", credit };
+  return { direction, dialect, language, source: text, target: [{ text: translated }], words, via: "dictionary", credit };
 }

@@ -2,6 +2,7 @@
 
 import { useCallback, useSyncExternalStore } from "react";
 import { isDialectCode, type DialectCode } from "./dialects";
+import { isLanguageCode, type LanguageCode } from "./languages";
 import type { PhraseEntry } from "./phrase";
 
 /*
@@ -176,4 +177,22 @@ export function useVoiceSpeed() {
 /** Read outside React, by speak(). */
 export function voiceRate(): number {
   return read("hola.voice-speed", "normal", asSpeed) === "lenta" ? 0.55 : 1;
+}
+
+/**
+ * The other language in the translator, when one side is not Spanish:
+ * { code: "en", side: "from" } translates English into the Spanish of
+ * useDialectPair().to. Null means Spanish dialect to Spanish dialect.
+ */
+export type OtherLanguage = { code: LanguageCode; side: "from" | "to" } | null;
+
+const asOtherLanguage = (v: unknown): OtherLanguage => {
+  const o = v as { code?: unknown; side?: unknown } | null;
+  return o && isLanguageCode(o.code) && (o.side === "from" || o.side === "to")
+    ? { code: o.code, side: o.side }
+    : null;
+};
+
+export function useOtherLanguage() {
+  return useStored<OtherLanguage>("hola.other-language", null, asOtherLanguage);
 }
