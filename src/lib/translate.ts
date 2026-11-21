@@ -13,9 +13,11 @@ import {
   agreeAfter,
   agreeBefore,
   fixAccents,
-  genderFromArticle,
+  formFromArticle,
   nounGender,
+  nounNumber,
   type Gender,
+  type NounForm,
 } from "./grammar";
 
 export type Segment = { text: string; highlight?: boolean };
@@ -227,10 +229,30 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
   const target: Segment[] = [];
   // For each target segment, the gender change a swapped noun brought, so the
   // words around it can agree afterwards.
-  const shifts: ({ from: Gender; to: Gender } | null)[] = [];
-  const pushTarget = (segment: Segment, shift: { from?: Gender; to?: Gender } | null = null) => {
+  const shifts: ({ from: NounForm; to: NounForm } | null)[] = [];
+  const pushTarget = (segment: Segment, shift: { from: NounForm; to: NounForm } | null = null) => {
     target.push(segment);
-    shifts.push(shift?.from && shift.to && shift.from !== shift.to ? { from: shift.from, to: shift.to } : null);
+    shifts.push(shift);
+  };
+  /** The swapped noun's form before and after, from its article and spelling. */
+  const formsOf = (
+    before: string,
+    original: string,
+    replacement: string,
+    plural: boolean,
+    toGender?: Gender,
+  ) => {
+    const article = formFromArticle(before);
+    return {
+      from: {
+        gender: article.gender ?? nounGender(original),
+        number: plural ? "p" : (article.number ?? nounNumber(original)),
+      } as NounForm,
+      to: {
+        gender: toGender ?? nounGender(replacement),
+        number: plural ? "p" : nounNumber(replacement),
+      } as NounForm,
+    };
   };
   const pairs: TermPair[] = [];
   const seen = new Set<string>();
@@ -250,10 +272,7 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
       source.push({ text: original, highlight: true });
       pushTarget(
         { text: matchCase(friend.literal, original), highlight: true },
-        friend.gender && {
-          from: genderFromArticle(before) ?? nounGender(original),
-          to: friend.gender,
-        },
+        friend.gender ? formsOf(before, original, friend.literal, friend.plural, friend.gender) : null,
       );
       const key = `ff.${normalize(original)}`;
       if (!seen.has(key)) {
@@ -284,10 +303,7 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
       continue;
     }
     source.push({ text: original, highlight: true });
-    pushTarget(
-      { text: replaced, highlight: true },
-      { from: genderFromArticle(before) ?? nounGender(original), to: nounGender(clean) },
-    );
+    pushTarget({ text: replaced, highlight: true }, formsOf(before, original, clean, match.plural));
 
     const key = pattern.entry?.id ?? `plain.${pattern.conceptId}`;
     if (!seen.has(key)) {

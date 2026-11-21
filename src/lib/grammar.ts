@@ -39,26 +39,52 @@ export function nounGender(phrase: string): Gender | undefined {
   return undefined;
 }
 
-// Determiners and pre-noun adjectives, masculine ↔ feminine.
-const DETERMINERS: [string, string][] = [
-  ["el", "la"], ["un", "una"], ["los", "las"], ["unos", "unas"],
-  ["este", "esta"], ["estos", "estas"], ["ese", "esa"], ["esos", "esas"],
-  ["aquel", "aquella"], ["aquellos", "aquellas"], ["otro", "otra"],
-  ["otros", "otras"], ["mucho", "mucha"], ["muchos", "muchas"],
-  ["poco", "poca"], ["pocos", "pocas"], ["nuestro", "nuestra"],
-  ["nuestros", "nuestras"], ["vuestro", "vuestra"], ["vuestros", "vuestras"],
-  ["algún", "alguna"], ["algunos", "algunas"], ["ningún", "ninguna"],
-  ["buen", "buena"], ["mal", "mala"], ["primer", "primera"],
-  ["tercer", "tercera"], ["todo", "toda"], ["todos", "todas"],
-  ["cuánto", "cuánta"], ["cuántos", "cuántas"], ["dicho", "dicha"],
+export type GrammaticalNumber = "s" | "p";
+
+/** A noun's form: gender when known, and singular or plural. */
+export type NounForm = { gender?: Gender; number: GrammaticalNumber };
+
+// Singular nouns that end in -s.
+const SINGULAR_IN_S = new Set([
+  "bus", "ómnibus", "autobús", "lunes", "martes", "miércoles", "jueves", "viernes",
+  "crisis", "tesis", "análisis", "virus", "cactus", "tos", "mes", "gas", "dios",
+  "país", "anís", "francés", "inglés", "interés", "compás", "atlas", "vals",
+]);
+
+/** Singular or plural, from the first word: "palomitas" → plural, "cocaleca" → singular. */
+export function nounNumber(phrase: string): GrammaticalNumber {
+  const word = phrase.trim().split(/\s+/)[0]?.toLowerCase() ?? "";
+  if (!word.endsWith("s") || SINGULAR_IN_S.has(word)) return "s";
+  if (/[áéíóú]s$/.test(word)) return "s"; // autobús, país
+  return "p";
+}
+
+// Determiners and words before a noun: [masc. sing., fem. sing., masc. pl., fem. pl.].
+const DETERMINER_FORMS: [string, string, string, string][] = [
+  ["el", "la", "los", "las"], ["un", "una", "unos", "unas"],
+  ["este", "esta", "estos", "estas"], ["ese", "esa", "esos", "esas"],
+  ["aquel", "aquella", "aquellos", "aquellas"], ["otro", "otra", "otros", "otras"],
+  ["mucho", "mucha", "muchos", "muchas"], ["poco", "poca", "pocos", "pocas"],
+  ["todo", "toda", "todos", "todas"], ["nuestro", "nuestra", "nuestros", "nuestras"],
+  ["vuestro", "vuestra", "vuestros", "vuestras"], ["algún", "alguna", "algunos", "algunas"],
+  ["ningún", "ninguna", "ningunos", "ningunas"], ["cuánto", "cuánta", "cuántos", "cuántas"],
+  ["dicho", "dicha", "dichos", "dichas"], ["buen", "buena", "buenos", "buenas"],
+  ["mal", "mala", "malos", "malas"], ["primer", "primera", "primeros", "primeras"],
+  ["tercer", "tercera", "terceros", "terceras"], ["demasiado", "demasiada", "demasiados", "demasiadas"],
+  ["tanto", "tanta", "tantos", "tantas"], ["mi", "mi", "mis", "mis"],
+  ["tu", "tu", "tus", "tus"], ["su", "su", "sus", "sus"],
 ];
-const TO_F = new Map(DETERMINERS.map(([m, f]) => [m, f]));
-const TO_M = new Map(DETERMINERS.map(([m, f]) => [f, m]));
+const DETERMINER_INDEX = new Map<string, [string, string, string, string]>();
+for (const row of DETERMINER_FORMS) for (const w of row) if (!DETERMINER_INDEX.has(w)) DETERMINER_INDEX.set(w, row);
+
+function slot(form: NounForm): number {
+  return (form.number === "p" ? 2 : 0) + (form.gender === "f" ? 1 : 0);
+}
 
 /*
- * Adjectives that follow a noun. Only these, words ending in a participle
- * suffix, or common adjective suffixes are changed: plenty of verbs end in -o
- * or -a too ("cuesta", "llevo"), and those must not be touched.
+ * Adjectives that describe a noun. Only these, words with a participle or
+ * adjective suffix, and a few that only change for number are changed: plenty
+ * of verbs end in -o or -a too ("cuesta", "llevo"), and those must not be touched.
  */
 const ADJECTIVES = new Set(
   `nuevo viejo rojo blanco negro amarillo morado rosado dorado plateado
@@ -66,27 +92,49 @@ const ADJECTIVES = new Set(
   alto bajo gordo flaco delgado lleno vacío limpio sucio roto mojado seco
   último primero mismo propio bueno malo cómodo rápido lento duro blando
   oscuro claro salado maduro fresco perfecto raro típico precioso hermoso
-  enorme famoso nuevecito tranquilo bravo lindo guapo listo cansado contento
-  enojado ocupado abierto cerrado cubierto puesto hecho dicho escrito
-  propio ajeno entero medio junto solo cierto extraño ancho estrecho
-  redondo cuadrado tibio crudo cocido fino grueso liso suave áspero
-  plástico eléctrico mágico público mexicano dominicano colombiano argentino
-  americano cubano peruano chileno venezolano uruguayo boliviano paraguayo
-  ecuatoriano panameño hondureño salvadoreño guatemalteco nicaragüense`
+  enorme famoso tranquilo bravo guapo listo cansado contento enojado ocupado
+  abierto cerrado cubierto puesto hecho dicho escrito ajeno entero medio junto
+  solo cierto extraño ancho estrecho redondo cuadrado tibio crudo cocido fino
+  grueso liso suave áspero plástico eléctrico mágico público mexicano dominicano
+  colombiano argentino americano cubano peruano chileno venezolano uruguayo
+  boliviano paraguayo ecuatoriano panameño hondureño salvadoreño guatemalteco`
+    .split(/\s+/)
+    .filter(Boolean),
+);
+// Adjectives with one form for both genders: only number changes.
+const BOTH_GENDERS = new Set(
+  `grande verde caliente dulce picante alegre triste fuerte suave azul gris fácil
+  difícil mejor peor joven feliz pobre interesante importante increíble terrible
+  horrible agradable amable útil inútil normal especial genial chévere`
     .split(/\s+/)
     .filter(Boolean),
 );
 const ADJECTIVE_SUFFIX = /(ado|ido|oso|ito|ísimo|ico|ivo|ario|ero|ano|eño)$/;
 
-function isAdjective(word: string, from: Gender): boolean {
+/** The adjective in the noun's new form, or null if the word is not one. */
+function reinflectAdjective(word: string, from: NounForm, to: NounForm): string | null {
   const w = word.toLowerCase();
-  const base = from === "m" ? w.replace(/os?$/, "o") : w.replace(/as?$/, "o");
-  const ends = from === "m" ? /os?$/.test(w) : /as?$/.test(w);
-  return ends && (ADJECTIVES.has(base) || ADJECTIVE_SUFFIX.test(base));
-}
-
-function flipAdjective(word: string, to: Gender): string {
-  return word.replace(/[oa](s?)$/i, (_, s: string) => (to === "f" ? "a" : "o") + s);
+  // -o / -a adjectives: four forms.
+  const m = w.match(/^(.+)([oa])(s?)$/);
+  if (m) {
+    const [, stem, vowel, plural] = m;
+    const base = `${stem}o`;
+    const agrees =
+      (from.gender === undefined || (vowel === "o") === (from.gender === "m")) &&
+      (plural === "s") === (from.number === "p");
+    if (agrees && (ADJECTIVES.has(base) || ADJECTIVE_SUFFIX.test(base))) {
+      const gender = to.gender ?? from.gender ?? (vowel === "a" ? "f" : "m");
+      return stem + (gender === "f" ? "a" : "o") + (to.number === "p" ? "s" : "");
+    }
+  }
+  // One form for both genders: number only.
+  const singular = from.number === "p" ? w.replace(/ces$/, "z").replace(/(?<=[^aeiouáéíóú])es$|(?<=[aeiouáéíóú])s$/, "") : w;
+  if (BOTH_GENDERS.has(singular)) {
+    if (to.number === "s") return singular;
+    if (/z$/.test(singular)) return `${singular.slice(0, -1)}ces`;
+    return /[aeiouáéíóú]$/.test(singular) ? `${singular}s` : `${singular}es`;
+  }
+  return null;
 }
 
 function keepCase(replacement: string, original: string): string {
@@ -99,67 +147,84 @@ function keepCase(replacement: string, original: string): string {
     : replacement;
 }
 
-/** The gender a determiner right before the noun shows, if any. */
-export function genderFromArticle(before: string): Gender | undefined {
+/** The gender and number a determiner right before the noun shows, if any. */
+export function formFromArticle(before: string): Partial<NounForm> {
   const m = before.match(/(\p{L}+)\s+$/u);
   const word = m?.[1].toLowerCase();
-  if (!word) return undefined;
-  if (TO_F.has(word)) return "m";
-  if (TO_M.has(word)) return "f";
-  if (word === "del" || word === "al") return "m";
-  return undefined;
+  if (!word) return {};
+  if (word === "del" || word === "al") return { gender: "m", number: "s" };
+  const row = DETERMINER_INDEX.get(word);
+  if (!row) return {};
+  const i = row.indexOf(word);
+  const ambiguousGender = row[0] === row[1];
+  return { gender: ambiguousGender ? undefined : i % 2 ? "f" : "m", number: i >= 2 ? "p" : "s" };
 }
 
-const COPULAS = new Set([
-  "es", "está", "esta", "era", "estaba", "fue", "son", "están", "eran",
-  "estaban", "parece", "parecía", "queda", "quedó", "se", "ve", "veía",
-]);
+/** Kept for callers that only need the gender. */
+export function genderFromArticle(before: string): Gender | undefined {
+  return formFromArticle(before).gender;
+}
+
+const COPULA_NUMBER: [string, string][] = [
+  ["es", "son"], ["está", "están"], ["esta", "están"], ["era", "eran"],
+  ["estaba", "estaban"], ["fue", "fueron"], ["parece", "parecen"],
+  ["parecía", "parecían"], ["queda", "quedan"], ["quedó", "quedaron"],
+  ["cuesta", "cuestan"], ["sabe", "saben"], ["huele", "huelen"],
+];
+const TO_PLURAL_VERB = new Map(COPULA_NUMBER);
+const TO_SINGULAR_VERB = new Map(COPULA_NUMBER.map(([s, p]) => [p, s === "esta" ? "está" : s]));
+const COPULAS = new Set([...TO_PLURAL_VERB.keys(), ...TO_SINGULAR_VERB.keys(), "se", "ve", "veía"]);
 const INTENSIFIERS = new Set(["muy", "bien", "tan", "super", "súper", "bastante", "demasiado", "medio", "re"]);
+
+function changed(from: NounForm, to: NounForm): boolean {
+  return (from.gender !== undefined && to.gender !== undefined && from.gender !== to.gender) || from.number !== to.number;
+}
 
 /**
  * Text before a swapped noun, with its determiners and adjectives agreeing:
- * "de la nueva " + carrizo → "del nuevo ".
+ * "de la nueva " + carrizo → "del nuevo "; "mucha " + palomitas → "muchas ".
  */
-export function agreeBefore(before: string, from: Gender, to: Gender): string {
-  if (from === to) return before;
+export function agreeBefore(before: string, from: NounForm, to: NounForm): string {
+  if (!changed(from, to)) return before;
+  const target: NounForm = { gender: to.gender ?? from.gender, number: to.number };
   const tokens = before.split(/(\s+)/);
-  let changed = 0;
-  for (let i = tokens.length - 1; i >= 0 && changed < 3; i--) {
+  let count = 0;
+  for (let i = tokens.length - 1; i >= 0 && count < 3; i--) {
     const t = tokens[i];
     if (!t || /^\s+$/.test(t)) continue;
     const lower = t.toLowerCase();
-    const swap = to === "f" ? TO_F.get(lower) : TO_M.get(lower);
-    if (swap) {
-      tokens[i] = keepCase(swap, t);
-      changed++;
-      continue;
-    }
-    if (to === "f" && (lower === "del" || lower === "al")) {
-      tokens[i] = keepCase(lower === "del" ? "de la" : "a la", t);
+    if (lower === "del" || lower === "al") {
+      const article = DETERMINER_INDEX.get("el")![slot(target)];
+      if (article !== "el") tokens[i] = keepCase(`${lower === "del" ? "de" : "a"} ${article}`, t);
       break;
     }
-    if (isAdjective(t, from)) {
-      tokens[i] = flipAdjective(t, to);
-      changed++;
+    const row = DETERMINER_INDEX.get(lower);
+    if (row) {
+      tokens[i] = keepCase(row[slot(target)], t);
+      count++;
+      continue;
+    }
+    const adjective = reinflectAdjective(t, from, target);
+    if (adjective) {
+      tokens[i] = keepCase(adjective, t);
+      count++;
       continue;
     }
     break;
   }
   let out = tokens.join("");
-  // "de el" / "a el" contract when the noun becomes masculine.
-  if (to === "m") {
-    out = out.replace(/\b([Dd])e el(\s+)$/u, "$1el$2").replace(/\b([Aa]) el(\s+)$/u, "$1l$2");
-  }
+  // "de el" / "a el" contract.
+  out = out.replace(/\b([Dd])e el(\s+)$/u, "$1el$2").replace(/\b([Aa]) el(\s+)$/u, "$1l$2");
   return out;
 }
 
 /**
- * Text after a swapped noun, with the adjectives describing it agreeing:
- * carrizo + " roto y sucio" → " roto y sucio"; vulva + " pequeño" → " pequeña".
- * Also one adjective after "es", "está"… ("la pajita está rota").
+ * Text after a swapped noun, with the words describing it agreeing:
+ * vulva + " pequeño" → " pequeña"; palomitas + " está rica" → " están ricas".
  */
-export function agreeAfter(after: string, from: Gender, to: Gender): string {
-  if (from === to) return after;
+export function agreeAfter(after: string, from: NounForm, to: NounForm): string {
+  if (!changed(from, to)) return after;
+  const target: NounForm = { gender: to.gender ?? from.gender, number: to.number };
   const tokens = after.split(/(\s+|[,.;:!?¡¿()]+)/);
   let afterCopula = false;
   for (let i = 0; i < tokens.length; i++) {
@@ -168,12 +233,17 @@ export function agreeAfter(after: string, from: Gender, to: Gender): string {
     const lower = t.toLowerCase();
     if (/^[.;:!?¡¿()]+$/.test(t)) break;
     if (lower === "y" || lower === "e") continue;
-    if (isAdjective(t, from)) {
-      tokens[i] = flipAdjective(t, to);
+    const adjective = reinflectAdjective(t, from, target);
+    if (adjective) {
+      tokens[i] = keepCase(adjective, t);
       afterCopula = false;
       continue;
     }
     if (!afterCopula && COPULAS.has(lower)) {
+      if (from.number !== target.number) {
+        const verb = target.number === "p" ? TO_PLURAL_VERB.get(lower) : TO_SINGULAR_VERB.get(lower);
+        if (verb) tokens[i] = keepCase(verb, t);
+      }
       afterCopula = true;
       continue;
     }

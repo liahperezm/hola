@@ -253,3 +253,28 @@ describe("spelling in the translation", () => {
     expect(t("Yo termino el trabajo", "DO", "CO")).toBe("Yo termino el trabajo");
   });
 });
+
+describe("singular and plural", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("makes the words before the noun plural when the new word is plural", () => {
+    expect(t("Quiero mucha cocaleca", "DO", "ES")).toBe("Quiero muchas palomitas");
+  });
+
+  it("and singular the other way", () => {
+    expect(t("Quiero muchas palomitas", "ES", "DO")).toBe("Quiero mucha cocaleca");
+  });
+
+  it("changes the verb and adjective after the noun too", () => {
+    expect(t("La cocaleca está rica", "DO", "MX")).toBe("Las palomitas están ricas");
+  });
+
+  it("handles gender and number at once", () => {
+    expect(t("Los frijoles están buenos", "MX", "DO")).toBe("Las habichuelas están buenas");
+  });
+
+  it("does not treat singular words ending in s as plural", () => {
+    expect(t("El autobús está lleno", "ES", "DO")).toBe("La guagua está llena");
+  });
+});
