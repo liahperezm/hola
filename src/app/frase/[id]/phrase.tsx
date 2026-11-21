@@ -2,7 +2,7 @@
 
 import { Rich } from "@/components/rich";
 import Link from "next/link";
-import { Heart, Share, Snail, Volume2 } from "lucide-react";
+import { Heart, Share, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
@@ -121,16 +121,6 @@ function PhraseView({
           <span className="sr-only">{t("Escuchar")}: </span>
           {entry.pronunciation ?? t("Escuchar")}
         </button>
-        {learner && (
-          <button
-            type="button"
-            onClick={() => speak(entry.text, DIALECTS[entry.dialect].speechLang, 0.55)}
-            className="-ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 text-[14.5px] text-muted hover:text-navy"
-          >
-            <Snail aria-hidden className="size-4" />
-            {t("Escuchar despacio")}
-          </button>
-        )}
       </div>
 
       <div

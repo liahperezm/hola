@@ -10,14 +10,14 @@ import { useT, useUiLanguage, type UiLanguage } from "@/lib/i18n";
 import { LANGUAGE_CODES, LANGUAGES } from "@/lib/languages";
 import { useOtherLanguage, type DialectPair } from "@/lib/storage";
 
-type Step = "hola" | "from" | "to" | "learn";
+type Step = "splash" | "hola" | "from" | "to" | "learn";
 
 /**
  * First run. In Spanish: a welcome, then the two countries the translator
  * opens with. In English (learners): which Spanish they want to learn.
  */
 export function Welcome({ onDone }: { onDone: (pair: DialectPair) => void }) {
-  const [step, setStep] = useState<Step>("hola");
+  const [step, setStep] = useState<Step>("splash");
   const [from, setFrom] = useState<DialectCode | null>(null);
   const [, setLanguage] = useUiLanguage();
   const [, setOther] = useOtherLanguage();
@@ -28,6 +28,27 @@ export function Welcome({ onDone }: { onDone: (pair: DialectPair) => void }) {
   useEffect(() => {
     heading.current?.focus();
   }, [step]);
+
+  // Just the name and a tagline; the questions come after.
+  if (step === "splash") {
+    return (
+      <main className="flex min-h-dvh flex-col items-center px-6 pt-[max(env(safe-area-inset-top),1rem)] pb-[max(env(safe-area-inset-bottom),2rem)]">
+        <div className="flex flex-1 flex-col items-center justify-center text-center">
+          <h1>
+            <Logo className="h-24" />
+          </h1>
+          <p className="mt-3 text-[17px] font-semibold text-muted">El español de cada país</p>
+        </div>
+        <button
+          type="button"
+          onClick={() => setStep("hola")}
+          className="h-14 w-full rounded-full bg-navy text-[16px] font-bold text-white"
+        >
+          Empezar <span aria-hidden>·</span> <span lang="en">Start</span>
+        </button>
+      </main>
+    );
+  }
 
   if (step === "hola") {
     const row =
@@ -90,7 +111,7 @@ export function Welcome({ onDone }: { onDone: (pair: DialectPair) => void }) {
     );
   }
 
-  const copy: Record<Exclude<Step, "hola">, { title: string; hint: string; n: number; total: number }> = {
+  const copy: Record<Exclude<Step, "hola" | "splash">, { title: string; hint: string; n: number; total: number }> = {
     from: {
       title: t("¿De dónde es tu español?"),
       hint: t("Traduciremos desde tu forma de hablar."),

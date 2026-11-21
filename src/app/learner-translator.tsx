@@ -6,7 +6,6 @@ import {
   ChevronRight,
   LoaderCircle,
   Mic,
-  Snail,
   Volume2,
   X,
 } from "lucide-react";
@@ -180,14 +179,8 @@ export function LearnerTranslator() {
                   )}
                   {toSpanish && (
                     <div className="mt-3 flex gap-2">
-                      <RoundButton label={t("Escuchar")} onClick={() => speak(targetText, spanishLang, 1)}>
+                      <RoundButton label={t("Escuchar")} onClick={() => speak(targetText, spanishLang)}>
                         <Volume2 className="size-[18px]" />
-                      </RoundButton>
-                      <RoundButton
-                        label={t("Escuchar despacio")}
-                        onClick={() => speak(targetText, spanishLang, 0.55)}
-                      >
-                        <Snail className="size-[18px]" />
                       </RoundButton>
                     </div>
                   )}
@@ -239,10 +232,10 @@ export function LearnerTranslator() {
                         body
                       )}
                       <RoundButton
-                        label={`${t("Escuchar despacio")}: ${w.spanish}`}
-                        onClick={() => speak(w.spanish, spanishLang, 0.55)}
+                        label={`${t("Escuchar")}: ${w.spanish}`}
+                        onClick={() => speak(w.spanish, spanishLang)}
                       >
-                        <Snail className="size-[18px]" />
+                        <Volume2 className="size-[18px]" />
                       </RoundButton>
                     </li>
                   );

@@ -18,7 +18,6 @@ export const EN: Record<string, string> = {
   "Intercambiar países": "Swap countries",
   ". Cambiar país": ". Change country",
   Escuchar: "Listen",
-  "Escuchar despacio": "Listen slowly",
   Compartir: "Share",
   Copiar: "Copy",
   Copiado: "Copied",

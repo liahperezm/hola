@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ChevronRight, Snail, Volume2 } from "lucide-react";
+import { ChevronRight, Volume2 } from "lucide-react";
 import { useMemo, useState } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
 import { LearningChip } from "@/components/learning";
@@ -125,7 +125,8 @@ function TranslatorRow({ row }: { row: GuideRow }) {
 
 /**
  * Learner mode: the word in the Spanish they are learning, what it means in
- * English, how to say it, and buttons to hear it at normal and slow speed.
+ * English, how to say it, and a button to hear it (at the speed set in
+ * Preferencias).
  */
 function PhrasebookRow({ row, lang }: { row: GuideRow; lang: string }) {
   const { t } = useT();
@@ -158,19 +159,11 @@ function PhrasebookRow({ row, lang }: { row: GuideRow; lang: string }) {
       )}
       <button
         type="button"
-        onClick={() => speak(word, lang, 1)}
+        onClick={() => speak(word, lang)}
         aria-label={`${t("Escuchar")}: ${word}`}
         className="grid size-10 shrink-0 place-items-center rounded-full bg-bg hover:bg-lavender"
       >
         <Volume2 aria-hidden className="size-[18px]" />
-      </button>
-      <button
-        type="button"
-        onClick={() => speak(word, lang, 0.55)}
-        aria-label={`${t("Escuchar despacio")}: ${word}`}
-        className="grid size-10 shrink-0 place-items-center rounded-full bg-bg hover:bg-lavender"
-      >
-        <Snail aria-hidden className="size-[18px]" />
       </button>
     </li>
   );
