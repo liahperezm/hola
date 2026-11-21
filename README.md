@@ -19,8 +19,11 @@ installable, mobile-first web app (PWA) built from the
   any two countries.
 - **Ajustes**: the countries the translator opens with, clear favorites.
 
-Countries: República Dominicana, Colombia, Argentina, México, Venezuela, Puerto
-Rico, Cuba, España, Chile, Uruguay and Perú.
+Countries: all 22 in the lexicon: Argentina, Bolivia, Chile, Colombia, Costa
+Rica, Cuba, Ecuador, El Salvador, España, Estados Unidos, Guatemala, Guinea
+Ecuatorial, Honduras, México, Nicaragua, Panamá, Paraguay, Perú, Puerto Rico,
+República Dominicana, Uruguay and Venezuela. Estados Unidos and Guinea
+Ecuatorial have no words of their own in the lexicon yet.
 
 ## How translation works
 

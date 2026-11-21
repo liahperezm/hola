@@ -20,7 +20,7 @@ DATA = ROOT / "lexicon" / "data" / "concepts.json"
 OUT = ROOT / "src" / "lib" / "lexicon.generated.ts"
 
 # Countries the app supports (src/lib/dialects.ts).
-APP_DIALECTS = ["DO", "CO", "AR", "MX", "VE", "PR", "CU", "ES", "CL", "UY", "PE"]
+APP_DIALECTS = ["AR", "BO", "CL", "CO", "CR", "CU", "EC", "SV", "ES", "US", "GT", "GQ", "HN", "MX", "NI", "PA", "PY", "PE", "PR", "DO", "UY", "VE"]
 
 # concept key -> (meaning in neutral Spanish, guide or None, existing app concept id or None)
 APP_CONCEPTS: dict[str, tuple[str, str | None, str | None]] = {

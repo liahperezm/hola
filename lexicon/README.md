@@ -27,7 +27,7 @@ concepts in `data/concepts.json` into `src/lib/lexicon.generated.ts`, which
 python3 lexicon/scripts/export_app.py && pnpm test
 ```
 
-The script only exports the concepts listed in `APP_CONCEPTS`, only for the app's 11 countries, and it
+The script only exports the concepts listed in `APP_CONCEPTS`, for every country the app lists (all 22 in `countries.json`), and it
 drops vulgar or offensive words and everyday words with another common meaning (the `AMBIGUOUS` list).
 The translator swaps every word it knows, so *padre* (Mexico: "cool") would turn "mi padre" into
 "mi genial".

@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "lexicon/data/false_friends.json"
 TARGET = ROOT / "src/lib/false-friends.generated.ts"
 
-APP_COUNTRIES = ["DO", "CO", "AR", "MX", "VE", "PR", "CU", "ES", "CL", "UY", "PE"]
+APP_COUNTRIES = ["AR", "BO", "CL", "CO", "CR", "CU", "EC", "SV", "ES", "US", "GT", "GQ", "HN", "MX", "NI", "PA", "PY", "PE", "PR", "DO", "UY", "VE"]
 WARN_REGISTERS = {"vulgar", "offensive"}
 
 # Words left out: "madre" is only vulgar inside set expressions, so a warning on
