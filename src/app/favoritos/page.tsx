@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Bookmark } from "lucide-react";
+import { Heart } from "lucide-react";
 import { useMemo, useState } from "react";
 import { CountryLabel } from "@/components/flag";
 import {
@@ -16,7 +16,7 @@ import { DIALECT_CODES, DIALECTS } from "@/lib/dialects";
 import { normalize } from "@/lib/dictionary";
 import { useFavorites, useHydrated } from "@/lib/storage";
 
-export default function Saved() {
+export default function Favorites() {
   const { favorites, toggle } = useFavorites();
   const hydrated = useHydrated();
   const [query, setQuery] = useState("");
@@ -37,10 +37,10 @@ export default function Saved() {
 
   return (
     <TabScreen>
-      <TopBar title="Guardados" />
+      <TopBar title="Favoritos" />
       {!hydrated ? null : favorites.length === 0 ? (
-        <EmptyState icon={Bookmark} title="Todavía no guardaste nada">
-          Toca el marcador en cualquier palabra para tenerla aquí.
+        <EmptyState icon={Heart} title="Todavía no tienes favoritos">
+          Toca el corazón en cualquier palabra para tenerla aquí.
         </EmptyState>
       ) : (
         <>
@@ -48,7 +48,7 @@ export default function Saved() {
             <SearchField
               value={query}
               onChange={setQuery}
-              placeholder="Busca en tus guardados"
+              placeholder="Busca en tus favoritos"
             />
           </div>
           {groups.length === 0 ? (
@@ -72,11 +72,11 @@ export default function Saved() {
                         </Link>
                         <button
                           type="button"
-                          aria-label={`Quitar ${entry.text} de guardados`}
+                          aria-label={`Quitar ${entry.text} de favoritos`}
                           onClick={() => toggle(entry)}
                           className="-mr-2 grid size-10 place-items-center rounded-full hover:bg-bg"
                         >
-                          <Bookmark className="size-5 fill-navy" />
+                          <Heart className="size-5 fill-navy" />
                         </button>
                       </li>
                     ))}

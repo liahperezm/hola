@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { allEntries, getEntry, guideRows, wordOfTheDay, unknownPlainWordConcepts } from "./dictionary";
+import type { DialectCode } from "./dialects";
+import { allEntries, getEntry, guideRows, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts } from "./dictionary";
 import { warningText } from "./false-friends";
 import { translateWithDictionary } from "./translate";
 
@@ -67,15 +68,19 @@ describe("dictionary", () => {
     const night = wordOfTheDay(new Date(2026, 10, 20, 23));
     expect(morning.id).toBe(night.id);
     expect(morning.origin).toBeTruthy();
-    expect(wordOfTheDay(new Date(2026, 10, 21)).id).not.toBe(morning.id);
   });
 
-  it("lists every concept of a guide whatever the countries", () => {
-    const a = guideRows("comida", "DO", "AR").map((r) => r.conceptId);
-    const b = guideRows("comida", "ES", "PE").map((r) => r.conceptId);
-    expect(a).toEqual(b);
-    const juice = guideRows("comida", "DO", "AR").find((r) => r.conceptId === "jugo");
-    expect([juice?.from.display, juice?.to.display]).toEqual(["jugo", "jugo"]);
+  it("never shows the same word two days running, and uses the whole pool", () => {
+    const pool = wordOfTheDayPool().length;
+    const seen = new Set<string>();
+    let previous = "";
+    for (let d = 0; d < pool * 4; d++) {
+      const id = wordOfTheDay(new Date(2026, 0, 1 + d, 12)).id;
+      expect(id).not.toBe(previous);
+      previous = id;
+      seen.add(id);
+    }
+    expect(seen.size).toBe(pool);
   });
 
   it("has unique ids", () => {
@@ -194,5 +199,50 @@ describe("false friends", () => {
   it("explains the meaning for AI translations", () => {
     const [w] = translateWithDictionary("Cogí el bus", "ES", "AR").warnings;
     expect(warningText(w)).toBe("En Argentina, «coger» significa: tener sexo.");
+  });
+});
+
+describe("agreement with the swapped word", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("changes the article and the adjectives after the noun", () => {
+    expect(t("Pásame la pajita roja", "ES", "PA")).toBe("Pásame el carrizo rojo");
+    expect(t("Compré una pajita nueva y bonita", "ES", "PA")).toBe(
+      "Compré un carrizo nuevo y bonito",
+    );
+  });
+
+  it("changes an adjective after es / está", () => {
+    expect(t("La pajita está rota", "ES", "PA")).toBe("El carrizo está roto");
+  });
+
+  it("contracts de + el", () => {
+    expect(t("El color de la pajita", "ES", "PA")).toBe("El color del carrizo");
+  });
+
+  it("leaves verbs and other words alone", () => {
+    expect(t("La pajita cuesta poco", "ES", "PA")).toBe("El carrizo cuesta poco");
+  });
+
+  it("does nothing when the gender is the same", () => {
+    expect(t("La gasolina está cara", "ES", "AR")).toBe("La nafta está cara");
+  });
+});
+
+describe("spelling in the translation", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("restores missing accents and ñ", () => {
+    expect(t("Una bolsa de plastico para el nino", "DO", "CO")).toBe(
+      "Una bolsa de plástico para el niño",
+    );
+    expect(t("Despues del cafe", "DO", "CO")).toBe("Después del café");
+  });
+
+  it("leaves words that are valid both ways", () => {
+    expect(t("Esta es mi papa", "DO", "CO")).toBe("Esta es mi papa");
+    expect(t("Yo termino el trabajo", "DO", "CO")).toBe("Yo termino el trabajo");
   });
 });

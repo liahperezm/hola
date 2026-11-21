@@ -7,16 +7,23 @@ import { voiceRate } from "./storage";
 export function speak(text: string, lang: string) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const synth = window.speechSynthesis;
-  synth.cancel();
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
   utterance.rate = voiceRate();
-  const voices = synth.getVoices();
-  utterance.voice =
-    voices.find((v) => v.lang.replace("_", "-") === lang) ??
-    voices.find((v) => v.lang.startsWith("es")) ??
-    null;
-  synth.speak(utterance);
+  // On-device voices honor the speed; some online voices ignore it.
+  const voices = synth.getVoices().filter((v) => v.lang.startsWith("es"));
+  const exact = voices.filter((v) => v.lang.replace("_", "-") === lang);
+  const pick = (list: SpeechSynthesisVoice[]) =>
+    list.find((v) => v.localService) ?? list[0];
+  const voice = pick(exact) ?? pick(voices);
+  if (voice) utterance.voice = voice;
+  if (synth.speaking || synth.pending) {
+    synth.cancel();
+    // Chrome can drop an utterance queued in the same tick as cancel().
+    setTimeout(() => synth.speak(utterance), 60);
+  } else {
+    synth.speak(utterance);
+  }
 }
 
 export function canSpeak(): boolean {

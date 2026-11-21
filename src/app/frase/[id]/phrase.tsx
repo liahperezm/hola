@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Bookmark, Share, Volume2 } from "lucide-react";
+import { Heart, Share, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
@@ -90,11 +90,11 @@ function PhraseView({
           <Share className="size-[19px]" />
         </IconButton>
         <IconButton
-          label="Guardar"
+          label="Favorito"
           pressed={saved}
           onClick={save}
         >
-          <Bookmark className={`size-[19px] ${saved ? "fill-navy" : ""}`} />
+          <Heart className={`size-[19px] ${saved ? "fill-navy" : ""}`} />
         </IconButton>
       </PageHeader>
 

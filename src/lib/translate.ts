@@ -1,6 +1,14 @@
 import { DIALECTS, type DialectCode } from "./dialects";
 import { entriesFor, equivalent, normalize, plainWordsFor, type Entry } from "./dictionary";
 import { findFalseFriends, type FalseFriendWarning } from "./false-friends";
+import {
+  agreeAfter,
+  agreeBefore,
+  fixAccents,
+  genderFromArticle,
+  nounGender,
+  type Gender,
+} from "./grammar";
 
 export type Segment = { text: string; highlight?: boolean };
 
@@ -141,25 +149,6 @@ function matchCase(replacement: string, original: string): string {
   return replacement;
 }
 
-const ARTICLE_FOR: Record<string, { m: string; f: string }> = {
-  el: { m: "el", f: "la" },
-  la: { m: "el", f: "la" },
-  un: { m: "un", f: "una" },
-  una: { m: "un", f: "una" },
-  los: { m: "los", f: "las" },
-  las: { m: "los", f: "las" },
-  unos: { m: "unos", f: "unas" },
-  unas: { m: "unos", f: "unas" },
-};
-
-/** "…con la " + a masculine word → "…con el ". */
-function agreeArticle(before: string, gender: "m" | "f"): string {
-  return before.replace(/(\p{L}+)(\s+)$/u, (whole, word: string, space: string) => {
-    const forms = ARTICLE_FOR[word.toLowerCase()];
-    return forms ? matchCase(forms[gender], word) + space : whole;
-  });
-}
-
 type Edit =
   | { kind: "word"; start: number; end: number; match: Match }
   | { kind: "false-friend"; start: number; end: number; friend: FalseFriendWarning };
@@ -190,6 +179,13 @@ export function translateWithDictionary(
 
   const source: Segment[] = [];
   const target: Segment[] = [];
+  // For each target segment, the gender change a swapped noun brought, so the
+  // words around it can agree afterwards.
+  const shifts: ({ from: Gender; to: Gender } | null)[] = [];
+  const pushTarget = (segment: Segment, shift: { from?: Gender; to?: Gender } | null = null) => {
+    target.push(segment);
+    shifts.push(shift?.from && shift.to && shift.from !== shift.to ? { from: shift.from, to: shift.to } : null);
+  };
   const pairs: TermPair[] = [];
   const seen = new Set<string>();
   let cursor = 0;
@@ -203,10 +199,16 @@ export function translateWithDictionary(
       const { friend } = edit;
       if (before) {
         source.push({ text: before });
-        target.push({ text: friend.gender ? agreeArticle(before, friend.gender) : before });
+        pushTarget({ text: before });
       }
       source.push({ text: original, highlight: true });
-      target.push({ text: matchCase(friend.literal, original), highlight: true });
+      pushTarget(
+        { text: matchCase(friend.literal, original), highlight: true },
+        friend.gender && {
+          from: genderFromArticle(before) ?? nounGender(original),
+          to: friend.gender,
+        },
+      );
       const key = `ff.${normalize(original)}`;
       if (!seen.has(key)) {
         seen.add(key);
@@ -221,7 +223,7 @@ export function translateWithDictionary(
 
     if (before) {
       source.push({ text: before });
-      target.push({ text: before });
+      pushTarget({ text: before });
     }
     const { match } = edit;
     const { pattern } = match;
@@ -232,11 +234,14 @@ export function translateWithDictionary(
     // A plain word the other country also uses stays as ordinary text.
     if (!pattern.entry && normalize(clean) === normalize(pattern.text)) {
       source.push({ text: original });
-      target.push({ text: original });
+      pushTarget({ text: original });
       continue;
     }
     source.push({ text: original, highlight: true });
-    target.push({ text: replaced, highlight: true });
+    pushTarget(
+      { text: replaced, highlight: true },
+      { from: genderFromArticle(before) ?? nounGender(original), to: nounGender(clean) },
+    );
 
     const key = pattern.entry?.id ?? `plain.${pattern.conceptId}`;
     if (!seen.has(key)) {
@@ -252,7 +257,21 @@ export function translateWithDictionary(
   const rest = text.slice(cursor);
   if (rest) {
     source.push({ text: rest });
-    target.push({ text: rest });
+    pushTarget({ text: rest });
+  }
+
+  // Make articles and adjectives agree with swapped nouns of the other gender
+  // ("la pajita roja" → "el carrizo rojo"), then restore missing accents in
+  // the words that were not swapped ("plastico" → "plástico").
+  shifts.forEach((shift, i) => {
+    if (!shift) return;
+    const prev = target[i - 1];
+    const next = target[i + 1];
+    if (prev && !prev.highlight) prev.text = agreeBefore(prev.text, shift.from, shift.to);
+    if (next && !next.highlight) next.text = agreeAfter(next.text, shift.from, shift.to);
+  });
+  for (const segment of target) {
+    if (!segment.highlight) segment.text = fixAccents(segment.text);
   }
 
   return {

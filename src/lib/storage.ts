@@ -175,5 +175,5 @@ export function useVoiceSpeed() {
 
 /** Read outside React, by speak(). */
 export function voiceRate(): number {
-  return read("hola.voice-speed", "normal", asSpeed) === "lenta" ? 0.7 : 1;
+  return read("hola.voice-speed", "normal", asSpeed) === "lenta" ? 0.55 : 1;
 }

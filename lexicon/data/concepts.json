@@ -79,7 +79,7 @@
       ["mazorca", "ES CO ALL"], ["elote", "MX GT HN SV NI CR"], ["choclo", "AR CL PE BO EC UY"], ["jojoto", "VE"]]},
     {"key": "popcorn", "en": "popcorn", "cat": "food", "v": [
       ["palomitas", "ES MX"], ["pochoclo", "AR"], ["pororó", "PY UY"], ["cabritas", "CL"], ["canchita", "PE"], ["crispetas", "CO"],
-      ["cotufas", "VE"], ["poporopo", "GT"], ["rositas de maíz", "CU"]]},
+      ["cotufas", "VE"], ["poporopo", "GT"], ["rositas de maíz", "CU"], ["cocaleca", "DO"]]},
     {"key": "drinking_straw", "en": "drinking straw", "cat": "food", "v": [
       ["pajita", "ES"], ["popote", "MX"], ["pitillo", "CO VE"], ["bombilla", "CL"], ["sorbete", "AR UY PE EC"],
       ["pajilla", "CR GT"], ["sorbeto", "PR"], ["calimete", "DO"], ["carrizo", "PA"]]},

@@ -17,7 +17,7 @@ installable, mobile-first web app (PWA) built from the
 - **Mi diccionario**: search every word, open _Favoritos_ (grouped by country)
   and the mini guides: _Básicos_, _Oficina_, _Viaje_ and _Comida_, each between
   any two countries.
-- **Ajustes**: the countries the translator opens with, clear favorites.
+- **Preferencias**: the countries the translator opens with, voice speed, install help.
 
 Countries: all 22 in the lexicon: Argentina, Bolivia, Chile, Colombia, Costa
 Rica, Cuba, Ecuador, El Salvador, España, Estados Unidos, Guatemala, Guinea
@@ -59,9 +59,8 @@ Favorites, settings and AI explanations are stored in the browser
   (Chrome's own prompt on Android, the Share menu steps on iPhone), since an
   installed app keeps its saved words safer than a browser tab.
 - **Returning visits:** straight to the translator with the same countries.
-- **Ajustes:** the two countries, voice speed, install help, "Sugerir una
-  palabra" (shown when `NEXT_PUBLIC_FEEDBACK_EMAIL` is set) and replaying the
-  welcome.
+- **Preferencias:** the two countries, voice speed, install help and
+  "Sugerir una palabra o corrección".
 
 ## Accessibility
 

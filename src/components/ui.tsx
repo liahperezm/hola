@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
   ArrowLeft,
-  Bookmark,
+  Heart,
   BookOpen,
   Compass,
   Languages,
@@ -18,7 +18,7 @@ import { Logo } from "./logo";
 const TABS: { href: string; label: string; icon: LucideIcon }[] = [
   { href: "/", label: "Traducir", icon: Languages },
   { href: "/explorar", label: "Explorar", icon: Compass },
-  { href: "/guardados", label: "Guardados", icon: Bookmark },
+  { href: "/favoritos", label: "Favoritos", icon: Heart },
 ];
 
 /** A top-level screen: content plus the bottom tab bar. */
@@ -75,7 +75,7 @@ export function TopBar({ title }: { title?: string }) {
           <span className="sr-only">, traductor de dialectos</span>
         </h1>
       )}
-      <IconLink href="/ajustes" label="Ajustes" icon={Settings} />
+      <IconLink href="/preferencias" label="Preferencias" icon={Settings} />
     </header>
   );
 }

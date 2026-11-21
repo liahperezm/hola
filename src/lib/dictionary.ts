@@ -838,14 +838,58 @@ export function otherWays(
   });
 }
 
-/** A word with a story, different each day, the same for everyone. */
-export function wordOfTheDay(date: Date): Entry {
-  const candidates = [...ENTRIES.values()]
-    .filter((e) => e.origin && e.pronunciation)
-    .sort((a, b) => a.id.localeCompare(b.id));
-  const day = Math.floor(
+/** Days since 1970 on the reader's own calendar. */
+export function dayNumber(date: Date): number {
+  return Math.floor(
     Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()) / 86_400_000,
   );
-  return candidates[day % candidates.length];
+}
+
+/** Small seeded random generator, so every phone shuffles the same way. */
+function seeded(seed: number) {
+  let t = seed >>> 0;
+  return () => {
+    t = (t + 0x6d2b79f5) >>> 0;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function shuffled<T>(items: T[], seed: number): T[] {
+  const out = [...items];
+  const random = seeded(seed);
+  for (let i = out.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [out[i], out[j]] = [out[j], out[i]];
+  }
+  return out;
+}
+
+/** Words with a story to tell: the pool for the word of the day. */
+export function wordOfTheDayPool(): Entry[] {
+  return [...ENTRIES.values()]
+    .filter((e) => e.origin)
+    .sort((a, b) => a.id.localeCompare(b.id));
+}
+
+/**
+ * A word with a story, different each day and the same for everyone. Each
+ * round through the pool is shuffled, and a round never starts with the word
+ * that ended the one before.
+ */
+export function wordOfTheDay(date: Date): Entry {
+  return wordForDay(dayNumber(date));
+}
+
+export function wordForDay(day: number): Entry {
+  const pool = wordOfTheDayPool();
+  const round = Math.floor(day / pool.length);
+  const order = shuffled(pool, round);
+  const previous = shuffled(pool, round - 1);
+  if (order[0].id === previous[previous.length - 1].id) {
+    [order[0], order[1]] = [order[1], order[0]];
+  }
+  return order[day % pool.length];
 }
 

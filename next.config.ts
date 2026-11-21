@@ -6,9 +6,11 @@ const nextConfig: NextConfig = {
       { source: "/diccionario", destination: "/explorar", permanent: true },
       {
         source: "/diccionario/favoritos",
-        destination: "/guardados",
+        destination: "/favoritos",
         permanent: true,
       },
+      { source: "/guardados", destination: "/favoritos", permanent: true },
+      { source: "/ajustes", destination: "/preferencias", permanent: true },
     ];
   },
   async headers() {

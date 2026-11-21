@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Flag } from "@/components/flag";
 import {
   EmptyState,
@@ -19,10 +19,10 @@ import {
   GUIDES,
   allEntries,
   normalize,
-  wordOfTheDay,
+  dayNumber,
+  wordForDay,
   type GuideId,
 } from "@/lib/dictionary";
-import { useHydrated } from "@/lib/storage";
 
 const TILE_COLORS: Record<GuideId, string> = {
   basicos: "bg-lavender",
@@ -97,13 +97,31 @@ export default function Explore() {
   );
 }
 
+/** Today's date, refreshed at midnight and whenever the app comes back into view. */
+function useToday(): number | null {
+  const [day, setDay] = useState<number | null>(null);
+  useEffect(() => {
+    const update = () => setDay(dayNumber(new Date()));
+    update();
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const timer = setTimeout(update, midnight.getTime() - now.getTime() + 1000);
+    document.addEventListener("visibilitychange", update);
+    return () => {
+      clearTimeout(timer);
+      document.removeEventListener("visibilitychange", update);
+    };
+  }, [day]);
+  return day;
+}
+
 function WordOfTheDay() {
-  const hydrated = useHydrated();
+  const today = useToday();
   // The day comes from the reader's own clock, so it is chosen after hydration.
-  if (!hydrated) {
+  if (today === null) {
     return <div className="mt-4 h-[146px] rounded-[26px] bg-white shadow-card" />;
   }
-  const entry = wordOfTheDay(new Date());
+  const entry = wordForDay(today);
   return (
     <Link
       href={`/frase/${entry.id}`}

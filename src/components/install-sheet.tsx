@@ -25,7 +25,7 @@ export function InstallSheet({
     <Sheet open={open} title="Instala Hola en tu teléfono" onClose={onClose}>
       <div className="space-y-4 pb-2 text-[15.5px] leading-relaxed text-body">
         {reason && <p>{reason}</p>}
-        <p>Así se abre como una app y tus guardados quedan seguros en este teléfono.</p>
+        <p>Así se abre como una app y tus favoritos quedan seguros en este teléfono.</p>
 
         {kind === "prompt" && (
           <button

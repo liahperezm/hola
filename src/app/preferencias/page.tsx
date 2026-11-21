@@ -1,7 +1,6 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { ChevronRight, Download, MessageSquarePlus, RotateCcw, Volume2 } from "lucide-react";
+import { ChevronRight, Download, MessageSquarePlus, Volume2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
 import { InstallSheet } from "@/components/install-sheet";
@@ -12,7 +11,6 @@ import { speak } from "@/lib/speech";
 import {
   useDialectPair,
   useHydrated,
-  useSeen,
   useVoiceSpeed,
   type VoiceSpeed,
 } from "@/lib/storage";
@@ -20,12 +18,9 @@ import {
 const FEEDBACK_EMAIL = process.env.NEXT_PUBLIC_FEEDBACK_EMAIL;
 
 export default function Settings() {
-  const router = useRouter();
   const hydrated = useHydrated();
   const [pair, setPair] = useDialectPair();
   const [speed, setSpeed] = useVoiceSpeed();
-  const welcome = useSeen("welcome");
-  const tip = useSeen("translate-tip");
   const [aiAvailable, setAiAvailable] = useState<boolean | null>(null);
   const [installOpen, setInstallOpen] = useState(false);
 
@@ -45,7 +40,7 @@ export default function Settings() {
   return (
     <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
       <PageHeader />
-      <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">Ajustes</h1>
+      <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">Preferencias</h1>
 
       <SectionTitle>Mis países</SectionTitle>
       <div
@@ -105,23 +100,13 @@ export default function Settings() {
             Sugerir una palabra o corrección
           </Row>
         )}
-        <Row
-          icon={<RotateCcw className="size-5" />}
-          onClick={() => {
-            welcome.reset();
-            tip.reset();
-            router.push("/");
-          }}
-        >
-          Volver a ver la bienvenida
-        </Row>
       </ListCard>
 
       <SectionTitle>Sobre Hola</SectionTitle>
       <div className="space-y-3 rounded-[22px] bg-white px-5 py-5 text-[15px] leading-relaxed text-muted shadow-card">
         <p>Hola traduce entre dialectos del español con un diccionario hecho a mano.</p>
         <p>
-          No necesitas una cuenta: tus países y tus guardados se quedan en este
+          No necesitas una cuenta: tus países y tus favoritos se quedan en este
           teléfono.
         </p>
         {aiAvailable !== null && (
