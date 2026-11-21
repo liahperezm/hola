@@ -260,6 +260,8 @@ function PhraseView({
         )}
       </div>
       <SuggestButton
+        variant="card"
+        label="¿Conoces otra forma de decirlo?"
         className="mt-6"
         word={entry.text}
         country={entry.dialect}

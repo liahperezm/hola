@@ -154,4 +154,28 @@ export const EN: Record<string, string> = {
   // Suggestions
   "¿Algo no suena bien? Sugiere un cambio": "Something sound off? Suggest a change",
   "Sugerir un cambio": "Suggest a change",
+  "Las personas de cada país son nuestra mejor fuente. Cuéntanos qué falta o qué no suena bien.":
+    "People from each country are our best source. Tell us what's missing or what doesn't sound right.",
+  "¡Gracias!": "Thank you!",
+  "Revisamos cada sugerencia. Las personas de cada país son quienes mejor conocen su español.":
+    "We review every suggestion. People from each country know their Spanish best.",
+  Listo: "Done",
+  "¿Qué quieres hacer?": "What would you like to do?",
+  "Agregar algo": "Add something",
+  "Corregir algo": "Fix something",
+  País: "Country",
+  "Palabra o frase": "Word or phrase",
+  "Ej.: cocaleca": "E.g. cocaleca",
+  "¿Qué significa?": "What does it mean?",
+  "¿Qué está mal? ¿Cómo se dice?": "What's wrong? How do you say it?",
+  "Ej.: palomitas de maíz": "E.g. popcorn",
+  "Ej.: en mi país se dice…": "E.g. in my country we say…",
+  "Un ejemplo": "An example",
+  "(opcional)": "(optional)",
+  "Ej.: Vamos a hacer cocaleca para la película.": "E.g. Vamos a hacer cocaleca para la película.",
+  "Soy de {country}": "I'm from {country}",
+  "Enviando…": "Sending…",
+  "Enviar sugerencia": "Send suggestion",
+  "¿Conoces otra forma de decirlo?": "Know another way to say it?",
+  "Ayuda a Hola a crecer": "Help Hola grow",
 };

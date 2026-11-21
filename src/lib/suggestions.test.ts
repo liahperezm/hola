@@ -1,6 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { POST } from "@/app/api/suggestions/route";
 
+const put = vi.fn();
+vi.mock("@vercel/blob", () => ({ put: (...args: unknown[]) => put(...args) }));
+
 const valid = {
   kind: "agregar",
   country: "DO",
@@ -32,8 +35,22 @@ describe("POST /api/suggestions", () => {
     vi.unstubAllEnvs();
   });
 
+  it("saves to the Vercel Blob store when GitHub is not set up", async () => {
+    vi.stubEnv("SUGGESTIONS_GITHUB_TOKEN", "");
+    vi.stubEnv("BLOB_READ_WRITE_TOKEN", "blob-token");
+    put.mockResolvedValue({ pathname: "x" });
+    const res = await post(valid, "5.5.5.5");
+    expect(res.status).toBe(200);
+    expect(fetchMock).not.toHaveBeenCalled();
+    const [path, body, options] = put.mock.calls[0] as [string, string, { access: string }];
+    expect(path).toMatch(/^sugerencias\/\d{4}-\d{2}-\d{2}\/\d+-cocaleca\.json$/);
+    expect(JSON.parse(body)).toMatchObject({ word: "cocaleca", country: "República Dominicana", fromThere: true });
+    expect(options.access).toBe("private");
+  });
+
   it("says when suggestions are not set up", async () => {
     vi.stubEnv("SUGGESTIONS_GITHUB_TOKEN", "");
+    vi.stubEnv("BLOB_READ_WRITE_TOKEN", "");
     const res = await post(valid);
     expect(res.status).toBe(503);
     expect(fetchMock).not.toHaveBeenCalled();

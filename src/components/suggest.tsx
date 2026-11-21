@@ -44,6 +44,7 @@ export function SuggestButton({
   country,
   context = "",
   className = "",
+  variant = "pill",
 }: {
   label?: string;
   kind?: Kind;
@@ -51,6 +52,8 @@ export function SuggestButton({
   country?: DialectCode;
   context?: string;
   className?: string;
+  /** "pill": a button; "card": a card that explains why suggestions matter. */
+  variant?: "pill" | "card";
 }) {
   const enabled = useSuggestionsEnabled();
   const [open, setOpen] = useState(false);
@@ -59,14 +62,31 @@ export function SuggestButton({
   if (!enabled) return null;
   return (
     <>
-      <button
-        type="button"
-        onClick={() => setOpen(true)}
-        className={`flex min-h-11 items-center gap-2 rounded-full px-2 text-[13.5px] font-semibold text-muted hover:text-navy ${className}`}
-      >
-        <MessageSquarePlus aria-hidden className="size-4" />
-        {t(label)}
-      </button>
+      {variant === "card" ? (
+        <div className={`rounded-[22px] bg-lavender px-5 py-4 ${className}`}>
+          <p className="text-[16px] font-bold">{t(label)}</p>
+          <p className="mt-1 text-[14.5px] text-body">
+            {t("Las personas de cada país son nuestra mejor fuente. Cuéntanos qué falta o qué no suena bien.")}
+          </p>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="mt-3 flex h-11 items-center gap-2 rounded-full bg-navy px-5 text-[14.5px] font-bold text-white"
+          >
+            <MessageSquarePlus aria-hidden className="size-4" />
+            {t("Sugerir un cambio")}
+          </button>
+        </div>
+      ) : (
+        <button
+          type="button"
+          onClick={() => setOpen(true)}
+          className={`flex min-h-11 items-center gap-2 rounded-full border border-line bg-white px-4 text-[14px] font-semibold text-navy shadow-card hover:bg-lavender/50 ${className}`}
+        >
+          <MessageSquarePlus aria-hidden className="size-4" />
+          {t(label)}
+        </button>
+      )}
       <SuggestSheet
         open={open}
         onClose={() => setOpen(false)}
@@ -95,6 +115,7 @@ export function SuggestSheet({
   const [state, setState] = useState<"idle" | "sending" | "sent">("idle");
   const [error, setError] = useState<string | null>(null);
   const ids = useId();
+  const { t, country: countryName } = useT();
 
   // Start fresh each time the form opens.
   useEffect(() => {
@@ -163,28 +184,26 @@ export function SuggestSheet({
       {state === "sent" ? (
         <div className="space-y-4 pb-2 text-center" role="status">
           <Check aria-hidden className="mx-auto mt-2 size-10" />
-          <p className="text-lg font-bold">¡Gracias!</p>
+          <p className="text-lg font-bold">{t("¡Gracias!")}</p>
           <p className="text-muted">
-            Revisamos cada sugerencia. Las personas de cada país son quienes mejor
-            conocen su español.
+            {t("Revisamos cada sugerencia. Las personas de cada país son quienes mejor conocen su español.")}
           </p>
           <button
             type="button"
             onClick={onClose}
             className="h-12 w-full rounded-full bg-navy font-bold text-white"
           >
-            Listo
+            {t("Listo")}
           </button>
         </div>
       ) : (
         <form onSubmit={(e) => void submit(e)} className="max-h-[70dvh] space-y-4 overflow-y-auto pb-2">
           <p className="text-[15px] text-muted">
-            Las personas de cada país son nuestra mejor fuente. Cuéntanos qué falta o qué
-            no suena bien.
+            {t("Las personas de cada país son nuestra mejor fuente. Cuéntanos qué falta o qué no suena bien.")}
           </p>
 
           <fieldset>
-            <legend className="text-[14px] font-bold">¿Qué quieres hacer?</legend>
+            <legend className="text-[14px] font-bold">{t("¿Qué quieres hacer?")}</legend>
             <div className="mt-2 grid grid-cols-2 gap-2">
               {(
                 [
@@ -206,14 +225,14 @@ export function SuggestSheet({
                     onChange={() => setKind(value)}
                     className="sr-only"
                   />
-                  {text}
+                  {t(text)}
                 </label>
               ))}
             </div>
           </fieldset>
 
           <label className="block text-[14px] font-bold">
-            País
+            {t("País")}
             <select
               value={country}
               onChange={(e) => setCountry(e.target.value as DialectCode)}
@@ -221,44 +240,44 @@ export function SuggestSheet({
             >
               {DIALECT_CODES.map((code) => (
                 <option key={code} value={code}>
-                  {DIALECTS[code].name}
+                  {countryName(code)}
                 </option>
               ))}
             </select>
           </label>
 
           <label className="block text-[14px] font-bold">
-            Palabra o frase
+            {t("Palabra o frase")}
             <input
               required
               maxLength={120}
               value={word}
               onChange={(e) => setWord(e.target.value)}
-              placeholder="Ej.: cocaleca"
+              placeholder={t("Ej.: cocaleca")}
               className={field}
             />
           </label>
 
           <label className="block text-[14px] font-bold">
-            {kind === "agregar" ? "¿Qué significa?" : "¿Qué está mal? ¿Cómo se dice?"}
+            {kind === "agregar" ? t("¿Qué significa?") : t("¿Qué está mal? ¿Cómo se dice?")}
             <textarea
               required
               maxLength={1000}
               rows={3}
               value={meaning}
               onChange={(e) => setMeaning(e.target.value)}
-              placeholder={kind === "agregar" ? "Ej.: palomitas de maíz" : "Ej.: en mi país se dice…"}
+              placeholder={kind === "agregar" ? t("Ej.: palomitas de maíz") : t("Ej.: en mi país se dice…")}
               className={`${field} resize-none`}
             />
           </label>
 
           <label className="block text-[14px] font-bold">
-            Un ejemplo <span className="font-normal text-muted">(opcional)</span>
+            {t("Un ejemplo")} <span className="font-normal text-muted">{t("(opcional)")}</span>
             <input
               maxLength={500}
               value={example}
               onChange={(e) => setExample(e.target.value)}
-              placeholder="Ej.: Vamos a hacer cocaleca para la película."
+              placeholder={t("Ej.: Vamos a hacer cocaleca para la película.")}
               className={field}
             />
           </label>
@@ -270,7 +289,7 @@ export function SuggestSheet({
               onChange={(e) => setFromThere(e.target.checked)}
               className="size-5 accent-navy"
             />
-            Soy de {DIALECTS[country].name}
+            {t("Soy de {country}", { country: countryName(country) })}
           </label>
 
           {/* Left empty by people; bots fill it in. */}
@@ -295,7 +314,7 @@ export function SuggestSheet({
             disabled={state === "sending"}
             className="h-[52px] w-full rounded-full bg-navy text-[16px] font-bold text-white disabled:opacity-60"
           >
-            {state === "sending" ? "Enviando…" : "Enviar sugerencia"}
+            {state === "sending" ? t("Enviando…") : t("Enviar sugerencia")}
           </button>
         </form>
       )}

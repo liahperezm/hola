@@ -107,6 +107,13 @@ export default function Explore() {
               </li>
             ))}
           </ul>
+          <SuggestButton
+            variant="card"
+            kind="agregar"
+            label="Ayuda a Hola a crecer"
+            className="mt-6"
+            context="Explorar"
+          />
         </>
       )}
     </TabScreen>

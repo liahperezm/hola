@@ -6,7 +6,9 @@ import { DIALECT_CODES, DIALECTS } from "./dialects";
  * Suggestions from people in each country. Each one becomes an issue in the
  * GitHub repository named by SUGGESTIONS_GITHUB_REPO ("owner/name"), written
  * with SUGGESTIONS_GITHUB_TOKEN (a fine-grained token with Issues: write on
- * that repository only), labeled "sugerencia".
+ * that repository only), labeled "sugerencia". Without those, each one is
+ * saved as a private JSON file in the project's Vercel Blob store
+ * (BLOB_READ_WRITE_TOKEN, set when the store is connected), under sugerencias/.
  */
 
 export const Suggestion = z.object({
@@ -22,8 +24,59 @@ export const Suggestion = z.object({
   website: z.string().max(200).optional(),
 });
 
-export function configured(): boolean {
+function githubConfigured(): boolean {
   return Boolean(process.env.SUGGESTIONS_GITHUB_TOKEN && process.env.SUGGESTIONS_GITHUB_REPO);
+}
+
+export function configured(): boolean {
+  return githubConfigured() || Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+}
+
+/** Files the suggestion where someone will review it. Returns false on failure. */
+export async function deliver(s: z.infer<typeof Suggestion>): Promise<boolean> {
+  if (githubConfigured()) {
+    const { title, body } = issueFor(s);
+    const res = await fetch(
+      `https://api.github.com/repos/${process.env.SUGGESTIONS_GITHUB_REPO}/issues`,
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${process.env.SUGGESTIONS_GITHUB_TOKEN}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ title, body, labels: ["sugerencia"] }),
+      },
+    ).catch(() => null);
+    if (!res?.ok) console.error("Could not file suggestion", res?.status);
+    return Boolean(res?.ok);
+  }
+  try {
+    const { put } = await import("@vercel/blob");
+    const now = new Date();
+    const day = now.toISOString().slice(0, 10);
+    const name = s.word.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "-").slice(0, 40);
+    const record = {
+      receivedAt: now.toISOString(),
+      kind: s.kind,
+      country: DIALECTS[s.country].name,
+      word: s.word,
+      meaning: s.meaning,
+      example: s.example,
+      fromThere: s.fromThere,
+      context: s.context,
+    };
+    await put(`sugerencias/${day}/${now.getTime()}-${name}.json`, JSON.stringify(record, null, 2), {
+      access: "private",
+      contentType: "application/json",
+      addRandomSuffix: true,
+    });
+    return true;
+  } catch (error) {
+    console.error("Could not save suggestion", error);
+    return false;
+  }
 }
 
 /** Keeps text from pinging GitHub users or closing issues by keyword. */
