@@ -37,6 +37,11 @@ export type Dialect = {
   demonymM: string;
   /** BCP 47 tag for speech synthesis and recognition. */
   speechLang: string;
+  /** In English, for the learner mode: "Dominican Republic". */
+  nameEn: string;
+  shortEn: string;
+  /** "Dominican", as in "Dominican Spanish". */
+  adjectiveEn: string;
 };
 
 export const DIALECTS: Record<DialectCode, Dialect> = {
@@ -47,6 +52,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "argentina",
     demonymM: "argentino",
     speechLang: "es-AR",
+    nameEn: "Argentina",
+    shortEn: "Argentina",
+    adjectiveEn: "Argentine",
   },
   BO: {
     code: "BO",
@@ -55,6 +63,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "boliviana",
     demonymM: "boliviano",
     speechLang: "es-BO",
+    nameEn: "Bolivia",
+    shortEn: "Bolivia",
+    adjectiveEn: "Bolivian",
   },
   CL: {
     code: "CL",
@@ -63,6 +74,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "chilena",
     demonymM: "chileno",
     speechLang: "es-CL",
+    nameEn: "Chile",
+    shortEn: "Chile",
+    adjectiveEn: "Chilean",
   },
   CO: {
     code: "CO",
@@ -71,6 +85,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "colombiana",
     demonymM: "colombiano",
     speechLang: "es-CO",
+    nameEn: "Colombia",
+    shortEn: "Colombia",
+    adjectiveEn: "Colombian",
   },
   CR: {
     code: "CR",
@@ -79,6 +96,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "costarricense",
     demonymM: "costarricense",
     speechLang: "es-CR",
+    nameEn: "Costa Rica",
+    shortEn: "Costa Rica",
+    adjectiveEn: "Costa Rican",
   },
   CU: {
     code: "CU",
@@ -87,6 +107,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "cubana",
     demonymM: "cubano",
     speechLang: "es-CU",
+    nameEn: "Cuba",
+    shortEn: "Cuba",
+    adjectiveEn: "Cuban",
   },
   EC: {
     code: "EC",
@@ -95,6 +118,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "ecuatoriana",
     demonymM: "ecuatoriano",
     speechLang: "es-EC",
+    nameEn: "Ecuador",
+    shortEn: "Ecuador",
+    adjectiveEn: "Ecuadorian",
   },
   SV: {
     code: "SV",
@@ -103,6 +129,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "salvadoreña",
     demonymM: "salvadoreño",
     speechLang: "es-SV",
+    nameEn: "El Salvador",
+    shortEn: "El Salvador",
+    adjectiveEn: "Salvadoran",
   },
   ES: {
     code: "ES",
@@ -111,6 +140,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "española",
     demonymM: "español",
     speechLang: "es-ES",
+    nameEn: "Spain",
+    shortEn: "Spain",
+    adjectiveEn: "Spanish (Spain)",
   },
   US: {
     code: "US",
@@ -119,6 +151,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "estadounidense",
     demonymM: "estadounidense",
     speechLang: "es-US",
+    nameEn: "United States",
+    shortEn: "USA",
+    adjectiveEn: "US Spanish",
   },
   GT: {
     code: "GT",
@@ -127,6 +162,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "guatemalteca",
     demonymM: "guatemalteco",
     speechLang: "es-GT",
+    nameEn: "Guatemala",
+    shortEn: "Guatemala",
+    adjectiveEn: "Guatemalan",
   },
   GQ: {
     code: "GQ",
@@ -135,6 +173,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "ecuatoguineana",
     demonymM: "ecuatoguineano",
     speechLang: "es-GQ",
+    nameEn: "Equatorial Guinea",
+    shortEn: "Eq. Guinea",
+    adjectiveEn: "Equatoguinean",
   },
   HN: {
     code: "HN",
@@ -143,6 +184,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "hondureña",
     demonymM: "hondureño",
     speechLang: "es-HN",
+    nameEn: "Honduras",
+    shortEn: "Honduras",
+    adjectiveEn: "Honduran",
   },
   MX: {
     code: "MX",
@@ -151,6 +195,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "mexicana",
     demonymM: "mexicano",
     speechLang: "es-MX",
+    nameEn: "Mexico",
+    shortEn: "Mexico",
+    adjectiveEn: "Mexican",
   },
   NI: {
     code: "NI",
@@ -159,6 +206,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "nicaragüense",
     demonymM: "nicaragüense",
     speechLang: "es-NI",
+    nameEn: "Nicaragua",
+    shortEn: "Nicaragua",
+    adjectiveEn: "Nicaraguan",
   },
   PA: {
     code: "PA",
@@ -167,6 +217,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "panameña",
     demonymM: "panameño",
     speechLang: "es-PA",
+    nameEn: "Panama",
+    shortEn: "Panama",
+    adjectiveEn: "Panamanian",
   },
   PY: {
     code: "PY",
@@ -175,6 +228,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "paraguaya",
     demonymM: "paraguayo",
     speechLang: "es-PY",
+    nameEn: "Paraguay",
+    shortEn: "Paraguay",
+    adjectiveEn: "Paraguayan",
   },
   PE: {
     code: "PE",
@@ -183,6 +239,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "peruana",
     demonymM: "peruano",
     speechLang: "es-PE",
+    nameEn: "Peru",
+    shortEn: "Peru",
+    adjectiveEn: "Peruvian",
   },
   PR: {
     code: "PR",
@@ -191,6 +250,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "puertorriqueña",
     demonymM: "puertorriqueño",
     speechLang: "es-PR",
+    nameEn: "Puerto Rico",
+    shortEn: "Puerto Rico",
+    adjectiveEn: "Puerto Rican",
   },
   DO: {
     code: "DO",
@@ -199,6 +261,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "dominicana",
     demonymM: "dominicano",
     speechLang: "es-DO",
+    nameEn: "Dominican Republic",
+    shortEn: "Dom. Rep.",
+    adjectiveEn: "Dominican",
   },
   UY: {
     code: "UY",
@@ -207,6 +272,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "uruguaya",
     demonymM: "uruguayo",
     speechLang: "es-UY",
+    nameEn: "Uruguay",
+    shortEn: "Uruguay",
+    adjectiveEn: "Uruguayan",
   },
   VE: {
     code: "VE",
@@ -215,6 +283,9 @@ export const DIALECTS: Record<DialectCode, Dialect> = {
     demonymF: "venezolana",
     demonymM: "venezolano",
     speechLang: "es-VE",
+    nameEn: "Venezuela",
+    shortEn: "Venezuela",
+    adjectiveEn: "Venezuelan",
   },
 };
 
@@ -223,6 +294,11 @@ export function isDialectCode(value: unknown): value is DialectCode {
     typeof value === "string" &&
     (DIALECT_CODES as readonly string[]).includes(value)
   );
+}
+
+/** "Dominican phrase" / "Dominican word", for the learner mode. */
+export function termLabelEn(text: string, dialect: DialectCode): string {
+  return `${DIALECTS[dialect].adjectiveEn} ${text.trim().includes(" ") ? "phrase" : "word"}`;
 }
 
 /** "Frase dominicana" for phrases, "Palabra dominicana" for single words. */

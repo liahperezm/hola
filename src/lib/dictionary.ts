@@ -30,6 +30,8 @@ type Concept = {
   id: string;
   /** What it means in neutral Spanish. Used when a dialect has no word of its own. */
   meaning: string;
+  /** What it means in English, for learners. */
+  en?: string;
   /** Which mini guide lists it. Without one it is only in the translator and search. */
   guide?: GuideId;
   /** Local ways to say it. The first is the one a translation uses. */
@@ -53,6 +55,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "oye",
     meaning: "oye",
+    en: "hey (to get someone's attention)",
     guide: "basicos",
     terms: {
       DO: ["ey tú"],
@@ -81,6 +84,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "como-estas",
     meaning: "¿cómo estás?",
+    en: "how are you? / what's up?",
     guide: "basicos",
     terms: {
       DO: ["¿cómo tú tá?", "¿qué lo que?"],
@@ -97,6 +101,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "verdad",
     meaning: "de verdad",
+    en: "really / for real",
     guide: "basicos",
     terms: {
       DO: ["verdá"],
@@ -107,6 +112,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "lio",
     meaning: "un lío",
+    en: "a mess, chaos",
     guide: "basicos",
     terms: {
       DO: ["un lío", "un arroz con mango"],
@@ -130,6 +136,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "hablar-tonterias",
     meaning: "decir tonterías",
+    en: "to talk nonsense",
     guide: "basicos",
     terms: {
       DO: ["hablar disparate"],
@@ -142,6 +149,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "nino",
     meaning: "niño",
+    en: "kid, child",
     guide: "basicos",
     terms: {
       DO: ["carajito", "carajita", "chamaquito", "chamaquita"],
@@ -166,6 +174,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "genial",
     meaning: "genial",
+    en: "cool, great",
     guide: "basicos",
     terms: {
       DO: ["nítido", "chévere"],
@@ -182,6 +191,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "dinero",
     meaning: "dinero",
+    en: "money",
     guide: "basicos",
     terms: {
       DO: ["cuartos"],
@@ -197,6 +207,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "fiesta",
     meaning: "fiesta",
+    en: "party",
     guide: "basicos",
     terms: {
       DO: ["coro"],
@@ -211,6 +222,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "tonto",
     meaning: "persona tonta o tímida",
+    en: "a shy, awkward or naive person",
     guide: "basicos",
     terms: {
       DO: ["pariguayo", "pariguaya"],
@@ -233,6 +245,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "deprisa",
     meaning: "deprisa y mal hecho",
+    en: "done in a rush, sloppily",
     guide: "basicos",
     terms: {
       DO: ["a la brigandina"],
@@ -271,6 +284,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "trabajo",
     meaning: "trabajo",
+    en: "job, work",
     guide: "oficina",
     terms: {
       AR: ["laburo"],
@@ -294,6 +308,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "computadora",
     meaning: "computadora",
+    en: "computer",
     guide: "oficina",
     terms: {
       ES: ["ordenador"],
@@ -304,6 +319,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "boligrafo",
     meaning: "bolígrafo",
+    en: "ballpoint pen",
     guide: "oficina",
     terms: {
       DO: ["lapicero"],
@@ -317,6 +333,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "grapadora",
     meaning: "grapadora",
+    en: "stapler",
     guide: "oficina",
     terms: {
       MX: ["engrapadora"],
@@ -328,6 +345,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "celular",
     meaning: "teléfono celular",
+    en: "cell phone",
     guide: "oficina",
     terms: {
       ES: ["móvil"],
@@ -338,6 +356,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "autobus",
     meaning: "autobús",
+    en: "bus",
     guide: "viaje",
     terms: {
       DO: ["guagua"],
@@ -379,6 +398,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "carro",
     meaning: "carro",
+    en: "car",
     guide: "viaje",
     terms: {
       ES: ["coche"],
@@ -390,6 +410,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "boleto",
     meaning: "boleto",
+    en: "ticket",
     guide: "viaje",
     terms: {
       ES: ["billete"],
@@ -400,6 +421,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "maleta",
     meaning: "maleta",
+    en: "suitcase",
     guide: "viaje",
     terms: {
       AR: ["valija"],
@@ -409,6 +431,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "taxi-compartido",
     meaning: "taxi de ruta compartido",
+    en: "shared route taxi",
     guide: "viaje",
     terms: {
       DO: ["concho", "carro público"],
@@ -420,6 +443,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "mototaxi",
     meaning: "mototaxi",
+    en: "motorcycle taxi",
     guide: "viaje",
     terms: {
       DO: ["motoconcho"],
@@ -428,6 +452,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "alquilar",
     meaning: "alquilar",
+    en: "to rent",
     guide: "viaje",
     terms: {
       MX: ["rentar"],
@@ -438,6 +463,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "banana",
     meaning: "banana",
+    en: "banana",
     guide: "comida",
     terms: {
       DO: ["guineo"],
@@ -468,6 +494,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "aguacate",
     meaning: "aguacate",
+    en: "avocado",
     guide: "comida",
     terms: {
       AR: ["palta"],
@@ -486,6 +513,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "maiz",
     meaning: "mazorca de maíz",
+    en: "corn on the cob",
     guide: "comida",
     terms: {
       MX: ["elote"],
@@ -501,6 +529,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "frijoles",
     meaning: "frijoles",
+    en: "beans",
     guide: "comida",
     terms: {
       DO: ["habichuelas"],
@@ -519,6 +548,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "fresa",
     meaning: "fresa",
+    en: "strawberry",
     guide: "comida",
     terms: {
       AR: ["frutilla"],
@@ -529,6 +559,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "palomitas",
     meaning: "palomitas de maíz",
+    en: "popcorn",
     guide: "comida",
     terms: {
       MX: ["palomitas"],
@@ -542,6 +573,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "durazno",
     meaning: "durazno",
+    en: "peach",
     guide: "comida",
     terms: {
       ES: ["melocotón"],
@@ -550,6 +582,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "jugo",
     meaning: "jugo",
+    en: "juice",
     guide: "comida",
     terms: {
       ES: ["zumo"],
@@ -558,6 +591,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "pastel",
     meaning: "pastel",
+    en: "cake",
     guide: "comida",
     terms: {
       DO: ["bizcocho"],
@@ -754,6 +788,7 @@ export function unknownOriginIds(): string[] {
 export type ImportedConcept = {
   id: string;
   meaning: string;
+  en?: string;
   guide?: GuideId;
   terms: Partial<Record<DialectCode, string[]>>;
   /** Id of a hand-made concept to add these words to. */
@@ -779,6 +814,7 @@ function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] 
     const concept: Concept = target ?? {
       id: item.id,
       meaning: item.meaning,
+      en: item.en,
       guide: item.guide,
       terms: {},
     };
@@ -793,6 +829,7 @@ function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] 
       if (fresh.length) concept.terms[dialect] = [...(concept.terms[dialect] ?? []), ...fresh];
     }
     if (item.registers) concept.registers = { ...concept.registers, ...item.registers };
+    if (item.en && !concept.en) concept.en = item.en;
     if (!target && Object.keys(concept.terms).length) byId.set(concept.id, concept);
   }
   return [...byId.values()];
@@ -854,14 +891,14 @@ const PLAIN_WORDS: Record<string, string[]> = {
   chupete: ["chupete"],
 };
 
-export type PlainWord = { conceptId: string; text: string; meaning: string };
+export type PlainWord = { conceptId: string; text: string; meaning: string; en?: string };
 
 /** Plain words a dialect writes for things it has no word of its own for. */
 export function plainWordsFor(dialect: DialectCode): PlainWord[] {
   return Object.entries(PLAIN_WORDS).flatMap(([conceptId, words]) => {
     const concept = CONCEPTS.find((c) => c.id === conceptId);
     if (!concept || concept.terms[dialect]?.length) return [];
-    return words.map((text) => ({ conceptId, text, meaning: concept.meaning }));
+    return words.map((text) => ({ conceptId, text, meaning: concept.meaning, en: concept.en }));
   });
 }
 
@@ -880,6 +917,8 @@ export type Entry = TermDetail & {
   guide?: GuideId;
   /** Set when the word is vulgar or offensive. */
   register?: Register;
+  /** What it means in English. */
+  en?: string;
 };
 
 export function slugify(text: string): string {
@@ -922,6 +961,7 @@ function buildEntries(): Map<string, Entry> {
           conceptId: concept.id,
           guide: concept.guide,
           register: concept.registers?.[text],
+          en: concept.en,
           ...detail,
           definition:
             detail?.definition ?? defaultDefinition(concept.meaning, dialect),
@@ -957,6 +997,8 @@ export function equivalent(
 
 export type GuideRow = {
   conceptId: string;
+  /** In English, for learners. */
+  en?: string;
   from: { text: string; entry?: Entry; display: string };
   to: { text: string; entry?: Entry; display: string };
 };
@@ -990,6 +1032,7 @@ export function guideRows(
     const toWords = c.terms[to];
     return {
       conceptId: c.id,
+      en: c.en,
       from: {
         ...equivalent(c.id, from),
         display: withGender(c.terms[from] ?? [c.meaning]),
@@ -1050,11 +1093,16 @@ function shuffled<T>(items: T[], seed: number): T[] {
   return out;
 }
 
-/** Words with a story to tell: the pool for the word of the day. */
-export function wordOfTheDayPool(): Entry[] {
-  return [...ENTRIES.values()]
+/**
+ * Words with a story to tell: the pool for the word of the day. With a
+ * dialect (learners), that country's words when it has a few of its own.
+ */
+export function wordOfTheDayPool(dialect?: DialectCode): Entry[] {
+  const all = [...ENTRIES.values()]
     .filter((e) => e.origin)
     .sort((a, b) => a.id.localeCompare(b.id));
+  const local = dialect ? all.filter((e) => e.dialect === dialect) : [];
+  return local.length >= 3 ? local : all;
 }
 
 /**
@@ -1066,8 +1114,8 @@ export function wordOfTheDay(date: Date): Entry {
   return wordForDay(dayNumber(date));
 }
 
-export function wordForDay(day: number): Entry {
-  const pool = wordOfTheDayPool();
+export function wordForDay(day: number, dialect?: DialectCode): Entry {
+  const pool = wordOfTheDayPool(dialect);
   const round = Math.floor(day / pool.length);
   const order = shuffled(pool, round);
   const previous = shuffled(pool, round - 1);

@@ -2,6 +2,7 @@
 
 import { X } from "lucide-react";
 import { useEffect, useId, useRef, type ReactNode } from "react";
+import { useT } from "@/lib/i18n";
 
 /** Bottom sheet on the native <dialog>: focus is trapped and Esc closes it. */
 export function Sheet({
@@ -17,6 +18,7 @@ export function Sheet({
 }) {
   const ref = useRef<HTMLDialogElement>(null);
   const titleId = useId();
+  const { t } = useT();
 
   useEffect(() => {
     const dialog = ref.current;
@@ -39,11 +41,11 @@ export function Sheet({
         <div className="mx-auto mb-4 h-[5px] w-10 rounded-full bg-line" />
         <div className="mb-2 flex items-center justify-between gap-4">
           <h2 id={titleId} className="text-lg font-bold">
-            {title}
+            {t(title)}
           </h2>
           <button
             type="button"
-            aria-label="Cerrar"
+            aria-label={t("Cerrar")}
             onClick={onClose}
             className="-mr-2 grid size-10 shrink-0 place-items-center rounded-full hover:bg-bg"
           >

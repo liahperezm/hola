@@ -15,7 +15,10 @@ import {
   TopBar,
   capitalize,
 } from "@/components/ui";
-import { DIALECTS, termLabel } from "@/lib/dialects";
+import { termLabel, termLabelEn } from "@/lib/dialects";
+import { useT } from "@/lib/i18n";
+import { useDialectPair } from "@/lib/storage";
+import { LearningChip } from "@/components/learning";
 import {
   GUIDES,
   allEntries,
@@ -33,12 +36,14 @@ const TILE_COLORS: Record<GuideId, string> = {
 };
 
 export default function Explore() {
+  const { t, language, country } = useT();
   const [query, setQuery] = useState("");
   const results = useMemo(() => search(query), [query]);
 
   return (
     <TabScreen>
       <TopBar title="Explorar" />
+      <LearningChip />
       <div className="mt-4">
         <SearchField value={query} onChange={setQuery} />
       </div>
@@ -47,8 +52,8 @@ export default function Explore() {
       {query.trim() ? (
         results.length === 0 ? (
           <>
-            <EmptyState title={`No encontramos «${query.trim()}»`}>
-              Prueba con otra palabra o tradúcela en la pestaña Traducir.
+            <EmptyState title={t("No encontramos «{query}»", { query: query.trim() })}>
+              {t("Prueba con otra palabra o tradúcela en la pestaña Traducir.")}
             </EmptyState>
             <SuggestButton
               className="mx-auto mt-4"
@@ -71,7 +76,7 @@ export default function Explore() {
                     <div className="min-w-0 flex-1">
                       <p className="font-bold">{capitalize(entry.text)}</p>
                       <p className="truncate text-sm text-muted">
-                        {entry.meaning} · {DIALECTS[entry.dialect].name}
+                        {(language === "en" && entry.en) || entry.meaning} · {country(entry.dialect)}
                       </p>
                     </div>
                     <ChevronRight className="size-[18px] shrink-0 text-muted" />
@@ -84,7 +89,7 @@ export default function Explore() {
       ) : (
         <>
           <WordOfTheDay />
-          <SectionTitle>Mini guías</SectionTitle>
+          <SectionTitle>{t("Mini guías")}</SectionTitle>
           <ul className="grid grid-cols-2 gap-3">
             {GUIDES.map((guide) => (
               <li key={guide.id}>
@@ -95,8 +100,8 @@ export default function Explore() {
                   <span aria-hidden className="absolute top-3 left-4 text-[32px]">
                     {guide.emoji}
                   </span>
-                  <span className="text-[18px] font-bold">{guide.title}</span>
-                  <span className="text-[12.5px] text-body">{guide.subtitle}</span>
+                  <span className="text-[18px] font-bold">{t(guide.title)}</span>
+                  <span className="text-[12.5px] text-body">{t(guide.subtitle)}</span>
                 </Link>
               </li>
             ))}
@@ -127,17 +132,20 @@ function useToday(): number | null {
 
 function WordOfTheDay() {
   const today = useToday();
+  const { t, language } = useT();
+  const [pair] = useDialectPair();
   // The day comes from the reader's own clock, so it is chosen after hydration.
   if (today === null) {
     return <div className="mt-4 h-[146px] rounded-[26px] bg-white shadow-card" />;
   }
-  const entry = wordForDay(today);
+  // Learners get a word from the Spanish they are learning.
+  const entry = wordForDay(today, language === "en" ? pair.to : undefined);
   return (
     <Link
       href={`/frase/${entry.id}`}
       className="mt-4 block rounded-[26px] bg-white px-5 py-[18px] shadow-card transition active:scale-[0.99]"
     >
-      <p className="text-[13px] font-semibold text-muted">Palabra del día</p>
+      <p className="text-[13px] font-semibold text-muted">{t("Palabra del día")}</p>
       <div className="mt-2 flex items-center justify-between gap-3">
         <div className="min-w-0">
           <p className="text-[26px] leading-tight font-extrabold tracking-[-0.02em]">
@@ -145,7 +153,7 @@ function WordOfTheDay() {
           </p>
           <p className="mt-0.5 flex items-center gap-1.5 text-[13.5px] font-semibold text-muted">
             <Flag code={entry.dialect} className="text-sm" />
-            {termLabel(entry.text, entry.dialect)}
+            {language === "en" ? termLabelEn(entry.text, entry.dialect) : termLabel(entry.text, entry.dialect)}
           </p>
         </div>
         <span className="grid size-9 shrink-0 place-items-center rounded-full bg-bg">
@@ -153,7 +161,11 @@ function WordOfTheDay() {
         </span>
       </div>
       <p className="mt-2.5 line-clamp-2 text-[15px] leading-normal text-muted">
-        {entry.definition ?? entry.meaning}
+        {language === "en" && entry.en ? (
+          <span lang="en">{capitalize(entry.en)}</span>
+        ) : (
+          (entry.definition ?? entry.meaning)
+        )}
       </p>
     </Link>
   );

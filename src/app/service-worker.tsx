@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { useUiLanguage } from "@/lib/i18n";
 import { listenForInstallPrompt } from "@/lib/install";
 
 export function ServiceWorker() {
@@ -11,5 +12,10 @@ export function ServiceWorker() {
       navigator.serviceWorker.register("/sw.js").catch(() => {});
     }
   }, []);
+  // Screen readers pronounce the page in the app's language.
+  const [language] = useUiLanguage();
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
   return null;
 }

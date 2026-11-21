@@ -3,6 +3,7 @@
 import { Check, MessageSquarePlus } from "lucide-react";
 import { useEffect, useId, useState, type FormEvent } from "react";
 import { DIALECT_CODES, DIALECTS, type DialectCode } from "@/lib/dialects";
+import { useT } from "@/lib/i18n";
 import { Sheet } from "./sheet";
 
 const FEEDBACK_EMAIL = process.env.NEXT_PUBLIC_FEEDBACK_EMAIL;
@@ -53,6 +54,7 @@ export function SuggestButton({
 }) {
   const enabled = useSuggestionsEnabled();
   const [open, setOpen] = useState(false);
+  const { t } = useT();
 
   if (!enabled) return null;
   return (
@@ -63,7 +65,7 @@ export function SuggestButton({
         className={`flex min-h-11 items-center gap-2 rounded-full px-2 text-[13.5px] font-semibold text-muted hover:text-navy ${className}`}
       >
         <MessageSquarePlus aria-hidden className="size-4" />
-        {label}
+        {t(label)}
       </button>
       <SuggestSheet
         open={open}

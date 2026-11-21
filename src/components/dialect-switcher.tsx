@@ -4,6 +4,7 @@ import { ArrowLeftRight, Check } from "lucide-react";
 import { useState } from "react";
 import { DIALECT_CODES, DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { DialectPair } from "@/lib/storage";
+import { useT } from "@/lib/i18n";
 import { Flag } from "./flag";
 import { Sheet } from "./sheet";
 
@@ -18,6 +19,7 @@ export function DialectSwitcher({
   onChange: (pair: DialectPair) => void;
 }) {
   const [picking, setPicking] = useState<Side | null>(null);
+  const { t } = useT();
 
   const choose = (code: DialectCode) => {
     if (!picking) return;
@@ -41,7 +43,7 @@ export function DialectSwitcher({
         />
         <button
           type="button"
-          aria-label="Intercambiar países"
+          aria-label={t("Intercambiar países")}
           onClick={() => onChange({ from: value.to, to: value.from })}
           className="grid size-10 place-items-center rounded-full bg-navy text-white transition active:rotate-180"
         >
@@ -55,7 +57,7 @@ export function DialectSwitcher({
       </div>
       <DialectPicker
         open={picking !== null}
-        title={picking === "to" ? "Traducir a" : "Traducir de"}
+        title={picking === "to" ? t("Traducir a") : t("Traducir de")}
         selected={picking ? value[picking] : undefined}
         onClose={() => setPicking(null)}
         onChoose={choose}
@@ -73,6 +75,7 @@ function CountryChip({
   label: string;
   onClick: () => void;
 }) {
+  const { t, country, countryShort } = useT();
   return (
     <button
       type="button"
@@ -80,12 +83,12 @@ function CountryChip({
       className="flex h-12 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-[14.5px] font-semibold whitespace-nowrap shadow-card transition hover:bg-lavender/50"
     >
       <Flag code={code} />
-      <span className="sr-only">{label}: </span>
-      <span className="truncate">{DIALECTS[code].short}</span>
-      {DIALECTS[code].short !== DIALECTS[code].name && (
-        <span className="sr-only"> ({DIALECTS[code].name})</span>
+      <span className="sr-only">{t(label)}: </span>
+      <span className="truncate">{countryShort(code)}</span>
+      {countryShort(code) !== country(code) && (
+        <span className="sr-only"> ({country(code)})</span>
       )}
-      <span className="sr-only">. Cambiar país</span>
+      <span className="sr-only">{t(". Cambiar país")}</span>
     </button>
   );
 }
@@ -120,9 +123,13 @@ export function CountryList({
   onChoose: (code: DialectCode) => void;
   exclude?: DialectCode;
 }) {
+  const { country, language } = useT();
+  const codes = DIALECT_CODES.filter((code) => code !== exclude).sort((a, b) =>
+    country(a).localeCompare(country(b), language),
+  );
   return (
     <ul className="max-h-[65dvh] overflow-y-auto">
-      {DIALECT_CODES.filter((code) => code !== exclude).map((code) => (
+      {codes.map((code) => (
         <li key={code}>
           <button
             type="button"
@@ -131,7 +138,7 @@ export function CountryList({
             className="flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg"
           >
             <Flag code={code} className="text-2xl" />
-            <span className="flex-1">{DIALECTS[code].name}</span>
+            <span className="flex-1">{country(code)}</span>
             {code === selected && <Check className="size-5" strokeWidth={3} />}
           </button>
         </li>

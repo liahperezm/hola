@@ -218,6 +218,8 @@ def main():
         for code, words in terms.items():
             words.sort(key=lambda w: w in registers)
         item = {"id": existing or slug(meaning), "meaning": meaning, "terms": terms}
+        if concepts[key].get("en"):
+            item["en"] = concepts[key]["en"]
         used = {w for ws in terms.values() for w in ws}
         if any(w in registers for w in used):
             item["registers"] = {w: r for w, r in registers.items() if w in used}

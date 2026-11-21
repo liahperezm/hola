@@ -8,4 +8,6 @@ export type PhraseEntry = TermDetail & {
   text: string;
   meaning: string;
   register?: Register;
+  /** In English, for learners. */
+  en?: string;
 };

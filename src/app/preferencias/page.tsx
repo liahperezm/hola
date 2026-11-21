@@ -4,6 +4,8 @@ import { ChevronRight, Download, MessageSquarePlus, Volume2 } from "lucide-react
 import { useEffect, useState, type ReactNode } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
 import { InstallSheet } from "@/components/install-sheet";
+import { useT, useUiLanguage } from "@/lib/i18n";
+import { LanguageToggle } from "../welcome";
 import { SuggestSheet, useSuggestionsEnabled } from "@/components/suggest";
 import { ListCard, PageHeader, SectionTitle } from "@/components/ui";
 import { DIALECTS } from "@/lib/dialects";
@@ -17,6 +19,8 @@ import {
 } from "@/lib/storage";
 
 export default function Settings() {
+  const { t, language } = useT();
+  const [uiLanguage, setUiLanguage] = useUiLanguage();
   const hydrated = useHydrated();
   const [pair, setPair] = useDialectPair();
   const [speed, setSpeed] = useVoiceSpeed();
@@ -36,23 +40,28 @@ export default function Settings() {
   return (
     <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
       <PageHeader />
-      <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">Preferencias</h1>
+      <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">{t("Preferencias")}</h1>
 
-      <SectionTitle>Mis países</SectionTitle>
+      <SectionTitle>{t("Idioma de la app")}</SectionTitle>
+      <div className="flex">
+        <LanguageToggle value={uiLanguage} onChange={setUiLanguage} />
+      </div>
+
+      <SectionTitle>{t("Mis países")}</SectionTitle>
       <div
         aria-hidden
         className="mx-1 mb-2 grid grid-cols-[1fr_40px_1fr] gap-2 text-[13px] font-semibold text-muted"
       >
-        <span className="text-center">Mi español</span>
+        <span className="text-center">{t("Mi español")}</span>
         <span />
-        <span className="text-center">Traduzco a</span>
+        <span className="text-center">{t("Traduzco a")}</span>
       </div>
       <DialectSwitcher value={pair} onChange={setPair} />
 
-      <SectionTitle>Voz</SectionTitle>
+      <SectionTitle>{t("Voz")}</SectionTitle>
       <fieldset className="rounded-[22px] bg-white px-5 py-4 shadow-card">
         <legend className="float-left mb-3 w-full text-[15px] text-muted">
-          Velocidad de la voz
+          {t("Velocidad de la voz")}
         </legend>
         <div className="clear-both grid grid-cols-2 gap-2">
           {(["normal", "lenta"] as VoiceSpeed[]).map((s) => (
@@ -70,46 +79,50 @@ export default function Settings() {
                 onChange={() => setSpeed(s)}
                 className="sr-only"
               />
-              {s}
+              {t(s)}
             </label>
           ))}
         </div>
         <button
           type="button"
-          onClick={() => speak("Hola, ¿cómo estás?", DIALECTS[pair.from].speechLang)}
+          onClick={() =>
+            speak(
+              "Hola, ¿cómo estás?",
+              DIALECTS[language === "en" ? pair.to : pair.from].speechLang,
+            )
+          }
           className="mt-3 -ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 text-[14.5px] font-semibold text-muted hover:text-navy"
         >
           <Volume2 aria-hidden className="size-4" />
-          Probar la voz
+          {t("Probar la voz")}
         </button>
       </fieldset>
 
-      <SectionTitle>Más</SectionTitle>
+      <SectionTitle>{t("Más")}</SectionTitle>
       <ListCard>
         {hydrated && !isInstalled() && (
           <Row icon={<Download className="size-5" />} onClick={() => setInstallOpen(true)}>
-            Instalar la app
+            {t("Instalar la app")}
           </Row>
         )}
         {suggestions && (
           <Row icon={<MessageSquarePlus className="size-5" />} onClick={() => setSuggestOpen(true)}>
-            Sugerir una palabra o corrección
+            {t("Sugerir una palabra o corrección")}
           </Row>
         )}
       </ListCard>
 
-      <SectionTitle>Sobre Hola</SectionTitle>
+      <SectionTitle>{t("Sobre Hola")}</SectionTitle>
       <div className="space-y-3 rounded-[22px] bg-white px-5 py-5 text-[15px] leading-relaxed text-muted shadow-card">
-        <p>Hola traduce entre dialectos del español con un diccionario hecho a mano.</p>
+        <p>{t("Hola traduce entre dialectos del español con un diccionario hecho a mano.")}</p>
         <p>
-          No necesitas una cuenta: tus países y tus favoritos se quedan en este
-          teléfono.
+          {t("No necesitas una cuenta: tus países y tus favoritos se quedan en este teléfono.")}
         </p>
         {aiAvailable !== null && (
           <p>
             {aiAvailable
-              ? "Lo que no está en el diccionario, y las fotos, se traducen con IA (Claude). Esas respuestas pueden contener errores."
-              : "La traducción con IA y la cámara no están activadas en este servidor."}
+              ? t("Lo que no está en el diccionario, y las fotos, se traducen con IA (Claude). Esas respuestas pueden contener errores.")
+              : t("La traducción con IA y la cámara no están activadas en este servidor.")}
           </p>
         )}
       </div>

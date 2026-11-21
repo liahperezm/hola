@@ -1,4 +1,7 @@
-import { DIALECTS, type DialectCode } from "@/lib/dialects";
+"use client";
+
+import { type DialectCode } from "@/lib/dialects";
+import { useT } from "@/lib/i18n";
 
 /** "DO" → 🇩🇴, drawn by the device's emoji font. */
 export function flagEmoji(code: DialectCode): string {
@@ -23,10 +26,11 @@ export function Flag({
 
 /** "🇩🇴 República Dominicana" label above a text. */
 export function CountryLabel({ code }: { code: DialectCode }) {
+  const { country } = useT();
   return (
     <div className="flex items-center gap-2 text-[13.5px] font-semibold text-muted">
       <Flag code={code} className="text-[17px]" />
-      {DIALECTS[code].name}
+      {country(code)}
     </div>
   );
 }

@@ -14,7 +14,13 @@ export type Segment = { text: string; highlight?: boolean };
 
 export type TermRef = { text: string; id?: string };
 
-export type TermPair = { from: TermRef; to: TermRef; meaning: string };
+export type TermPair = {
+  from: TermRef;
+  to: TermRef;
+  meaning: string;
+  /** In English, for learners. */
+  en?: string;
+};
 
 export type Translation = {
   from: DialectCode;
@@ -38,6 +44,7 @@ type Pattern = {
   conceptId: string;
   text: string;
   meaning: string;
+  en?: string;
   entry?: Entry;
 };
 
@@ -62,6 +69,7 @@ function patternsFor(dialect: DialectCode): Pattern[] {
       conceptId: entry.conceptId,
       text: entry.text,
       meaning: entry.meaning,
+      en: entry.en,
       entry,
     }));
     const plain: Pattern[] = plainWordsFor(dialect).map((w) => ({
@@ -69,6 +77,7 @@ function patternsFor(dialect: DialectCode): Pattern[] {
       conceptId: w.conceptId,
       text: w.text,
       meaning: w.meaning,
+      en: w.en,
     }));
     // Longest first; on a tie the dialect's own word wins (stable sort).
     patterns = [...own, ...plain].sort((a, b) => b.tokens.length - a.tokens.length);
@@ -250,6 +259,7 @@ export function translateWithDictionary(
         from: { text: pattern.text, id: pattern.entry?.id },
         to: { text: word, id: toEntry?.id },
         meaning: pattern.meaning,
+        en: pattern.en,
       });
     }
   }

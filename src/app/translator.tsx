@@ -21,6 +21,7 @@ import { ListCard, SectionTitle, TabScreen, TopBar } from "@/components/ui";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { PhraseEntry } from "@/lib/phrase";
 import { SuggestButton } from "@/components/suggest";
+import { useT } from "@/lib/i18n";
 import { warningText } from "@/lib/false-friends";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
@@ -42,6 +43,7 @@ type ApiResponse = {
 const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
 
 export function Translator() {
+  const { t, country, language } = useT();
   const [pair, setPair] = useDialectPair();
   const [text, setText] = useState("");
   const [result, setResult] = useState<Translation | null>(null);
@@ -85,7 +87,7 @@ export function Translator() {
         if (body.translation) setResult(body.translation);
         if (body.error) setError(body.error);
       } catch {
-        if (id === request.current) setError("No hay conexión. Intenta otra vez.");
+        if (id === request.current) setError(t("No hay conexión. Intenta otra vez."));
       } finally {
         if (id === request.current) setLoading(null);
       }
@@ -149,11 +151,11 @@ export function Translator() {
         setText(body.text);
         translate(body.text);
       } else {
-        setError(body.error ?? "No pudimos leer la foto.");
+        setError(body.error ?? t("No pudimos leer la foto."));
       }
     } catch {
       setLoading(null);
-      setError("No pudimos leer la foto.");
+      setError(t("No pudimos leer la foto."));
     }
   };
 
@@ -171,7 +173,7 @@ export function Translator() {
           <section
             ref={resultCard}
             tabIndex={-1}
-            aria-label="Traducción"
+            aria-label={t("Traducción")}
             className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card focus:outline-none"
           >
             <div className="flex items-center justify-between">
@@ -184,11 +186,11 @@ export function Translator() {
               className="mt-2.5 block w-full text-left text-[23px] leading-snug font-medium tracking-[-0.01em] text-body"
             >
               <Highlighted segments={result.source} />
-              <span className="sr-only">. Editar texto</span>
+              <span className="sr-only">{t(". Editar texto")}</span>
             </button>
             <div className="mt-3 flex gap-2">
               <ActionButton
-                label="Escuchar"
+                label={t("Escuchar")}
                 onClick={() =>
                   speak(join(result.source), DIALECTS[result.from].speechLang)
                 }
@@ -204,7 +206,7 @@ export function Translator() {
               {loading === "ai" ? (
                 <p className="mt-3 flex items-center gap-3 text-[18px] text-muted">
                   <LoaderCircle className="size-5 animate-spin" />
-                  Traduciendo…
+                  {t("Traduciendo…")}
                 </p>
               ) : (
                 <>
@@ -213,7 +215,7 @@ export function Translator() {
                   </p>
                   {result.via === "none" && (
                     <p className="mt-2 text-sm text-muted">
-                      {`No encontramos palabras que se digan distinto en ${DIALECTS[result.to].name}.`}
+                      {t("No encontramos palabras que se digan distinto en {country}.", { country: country(result.to) })}
                     </p>
                   )}
                   {/* The dictionary writes these into the text; the AI does not. */}
@@ -223,7 +225,7 @@ export function Translator() {
                       className="mt-3 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"
                     >
                       {warningText(w)}{" "}
-                      <span className="font-semibold">(vulgar)</span>
+                      <span className="font-semibold">{t("(vulgar)")}</span>
                     </p>
                   ))}
                   <TargetActions
@@ -246,13 +248,13 @@ export function Translator() {
               className="mx-auto mt-4 flex items-center gap-2 text-[13.5px] font-semibold text-muted hover:text-navy"
             >
               <Sparkles className="size-4" />
-              Revisar toda la frase con IA
+              {t("Revisar toda la frase con IA")}
             </button>
           )}
           {!loading && result.via === "ai" && (
             <p className="mt-4 flex items-center justify-center gap-2 text-[13.5px] text-muted">
               <Sparkles className="size-4" />
-              Traducido con IA. Puede contener errores.
+              {t("Traducido con IA. Puede contener errores.")}
             </p>
           )}
 
@@ -267,6 +269,15 @@ export function Translator() {
 
           {!loading && result.pairs.length > 0 && (
             <RegionalWords pairs={result.pairs} />
+          )}
+
+          {/* Learners: explain the words of the Spanish they are learning that
+              appear in the sentence, even when nothing needed translating. */}
+          {!loading && language === "en" && result.pairs.length === 0 && (
+            <RegionalWords
+              title={t("Palabras que conviene saber")}
+              pairs={translateWithDictionary(join(result.source), result.to, result.to).pairs}
+            />
           )}
         </>
       ) : (
@@ -293,16 +304,16 @@ export function Translator() {
             }}
             enterKeyHint="go"
             maxLength={500}
-            placeholder={dictation.listening ? "Te escucho…" : "Escribe o habla…"}
-            aria-label={`Texto en español de ${DIALECTS[pair.from].name}`}
+            placeholder={dictation.listening ? t("Te escucho…") : t("Escribe o habla…")}
+            aria-label={t("Texto en español de {country}", { country: country(pair.from) })}
             className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] placeholder:text-placeholder focus-visible:outline-none"
           />
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
           {!tip.seen && !text && (
             <p className="text-center text-[14px] text-muted">
               {aiAvailable
-                ? "Escribe una frase, dicta con el micrófono o toma una foto."
-                : "Escribe una frase o dicta con el micrófono."}
+                ? t("Escribe una frase, dicta con el micrófono o toma una foto.")
+                : t("Escribe una frase o dicta con el micrófono.")}
             </p>
           )}
           <div className="relative mt-4 flex h-[68px] items-center justify-center">
@@ -311,14 +322,14 @@ export function Translator() {
                 type="submit"
                 className="flex h-14 items-center gap-2 rounded-full bg-navy px-7 text-[16px] font-bold text-white shadow-[0_8px_20px_rgb(3_0_80/0.25)] active:scale-95"
               >
-                Traducir
+                {t("Traducir")}
                 <ArrowRight className="size-5" />
               </button>
             ) : (
               dictation.supported && (
                 <button
                   type="button"
-                  aria-label={dictation.listening ? "Dejar de escuchar" : "Hablar"}
+                  aria-label={dictation.listening ? t("Dejar de escuchar") : t("Hablar")}
                   aria-pressed={dictation.listening}
                   onClick={dictation.listening ? dictation.stop : dictation.start}
                   className={`grid size-[68px] place-items-center rounded-full bg-navy text-white shadow-[0_8px_20px_rgb(3_0_80/0.25)] transition active:scale-95 ${
@@ -345,7 +356,7 @@ export function Translator() {
                 />
                 <button
                   type="button"
-                  aria-label="Traducir una foto"
+                  aria-label={t("Traducir una foto")}
                   onClick={() => fileInput.current?.click()}
                   disabled={loading === "photo"}
                   className="absolute right-0 grid size-12 place-items-center rounded-full bg-bg hover:bg-lavender/60"
@@ -365,11 +376,16 @@ export function Translator() {
   );
 }
 
-function RegionalWords({ pairs }: { pairs: TermPair[] }) {
+function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) {
+  const { t, language } = useT();
+  if (pairs.length === 0) return null;
   return (
     <section>
       <SectionTitle>
-        {pairs.length === 1 ? "1 palabra regional" : `${pairs.length} palabras regionales`}
+        {title ??
+          (pairs.length === 1
+            ? t("1 palabra regional")
+            : t("{count} palabras regionales", { count: pairs.length }))}
       </SectionTitle>
       <ListCard>
         {pairs.map((p) => {
@@ -377,11 +393,21 @@ function RegionalWords({ pairs }: { pairs: TermPair[] }) {
             <>
               <div className="min-w-0 flex-1">
                 <p className="flex flex-wrap items-center gap-x-2 text-[15.5px]">
-                  <span className="font-semibold text-muted">{p.from.text}</span>
-                  <ArrowRight className="size-[15px] text-muted" />
+                  {p.from.text.toLowerCase() !== p.to.text.toLowerCase() && (
+                    <>
+                      <span className="font-semibold text-muted">{p.from.text}</span>
+                      <ArrowRight className="size-[15px] text-muted" />
+                    </>
+                  )}
                   <span className="font-extrabold">{p.to.text}</span>
                 </p>
-                <p className="mt-0.5 text-sm text-muted">{capitalizeFirst(p.meaning)}.</p>
+                {language === "en" && p.en ? (
+                  <p lang="en" className="mt-0.5 text-sm text-muted">
+                    {capitalizeFirst(p.en)}
+                  </p>
+                ) : (
+                  <p className="mt-0.5 text-sm text-muted">{capitalizeFirst(p.meaning)}.</p>
+                )}
               </div>
               {(p.from.id ?? p.to.id) && (
                 <ChevronRight className="size-[18px] shrink-0 text-muted" />
@@ -449,6 +475,7 @@ function ActionButton({
 }
 
 function TargetActions({ text, lang }: { text: string; lang: string }) {
+  const { t } = useT();
   const [copied, setCopied] = useState(false);
   const copy = async () => {
     await navigator.clipboard.writeText(text);
@@ -457,14 +484,14 @@ function TargetActions({ text, lang }: { text: string; lang: string }) {
   };
   return (
     <div className="mt-3 flex items-center gap-2">
-      <ActionButton label="Escuchar" onClick={() => speak(text, lang)}>
+      <ActionButton label={t("Escuchar")} onClick={() => speak(text, lang)}>
         <Volume2 className="size-[18px]" />
       </ActionButton>
-      <ActionButton label="Copiar" onClick={() => void copy()}>
+      <ActionButton label={t("Copiar")} onClick={() => void copy()}>
         {copied ? <Check className="size-[18px]" /> : <Copy className="size-[18px]" />}
       </ActionButton>
       <ActionButton
-        label="Compartir"
+        label={t("Compartir")}
         onClick={() => {
           if (navigator.share) void navigator.share({ text }).catch(() => {});
           else void copy();
@@ -473,17 +500,18 @@ function TargetActions({ text, lang }: { text: string; lang: string }) {
         <Share className="size-[18px]" />
       </ActionButton>
       <span role="status" className="ml-1 text-[13px] font-semibold text-muted">
-        {copied ? "Copiado" : ""}
+        {copied ? t("Copiado") : ""}
       </span>
     </div>
   );
 }
 
 function ClearButton({ onClick }: { onClick: () => void }) {
+  const { t } = useT();
   return (
     <button
       type="button"
-      aria-label="Borrar texto"
+      aria-label={t("Borrar texto")}
       onClick={onClick}
       className="-mr-2 grid size-9 place-items-center rounded-full text-muted hover:bg-bg"
     >

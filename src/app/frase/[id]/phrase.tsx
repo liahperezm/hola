@@ -1,11 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Heart, Share, Volume2 } from "lucide-react";
+import { Heart, Share, Snail, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
-import { DIALECTS, termLabel } from "@/lib/dialects";
+import { DIALECTS, termLabel, termLabelEn } from "@/lib/dialects";
+import { useT } from "@/lib/i18n";
 import { getEntry, otherWays, type Entry } from "@/lib/dictionary";
 import type { PhraseEntry } from "@/lib/phrase";
 import { speak } from "@/lib/speech";
@@ -17,6 +18,7 @@ import { SuggestButton } from "@/components/suggest";
 type Tab = "definicion" | "origen" | "otros";
 
 export function Phrase({ id }: { id: string }) {
+  const { t } = useT();
   const dictionaryEntry = getEntry(id);
   const aiEntry = useAiEntry(id);
   const { favorites } = useFavorites();
@@ -29,9 +31,9 @@ export function Phrase({ id }: { id: string }) {
       <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)]">
         <PageHeader />
         {hydrated && (
-          <EmptyState title="No encontramos esta palabra">
+          <EmptyState title={t("No encontramos esta palabra")}>
             <Link href="/" className="font-bold text-navy underline">
-              Volver al traductor
+              {t("Volver al traductor")}
             </Link>
           </EmptyState>
         )}
@@ -58,6 +60,8 @@ function PhraseView({
     ...(others.length > 0 ? [{ id: "otros" as const, label: "Otros países" }] : []),
   ];
   const [tab, setTab] = useState<Tab>("definicion");
+  const { t, language } = useT();
+  const learner = language === "en";
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const { favorites, isFavorite, toggle } = useFavorites();
   const saved = isFavorite(entry.id);
@@ -72,7 +76,7 @@ function PhraseView({
     }
     toggle(entry);
   };
-  const label = termLabel(entry.text, entry.dialect);
+  const label = learner ? termLabelEn(entry.text, entry.dialect) : termLabel(entry.text, entry.dialect);
   const summary = `${capitalize(entry.text)} (${label.toLowerCase()}): ${entry.definition ?? entry.meaning}`;
 
   const share = async () => {
@@ -87,11 +91,11 @@ function PhraseView({
   return (
     <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-14">
       <PageHeader>
-        <IconButton label="Compartir" onClick={() => void share()}>
+        <IconButton label={t("Compartir")} onClick={() => void share()}>
           <Share className="size-[19px]" />
         </IconButton>
         <IconButton
-          label="Favorito"
+          label={t("Favorito")}
           pressed={saved}
           onClick={save}
         >
@@ -113,29 +117,39 @@ function PhraseView({
           className="-ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 text-[14.5px] text-muted hover:text-navy"
         >
           <Volume2 className="size-4" />
-          <span className="sr-only">Escuchar: </span>
-          {entry.pronunciation ?? "Escuchar"}
+          <span className="sr-only">{t("Escuchar")}: </span>
+          {entry.pronunciation ?? t("Escuchar")}
         </button>
+        {learner && (
+          <button
+            type="button"
+            onClick={() => speak(entry.text, DIALECTS[entry.dialect].speechLang, 0.55)}
+            className="-ml-2 flex min-h-11 items-center gap-2 rounded-full px-2 text-[14.5px] text-muted hover:text-navy"
+          >
+            <Snail aria-hidden className="size-4" />
+            {t("Escuchar despacio")}
+          </button>
+        )}
       </div>
 
       <div
         role="tablist"
-        aria-label="Secciones de la palabra"
+        aria-label={t("Secciones de la palabra")}
         className="mx-1 mb-6 flex gap-[26px] border-b border-line"
       >
-        {tabs.map((t, i) => (
+        {tabs.map((tab_, i) => (
           <button
-            key={t.id}
+            key={tab_.id}
             ref={(el) => {
               tabRefs.current[i] = el;
             }}
-            id={`tab-${t.id}`}
+            id={`tab-${tab_.id}`}
             type="button"
             role="tab"
-            aria-selected={tab === t.id}
-            aria-controls={`panel-${t.id}`}
-            tabIndex={tab === t.id ? 0 : -1}
-            onClick={() => setTab(t.id)}
+            aria-selected={tab === tab_.id}
+            aria-controls={`panel-${tab_.id}`}
+            tabIndex={tab === tab_.id ? 0 : -1}
+            onClick={() => setTab(tab_.id)}
             onKeyDown={(e) => {
               const last = tabs.length - 1;
               const next =
@@ -150,12 +164,12 @@ function PhraseView({
               tabRefs.current[next]?.focus();
             }}
             className={`-mb-px border-b-[3px] pb-3 text-[15.5px] transition ${
-              tab === t.id
+              tab === tab_.id
                 ? "border-navy font-bold text-navy"
                 : "border-transparent font-semibold text-muted hover:text-navy"
             }`}
           >
-            {t.label}
+            {t(tab_.label)}
           </button>
         ))}
       </div>
@@ -171,10 +185,18 @@ function PhraseView({
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             {entry.register && (
               <p className="mb-4 inline-block rounded-full bg-butter px-3 py-1 text-[13.5px] font-semibold text-navy">
-                {entry.register === "vulgar" ? "Vulgar" : "Ofensiva"}
+                {entry.register === "vulgar" ? t("Vulgar") : t("Ofensiva")}
               </p>
             )}
-            <p className="text-[17px] leading-relaxed text-body">
+            {learner && entry.en && (
+              <p lang="en" className="mb-4 text-[19px] leading-snug font-bold">
+                {t("Significa")}: {entry.en}
+              </p>
+            )}
+            {learner && (
+              <p className="mb-1 text-[13px] font-bold text-muted">{t("En español")}</p>
+            )}
+            <p lang="es" className="text-[17px] leading-relaxed text-body">
               {entry.definition ?? entry.meaning}
             </p>
             {entry.example && (
@@ -185,7 +207,7 @@ function PhraseView({
             {entry.antonyms && entry.antonyms.length > 0 && (
               <p className="mt-6 border-t border-line pt-5 text-[15.5px] leading-normal text-muted">
                 <span className="mb-1 block text-[13px] font-bold text-navy">
-                  Lo contrario
+                  {t("Lo contrario")}
                 </span>
                 {entry.antonyms.join(", ")}
               </p>
@@ -196,12 +218,17 @@ function PhraseView({
         {tab === "origen" && (
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <CountryLabel code={entry.dialect} />
-            <p className="mt-4 text-[17px] leading-relaxed text-body">
+            <p lang={entry.origin ? "es" : undefined} className="mt-4 text-[17px] leading-relaxed text-body">
               {entry.origin ??
-                "Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo."}
+                t("Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo.")}
             </p>
+            {learner && entry.origin && (
+              <p className="mt-3 text-[13.5px] text-muted">{t("La historia está en español.")}</p>
+            )}
             {entry.origin && entry.source && (
-              <p className="mt-4 text-[13.5px] text-muted">Fuente: {entry.source}</p>
+              <p className="mt-4 text-[13.5px] text-muted">
+                {t("Fuente: {source}", { source: entry.source })}
+              </p>
             )}
           </div>
         )}
@@ -224,7 +251,7 @@ function PhraseView({
 
         {entry.id.startsWith("ai.") && (
           <p className="mx-1 mt-6 text-sm text-muted">
-            Explicación generada con IA. Puede contener errores.
+            {t("Explicación generada con IA. Puede contener errores.")}
           </p>
         )}
       </div>
@@ -237,7 +264,7 @@ function PhraseView({
       <InstallSheet
         open={installOpen}
         onClose={() => setInstallOpen(false)}
-        reason="¡Guardaste tu primera palabra!"
+        reason={t("¡Guardaste tu primera palabra!")}
       />
     </main>
   );

@@ -13,6 +13,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import { useT } from "@/lib/i18n";
 import { Logo } from "./logo";
 
 const TABS: { href: string; label: string; icon: LucideIcon }[] = [
@@ -35,9 +36,10 @@ export function TabScreen({ children }: { children: ReactNode }) {
 
 function TabBar() {
   const pathname = usePathname();
+  const { t } = useT();
   return (
     <nav
-      aria-label="Secciones"
+      aria-label={t("Secciones")}
       className="fixed inset-x-0 bottom-0 z-10 mx-auto max-w-md border-t border-line bg-white/95 pb-[env(safe-area-inset-bottom)] backdrop-blur"
     >
       <ul className="flex h-[70px] items-start justify-around pt-2.5">
@@ -53,7 +55,7 @@ function TabBar() {
                 }`}
               >
                 <Icon className="size-[22px]" strokeWidth={active ? 2.25 : 2} />
-                {label}
+                {t(label)}
               </Link>
             </li>
           );
@@ -65,17 +67,18 @@ function TabBar() {
 
 /** Logo (or a page title) on the left, settings on the right. */
 export function TopBar({ title }: { title?: string }) {
+  const { t } = useT();
   return (
     <header className="flex h-12 items-center justify-between">
       {title ? (
-        <h1 className="text-[32px] font-extrabold tracking-[-0.03em]">{title}</h1>
+        <h1 className="text-[32px] font-extrabold tracking-[-0.03em]">{t(title)}</h1>
       ) : (
         <h1>
           <Logo className="h-9" />
-          <span className="sr-only">, traductor de dialectos</span>
+          <span className="sr-only">{t(", traductor de dialectos")}</span>
         </h1>
       )}
-      <IconLink href="/preferencias" label="Preferencias" icon={Settings} />
+      <IconLink href="/preferencias" label={t("Preferencias")} icon={Settings} />
     </header>
   );
 }
@@ -89,10 +92,11 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   const router = useRouter();
+  const { t } = useT();
   return (
     <header className="flex h-12 items-center justify-between">
       <IconButton
-        label="Volver"
+        label={t("Volver")}
         onClick={() => {
           if (window.history.length > 1) router.back();
           else router.push(fallback);
@@ -157,6 +161,7 @@ export function SearchField({
   onChange: (value: string) => void;
   placeholder?: string;
 }) {
+  const { t } = useT();
   return (
     <label className="flex h-[52px] items-center gap-2.5 rounded-full bg-white px-[18px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy">
       <Search className="size-[18px] shrink-0 text-muted" />
@@ -164,7 +169,7 @@ export function SearchField({
         type="search"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
+        placeholder={t(placeholder)}
         className="w-full bg-transparent text-[15px] text-navy placeholder:text-muted focus-visible:outline-none"
       />
     </label>
@@ -204,9 +209,10 @@ export function EmptyState({
 
 /** Tells screen readers how many results a search found. */
 export function ResultCount({ count, active }: { count: number; active: boolean }) {
+  const { t } = useT();
   return (
     <p role="status" className="sr-only">
-      {active ? (count === 1 ? "1 resultado" : `${count} resultados`) : ""}
+      {active ? (count === 1 ? t("1 resultado") : t("{count} resultados", { count })) : ""}
     </p>
   );
 }

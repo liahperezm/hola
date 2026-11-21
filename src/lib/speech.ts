@@ -4,12 +4,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { voiceRate } from "./storage";
 
 /** Reads text aloud with a voice for the dialect when the device has one. */
-export function speak(text: string, lang: string) {
+export function speak(text: string, lang: string, rate?: number) {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return;
   const synth = window.speechSynthesis;
   const utterance = new SpeechSynthesisUtterance(text);
   utterance.lang = lang;
-  utterance.rate = voiceRate();
+  utterance.rate = rate ?? voiceRate();
   // On-device voices honor the speed; some online voices ignore it.
   const voices = synth.getVoices().filter((v) => v.lang.startsWith("es"));
   const exact = voices.filter((v) => v.lang.replace("_", "-") === lang);

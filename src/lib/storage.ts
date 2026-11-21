@@ -52,7 +52,7 @@ function write(key: string, value: unknown) {
   listeners.get(key)?.forEach((l) => l());
 }
 
-function useStored<T>(key: string, fallback: T, validate: (v: unknown) => T) {
+export function useStored<T>(key: string, fallback: T, validate: (v: unknown) => T) {
   const value = useSyncExternalStore(
     (l) => subscribe(key, l),
     () => read(key, fallback, validate),
