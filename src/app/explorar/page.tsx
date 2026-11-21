@@ -1,5 +1,6 @@
 "use client";
 
+import { Rich } from "@/components/rich";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -164,7 +165,7 @@ function WordOfTheDay() {
         {language === "en" && entry.en ? (
           <span lang="en">{capitalize(entry.en)}</span>
         ) : (
-          (entry.definition ?? entry.meaning)
+          <Rich text={entry.definition ?? entry.meaning} />
         )}
       </p>
     </Link>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Rich } from "@/components/rich";
 import Link from "next/link";
 import { Heart, Share, Snail, Volume2 } from "lucide-react";
 import { useRef, useState } from "react";
@@ -77,7 +78,7 @@ function PhraseView({
     toggle(entry);
   };
   const label = learner ? termLabelEn(entry.text, entry.dialect) : termLabel(entry.text, entry.dialect);
-  const summary = `${capitalize(entry.text)} (${label.toLowerCase()}): ${entry.definition ?? entry.meaning}`;
+  const summary = `${capitalize(entry.text)} (${label.toLowerCase()}): ${(entry.definition ?? entry.meaning).replace(/[«»]/g, "")}`;
 
   const share = async () => {
     const url = window.location.href;
@@ -197,7 +198,7 @@ function PhraseView({
               <p className="mb-1 text-[13px] font-bold text-muted">{t("En español")}</p>
             )}
             <p lang="es" className="text-[17px] leading-relaxed text-body">
-              {entry.definition ?? entry.meaning}
+              <Rich text={entry.definition ?? entry.meaning} />
             </p>
             {entry.example && (
               <blockquote className="mt-5 border-l-[3px] border-lavender pl-4 text-[16.5px] leading-normal text-muted italic">
@@ -219,8 +220,11 @@ function PhraseView({
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <CountryLabel code={entry.dialect} />
             <p lang={entry.origin ? "es" : undefined} className="mt-4 text-[17px] leading-relaxed text-body">
-              {entry.origin ??
-                t("Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo.")}
+              {entry.origin ? (
+                <Rich text={entry.origin} />
+              ) : (
+                t("Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo.")
+              )}
             </p>
             {learner && entry.origin && (
               <p className="mt-3 text-[13.5px] text-muted">{t("La historia está en español.")}</p>

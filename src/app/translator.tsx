@@ -1,5 +1,6 @@
 "use client";
 
+import { Rich } from "@/components/rich";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -224,7 +225,7 @@ export function Translator() {
                       key={w.word}
                       className="mt-3 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"
                     >
-                      {warningText(w)}{" "}
+                      <Rich text={warningText(w)} />{" "}
                       <span className="font-semibold">{t("(vulgar)")}</span>
                     </p>
                   ))}

@@ -1,5 +1,6 @@
 "use client";
 
+import { Rich } from "./rich";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -201,7 +202,9 @@ export function EmptyState({
   return (
     <div className="mt-14 space-y-2 px-6 text-center">
       <Icon className="mx-auto mb-4 size-9 text-muted" />
-      <p className="text-lg font-bold">{title}</p>
+      <p className="text-lg font-bold">
+        <Rich text={title} />
+      </p>
       {children && <p className="text-muted">{children}</p>}
     </div>
   );

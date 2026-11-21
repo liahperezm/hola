@@ -74,12 +74,12 @@ export const EN: Record<string, string> = {
   // Explore and guides
   "Palabra del día": "Word of the day",
   "Mini guías": "Phrasebooks",
-  "No encontramos «{query}»": "We couldn't find “{query}”",
+  "No encontramos «{query}»": "We couldn't find «{query}»",
   "Prueba con otra palabra o tradúcela en la pestaña Traducir.":
     "Try another word, or translate it in the Translate tab.",
   "¿Falta esta palabra? Sugiérela": "Missing a word? Suggest it",
   "Busca en esta guía": "Search this phrasebook",
-  "Nada coincide con «{query}»": "Nothing matches “{query}”",
+  "Nada coincide con «{query}»": "Nothing matches «{query}»",
   "Aún no hay palabras para {a} y {b}": "No words yet for {a} and {b}",
   "Aprendiendo": "Learning",
   "español {adjective}": "{adjective} Spanish",

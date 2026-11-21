@@ -614,7 +614,7 @@ const ORIGINS: { ids: string[]; detail: TermDetail }[] = [
     ids: ["DO.guagua", "PR.guagua", "CU.guagua"],
     detail: {
       origin:
-        "Su origen se discute. La explicación más citada es el inglés «wagon» (vagón, carreta). La palabra se usaba en Cuba antes de llegar a las Islas Canarias, donde aparece a comienzos del siglo XX. El diccionario de la RAE la da como de etimología discutida.",
+        "Su origen se discute. La explicación más citada es el inglés «wagon» (vagón, carreta). La palabra se usaba en Cuba antes de llegar a las Islas Canarias, donde aparece a comienzos del siglo XX.",
       source: "RAE, Diccionario histórico del español de Canarias",
     },
   },
@@ -630,7 +630,7 @@ const ORIGINS: { ids: string[]; detail: TermDetail }[] = [
     ids: ["DO.chevere", "CO.chevere", "VE.chevere", "PR.chevere", "PE.chevere", "EC.chevere", "PA.chevere", "CU.chevere"],
     detail: {
       origin:
-        "No se sabe con certeza. La explicación más citada es africana: vendría del efik, una lengua de Calabar (en la actual Nigeria), llegada a Cuba con personas esclavizadas y difundida luego por el Caribe. El etnólogo cubano Fernando Ortiz defendió ese origen. Otras teorías, como el automóvil Chevrolet, no se sostienen.",
+        "No se sabe con certeza. La explicación más citada es africana: vendría del efik, una lengua de Calabar (en la actual Nigeria), llegada a Cuba con personas esclavizadas y difundida luego por el Caribe. Otras teorías, como el automóvil Chevrolet, no se sostienen.",
       source: "Fernando Ortiz; BBC Mundo, «Qué chévere»",
     },
   },
@@ -646,7 +646,7 @@ const ORIGINS: { ids: string[]; detail: TermDetail }[] = [
     ids: ["MX.chamba", "PE.chamba"],
     detail: {
       origin:
-        "Se suele contar que nació con los braceros mexicanos que fueron a trabajar a Estados Unidos en los años cuarenta, pero la palabra ya aparece con el sentido de 'trabajo' en el Diccionario de mejicanismos de Félix Ramos y Duarte, de 1895. Su etimología sigue sin resolverse.",
+        "Se suele contar que nació con los braceros mexicanos que fueron a trabajar a Estados Unidos en los años cuarenta, pero la palabra ya se usaba en México con el sentido de 'trabajo' a finales del siglo XIX. Su etimología sigue sin resolverse.",
       source: "Félix Ramos y Duarte, Diccionario de mejicanismos (1895)",
     },
   },
@@ -661,7 +661,7 @@ const ORIGINS: { ids: string[]; detail: TermDetail }[] = [
     ids: ["AR.pibe", "UY.pibe"],
     detail: {
       origin:
-        "Registrada en el Río de la Plata desde 1894. La hipótesis más aceptada es el genovés «pivetto», 'muchacho', traído por la inmigración italiana. El etimólogo Joan Corominas, en cambio, la relacionaba con «pebete».",
+        "Se usa en el Río de la Plata desde finales del siglo XIX. La explicación más aceptada es el genovés «pivetto», 'muchacho', traído por la inmigración italiana; otra propuesta la relaciona con «pebete».",
       source: "José Gobello; Joan Corominas; Antonio Dellepiane, El idioma del delito (1894)",
     },
   },
