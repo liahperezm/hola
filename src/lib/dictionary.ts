@@ -22,6 +22,8 @@ export type TermDetail = {
   antonyms?: string[];
   example?: string;
   origin?: string;
+  /** Where the origin story comes from. */
+  source?: string;
 };
 
 type Concept = {
@@ -370,7 +372,7 @@ const HAND_CONCEPTS: Concept[] = [
         definition: "Forma coloquial de llamar al colectivo o autobús.",
         example: "Se me pasó el bondi.",
         origin:
-          "Del portugués de Brasil «bonde» (tranvía). Se cuenta que los tranvías de Río se financiaron con bonos («bonds» en inglés) y el nombre pasó a los vehículos.",
+          "Del portugués de Brasil «bonde» (tranvía). Según la historia popular, los tranvías de Río se financiaron con bonos («bonds» en inglés) y el nombre pasó a los vehículos.",
       },
     },
   },
@@ -568,6 +570,186 @@ const HAND_CONCEPTS: Concept[] = [
   },
 ];
 
+/*
+ * Origin stories, researched and attached to specific entries: the same
+ * spelling can be a different word elsewhere (guagua is a bus in the Caribbean
+ * and a baby in Chile). Uncertain origins say so; popular stories are labeled.
+ */
+const ORIGINS: { ids: string[]; detail: TermDetail }[] = [
+  {
+    ids: ["DO.guagua", "PR.guagua", "CU.guagua"],
+    detail: {
+      origin:
+        "Su origen se discute. La explicación más citada es el inglés «wagon» (vagón, carreta). La palabra se usaba en Cuba antes de llegar a las Islas Canarias, donde aparece a comienzos del siglo XX. El diccionario de la RAE la da como de etimología discutida.",
+      source: "RAE, Diccionario histórico del español de Canarias",
+    },
+  },
+  {
+    ids: ["CL.guagua", "PE.guagua"],
+    detail: {
+      origin:
+        "Del quechua «wawa», 'niño pequeño, bebé'. No tiene relación con la guagua (autobús) del Caribe: son dos palabras distintas que se escriben igual.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["DO.chevere", "CO.chevere", "VE.chevere", "PR.chevere", "PE.chevere", "EC.chevere", "PA.chevere", "CU.chevere"],
+    detail: {
+      origin:
+        "No se sabe con certeza. La explicación más citada es africana: vendría del efik, una lengua de Calabar (en la actual Nigeria), llegada a Cuba con personas esclavizadas y difundida luego por el Caribe. El etnólogo cubano Fernando Ortiz defendió ese origen. Otras teorías, como el automóvil Chevrolet, no se sostienen.",
+      source: "Fernando Ortiz; BBC Mundo, «Qué chévere»",
+    },
+  },
+  {
+    ids: ["VE.pana", "EC.pana", "PR.pana", "DO.pana", "PA.pana"],
+    detail: {
+      origin:
+        "Origen incierto. Mucha gente cree que viene del inglés «pal» ('compañero'), pero no está documentado.",
+      source: "El Tiempo; Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["MX.chamba", "PE.chamba"],
+    detail: {
+      origin:
+        "Se suele contar que nació con los braceros mexicanos que fueron a trabajar a Estados Unidos en los años cuarenta, pero la palabra ya aparece con el sentido de 'trabajo' en el Diccionario de mejicanismos de Félix Ramos y Duarte, de 1895. Su etimología sigue sin resolverse.",
+      source: "Félix Ramos y Duarte, Diccionario de mejicanismos (1895)",
+    },
+  },
+  {
+    ids: ["VE.chamo"],
+    detail: {
+      origin:
+        "Origen incierto. Se suele relacionar con el inglés «chum» ('amigo'), pero no está documentado.",
+    },
+  },
+  {
+    ids: ["AR.pibe", "UY.pibe"],
+    detail: {
+      origin:
+        "Registrada en el Río de la Plata desde 1894. La hipótesis más aceptada es el genovés «pivetto», 'muchacho', traído por la inmigración italiana. El etimólogo Joan Corominas, en cambio, la relacionaba con «pebete».",
+      source: "José Gobello; Joan Corominas; Antonio Dellepiane, El idioma del delito (1894)",
+    },
+  },
+  {
+    ids: ["AR.birome", "UY.birome", "PY.birome"],
+    detail: {
+      origin:
+        "Del nombre comercial Birome, formado con los apellidos de László Biró, el inventor húngaro radicado en Argentina, y de su socio Juan Jorge Meyne. El bolígrafo salió a la venta en Buenos Aires a mediados de los años cuarenta.",
+      source: "RAE, Diccionario histórico de la lengua española",
+    },
+  },
+  {
+    ids: ["VE.cotufas"],
+    detail: {
+      origin:
+        "Origen incierto. La historia de que viene del inglés «corn to fry» es popular pero no tiene respaldo: «cotufa» ya existía en el español de España para nombrar un tubérculo, y también se usa en Canarias.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["MX.elote", "GT.elote", "HN.elote", "SV.elote", "NI.elote", "CR.elote"],
+    detail: {
+      origin: "Del náhuatl «élotl», 'mazorca tierna de maíz'.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["MX.popote"],
+    detail: {
+      origin:
+        "Del náhuatl «popotl», el tallo hueco de una planta, que se usaba como pajita.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["MX.escuincle"],
+    detail: {
+      origin:
+        "Del náhuatl «itzcuintli», 'perro'. Primero nombró al perro sin pelo mexicano (el xoloitzcuintle) y luego, en broma, pasó a los niños.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["DO.zafacon", "PR.zafacon"],
+    detail: {
+      origin:
+        "Probablemente del inglés, aunque no se sabe de qué palabra: se proponen «safety can» y el lema «save a can» de los contenedores de reciclaje de la Segunda Guerra Mundial. Ninguna está comprobada.",
+    },
+  },
+  {
+    ids: ["DO.cocaleca"],
+    detail: {
+      definition:
+        "Palomitas de maíz. Se dice sobre todo en Santo Domingo; en el suroeste del país se les llama «gallitos».",
+      example: "Vamos a hacer cocaleca para ver la película.",
+      source: "Acento.com.do",
+    },
+  },
+  {
+    ids: ["AR.pucho", "UY.pucho", "CL.pucho", "PE.pucho"],
+    detail: {
+      origin: "Del quechua «puchu», 'sobra, resto': primero fue la colilla del cigarrillo y luego el cigarrillo.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["AR.anana", "UY.anana", "PY.anana"],
+    detail: {
+      origin: "Del guaraní «naná», a través del portugués «ananás».",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["PE.canchita"],
+    detail: {
+      origin: "Diminutivo de «cancha», del quechua «kamcha», 'maíz tostado'.",
+      source: "Diccionario de la lengua española (RAE)",
+    },
+  },
+  {
+    ids: ["DO.jevi"],
+    detail: {
+      origin: "Del inglés «heavy», adaptado a la pronunciación dominicana.",
+    },
+  },
+  {
+    ids: ["UY.quilombo"],
+    detail: {
+      origin:
+        "Viene del kimbundu «kilombo», que nombraba los asentamientos de personas esclavizadas que escapaban en Brasil. En el Río de la Plata pasó a significar primero un prostíbulo y luego cualquier desorden.",
+    },
+  },
+  {
+    ids: ["UY.laburo"],
+    detail: {
+      origin:
+        "Del italiano «lavoro». Entró al lunfardo de Buenos Aires y Montevideo con la inmigración italiana de finales del siglo XIX.",
+    },
+  },
+  {
+    ids: ["CL.palta", "PE.palta", "UY.palta", "BO.palta"],
+    detail: { origin: "Del quechua «pallta».", source: "Diccionario de la lengua española (RAE)" },
+  },
+  {
+    ids: ["CL.choclo", "PE.choclo", "BO.choclo", "EC.choclo", "UY.choclo"],
+    detail: { origin: "Del quechua «choqllo».", source: "Diccionario de la lengua española (RAE)" },
+  },
+  {
+    ids: ["CL.porotos", "UY.porotos", "PY.porotos", "BO.porotos"],
+    detail: { origin: "Del quechua «purutu».", source: "Diccionario de la lengua española (RAE)" },
+  },
+];
+
+const ORIGIN_BY_ID = new Map(
+  ORIGINS.flatMap(({ ids, detail }) => ids.map((id) => [id, detail] as const)),
+);
+
+/** For tests: origin ids that match no entry. */
+export function unknownOriginIds(): string[] {
+  return [...ORIGIN_BY_ID.keys()].filter((id) => !ENTRIES.has(id));
+}
+
 /** A concept from the imported lexicon (see lexicon/README.md). */
 export type ImportedConcept = {
   id: string;
@@ -727,9 +909,11 @@ function buildEntries(): Map<string, Entry> {
       words?.forEach((text, index) => {
         const id = `${dialect}.${slugify(text)}`;
         if (entries.has(id)) return;
-        const detail =
+        const own =
           (index === 0 ? concept.details?.[dialect] : undefined) ??
           concept.wordDetails?.[text];
+        const researched = ORIGIN_BY_ID.get(id);
+        const detail = own || researched ? { ...own, ...researched } : undefined;
         entries.set(id, {
           id,
           dialect,

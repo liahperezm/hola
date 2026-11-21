@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Flag } from "@/components/flag";
+import { SuggestButton } from "@/components/suggest";
 import {
   EmptyState,
   ListCard,
@@ -45,9 +46,18 @@ export default function Explore() {
       <ResultCount count={results.length} active={query.trim() !== ""} />
       {query.trim() ? (
         results.length === 0 ? (
-          <EmptyState title={`No encontramos «${query.trim()}»`}>
-            Prueba con otra palabra o tradúcela en la pestaña Traducir.
-          </EmptyState>
+          <>
+            <EmptyState title={`No encontramos «${query.trim()}»`}>
+              Prueba con otra palabra o tradúcela en la pestaña Traducir.
+            </EmptyState>
+            <SuggestButton
+              className="mx-auto mt-4"
+              kind="agregar"
+              label="¿Falta esta palabra? Sugiérela"
+              word={query.trim()}
+              context="Búsqueda en Explorar"
+            />
+          </>
         ) : (
           <div className="mt-4">
             <ListCard>

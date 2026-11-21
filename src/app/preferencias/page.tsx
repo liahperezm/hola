@@ -4,6 +4,7 @@ import { ChevronRight, Download, MessageSquarePlus, Volume2 } from "lucide-react
 import { useEffect, useState, type ReactNode } from "react";
 import { DialectSwitcher } from "@/components/dialect-switcher";
 import { InstallSheet } from "@/components/install-sheet";
+import { SuggestSheet, useSuggestionsEnabled } from "@/components/suggest";
 import { ListCard, PageHeader, SectionTitle } from "@/components/ui";
 import { DIALECTS } from "@/lib/dialects";
 import { isInstalled } from "@/lib/install";
@@ -14,8 +15,6 @@ import {
   useVoiceSpeed,
   type VoiceSpeed,
 } from "@/lib/storage";
-
-const FEEDBACK_EMAIL = process.env.NEXT_PUBLIC_FEEDBACK_EMAIL;
 
 export default function Settings() {
   const hydrated = useHydrated();
@@ -31,11 +30,8 @@ export default function Settings() {
       .catch(() => setAiAvailable(false));
   }, []);
 
-  const feedbackHref = FEEDBACK_EMAIL
-    ? `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent("Hola: sugerencia")}&body=${encodeURIComponent(
-        "Palabra o frase:\nPaís:\nQué significa:\nCorrección o comentario:\n",
-      )}`
-    : null;
+  const suggestions = useSuggestionsEnabled();
+  const [suggestOpen, setSuggestOpen] = useState(false);
 
   return (
     <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
@@ -95,8 +91,8 @@ export default function Settings() {
             Instalar la app
           </Row>
         )}
-        {feedbackHref && (
-          <Row icon={<MessageSquarePlus className="size-5" />} href={feedbackHref}>
+        {suggestions && (
+          <Row icon={<MessageSquarePlus className="size-5" />} onClick={() => setSuggestOpen(true)}>
             Sugerir una palabra o corrección
           </Row>
         )}
@@ -119,6 +115,11 @@ export default function Settings() {
       </div>
 
       <InstallSheet open={installOpen} onClose={() => setInstallOpen(false)} />
+      <SuggestSheet
+        open={suggestOpen}
+        onClose={() => setSuggestOpen(false)}
+        initial={{ kind: "agregar", word: "", country: pair.from, context: "Preferencias" }}
+      />
     </main>
   );
 }

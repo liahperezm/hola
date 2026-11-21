@@ -12,6 +12,7 @@ import { speak } from "@/lib/speech";
 import { useAiEntry, useFavorites, useHydrated, useSeen } from "@/lib/storage";
 import { isInstalled } from "@/lib/install";
 import { InstallSheet } from "@/components/install-sheet";
+import { SuggestButton } from "@/components/suggest";
 
 type Tab = "definicion" | "origen" | "otros";
 
@@ -197,8 +198,11 @@ function PhraseView({
             <CountryLabel code={entry.dialect} />
             <p className="mt-4 text-[17px] leading-relaxed text-body">
               {entry.origin ??
-                "Todavía no tenemos la historia de esta palabra. ¿La conoces? Pronto podrás contarla."}
+                "Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo."}
             </p>
+            {entry.origin && entry.source && (
+              <p className="mt-4 text-[13.5px] text-muted">Fuente: {entry.source}</p>
+            )}
           </div>
         )}
 
@@ -224,6 +228,12 @@ function PhraseView({
           </p>
         )}
       </div>
+      <SuggestButton
+        className="mt-6"
+        word={entry.text}
+        country={entry.dialect}
+        context={`Página de la palabra: ${entry.id}`}
+      />
       <InstallSheet
         open={installOpen}
         onClose={() => setInstallOpen(false)}

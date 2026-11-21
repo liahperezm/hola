@@ -62,6 +62,16 @@ Favorites, settings and AI explanations are stored in the browser
 - **Preferencias:** the two countries, voice speed, install help and
   "Sugerir una palabra o corrección".
 
+## Suggestions from people in each country
+
+The translator, every word page, Explorar (when a search finds nothing) and
+Preferencias have a "Sugerir un cambio" form: country, word, what it means or
+what is wrong, an example, and whether the person is from that country. Each
+suggestion becomes a GitHub issue labeled `sugerencia` in
+`SUGGESTIONS_GITHUB_REPO`, written with `SUGGESTIONS_GITHUB_TOKEN` (a
+fine-grained token with "Issues: Read and write" on that repository only). Without
+them the form falls back to `NEXT_PUBLIC_FEEDBACK_EMAIL`, or is hidden.
+
 ## Accessibility
 
 Built and checked against WCAG 2.2 AA (Section 508 references WCAG 2.0 AA):

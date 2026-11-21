@@ -20,6 +20,7 @@ import { CountryLabel } from "@/components/flag";
 import { ListCard, SectionTitle, TabScreen, TopBar } from "@/components/ui";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { PhraseEntry } from "@/lib/phrase";
+import { SuggestButton } from "@/components/suggest";
 import { warningText } from "@/lib/false-friends";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
@@ -253,6 +254,15 @@ export function Translator() {
               <Sparkles className="size-4" />
               Traducido con IA. Puede contener errores.
             </p>
+          )}
+
+          {!loading && (
+            <SuggestButton
+              className="mx-auto mt-2"
+              word={join(result.source)}
+              country={result.to}
+              context={`Traductor: ${DIALECTS[result.from].name} → ${DIALECTS[result.to].name}: «${join(result.source)}» → «${join(result.target)}»`}
+            />
           )}
 
           {!loading && result.pairs.length > 0 && (

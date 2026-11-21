@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { DialectCode } from "./dialects";
-import { allEntries, getEntry, guideRows, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts } from "./dictionary";
+import { allEntries, getEntry, guideRows, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { warningText } from "./false-friends";
 import { translateWithDictionary } from "./translate";
 
@@ -81,6 +81,13 @@ describe("dictionary", () => {
       seen.add(id);
     }
     expect(seen.size).toBe(pool);
+  });
+
+  it("attaches every origin story to a real word", () => {
+    expect(unknownOriginIds()).toEqual([]);
+    expect(getEntry("DO.guagua")?.origin).toContain("wagon");
+    expect(getEntry("CL.guagua")?.origin).toContain("wawa");
+    expect(getEntry("DO.cocaleca")?.definition).toContain("Santo Domingo");
   });
 
   it("has unique ids", () => {
