@@ -72,6 +72,13 @@ This writes `lexicon/build/hola_lexicon.html`, a searchable page with filters fo
 false friends and what's in the app, plus a per-concept table. It also writes `lexicon/build/hola_lexicon.csv`
 for spreadsheet review. Run `build.py` first.
 
+Search finds entries the way people write them: "a caballo regalao no se le miran lo diente" finds
+*a caballo regalado no se le mira el diente*. It ignores accents, dropped *d* and *s* (*regalao*,
+*verdá*, *lo diente*), *ll*/*y*, *b*/*v*, *c*/*s*/*z*, silent *h*, swapped articles and a letter or two of
+difference, and checks variants quoted in the notes. The closest match is shown on top with its meaning.
+Vulgar and offensive entries always show their meaning, with a small warning. The search lives in
+`lexicon/scripts/viewer_search.js` (tests: `node lexicon/scripts/viewer_search.test.cjs`).
+
 For an Excel workbook with tabs for words by country, all entries, false friends, idioms and countries:
 
 ```bash
