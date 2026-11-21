@@ -169,13 +169,8 @@ function PhraseView({
         {tab === "definicion" && (
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             {entry.register && (
-              <p className="mb-4 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-normal text-navy">
-                <span className="font-bold">
-                  {entry.register === "vulgar" ? "Vulgar." : "Ofensiva."}
-                </span>{" "}
-                {entry.register === "vulgar"
-                  ? "Es grosera: úsala solo con gente de confianza."
-                  : "Puede insultar o herir a otras personas. Conviene no usarla."}
+              <p className="mb-4 inline-block rounded-full bg-butter px-3 py-1 text-[13.5px] font-semibold text-navy">
+                {entry.register === "vulgar" ? "Vulgar" : "Ofensiva"}
               </p>
             )}
             <p className="text-[17px] leading-relaxed text-body">

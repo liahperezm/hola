@@ -168,7 +168,7 @@ describe("false friends", () => {
     const { warnings } = translateWithDictionary("Cogí el móvil", "ES", "AR");
     expect(warnings).toHaveLength(1);
     expect(warningText(warnings[0])).toBe(
-      "En Argentina, «cogí» es una palabra vulgar. Mejor usa «tomar» o «agarrar».",
+      "En Argentina, «coger» significa: tener sexo.",
     );
   });
 

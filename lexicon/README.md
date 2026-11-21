@@ -33,14 +33,14 @@ The translator swaps every word it knows, so *padre* (Mexico: "cool") would turn
 "mi genial".
 
 False friends that are vulgar in one of the app's countries are exported by a second script, so the
-translator can warn ("En Argentina, «cogí» es una palabra vulgar. Mejor usa «tomar» o «agarrar»."):
+translator can say what they mean there ("En Argentina, «coger» significa: tener sexo."):
 
 ```bash
 python3 lexicon/scripts/export_false_friends.py && pnpm test
 ```
 
-It writes `src/lib/false-friends.generated.ts`. Spanish alternatives and extra verb forms live in the
-script (`INSTEAD`, `FORMS`). Harmless meaning changes (*carro*, *pena*, *ahorita*) are not warned about
+It writes `src/lib/false-friends.generated.ts`. The Spanish meanings and extra verb forms live in the
+script (`MEANING_ES`, `FORMS`); the export stops if a vulgar meaning has no Spanish. Harmless meaning changes (*carro*, *pena*, *ahorita*) are not warned about
 yet, because their meanings are written in English.
 
 The plain Spanish word for an everyday object (*gasolina*, *acera*, *mochila*) is also translated
@@ -76,7 +76,7 @@ Search finds entries the way people write them: "a caballo regalao no se le mira
 *a caballo regalado no se le mira el diente*. It ignores accents, dropped *d* and *s* (*regalao*,
 *verdá*, *lo diente*), *ll*/*y*, *b*/*v*, *c*/*s*/*z*, silent *h*, swapped articles and a letter or two of
 difference, and checks variants quoted in the notes. The closest match is shown on top with its meaning.
-Vulgar and offensive entries always show their meaning, with a small warning. The search lives in
+Vulgar and offensive entries always show their meaning, labeled "Vulgar" or "Ofensiva". The search lives in
 `lexicon/scripts/viewer_search.js` (tests: `node lexicon/scripts/viewer_search.test.cjs`).
 
 For an Excel workbook with tabs for words by country, all entries, false friends, idioms and countries:

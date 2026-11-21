@@ -129,7 +129,7 @@ document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{document.querySelect
 $("#q").addEventListener("input",()=>{clearTimeout(timer);timer=setTimeout(()=>{shown=PAGE;render()},120)});
 ["#country","#kind","#reg","#ff","#inapp"].forEach(s=>$(s).addEventListener("input",()=>{shown=PAGE;render()}));
 const cc=cs=>cs.map(c=>`<span class="cc" title="${esc(NAME[c])}">${c}</span>`).join("");
-const rude=r=>RUDE.has(r.register)?`<div class="warn">⚠ ${r.register==="vulgar"?"Vulgar":"Ofensiva"}: úsala con cuidado.</div>`:"";
+const rude=r=>RUDE.has(r.register)?`<div class="warn">${r.register==="vulgar"?"Vulgar":"Ofensiva"}</div>`:"";
 /** How well a row answers the query, 0 to 1. */
 function rowScore(r,q){
  let best=0;for(const f of r._forms)best=Math.max(best,match(q,f));

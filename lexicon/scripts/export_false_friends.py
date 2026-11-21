@@ -32,20 +32,31 @@ FORMS = {
     ],
 }
 
-# What to say instead, in Spanish, where there is a clear alternative.
-INSTEAD = {
-    "coger": ["tomar", "agarrar"],
-    "chaqueta": ["chamarra"],
-    "cajeta": ["dulce de leche"],
-    "papaya": ["fruta bomba"],
-    "bicho": ["insecto"],
-    "pinche": ["ayudante de cocina"],
+# What the vulgar sense means, in Spanish, by sense index in false_friends.json.
+MEANING_ES = {
+    "coger": {1: "tener sexo"},
+    "concha": {2: "los genitales femeninos"},
+    "pija": {1: "el pene"},
+    "bicho": {2: "el pene"},
+    "papaya": {1: "los genitales femeninos"},
+    "pendejo": {0: "idiota (insulto fuerte)", 2: "vello púbico"},
+    "chaqueta": {1: "masturbación"},
+    "arrecho": {1: "excitado sexualmente"},
+    "polla": {0: "el pene"},
+    "cajeta": {1: "los genitales femeninos"},
+    "bollo": {1: "los genitales femeninos"},
+    "pinche": {0: "maldito, de mala calidad"},
+    "paja": {1: "masturbación"},
+    "chucha": {0: "¡carajo! (exclamación)"},
+    "pico": {1: "el pene"},
+    "chimba": {0: "genial (en su origen, los genitales femeninos)"},
+    "huevón": {0: "idiota, vago", 2: "vago"},
 }
 
 
-def senses(word):
+def senses(word, base):
     out = []
-    for sense in word["s"]:
+    for i, sense in enumerate(word["s"]):
         codes = sense[0].split()
         countries = [c for c in codes if c in APP_COUNTRIES]
         out.append(
@@ -55,6 +66,11 @@ def senses(word):
                 "register": sense[1],
             }
         )
+        if sense[1] in WARN_REGISTERS:
+            meaning = MEANING_ES.get(base, {}).get(i)
+            if not meaning:
+                raise SystemExit(f"No Spanish meaning for {base} sense {i}: add it to MEANING_ES")
+            out[-1]["meaning"] = meaning
     return out
 
 
@@ -65,7 +81,7 @@ def main():
         forms = [f.strip() for f in word["t"].split("/") if f.strip()]
         if forms[0] in SKIP:
             continue
-        s = senses(word)
+        s = senses(word, forms[0])
         vulgar_here = any(
             x["register"] in WARN_REGISTERS and (x["countries"] or x["everywhereElse"])
             for x in s
@@ -77,8 +93,6 @@ def main():
             "forms": forms + FORMS.get(forms[0], []),
             "senses": s,
         }
-        if forms[0] in INSTEAD:
-            entry["instead"] = INSTEAD[forms[0]]
         entries.append(entry)
 
     lines = [

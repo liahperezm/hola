@@ -11,7 +11,6 @@ import {
   Mic,
   Share,
   Sparkles,
-  TriangleAlert,
   Volume2,
   X,
 } from "lucide-react";
@@ -221,13 +220,10 @@ export function Translator() {
                   {(result.warnings ?? []).map((w) => (
                     <p
                       key={w.word}
-                      className="mt-3 flex gap-2.5 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"
+                      className="mt-3 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"
                     >
-                      <TriangleAlert aria-hidden className="mt-0.5 size-[18px] shrink-0" />
-                      <span>
-                        <b>Cuidado. </b>
-                        {warningText(w)}
-                      </span>
+                      {warningText(w)}{" "}
+                      <span className="font-semibold">(vulgar)</span>
                     </p>
                   ))}
                   <TargetActions
