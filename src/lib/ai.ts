@@ -3,7 +3,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import { z } from "zod";
 import { DIALECTS, type DialectCode } from "./dialects";
-import { slugify } from "./dictionary";
+import { getEntry, slugify } from "./dictionary";
+import { dictionaryHints, type LearnDirection, type LearnResult, type LearnWord } from "./learn";
 import { findFalseFriends } from "./false-friends";
 import type { PhraseEntry } from "./phrase";
 import type { Segment, TermPair, Translation } from "./translate";
@@ -182,4 +183,68 @@ export async function readPhoto(
 
   if (response.stop_reason === "refusal") throw new AiRefusedError();
   return response.parsed_output?.text.trim() ?? "";
+}
+
+const LearnerSchema = z.object({
+  translation: z.string(),
+  words: z.array(
+    z.object({
+      spanish: z.string(),
+      english: z.string(),
+      pronunciation: z.string(),
+    }),
+  ),
+});
+
+function learnerSystem(country: string, direction: LearnDirection, hints: string[]): string {
+  const task =
+    direction === "to-spanish"
+      ? `Traduces del inglés al español tal como se habla en ${country}: natural, cotidiano, como lo diría una persona de allí. Usa el vocabulario regional de ${country} cuando sea lo natural (por ejemplo, la palabra local para «bus» o «popcorn»), y su forma de tratar a la gente (tú, vos o usted) según lo que se usa allí.`
+      : `Traduces al inglés un texto en español escrito como se habla en ${country}. Entiende el vocabulario regional de ${country} y tradúcelo por su significado, en un inglés natural.`;
+  return `${task}
+
+Reglas:
+- "translation": solo la traducción, sin comillas ni notas.
+- "words": las palabras o expresiones regionales o propias de ${country} que aparecen en el texto en español (la traducción o el original), las que un estudiante de inglés querría aprender. "spanish" tal como aparece, "english" su significado en inglés, "pronunciation" una guía en sílabas al estilo inglés con la sílaba tónica en mayúsculas (ej. "GWAH-gwah"). Si no hay nada regional, deja la lista vacía.
+- No agregues groserías que no estén en el original.
+
+Palabras de ${country} del diccionario de Hola (inglés → ${country}); úsalas cuando correspondan:
+${hints.join("\n")}`;
+}
+
+/** English ⇄ the Spanish of one country, for learners. */
+export async function translateForLearner(
+  text: string,
+  dialect: DialectCode,
+  direction: LearnDirection,
+): Promise<LearnResult> {
+  const country = DIALECTS[dialect].name;
+  const response = await getClient().beta.messages.parse({
+    model: MODEL,
+    max_tokens: 8000,
+    betas: ["server-side-fallback-2026-07-01"],
+    fallbacks: "default",
+    output_config: { effort: "low", format: betaZodOutputFormat(LearnerSchema) },
+    system: learnerSystem(country, direction, dictionaryHints(dialect)),
+    messages: [{ role: "user", content: text }],
+  });
+  if (response.stop_reason === "refusal") throw new AiRefusedError();
+  const parsed = response.parsed_output;
+  if (!parsed) throw new Error("The model returned no translation");
+
+  // Link words Hola has a page for.
+  const words: LearnWord[] = parsed.words.map((w) => {
+    const entry = getEntry(`${dialect}.${slugify(w.spanish)}`);
+    return {
+      spanish: w.spanish,
+      english: w.english,
+      pronunciation: entry?.pronunciation ?? (w.pronunciation || undefined),
+      id: entry?.id,
+    };
+  });
+  const target =
+    direction === "to-spanish"
+      ? locate(parsed.translation, words.map((w) => w.spanish))
+      : [{ text: parsed.translation }];
+  return { direction, dialect, source: text, target, words, via: "ai" };
 }

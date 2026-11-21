@@ -43,7 +43,7 @@ type ApiResponse = {
 const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
 
 export function Translator() {
-  const { t, country, language } = useT();
+  const { t, country, language, countryInSentence } = useT();
   const [pair, setPair] = useDialectPair();
   const [text, setText] = useState("");
   const [result, setResult] = useState<Translation | null>(null);
@@ -215,7 +215,7 @@ export function Translator() {
                   </p>
                   {result.via === "none" && (
                     <p className="mt-2 text-sm text-muted">
-                      {t("No encontramos palabras que se digan distinto en {country}.", { country: country(result.to) })}
+                      {t("No encontramos palabras que se digan distinto en {country}.", { country: countryInSentence(result.to) })}
                     </p>
                   )}
                   {/* The dictionary writes these into the text; the AI does not. */}

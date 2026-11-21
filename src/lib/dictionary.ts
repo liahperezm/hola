@@ -345,7 +345,7 @@ const HAND_CONCEPTS: Concept[] = [
   {
     id: "celular",
     meaning: "teléfono celular",
-    en: "cell phone",
+    en: "cell phone / mobile",
     guide: "oficina",
     terms: {
       ES: ["móvil"],

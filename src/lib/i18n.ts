@@ -46,5 +46,15 @@ export function useT() {
     (code: DialectCode) => (language === "en" ? DIALECTS[code].shortEn : DIALECTS[code].short),
     [language],
   );
-  return { t, language, country, countryShort };
+  /** For use inside a sentence: "the Dominican Republic" in English. */
+  const countryInSentence = useCallback(
+    (code: DialectCode) =>
+      language === "en" && (code === "DO" || code === "US")
+        ? `the ${DIALECTS[code].nameEn}`
+        : language === "en"
+          ? DIALECTS[code].nameEn
+          : DIALECTS[code].name,
+    [language],
+  );
+  return { t, language, country, countryShort, countryInSentence };
 }
