@@ -11,6 +11,7 @@ import {
   Mic,
   Share,
   Sparkles,
+  TriangleAlert,
   Volume2,
   X,
 } from "lucide-react";
@@ -20,6 +21,7 @@ import { CountryLabel } from "@/components/flag";
 import { ListCard, SectionTitle, TabScreen, TopBar } from "@/components/ui";
 import { DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { PhraseEntry } from "@/lib/phrase";
+import { warningText } from "@/lib/false-friends";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
 import { rememberAiEntries, useDialectPair, useSeen } from "@/lib/storage";
@@ -216,6 +218,18 @@ export function Translator() {
                         : "No encontramos estas palabras en el diccionario de Hola."}
                     </p>
                   )}
+                  {(result.warnings ?? []).map((w) => (
+                    <p
+                      key={w.word}
+                      className="mt-3 flex gap-2.5 rounded-2xl bg-butter px-4 py-3 text-[14.5px] leading-snug text-navy"
+                    >
+                      <TriangleAlert aria-hidden className="mt-0.5 size-[18px] shrink-0" />
+                      <span>
+                        <b>Cuidado. </b>
+                        {warningText(w)}
+                      </span>
+                    </p>
+                  ))}
                   <TargetActions
                     text={join(result.target)}
                     lang={DIALECTS[result.to].speechLang}
@@ -364,14 +378,18 @@ function RegionalWords({ pairs }: { pairs: TermPair[] }) {
                 </p>
                 <p className="mt-0.5 text-sm text-muted">{capitalizeFirst(p.meaning)}.</p>
               </div>
-              {p.from.id && <ChevronRight className="size-[18px] shrink-0 text-muted" />}
+              {(p.from.id ?? p.to.id) && (
+                <ChevronRight className="size-[18px] shrink-0 text-muted" />
+              )}
             </>
           );
+          // A plain word has no page of its own; open the other country's word.
+          const id = p.from.id ?? p.to.id;
           return (
             <li key={`${p.from.text}-${p.to.text}`}>
-              {p.from.id ? (
+              {id ? (
                 <Link
-                  href={`/frase/${p.from.id}`}
+                  href={`/frase/${id}`}
                   className="flex items-center gap-3 py-3"
                 >
                   {content}
