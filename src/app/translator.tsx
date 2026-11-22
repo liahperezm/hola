@@ -15,6 +15,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
+import { detectDialect } from "@/lib/detect";
 import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
@@ -107,10 +108,25 @@ export function Translator() {
     [],
   );
 
+  const lastPair = useRef(pair);
+  const [detected, setDetected] = useState<DialectCode | null>(null);
+
   const translate = useCallback(
-    (input: string, from = pair.from, to = pair.to) => {
+    (input: string, { detect = true }: { detect?: boolean } = {}) => {
       const clean = input.trim();
       if (!clean) return;
+      let { from, to } = pair;
+      // Text clearly in another country's Spanish switches "from" to it.
+      const found = detect ? detectDialect(clean, from) : null;
+      if (found) {
+        to = to === found.dialect ? from : to;
+        from = found.dialect;
+        lastPair.current = { from, to };
+        setPair({ from, to });
+        setDetected(from);
+      } else if (detect) {
+        setDetected(null);
+      }
       request.current++;
       setLoading(null);
       setError(null);
@@ -121,15 +137,15 @@ export function Translator() {
         void askAi(clean, from, to, false);
       }
     },
-    [aiAvailable, askAi, pair.from, pair.to, tip.markSeen],
+    [aiAvailable, askAi, pair, setPair, tip.markSeen],
   );
 
   // When the countries change, translate the same text again.
-  const lastPair = useRef(pair);
   useEffect(() => {
     if (lastPair.current.from === pair.from && lastPair.current.to === pair.to) return;
     lastPair.current = pair;
-    if (result) translate(text);
+    setDetected(null);
+    if (result) translate(text, { detect: false });
   }, [pair, result, text, translate]);
 
   useEffect(() => {
@@ -207,6 +223,11 @@ export function Translator() {
               <CountryLabel code={result.from} />
               <ClearButton onClick={clear} />
             </div>
+            {detected === result.from && (
+              <p className="mt-1 text-[13px] font-semibold text-muted">
+                {t("Reconocimos el país por sus palabras")}
+              </p>
+            )}
             <button
               type="button"
               onClick={edit}

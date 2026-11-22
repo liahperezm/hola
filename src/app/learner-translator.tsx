@@ -18,6 +18,7 @@ import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResu
 import { speak, useDictation } from "@/lib/speech";
 import { LANGUAGES } from "@/lib/languages";
 import { useSentenceAllowance } from "@/lib/plus";
+import { detectDialect } from "@/lib/detect";
 import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
@@ -31,7 +32,7 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
  */
 export function LearnerTranslator() {
   const { t, countryInSentence } = useT();
-  const [pair] = useDialectPair();
+  const [pair, setPair] = useDialectPair();
   const [other] = useOtherLanguage();
   const dialect = pair.to;
   const language = other?.code ?? "en";
@@ -93,9 +94,9 @@ export function LearnerTranslator() {
     if (before.direction !== direction) {
       const carried = join(result.target);
       setText(carried);
-      void translate(carried);
+      void translate(carried, { detect: false });
     } else {
-      void translate(text);
+      void translate(text, { detect: false });
     }
   }, [dialect, direction, language]);
 
@@ -106,9 +107,18 @@ export function LearnerTranslator() {
     if (final) void translate(heard);
   });
 
-  async function translate(input: string, dir = direction, to = dialect) {
+  async function translate(input: string, { detect = true }: { detect?: boolean } = {}) {
     const clean = input.trim();
     if (!clean) return;
+    const dir = direction;
+    let to = dialect;
+    // Spanish clearly from another country switches to that country.
+    const found = detect && dir === "from-spanish" ? detectDialect(clean, to) : null;
+    if (found) {
+      to = found.dialect;
+      last.current = { dialect: to, direction: dir, language };
+      setPair({ from: pair.from === to ? pair.to : pair.from, to });
+    }
     const id = ++request.current;
     setError(null);
     const local = learnWithDictionary(clean, to, dir, language);
