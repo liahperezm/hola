@@ -18,7 +18,7 @@ import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResu
 import { speak, useDictation } from "@/lib/speech";
 import { LANGUAGES } from "@/lib/languages";
 import { useSentenceAllowance } from "@/lib/plus";
-import { takePendingText, useDraft } from "@/lib/draft";
+import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
@@ -78,6 +78,7 @@ export function LearnerTranslator() {
     if (!ready || !restore.current) return;
     const pending = restore.current;
     restore.current = null;
+    sharedTextDone();
     void translate(pending);
   }, [ready]);
 

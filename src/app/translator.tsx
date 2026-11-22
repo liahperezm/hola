@@ -15,7 +15,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { takePendingText, useDraft } from "@/lib/draft";
+import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
@@ -140,6 +140,7 @@ export function Translator() {
     if (!ready || !restore.current) return;
     const pending = restore.current;
     restore.current = null;
+    sharedTextDone();
     translate(pending);
   }, [ready]);
 

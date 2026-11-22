@@ -41,12 +41,25 @@ export function sharedText(params: URLSearchParams): string {
   return words.join("\n").slice(0, 2000);
 }
 
+const SHARED = "hola.shared";
+
+function storedShare(): string | null {
+  try {
+    return sessionStorage.getItem(SHARED);
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Text to translate as soon as the translator opens: something shared into
  * Hola, or the text whose translation was on screen in the other translator.
+ * Shared text is kept (for this tab) until a translator has translated it,
+ * so it survives the welcome screens of a first visit.
  */
 export function takePendingText(): string | null {
-  if (!checkedUrl && typeof window !== "undefined") {
+  if (typeof window === "undefined") return null;
+  if (!checkedUrl) {
     checkedUrl = true;
     const params = new URLSearchParams(window.location.search);
     const shared = sharedText(params);
@@ -55,9 +68,31 @@ export function takePendingText(): string | null {
       window.history.replaceState(null, "", window.location.pathname);
     }
     if (shared) {
+      try {
+        sessionStorage.setItem(SHARED, shared);
+      } catch {
+        // Private mode: it still works for this page.
+      }
       draft = { text: shared, shown: true };
       for (const l of listeners) l();
     }
   }
+  const shared = storedShare();
+  if (shared) {
+    if (draft.text !== shared) {
+      draft = { text: shared, shown: true };
+      for (const l of listeners) l();
+    }
+    return shared;
+  }
   return draft.shown && draft.text.trim() ? draft.text : null;
+}
+
+/** The shared text has been translated. */
+export function sharedTextDone() {
+  try {
+    sessionStorage.removeItem(SHARED);
+  } catch {
+    // Nothing stored.
+  }
 }
