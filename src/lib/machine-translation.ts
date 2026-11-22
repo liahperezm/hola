@@ -42,7 +42,15 @@ export async function machineTranslate(text: string, from: Lang, to: Lang): Prom
   const hit = cache.get(key);
   if (hit !== undefined) return hit;
 
-  const result = await TRANSLATORS[provider](text, from, to);
+  // The free service takes about 500 characters at a time: longer text goes
+  // in pieces, split between sentences.
+  const pieces = splitForService(text);
+  const parts: string[] = [];
+  for (const piece of pieces) {
+    parts.push(piece.text.trim() ? await TRANSLATORS[provider](piece.text, from, to) : piece.text);
+    parts.push(piece.after);
+  }
+  const result = parts.join("");
   if (!result.trim()) throw new MachineTranslationError("Empty translation");
   cache.set(key, result);
   if (cache.size > CACHE_SIZE) cache.delete(cache.keys().next().value as string);
@@ -107,3 +115,43 @@ const TRANSLATORS: Record<MtProvider, (text: string, from: Lang, to: Lang) => Pr
     return body.responseData?.translatedText ?? "";
   },
 };
+
+/** MyMemory takes 500 bytes at a time (accents and other alphabets take more than one). */
+const PIECE = 480;
+const encoder = new TextEncoder();
+const size = (text: string) => encoder.encode(text).length;
+
+/** Longest start of `text` that fits in `limit` bytes, ending between words when it can. */
+function fit(text: string, limit: number): number {
+  let end = text.length;
+  while (end > 1 && size(text.slice(0, end)) > limit) end = Math.floor(end * 0.9);
+  const space = text.lastIndexOf(" ", end);
+  return space > end / 2 ? space + 1 : end;
+}
+
+/** Text in pieces of at most PIECE bytes, each with the spacing after it. */
+export function splitForService(text: string): { text: string; after: string }[] {
+  const sentences = text.match(/[^.!?。！？\n]+(?:[.!?。！？]+|$)|\n+/gu) ?? [text];
+  const pieces: { text: string; after: string }[] = [];
+  let current = "";
+  const flush = () => {
+    if (!current) return;
+    const trimmed = current.trimEnd();
+    pieces.push({ text: trimmed, after: current.slice(trimmed.length) });
+    current = "";
+  };
+  for (const sentence of sentences) {
+    if (size(current + sentence) > PIECE) flush();
+    // A single sentence longer than a piece is cut between words.
+    let rest = sentence;
+    while (size(rest) > PIECE) {
+      const cut = fit(rest, PIECE);
+      current = rest.slice(0, cut);
+      flush();
+      rest = rest.slice(cut);
+    }
+    current += rest;
+  }
+  flush();
+  return pieces;
+}

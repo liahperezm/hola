@@ -7,7 +7,7 @@ import { learnWithService, serviceAvailable } from "@/lib/learn-service";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
 
 const Body = z.object({
-  text: z.string().trim().min(1).max(500),
+  text: z.string().trim().min(1).max(2000),
   dialect: z.enum(DIALECT_CODES),
   direction: z.enum(["to-spanish", "from-spanish"]),
   language: z.enum(LANGUAGE_CODES).optional().default("en"),
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 async function translate(request: Request, input: unknown) {
   const parsed = Body.safeParse(input);
   if (!parsed.success) {
-    return Response.json({ error: "Invalid text or country." }, { status: 400 });
+    return Response.json({ error: "This text is too long. Try a shorter part (up to 2,000 characters)." }, { status: 400 });
   }
   const { text, dialect, direction, language } = parsed.data;
   const dictionary = learnWithDictionary(text, dialect, direction, language);

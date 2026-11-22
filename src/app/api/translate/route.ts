@@ -5,7 +5,7 @@ import { allowRequest, clientKey } from "@/lib/rate-limit";
 import { translateWithDictionary } from "@/lib/translate";
 
 const Body = z.object({
-  text: z.string().trim().min(1).max(500),
+  text: z.string().trim().min(1).max(2000),
   from: z.enum(DIALECT_CODES),
   to: z.enum(DIALECT_CODES),
   /** Ask the AI even when the dictionary found something. */

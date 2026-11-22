@@ -361,7 +361,7 @@ export function Translator() {
               }
             }}
             enterKeyHint="go"
-            maxLength={500}
+            maxLength={2000}
             placeholder={dictation.listening ? t("Te escucho…") : t("Escribe o habla…")}
             aria-label={t("Texto en español de {country}", { country: country(pair.from) })}
             className="mt-4 w-full flex-1 resize-none bg-transparent text-[28px] leading-snug font-medium tracking-[-0.015em] placeholder:text-placeholder focus-visible:outline-none"

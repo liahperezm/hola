@@ -344,7 +344,7 @@ export function LearnerTranslator() {
               }
             }}
             enterKeyHint="go"
-            maxLength={500}
+            maxLength={2000}
             placeholder={
               dictation.listening
                 ? t("Te escucho…")
