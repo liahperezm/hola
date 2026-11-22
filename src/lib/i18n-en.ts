@@ -225,5 +225,6 @@ export const EN: Record<string, string> = {
   "Demasiados intentos. Intenta más tarde.": "Too many tries. Try again later.",
   "No pudimos guardarte en la lista. Intenta más tarde.": "We couldn't add you to the list. Try again later.",
   "Hola Plus": "Hola Plus",
+  "Reconocimos el idioma por sus palabras": "We recognized the language from its words",
   "Reconocimos el país por sus palabras": "We recognized the country from its words",
 };

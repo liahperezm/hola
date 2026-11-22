@@ -19,7 +19,8 @@ import { speak, useDictation } from "@/lib/speech";
 import { LANGUAGES } from "@/lib/languages";
 import { useSentenceAllowance } from "@/lib/plus";
 import { detectDialect } from "@/lib/detect";
-import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
+import { detectLanguage } from "@/lib/detect-language";
+import { sharedTextDone, takeLanguageNote, takePendingText, useDraft } from "@/lib/draft";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
@@ -33,7 +34,8 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
 export function LearnerTranslator() {
   const { t, countryInSentence } = useT();
   const [pair, setPair] = useDialectPair();
-  const [other] = useOtherLanguage();
+  const [other, setOther] = useOtherLanguage();
+  const [languageNote, setLanguageNote] = useState(false);
   const dialect = pair.to;
   const language = other?.code ?? "en";
   const direction: LearnDirection = other?.side === "to" ? "from-spanish" : "to-spanish";
@@ -46,6 +48,7 @@ export function LearnerTranslator() {
   // Text shared into Hola, or carried over from the other translator.
   useEffect(() => {
     restore.current = takePendingText();
+    setLanguageNote(takeLanguageNote());
   }, []);
   const [ready, setReady] = useState(false);
   const [result, setResult] = useState<LearnResult | null>(null);
@@ -110,18 +113,34 @@ export function LearnerTranslator() {
   async function translate(input: string, { detect = true }: { detect?: boolean } = {}) {
     const clean = input.trim();
     if (!clean) return;
-    const dir = direction;
+    let dir = direction;
+    let lang = language;
     let to = dialect;
+    // Typed in a language other than the one chosen: switch to it.
+    const typed = detect ? detectLanguage(clean) : null;
+    const switchTo =
+      typed === "es" && dir === "to-spanish"
+        ? ({ code: language, side: "to" } as const)
+        : typed && typed !== "es" && (dir === "from-spanish" || typed !== language)
+          ? ({ code: typed, side: "from" } as const)
+          : null;
+    if (switchTo) {
+      dir = switchTo.side === "to" ? "from-spanish" : "to-spanish";
+      lang = switchTo.code;
+      last.current = { dialect: to, direction: dir, language: lang };
+      setOther(switchTo);
+    }
+    if (switchTo) setLanguageNote(true);
     // Spanish clearly from another country switches to that country.
     const found = detect && dir === "from-spanish" ? detectDialect(clean, to) : null;
     if (found) {
       to = found.dialect;
-      last.current = { dialect: to, direction: dir, language };
+      last.current = { dialect: to, direction: dir, language: lang };
       setPair({ from: pair.from === to ? pair.to : pair.from, to });
     }
     const id = ++request.current;
     setError(null);
-    const local = learnWithDictionary(clean, to, dir, language);
+    const local = learnWithDictionary(clean, to, dir, lang);
     setResult(local);
     if (local.target.length > 0 || !aiAvailable) return;
     if (!allowance.spend()) {
@@ -133,7 +152,7 @@ export function LearnerTranslator() {
       const res = await fetch("/api/learn", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: clean, dialect: to, direction: dir, language }),
+        body: JSON.stringify({ text: clean, dialect: to, direction: dir, language: lang }),
       });
       const body = (await res.json()) as { result?: LearnResult; error?: string };
       if (id !== request.current) return;
@@ -147,6 +166,7 @@ export function LearnerTranslator() {
   }
 
   const edit = () => {
+    setLanguageNote(false);
     request.current++;
     setResult(null);
     setLoading(false);
@@ -190,6 +210,11 @@ export function LearnerTranslator() {
                 <X className="size-4" />
               </button>
             </div>
+            {languageNote && (
+              <p className="mt-1 text-[13px] font-semibold text-muted">
+                {t("Reconocimos el idioma por sus palabras")}
+              </p>
+            )}
             <button
               type="button"
               onClick={edit}

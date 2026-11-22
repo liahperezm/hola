@@ -28,6 +28,18 @@ export function useDraft() {
 }
 
 let checkedUrl = false;
+let languageNote = false;
+
+/** The language of the text was recognized and the translator switched. */
+export function noteLanguageDetected() {
+  languageNote = true;
+}
+
+export function takeLanguageNote(): boolean {
+  const note = languageNote;
+  languageNote = false;
+  return note;
+}
 
 /** Text the user shared into Hola from another app (?text=…), cleaned up. */
 export function sharedText(params: URLSearchParams): string {

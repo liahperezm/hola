@@ -16,7 +16,8 @@ import {
   X,
 } from "lucide-react";
 import { detectDialect } from "@/lib/detect";
-import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
+import { detectLanguage } from "@/lib/detect-language";
+import { noteLanguageDetected, sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
@@ -28,7 +29,7 @@ import { useT } from "@/lib/i18n";
 import { warningText } from "@/lib/false-friends";
 import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
-import { rememberAiEntries, useDialectPair, useSeen } from "@/lib/storage";
+import { rememberAiEntries, useDialectPair, useOtherLanguage, useSeen } from "@/lib/storage";
 import {
   translateWithDictionary,
   type Segment,
@@ -48,6 +49,7 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
 export function Translator() {
   const { t, country, language, countryInSentence } = useT();
   const [pair, setPair] = useDialectPair();
+  const [, setOther] = useOtherLanguage();
   const [draft, setDraft] = useDraft();
   const text = draft.text;
   const setText = (value: string) => setDraft({ text: value });
@@ -116,6 +118,14 @@ export function Translator() {
       const clean = input.trim();
       if (!clean) return;
       let { from, to } = pair;
+      // Another language entirely: open the translator for that language.
+      const language = detect ? detectLanguage(clean) : null;
+      if (language && language !== "es") {
+        setDraft({ text: clean, shown: true });
+        noteLanguageDetected();
+        setOther({ code: language, side: "from" });
+        return;
+      }
       // Text clearly in another country's Spanish switches "from" to it.
       const found = detect ? detectDialect(clean, from) : null;
       if (found) {
@@ -137,7 +147,7 @@ export function Translator() {
         void askAi(clean, from, to, false);
       }
     },
-    [aiAvailable, askAi, pair, setPair, tip.markSeen],
+    [aiAvailable, askAi, pair, setPair, setDraft, setOther, tip.markSeen],
   );
 
   // When the countries change, translate the same text again.
