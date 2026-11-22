@@ -3,6 +3,7 @@
 import { ChevronRight, Download, MessageSquarePlus, Volume2 } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { InstallSheet } from "@/components/install-sheet";
+import { PlusCard } from "@/components/plus";
 import { useT, useUiLanguage } from "@/lib/i18n";
 import { LanguageToggle } from "../welcome";
 import { SuggestSheet, useSuggestionsEnabled } from "@/components/suggest";
@@ -40,6 +41,7 @@ export default function Settings() {
     <main className="px-5 pt-[max(env(safe-area-inset-top),1rem)] pb-12">
       <PageHeader />
       <h1 className="mx-1 mt-5 text-[32px] font-extrabold tracking-[-0.03em]">{t("Preferencias")}</h1>
+      <PlusCard />
 
       <SectionTitle>{t("Idioma de la app")}</SectionTitle>
       <div className="flex">

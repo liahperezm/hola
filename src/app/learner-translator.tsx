@@ -10,12 +10,15 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { PlusLimitSheet } from "@/components/plus";
 import { SidesBar } from "@/components/sides";
 import { ListCard, SectionTitle, TabScreen, TopBar, capitalize } from "@/components/ui";
 import { useT } from "@/lib/i18n";
 import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResult } from "@/lib/learn";
 import { speak, useDictation } from "@/lib/speech";
 import { LANGUAGES } from "@/lib/languages";
+import { useSentenceAllowance } from "@/lib/plus";
+import { useDraft } from "@/lib/draft";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
@@ -34,11 +37,18 @@ export function LearnerTranslator() {
   const language = other?.code ?? "en";
   const direction: LearnDirection = other?.side === "to" ? "from-spanish" : "to-spanish";
   const languageName = LANGUAGES[language].name;
-  const [text, setText] = useState("");
+  const [draft, setDraft] = useDraft();
+  const text = draft.text;
+  const setText = (value: string) => setDraft({ text: value });
+  // Coming from the other translator with a translation on screen.
+  const restore = useRef(draft.shown && draft.text.trim() !== "");
+  const [ready, setReady] = useState(false);
   const [result, setResult] = useState<LearnResult | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [aiAvailable, setAiAvailable] = useState(false);
+  const allowance = useSentenceAllowance();
+  const [limitOpen, setLimitOpen] = useState(false);
   const request = useRef(0);
   const resultCard = useRef<HTMLElement>(null);
   const textArea = useRef<HTMLTextAreaElement>(null);
@@ -47,13 +57,41 @@ export function LearnerTranslator() {
     fetch("/api/learn")
       .then((r) => r.json() as Promise<{ sentences?: boolean }>)
       .then((r) => setAiAvailable(Boolean(r.sentences)))
-      .catch(() => setAiAvailable(false));
+      .catch(() => setAiAvailable(false))
+      .finally(() => setReady(true));
   }, []);
 
   const hasResult = result !== null;
   useEffect(() => {
     if (hasResult) resultCard.current?.focus();
   }, [hasResult]);
+
+  useEffect(() => {
+    setDraft({ shown: hasResult });
+  }, [hasResult, setDraft]);
+
+  useEffect(() => {
+    if (!ready || !restore.current) return;
+    restore.current = false;
+    void translate(text);
+  }, [ready]);
+
+  // A new language or country translates the same text again; switching
+  // direction carries the translation over as the new text.
+  const last = useRef({ dialect, direction, language });
+  useEffect(() => {
+    const before = last.current;
+    if (before.dialect === dialect && before.direction === direction && before.language === language) return;
+    last.current = { dialect, direction, language };
+    if (!result) return;
+    if (before.direction !== direction) {
+      const carried = join(result.target);
+      setText(carried);
+      void translate(carried);
+    } else {
+      void translate(text);
+    }
+  }, [dialect, direction, language]);
 
   const toSpanish = direction === "to-spanish";
   const spanishLang = speechLangFor(dialect);
@@ -70,6 +108,10 @@ export function LearnerTranslator() {
     const local = learnWithDictionary(clean, to, dir, language);
     setResult(local);
     if (local.target.length > 0 || !aiAvailable) return;
+    if (!allowance.spend()) {
+      setLimitOpen(true);
+      return;
+    }
     setLoading(true);
     try {
       const res = await fetch("/api/learn", {
@@ -107,12 +149,7 @@ export function LearnerTranslator() {
     <TabScreen>
       <TopBar />
       <div className="mt-4">
-        <SidesBar
-          onChange={() => {
-            setText("");
-            edit();
-          }}
-        />
+        <SidesBar />
       </div>
 
       {result ? (
@@ -305,6 +342,7 @@ export function LearnerTranslator() {
         </form>
       )}
 
+      <PlusLimitSheet open={limitOpen} onClose={() => setLimitOpen(false)} />
     </TabScreen>
   );
 }

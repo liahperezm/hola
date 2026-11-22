@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Flag } from "@/components/flag";
+import { PlusGuideTiles } from "@/components/plus";
 import { SuggestButton } from "@/components/suggest";
 import {
   EmptyState,
@@ -107,6 +108,7 @@ export default function Explore() {
               </li>
             ))}
           </ul>
+          <PlusGuideTiles />
           <SuggestButton
             variant="card"
             kind="agregar"

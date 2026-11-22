@@ -15,6 +15,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
+import { useDraft } from "@/lib/draft";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
@@ -46,7 +47,12 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
 export function Translator() {
   const { t, country, language, countryInSentence } = useT();
   const [pair, setPair] = useDialectPair();
-  const [text, setText] = useState("");
+  const [draft, setDraft] = useDraft();
+  const text = draft.text;
+  const setText = (value: string) => setDraft({ text: value });
+  // Coming from the other translator with a translation on screen.
+  const restore = useRef(draft.shown && draft.text.trim() !== "");
+  const [ready, setReady] = useState(false);
   const [result, setResult] = useState<Translation | null>(null);
   const [loading, setLoading] = useState<"ai" | "photo" | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -68,7 +74,8 @@ export function Translator() {
     fetch("/api/translate")
       .then((r) => r.json() as Promise<{ aiAvailable?: boolean }>)
       .then((r) => setAiAvailable(Boolean(r.aiAvailable)))
-      .catch(() => setAiAvailable(false));
+      .catch(() => setAiAvailable(false))
+      .finally(() => setReady(true));
   }, []);
 
   const askAi = useCallback(
@@ -120,6 +127,16 @@ export function Translator() {
     lastPair.current = pair;
     if (result) translate(text);
   }, [pair, result, text, translate]);
+
+  useEffect(() => {
+    setDraft({ shown: hasResult });
+  }, [hasResult, setDraft]);
+
+  useEffect(() => {
+    if (!ready || !restore.current) return;
+    restore.current = false;
+    translate(text);
+  }, [ready]);
 
   const dictation = useDictation(DIALECTS[pair.from].speechLang, (heard, final) => {
     setText(heard);
