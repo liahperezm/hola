@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run",
+    "extension:zip": "rm -f public/hola-extension.zip && cd extension && zip -qr ../public/hola-extension.zip . -x '.*' README.md"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^1.12.0",
