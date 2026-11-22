@@ -15,7 +15,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { useDraft } from "@/lib/draft";
+import { takePendingText, useDraft } from "@/lib/draft";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
@@ -51,7 +51,11 @@ export function Translator() {
   const text = draft.text;
   const setText = (value: string) => setDraft({ text: value });
   // Coming from the other translator with a translation on screen.
-  const restore = useRef(draft.shown && draft.text.trim() !== "");
+  const restore = useRef<string | null>(null);
+  // Text shared into Hola, or carried over from the other translator.
+  useEffect(() => {
+    restore.current = takePendingText();
+  }, []);
   const [ready, setReady] = useState(false);
   const [result, setResult] = useState<Translation | null>(null);
   const [loading, setLoading] = useState<"ai" | "photo" | null>(null);
@@ -134,8 +138,9 @@ export function Translator() {
 
   useEffect(() => {
     if (!ready || !restore.current) return;
-    restore.current = false;
-    translate(text);
+    const pending = restore.current;
+    restore.current = null;
+    translate(pending);
   }, [ready]);
 
   const dictation = useDictation(DIALECTS[pair.from].speechLang, (heard, final) => {

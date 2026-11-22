@@ -8,6 +8,12 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "es",
     start_url: "/",
     display: "standalone",
+    // "Share → Hola" from other apps (Android and desktop Chrome/Edge, once installed).
+    share_target: {
+      action: "/",
+      method: "GET",
+      params: { title: "title", text: "text", url: "url" },
+    },
     background_color: "#f6f5fa",
     theme_color: "#f6f5fa",
     icons: [

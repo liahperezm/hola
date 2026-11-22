@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { sharedText } from "./draft";
 import type { DialectCode } from "./dialects";
 import { allEntries, getEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { warningText } from "./false-friends";
@@ -286,5 +287,19 @@ describe("other countries", () => {
     expect(palta?.dialects.sort()).toEqual(["AR", "BO", "CL", "PE", "UY"]);
     expect(groups.filter((g) => g.text === "palta")).toHaveLength(1);
     expect(groups[0].text).toBe("palta"); // most widely used first
+  });
+});
+
+describe("sharing into Hola", () => {
+  const shared = (q: Record<string, string>) => sharedText(new URLSearchParams(q));
+
+  it("takes the shared text and drops links", () => {
+    expect(shared({ text: "Vamos en guagua https://example.com/x" })).toBe("Vamos en guagua");
+    expect(shared({ url: "https://example.com" })).toBe("");
+  });
+
+  it("uses the title only when there is no text", () => {
+    expect(shared({ title: "WhatsApp", text: "Quiero cocaleca" })).toBe("Quiero cocaleca");
+    expect(shared({ title: "Quiero cocaleca" })).toBe("Quiero cocaleca");
   });
 });

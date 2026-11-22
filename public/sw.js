@@ -1,6 +1,6 @@
 // Offline support: pages are network-first with a cached fallback, static
 // assets are cache-first. API calls always go to the network.
-const CACHE = "hola-v3";
+const CACHE = "hola-v4";
 const PRECACHE = ["/", "/explorar", "/favoritos", "/preferencias"];
 
 self.addEventListener("install", (event) => {
@@ -51,7 +51,8 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     fetch(request)
       .then((response) => {
-        if (response.ok) {
+        // Shared text arrives as ?text=…; keep those pages out of the cache.
+        if (response.ok && !url.search) {
           const copy = response.clone();
           caches.open(CACHE).then((cache) => cache.put(request, copy));
         }

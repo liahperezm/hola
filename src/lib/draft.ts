@@ -26,3 +26,38 @@ export function useDraft() {
   }, []);
   return [value, update] as const;
 }
+
+let checkedUrl = false;
+
+/** Text the user shared into Hola from another app (?text=…), cleaned up. */
+export function sharedText(params: URLSearchParams): string {
+  // The title is often just the other app's name; use it only without text.
+  const text = params.get("text")?.trim();
+  const parts = [text ? "" : params.get("title"), text, params.get("url")]
+    .map((p) => p?.trim() ?? "")
+    .filter(Boolean);
+  // Apps often add a link to the text; only translate the words.
+  const words = parts.map((p) => p.replace(/https?:\/\/\S+/g, "").trim()).filter(Boolean);
+  return words.join("\n").slice(0, 2000);
+}
+
+/**
+ * Text to translate as soon as the translator opens: something shared into
+ * Hola, or the text whose translation was on screen in the other translator.
+ */
+export function takePendingText(): string | null {
+  if (!checkedUrl && typeof window !== "undefined") {
+    checkedUrl = true;
+    const params = new URLSearchParams(window.location.search);
+    const shared = sharedText(params);
+    if (params.has("text") || params.has("title") || params.has("url")) {
+      // Leave a clean address so a reload doesn't translate it again.
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+    if (shared) {
+      draft = { text: shared, shown: true };
+      for (const l of listeners) l();
+    }
+  }
+  return draft.shown && draft.text.trim() ? draft.text : null;
+}

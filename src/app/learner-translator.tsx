@@ -18,7 +18,7 @@ import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResu
 import { speak, useDictation } from "@/lib/speech";
 import { LANGUAGES } from "@/lib/languages";
 import { useSentenceAllowance } from "@/lib/plus";
-import { useDraft } from "@/lib/draft";
+import { takePendingText, useDraft } from "@/lib/draft";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
@@ -41,7 +41,11 @@ export function LearnerTranslator() {
   const text = draft.text;
   const setText = (value: string) => setDraft({ text: value });
   // Coming from the other translator with a translation on screen.
-  const restore = useRef(draft.shown && draft.text.trim() !== "");
+  const restore = useRef<string | null>(null);
+  // Text shared into Hola, or carried over from the other translator.
+  useEffect(() => {
+    restore.current = takePendingText();
+  }, []);
   const [ready, setReady] = useState(false);
   const [result, setResult] = useState<LearnResult | null>(null);
   const [loading, setLoading] = useState(false);
@@ -72,8 +76,9 @@ export function LearnerTranslator() {
 
   useEffect(() => {
     if (!ready || !restore.current) return;
-    restore.current = false;
-    void translate(text);
+    const pending = restore.current;
+    restore.current = null;
+    void translate(pending);
   }, [ready]);
 
   // A new language or country translates the same text again; switching
