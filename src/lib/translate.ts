@@ -290,7 +290,8 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
         pairs.push({
           from: { text: saying.text },
           to: { text: replacement },
-          meaning: saying.es,
+          // The translation already says what it means.
+          meaning: replacement === saying.es ? "refrán" : saying.es,
           en: saying.en,
         });
       }

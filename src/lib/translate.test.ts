@@ -305,11 +305,11 @@ describe("sharing into Hola", () => {
 });
 
 describe("sayings", () => {
-  it("translates a saying as it is said, however it was spelled", () => {
-    const r = translateWithDictionary("A caballo regalao no se le miran lo diente", "DO", "MX");
-    expect(join(r.target)).toBe("A caballo regalado no se le mira el diente");
+  it("translates a saying into what it means, however it was spelled", () => {
+    const r = translateWithDictionary("A caballo regalao no se le miran lo diente", "DO", "AR");
+    expect(join(r.target)).toBe("No hay que ponerle defectos a lo que te regalan");
     expect(r.via).toBe("dictionary");
-    expect(r.pairs[0].meaning).toContain("regalan");
+    expect(r.pairs[0]).toMatchObject({ from: { text: "a caballo regalado no se le mira el diente" }, meaning: "refrán" });
   });
 
   it("uses the other country's own saying", () => {

@@ -16,7 +16,7 @@ export type SayingMatch = {
   start: number;
   end: number;
   saying: Saying;
-  /** How it is said in the target country. */
+  /** What the target country reads: its own saying, or the meaning. */
   replacement: string;
 };
 
@@ -43,14 +43,16 @@ const PATTERNS = SAYINGS.map((saying) => ({
   words: (saying.text.match(WORD) ?? []).map(loose),
 })).sort((a, b) => b.words.length - a.words.length);
 
-/** The saying as said in `to`: the same saying, or the local one that means the same. */
-function localSaying(saying: Saying, to: DialectCode): string {
+/**
+ * What the listener in `to` should read: the country's own saying when it has
+ * a different one ("a quien madruga, Dios le ayuda" in Spain), or else what
+ * the saying means, in plain words.
+ */
+function forListener(saying: Saying, to: DialectCode): string {
   const said = (s: Saying) => s.countries.length === 0 || s.countries.includes(to);
-  const same = SAYINGS.filter((s) => s.en === saying.en);
-  const own = same.find((s) => s.countries.includes(to));
-  if (own) return own.text;
-  if (said(saying)) return saying.text;
-  return same.find(said)?.text ?? saying.text;
+  const others = SAYINGS.filter((s) => s.en === saying.en && s.text !== saying.text);
+  const own = others.find((s) => s.countries.includes(to)) ?? others.find(said);
+  return own?.text ?? saying.es;
 }
 
 /**
@@ -83,7 +85,7 @@ export function findSayings(text: string, to: DialectCode): SayingMatch[] {
         start: tokens[i].start,
         end: tokens[i + hit.length - 1].end,
         saying: hit.saying,
-        replacement: localSaying(hit.saying, to),
+        replacement: forListener(hit.saying, to),
       });
       i += hit.length;
     } else {
