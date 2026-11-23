@@ -303,3 +303,17 @@ describe("sharing into Hola", () => {
     expect(shared({ title: "Quiero cocaleca" })).toBe("Quiero cocaleca");
   });
 });
+
+describe("sayings", () => {
+  it("translates a saying as it is said, however it was spelled", () => {
+    const r = translateWithDictionary("A caballo regalao no se le miran lo diente", "DO", "MX");
+    expect(join(r.target)).toBe("A caballo regalado no se le mira el diente");
+    expect(r.via).toBe("dictionary");
+    expect(r.pairs[0].meaning).toContain("regalan");
+  });
+
+  it("uses the other country's own saying", () => {
+    const r = translateWithDictionary("Ya sabes, a quien madruga, Dios le ayuda", "ES", "AR");
+    expect(join(r.target)).toBe("Ya sabes, el que madruga, Dios lo ayuda");
+  });
+});
