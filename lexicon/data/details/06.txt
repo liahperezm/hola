@@ -1,0 +1,110 @@
+UY.heladera | eh-lah-DEH-rah | Hay agua fría en la heladera. |
+PY.heladera | eh-lah-DEH-rah | Guardé el tereré en la heladera. |
+PE.refrigeradora | reh-free-heh-rah-DOH-rah | Mete la gaseosa en la refrigeradora. |
+EC.refrigeradora | reh-free-heh-rah-DOH-rah | La refrigeradora está llena de fruta. |
+GT.refrigeradora | reh-free-heh-rah-DOH-rah | Dejé el pastel en la refrigeradora. |
+CR.refrigeradora | reh-free-heh-rah-DOH-rah | Hay gallo pinto en la refrigeradora. |
+MX.foco | FOH-koh | Se fundió el foco de la cocina. |
+PE.foco | FOH-koh | Cambia el foco del baño. |
+CO.bombillo | bohm-BEE-yoh | Se quemó el bombillo del cuarto. |
+VE.bombillo | bohm-BEE-yoh | Prende el bombillo, que está oscuro. |
+CU.bombillo | bohm-BEE-yoh | Hay que comprar un bombillo nuevo. |
+AR.lamparita | lahm-pah-REE-tah | Se quemó la lamparita del living. |
+UY.lamparita | lahm-pah-REE-tah | Cambié la lamparita del pasillo. |
+CL.ampolleta | ahm-poh-YEH-tah | Se quemó la ampolleta del living. |
+ES.cubo-de-la-basura | KOO-boh deh lah bah-SOO-rah | Saca el cubo de la basura, que está lleno. |
+ES.papelera | pah-peh-LEH-rah | Tíralo a la papelera. |
+MX.bote-de-basura | BOH-teh deh bah-SOO-rah | Echa eso en el bote de basura. |
+AR.tacho-de-basura | TAH-choh deh bah-SOO-rah | Tirá la cáscara al tacho de basura. |
+PE.tacho-de-basura | TAH-choh deh bah-SOO-rah | El tacho de basura está en la cocina. |
+UY.tacho-de-basura | TAH-choh deh bah-SOO-rah | Sacá el tacho de basura a la vereda. |
+CO.caneca | kah-NEH-kah | Bote eso en la caneca. |
+PR.zafacon | sah-fah-KOHN | Echa eso en el zafacón. |
+DO.zafacon | sah-fah-KOHN | El zafacón está lleno, sácalo. |
+MX.playera | plah-YEH-rah | Me compré una playera del Cruz Azul. |
+AR.remera | reh-MEH-rah | Ponete una remera, que hace calor. |
+UY.remera | reh-MEH-rah | La remera de Nacional está lavada. |
+PY.remera | reh-MEH-rah | Traje una remera de manga corta. |
+CL.polera | poh-LEH-rah | Me puse la polera del Colo-Colo. |
+BO.polera | poh-LEH-rah | Lleva una polera para el viaje. |
+VE.franela | frah-NEH-lah | Esa franela de la Vinotinto está bonita. |
+CU.pulover | poo-LOH-behr | Hace calor, ponte un pulóver. |
+ES.jersey | HEHR-say | Llévate un jersey, que refresca. |
+PE.chompa | CHOHM-pah | En Cusco necesitas chompa. |
+AR.pulover | poo-LOH-behr | Llevá un pulóver, que a la noche refresca. |
+UY.pulover | poo-LOH-behr | Mi abuela me tejió un pulóver. |
+CL.chaleco | chah-LEH-koh | Ponte un chaleco, que hace frío. |
+MX.chamarra | chah-MAH-rrah | Trae una chamarra, va a llover. |
+AR.campera | kahm-PEH-rah | Me olvidé la campera en el bar. |
+UY.campera | kahm-PEH-rah | Ponete la campera, que hay viento. |
+PY.campera | kahm-PEH-rah | Esa campera de cuero te queda bien. |
+PE.casaca | kah-SAH-kah | Llévate la casaca, que hay garúa. |
+GT.chumpa | CHOOM-pah | Llevá chumpa, que en Xela hace frío. |
+SV.chumpa | CHOOM-pah | Se me olvidó la chumpa en el bus. |
+HN.chumpa | CHOOM-pah | Ponete la chumpa, maje. |
+ES.vaqueros | bah-KEH-rohs | Me he comprado unos vaqueros. |
+ES.tejanos | teh-HAH-nohs | Estos tejanos me quedan grandes. |
+MX.pantalones-de-mezclilla | pahn-tah-LOH-nehs deh mehs-KLEE-yah | Ponte unos pantalones de mezclilla. |
+CO.bluyin | bloo-YEEN | Me compré un bluyín en el centro. |
+VE.bluyin | bloo-YEEN | El bluyín está en la secadora. |
+CU.pitusa | pee-TOO-sah | Me puse la pitusa nueva. |
+PR.mahones | mah-HOH-nehs | Estos mahones están rotos. |
+ES.banador | bah-nyah-DOR | No te olvides el bañador para la playa. |
+AR.malla | MAH-shah | Llevá la malla, vamos a la pileta. |
+UY.malla | MAH-shah | Me compré una malla para el verano. |
+CO.vestido-de-bano | behs-TEE-doh deh BAH-nyoh | Empaca el vestido de baño para Cartagena. |
+CU.trusa | TROO-sah | Lleva la trusa pa' la playa. |
+PE.trusa | TROO-sah | Olvidé la trusa para la piscina. |
+ES.zapatillas | sah-pah-TEE-yahs | Ponte las zapatillas para correr. |
+ES.deportivas | deh-por-TEE-bahs | Estas deportivas son muy cómodas. |
+AR.zapatillas | sah-pah-TEE-shahs | Me compré zapatillas para correr. |
+CL.zapatillas | sah-pah-TEE-yahs | Las zapatillas quedaron llenas de barro. |
+PE.zapatillas | sah-pah-TEE-yahs | Trae zapatillas para el partido. |
+UY.championes | chahm-PYOH-nehs | Ponete los championes para el partido. |
+VE.zapatos-de-goma | sah-PAH-tohs deh GOH-mah | Llévate los zapatos de goma para la caminata. |
+ES.gafas | GAH-fahs | No veo nada sin las gafas. |
+CO.gafas | GAH-fahs | Se me rayaron las gafas. |
+AR.anteojos | ahn-teh-OH-hohs | ¿Viste dónde dejé los anteojos? |
+UY.anteojos | ahn-teh-OH-hohs | Necesito anteojos para leer. |
+CU.espejuelos | ehs-peh-HWEH-lohs | El abuelo no encuentra los espejuelos. |
+PR.espejuelos | ehs-peh-HWEH-lohs | Se me rompieron los espejuelos. |
+MX.papalote | pah-pah-LOH-teh | Vamos a volar el papalote al parque. |
+CU.papalote | pah-pah-LOH-teh | Los muchachos empinan papalotes en el Malecón. |
+AR.barrilete | bah-rree-LEH-teh | Hicimos un barrilete con caña y papel. |
+GT.barrilete | bah-rree-LEH-teh | En Sumpango hacen barriletes gigantes. |
+CL.volantin | boh-lahn-TEEN | Elevamos volantines para el dieciocho. |
+PR.chiringa | chee-REEN-gah | Fuimos a volar chiringa al Morro. |
+SV.piscucha | pees-KOO-chah | En octubre los cipotes vuelan piscuchas. |
+DO.chichigua | chee-CHEE-gwah | En Semana Santa volamos chichiguas. |
+MX.chupon | choo-POHN | El bebé no se duerme sin el chupón. |
+PE.chupon | choo-POHN | Se le cayó el chupón al bebe. |
+CO.chupo | CHOO-poh | Lávale el chupo al bebé. |
+CL.guagua | GWAH-gwah | La guagua ya tiene seis meses. |
+PE.guagua | WAH-wah | La guagua está durmiendo. |
+CL.pololo | poh-LOH-loh | Mi pololo me invitó al cine. |
+CL.polola | poh-LOH-lah | Fui a la casa de mi polola. |
+PR.jevo | HEH-boh | Ella vino con su jevo a la fiesta. |
+PR.jeva | HEH-bah | Mi jeva cumple años hoy. |
+DO.jevo | HEH-boh | Su jevo la fue a buscar al trabajo. |
+DO.jeva | HEH-bah | Voy a salir con mi jeva. |
+CU.jevo | HEH-boh | El jevo de mi prima es médico. |
+CU.jeva | HEH-bah | Mi jeva y yo vamos al Malecón. |
+VE.jevo | HEH-boh | ¿Ese es tu jevo? |
+VE.jeva | HEH-bah | Le llevó flores a su jeva. |
+NI.jana | HAH-nyah | Vino con la jaña al concierto. |
+MX.guero | GWEH-roh | El güero de la tienda me fió. | moreno; prieto
+VE.catire | kah-TEE-reh | Ese catire es mi primo. | moreno
+GT.canche | KAHN-cheh | La canche de la clase es nueva. | moreno
+SV.chele | CHEH-leh | El chele de la esquina vende helados. | moreno
+HN.chele | CHEH-leh | Ese chele es gringo. | moreno
+NI.chele | CHEH-leh | La chela es la hija del vecino. | moreno
+CO.guayabo | gwah-YAH-boh | Amanecí con un guayabo terrible. |
+EC.chuchaqui | choo-CHAH-kee | Estoy con chuchaqui después de la fiesta. |
+CL.fome | FOH-meh | La película estuvo fome. | bacán; entretenido
+ES.un-rollo | oon RROH-yoh | La clase de hoy ha sido un rollo. | guay
+AR.un-embole | oon ehm-BOH-leh | La reunión fue un embole. | copado
+CO.una-mamera | OO-nah mah-MEH-rah | Esa novela es una mamera. | bacano
+VE.una-ladilla | OO-nah lah-DEE-yah | Hacer esa cola es una ladilla. | chévere
+ES.chucho | CHOO-choh | Ese chucho ladra toda la noche. |
+MX.chucho | CHOO-choh | El chucho de la vecina se salió. |
+MX.firulais | fee-roo-LAIS | Un firulais se metió al patio. |

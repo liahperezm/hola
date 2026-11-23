@@ -331,3 +331,15 @@ describe("sayings said everywhere", () => {
     expect(r.pairs[0]).toMatchObject({ from: { text: "a caballo regalado no se le mira el diente" }, meaning: "refrán" });
   });
 });
+
+describe("word details", () => {
+  it("every word has a pronunciation and an example", () => {
+    const missing = allEntries().filter((e) => !e.pronunciation || !e.example).map((e) => e.id);
+    expect(missing).toEqual([]);
+  });
+
+  it("keeps hand-written details over the written-for-all ones", () => {
+    expect(getEntry("DO.a-la-brigandina")?.pronunciation).toBe("ah lah bree-gahn-DEE-nah");
+    expect(getEntry("AR.del-tomate")?.antonyms).toEqual(["cuerdo"]);
+  });
+});

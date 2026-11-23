@@ -278,39 +278,3 @@ export async function translateForLearner(
   return { direction, dialect, language, source: text, target, words, via: "ai" };
 }
 
-const DetailsSchema = z.object({
-  pronunciation: z.string(),
-  example: z.string(),
-  antonyms: z.array(z.string()),
-});
-
-export type WordDetails = z.infer<typeof DetailsSchema>;
-
-/**
- * An example sentence, opposites and a pronunciation guide for a dictionary
- * word that has none yet. Asked once per word; the answer is saved.
- */
-export async function describeWord(
-  text: string,
-  dialect: DialectCode,
-  meaning: string,
-): Promise<WordDetails> {
-  const country = DIALECTS[dialect].name;
-  const response = await getClient().beta.messages.parse({
-    ...modelSettings(),
-    max_tokens: 2000,
-    output_config: { effort: "low", format: betaZodOutputFormat(DetailsSchema) },
-    system: [
-      "Eres lexicógrafo del español de cada país. Para una palabra o expresión regional das:",
-      "- example: una frase corta y natural, como la diría alguien de ese país en la vida diaria, que use la palabra tal cual.",
-      "- antonyms: hasta tres palabras o expresiones de sentido contrario que se usen en ese país; ninguna si no tiene sentido hablar de contrario.",
-      "- pronunciation: cómo se pronuncia, en sílabas al estilo inglés separadas por guiones, con la sílaba tónica en mayúsculas (ej.: GWAH-gwah, ah lah bree-gahn-DEE-nah).",
-      "Si la palabra es vulgar u ofensiva, el ejemplo la usa igual: es un diccionario.",
-    ].join("\n"),
-    messages: [{ role: "user", content: `País: ${country}\nPalabra: ${text}\nSignifica: ${meaning}` }],
-  });
-  if (response.stop_reason === "refusal") throw new AiRefusedError();
-  const parsed = response.parsed_output;
-  if (!parsed) throw new Error("The model returned no details");
-  return { ...parsed, antonyms: parsed.antonyms.slice(0, 3) };
-}

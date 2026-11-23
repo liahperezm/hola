@@ -1,0 +1,110 @@
+CL.departamento | deh-par-tah-MEHN-toh | Arrendamos un departamento en Ñuñoa. |
+CL.depto | DEHP-toh | El depto queda cerca del metro. |
+PE.departamento | deh-par-tah-MEHN-toh | Vivo en un departamento en Barranco. |
+BO.departamento | deh-par-tah-MEHN-toh | Alquilamos un departamento en Sopocachi. |
+PY.departamento | deh-par-tah-MEHN-toh | El departamento tiene aire acondicionado. |
+EC.departamento | deh-par-tah-MEHN-toh | Arrendé un departamento en el norte de Quito. |
+AR.anana | ah-nah-NAH | Pedí un licuado de ananá. |
+UY.anana | ah-nah-NAH | El ananá está muy maduro. |
+PY.anana | ah-nah-NAH | Hice jugo de ananá con menta. |
+CU.fruta-bomba | FROO-tah BOHM-bah | Un batido de fruta bomba bien frío. |
+VE.lechosa | leh-CHOH-sah | Desayuné lechosa con limón. |
+DO.lechosa | leh-CHOH-sah | Un jugo de lechosa con leche, por favor. |
+PR.lechosa | leh-CHOH-sah | El dulce de lechosa es típico de Navidad. |
+ES.patata | pah-TAH-tah | Una tortilla de patatas para cenar. |
+MX.ejotes | eh-HOH-tehs | Hice ejotes con huevo. |
+GT.ejotes | eh-HOH-tehs | Los ejotes envueltos en huevo me encantan. |
+HN.ejotes | eh-HOH-tehs | Compré ejotes en el mercado. |
+SV.ejotes | eh-HOH-tehs | La sopa lleva ejotes y güisquil. |
+AR.chauchas | CHOW-chahs | Hice una ensalada de chauchas. |
+UY.chauchas | CHOW-chahs | Las chauchas están baratas en la feria. |
+CL.porotos-verdes | poh-ROH-tohs BEHR-dehs | Almorzamos porotos verdes con arroz. |
+PE.vainitas | bai-NEE-tahs | El saltado de vainitas es mi favorito. |
+VE.vainitas | bai-NEE-tahs | La ensalada lleva vainitas y zanahoria. |
+EC.vainitas | bai-NEE-tahs | Compré vainitas para la sopa. |
+CO.habichuelas | ah-bee-CHWEH-lahs | El arroz lleva habichuelas y zanahoria. |
+MX.popote | poh-POH-teh | Sin popote, por favor. |
+CO.pitillo | pee-TEE-yoh | ¿Me regala un pitillo para el jugo? |
+VE.pitillo | pee-TEE-yoh | Pásame un pitillo, chamo. |
+CL.bombilla | bohm-BEE-yah | El jugo viene con bombilla de papel. |
+AR.sorbete | sor-BEH-teh | ¿Me das un sorbete para la gaseosa? |
+UY.sorbete | sor-BEH-teh | El licuado viene con sorbete. |
+PE.sorbete | sor-BEH-teh | Una chicha morada con sorbete. |
+EC.sorbete | sor-BEH-teh | ¿Tiene sorbete para el batido? |
+CR.pajilla | pah-HEE-yah | Un fresco de cas con pajilla. |
+GT.pajilla | pah-HEE-yah | El licuado viene con pajilla. |
+PR.sorbeto | sor-BEH-toh | Dame un sorbeto pa' la piña colada. |
+DO.calimete | kah-lee-MEH-teh | Pásame un calimete para el jugo. |
+PA.carrizo | kah-RREE-soh | Un chicheme con carrizo, por favor. |
+ES.bocadillo | boh-kah-DEE-yoh | Me he hecho un bocadillo de jamón. |
+MX.torta | TOR-tah | Una torta de milanesa para llevar. |
+AR.sanguche | SAHN-goo-cheh | Un sánguche de miga y un café. |
+PE.sanguche | SAHN-goo-cheh | El sánguche de chicharrón es para el desayuno. |
+EC.sanduche | SAHN-doo-cheh | Un sánduche de pernil, por favor. |
+CO.sanduche | SAHN-doo-cheh | Me comí un sánduche en la universidad. |
+ES.perrito-caliente | peh-RREE-toh kah-LYEHN-teh | Nos comimos un perrito caliente en la feria. |
+CO.perro-caliente | PEH-rroh kah-LYEHN-teh | Un perro caliente con todas las salsas. |
+VE.perro-caliente | PEH-rroh kah-LYEHN-teh | Comimos perro caliente en la esquina. |
+AR.manteca | mahn-TEH-kah | Tostadas con manteca y mermelada. |
+UY.manteca | mahn-TEH-kah | Untá el pan con manteca. |
+AR.birra | BEE-rrah | ¿Nos tomamos una birra después del laburo? |
+UY.birra | BEE-rrah | Compré birra para el asado. |
+ES.birra | BEE-rrah | Unas birras en la terraza. |
+MX.chela | CHEH-lah | Vamos por unas chelas bien frías. |
+PE.chela | CHEH-lah | Unas chelas para ver el partido. |
+CL.chela | CHEH-lah | Compremos unas chelas para el carrete. |
+CO.pola | POH-lah | Nos tomamos unas polas en la tienda. |
+ES.cafe-solo | kah-FEH SOH-loh | Un café solo, por favor. | café con leche
+MX.cafe-americano | kah-FEH ah-meh-ree-KAH-noh | Un café americano sin azúcar. | café con leche
+CO.tinto | TEEN-toh | ¿Le provoca un tintico? |
+CU.cafecito | kah-feh-SEE-toh | Vamos a colar un cafecito. |
+PR.cafecito | kah-feh-SEE-toh | Siempre hay un cafecito para la visita. |
+ES.aperitivo | ah-peh-ree-TEE-boh | Quedamos para el aperitivo del domingo. |
+ES.tapas | TAH-pahs | Nos fuimos de tapas por el centro. |
+MX.botana | boh-TAH-nah | Saca la botana, ya llegaron todos. |
+AR.picada | pee-KAH-dah | Armamos una picada con queso y salame. |
+UY.picada | pee-KAH-dah | Antes del asado, una picada. |
+CL.picoteo | pee-koh-TEH-oh | Lleva algo para el picoteo. |
+VE.pasapalos | pah-sah-PAH-lohs | Hay pasapalos en la mesa del fondo. |
+CR.boca | BOH-kah | Pidamos unas bocas con la birra. |
+CO.pasabocas | pah-sah-BOH-kahs | Compramos pasabocas para la reunión. |
+PE.piqueo | pee-KEH-oh | Pedimos un piqueo para compartir. |
+CU.bocadillos | boh-kah-DEE-yohs | Hicimos bocadillos para el cumpleaños. |
+ES.guindilla | gheen-DEE-yah | Ojo, que esto lleva guindilla. |
+AR.aji | ah-HEE | Le puse ají molido a la salsa. |
+CL.aji | ah-HEE | El pebre lleva ají verde. |
+CO.aji | ah-HEE | Las empanadas con ají. |
+PE.aji | ah-HEE | El ají de gallina lleva ají amarillo. |
+VE.aji | ah-HEE | El ají dulce le da sabor al guiso. |
+UY.aji | ah-HEE | ¿Tenés ají para el chorizo? |
+BO.aji | ah-HEE | La sajta de pollo lleva ají. |
+EC.aji | ah-HEE | No hay almuerzo sin ají. |
+CU.aji | ah-HEE | El sofrito lleva ají cachucha. |
+PR.aji | ah-HEE | El recaíto lleva ajíes dulces. |
+DO.aji | ah-HEE | El sancocho lleva ají. |
+MX.puerco | PWEHR-koh | Hoy hay carne de puerco en salsa verde. |
+CU.puerco | PWEHR-koh | Puerco asado para fin de año. |
+CU.lechon | leh-CHOHN | Asamos un lechón en púa. |
+AR.chancho | CHAHN-choh | Hicimos chancho a la parrilla. |
+CL.chancho | CHAHN-choh | El costillar de chancho está listo. |
+PE.chancho | CHAHN-choh | Un pan con chicharrón de chancho. |
+BO.chancho | CHAHN-choh | El chancho al horno es para el domingo. |
+EC.chancho | CHAHN-choh | La fritada se hace con chancho. |
+UY.chancho | CHAHN-choh | Compramos bondiola de chancho. |
+CO.marrano | mah-RRAH-noh | Para diciembre matan un marrano. |
+PR.lechon | leh-CHOHN | Fuimos a Guavate a comer lechón. |
+DO.lechon | leh-CHOHN | En Nochebuena hay lechón asado. |
+ES.sello | SEH-yoh | Pon un sello en la carta. |
+CO.morral | moh-RRAHL | Echa la comida en el morral. |
+VE.morral | moh-RRAHL | Se me rompió el morral del colegio. |
+AR.canilla | kah-NEE-yah | Cerrá la canilla, que gotea. |
+UY.canilla | kah-NEE-yah | El agua de la canilla es potable. |
+PY.canilla | kah-NEE-yah | La canilla del baño pierde. |
+ES.nevera | neh-BEH-rah | Mete la leche en la nevera. |
+ES.frigorifico | free-goh-REE-fee-koh | El frigorífico hace ruido. |
+CO.nevera | neh-BEH-rah | La nevera está vacía. |
+VE.nevera | neh-BEH-rah | Saca el agua fría de la nevera. |
+PR.nevera | neh-BEH-rah | Hay flan en la nevera. |
+DO.nevera | neh-BEH-rah | Guarda el arroz en la nevera. |
+MX.refri | REH-free | Hay chelas en el refri. |
+AR.heladera | eh-lah-DEH-rah | Poné la carne en la heladera. |

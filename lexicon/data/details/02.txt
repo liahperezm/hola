@@ -1,0 +1,100 @@
+DO.bacano | bah-KAH-noh | Ese concierto estuvo bacano. | aburrido
+DO.jevi | HEH-bee | Esos tenis están jevi, ¿dónde los compraste? | feo
+AR.copado | koh-PAH-doh | El recital estuvo re copado. | aburrido; un embole
+AR.piola | PYOH-lah | Tu hermano es un tipo re piola. | denso
+AR.macanudo | mah-kah-NOO-doh | ¡Macanudo! Nos vemos a las ocho. |
+MX.chido | CHEE-doh | Qué chido está tu carro nuevo. | gacho
+MX.padre | PAH-dreh | Estuvo bien padre el viaje a Oaxaca. | gacho
+MX.chingon | cheen-GOHN | Ese restaurante está chingón. | culero
+CO.bacano | bah-KAH-noh | Qué bacano verte otra vez, parce. | maluco
+CO.chevere | CHEH-beh-reh | El paseo a la finca estuvo chévere. | maluco
+CO.que-chimba | keh CHEEM-bah | ¡Qué chimba de canción! | qué gonorrea
+VE.chevere | CHEH-beh-reh | La playa en Margarita es chévere. | ladilla
+VE.fino | FEE-noh | ¡Fino! Paso por ti a las siete. |
+PR.chevere | CHEH-beh-reh | Está chévere el coquí de fondo. |
+ES.guay | GWAI | Qué guay tu chaqueta nueva. | un rollo; cutre
+CL.bacan | bah-KAHN | Estuvo bacán el carrete. | fome
+CL.la-raja | lah RAH-hah | Ese recital estuvo la raja. | fome
+PE.bacan | bah-KAHN | Qué bacán que viniste. | aburrido
+PE.chevere | CHEH-beh-reh | El ceviche de acá está chévere. |
+EC.chevere | CHEH-beh-reh | Estuvo chévere la playa, ¿no? |
+EC.bacan | bah-KAHN | Qué bacán tu bici nueva, loco. |
+PA.chevere | CHEH-beh-reh | El carnaval estuvo chévere. |
+PA.priti | PREE-tee | Ese celular está priti. | chuchinga
+CU.chevere | CHEH-beh-reh | La fiesta estuvo chévere, asere. |
+CU.bacan | bah-KAHN | Ese carro está bacán. |
+UY.macanudo | mah-kah-NOO-doh | Tu viejo es un tipo macanudo. |
+CR.tuanis | TWAH-nees | La playa estuvo tuanis, mae. | chiva no
+CR.que-chiva | keh CHEE-bah | ¡Qué chiva que vinieras! | qué sal
+GT.chilero | chee-LEH-roh | Qué chilero tu celular nuevo. | shuco
+SV.chivo | CHEE-boh | Está bien chivo el pueblo de tu abuela. | yuca
+SV.cachimbon | kah-cheem-BOHN | Ese partido estuvo cachimbón. |
+HN.macizo | mah-SEE-soh | Qué macizo el concierto anoche. |
+NI.tuani | TWAH-nee | Esa moto está tuani. |
+DO.cuartos | KWAR-tohs | No tengo cuartos para el cine hoy. |
+AR.guita | GHEE-tah | Me quedé sin guita hasta fin de mes. |
+MX.lana | LAH-nah | Necesito lana para pagar la renta. |
+MX.varo | BAH-roh | ¿Me prestas un varo para el camión? |
+VE.reales | reh-AH-lehs | No tengo reales para salir hoy. |
+PR.chavos | CHAH-bohs | Me quedé sin chavos esta semana. |
+CU.baro | BAH-roh | No tengo baro para la guagua. |
+ES.pasta | PAHS-tah | Ese coche cuesta una pasta. |
+CL.lucas | LOO-kahs | Me costó diez lucas la entrada. |
+UY.guita | GHEE-tah | No tengo guita para el ómnibus. |
+GT.pisto | PEES-toh | Ya no tengo pisto para el bus. |
+SV.pisto | PEES-toh | Ahorré pisto para el viaje. |
+HN.pisto | PEES-toh | ¿Tenés pisto para la pulpería? |
+DO.coro | KOH-roh | Vamos pa' un coro en casa de Juan esta noche. |
+DO.parranda | pah-RRAHN-dah | La parranda duró hasta el amanecer. |
+DO.vacilon | bah-see-LOHN | Ese vacilón en la playa estuvo bueno. |
+AR.joda | HOH-dah | Mañana hay joda en lo de Martín. |
+MX.pachanga | pah-CHAHN-gah | El sábado hay pachanga en mi casa. |
+MX.fieston | fyehs-TOHN | Se armó un fiestón en la boda. |
+MX.reventon | reh-behn-TOHN | Vamos a un reventón en la Condesa. |
+CO.rumba | ROOM-bah | Esta noche nos vamos de rumba. |
+CO.parranda | pah-RRAHN-dah | La parranda vallenata siguió hasta tarde. |
+VE.rumba | ROOM-bah | La rumba en Las Mercedes estuvo buenísima. |
+VE.parranda | pah-RRAHN-dah | En diciembre salimos de parranda con los gaiteros. |
+VE.bonche | BOHN-cheh | Hay un bonche en casa de Luis. |
+ES.juerga | HWEHR-gah | Nos fuimos de juerga hasta las tantas. |
+ES.fieston | fyehs-TOHN | Montaron un fiestón por su cumpleaños. |
+CL.carrete | kah-RREH-teh | El carrete del viernes estuvo bueno. |
+PR.parranda | pah-RRAHN-dah | Llegó la parranda navideña con panderos. |
+PR.vacilon | bah-see-LOHN | Ese vacilón en Piñones estuvo brutal. |
+PE.jarana | hah-RAH-nah | La jarana criolla duró toda la noche. |
+CU.bembe | behm-BEH | Hay un bembé en el solar esta noche. |
+DO.pariguaya | pah-ree-GWAI-ah | No seas pariguaya, sácala a bailar. | atrevido
+AR.gil | HEEL | No seas gil, no le prestes plata. | vivo; avivado
+MX.menso | MEHN-soh | No seas menso, eso no se hace así. | listo; abusado
+MX.mensa | MEHN-sah | Ay, qué mensa, dejé las llaves adentro. | lista; abusada
+ES.pardillo | par-DEE-yoh | No seas pardillo, que te están timando. | espabilado
+ES.pardilla | par-DEE-yah | Es nueva en la ciudad y un poco pardilla. | espabilada
+AR.a-las-apuradas | ah lahs ah-poo-RAH-dahs | Hice el informe a las apuradas y salió mal. | con calma
+MX.al-aventon | ahl ah-behn-TOHN | Lo pintaron al aventón y ya se está cayendo. | con calma
+ES.a-lo-loco | ah loh LOH-koh | No hagas las cosas a lo loco. | con cuidado
+AR.laburo | lah-BOO-roh | Hoy tengo mucho laburo, llego tarde. | vagancia
+UY.laburo | lah-BOO-roh | Conseguí laburo en el puerto. |
+MX.chamba | CHAHM-bah | Encontré chamba en una oficina del centro. |
+PE.chamba | CHAHM-bah | Tengo chamba hasta las seis. |
+CO.camello | kah-MEH-yoh | Mañana tengo camello temprano. |
+CL.pega | PEH-gah | Me salió una pega en Santiago. | pituto
+ES.curro | KOO-rroh | Salgo del curro a las seis. |
+CR.brete | BREH-teh | Tengo mucho brete esta semana. |
+CU.pincha | PEEN-chah | Me voy pa' la pincha temprano. |
+ES.ordenador | or-deh-nah-DOR | Se me ha colgado el ordenador. |
+CO.computador | kohm-poo-tah-DOR | Préstame el computador un momentico. |
+CL.computador | kohm-poo-tah-DOR | Tengo que arreglar el computador. |
+AR.compu | KOHM-poo | Dejé la compu prendida toda la noche. |
+MX.compu | KOHM-poo | Se me descompuso la compu. |
+DO.lapicero | lah-pee-SEH-roh | ¿Me prestas un lapicero para firmar? |
+AR.birome | bee-ROH-meh | Se me quedó sin tinta la birome. |
+MX.pluma | PLOO-mah | Firma aquí con la pluma azul. |
+CO.esfero | ehs-FEH-roh | ¿Tiene un esfero que me preste? |
+ES.boli | BOH-lee | ¿Me dejas un boli? |
+CL.lapiz-pasta | LAH-pees PAHS-tah | Escribe con lápiz pasta, no con grafito. |
+UY.birome | bee-ROH-meh | Traé una birome para el examen. |
+PY.birome | bee-ROH-meh | Se me perdió la birome otra vez. |
+PE.lapicero | lah-pee-SEH-roh | Llena el formulario con lapicero azul. |
+CR.lapicero | lah-pee-SEH-roh | ¿Me presta un lapicero, por fa? |
+GT.lapicero | lah-pee-SEH-roh | Se me terminó la tinta del lapicero. |
+HN.lapicero | lah-pee-SEH-roh | Compré un lapicero en la librería. |

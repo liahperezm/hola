@@ -1,0 +1,100 @@
+VE.cotufas | koh-TOO-fahs | Vamos a hacer cotufas para ver la película. |
+CO.crispetas | krees-PEH-tahs | Unas crispetas de caramelo, por favor. |
+CL.cabritas | kah-BREE-tahs | Compremos cabritas para el cine. |
+PY.pororo | poh-roh-ROH | Hicimos pororó con azúcar. |
+UY.pororo | poh-roh-ROH | En la feria venden pororó. |
+PE.canchita | kahn-CHEE-tah | El cebiche viene con canchita. |
+GT.poporopo | poh-poh-ROH-poh | Llevé poporopo al cine. |
+CU.rositas-de-maiz | roh-SEE-tahs deh mah-EES | Hice rositas de maíz para los niños. |
+DO.cocaleca | koh-kah-LEH-kah | Vamos a hacer cocaleca para la película. |
+ES.melocoton | meh-loh-koh-TOHN | Este melocotón está muy dulce. |
+ES.zumo | SOO-moh | Un zumo de naranja natural, por favor. |
+DO.bizcocho | bees-KOH-choh | El bizcocho dominicano lleva suspiro. |
+AR.torta | TOR-tah | Hice una torta de chocolate para el cumple. |
+VE.torta | TOR-tah | La torta de cumpleaños es de tres leches. |
+VE.ponque | pohn-KEH | Un pedazo de ponqué con el café. |
+CO.ponque | pohn-KEH | Le llevamos ponqué a la abuela. |
+ES.tarta | TAR-tah | Hemos comprado una tarta de queso. |
+PR.bizcocho | bees-KOH-choh | El bizcocho de cumpleaños es de guayaba. |
+CR.queque | KEH-keh | Mi mamá hizo queque de naranja. |
+PE.queque | KEH-keh | Un pedazo de queque con el lonche. |
+PA.cake | KEYK | Compramos un cake para el cumpleaños. |
+MX.irse-de-pinta | EER-seh deh PEEN-tah | Nos fuimos de pinta al cine. |
+AR.hacerse-la-rata | ah-SEHR-seh lah RAH-tah | Me hice la rata para ir a la plaza. |
+AR.hacerse-la-rabona | ah-SEHR-seh lah rah-BOH-nah | Se hizo la rabona y la mamá se enteró. |
+UY.hacerse-la-rabona | ah-SEHR-seh lah rah-BOH-nah | Nos hicimos la rabona para ir a la rambla. |
+CL.hacer-la-cimarra | ah-SEHR lah see-MAH-rrah | Hicieron la cimarra y se fueron a la playa. |
+PE.hacer-la-vaca | ah-SEHR lah BAH-kah | Hicimos la vaca para ir a la playa. |
+CO.capar-clase | kah-PAHR KLAH-seh | Capamos clase para ir al partido. |
+ES.hacer-novillos | ah-SEHR noh-BEE-yohs | De pequeños hacíamos novillos para ir al río. |
+ES.hacer-pellas | ah-SEHR PEH-yahs | Hizo pellas y le pillaron. |
+ES.como-una-cabra | KOH-moh OO-nah KAH-brah | Tu primo está como una cabra. | cuerdo
+AR.del-tomate | dehl toh-MAH-teh | Ese tipo está del tomate. | cuerdo
+UY.del-tomate | dehl toh-MAH-teh | Estás del tomate si salís con esta lluvia. | cuerdo
+MX.zafado | sah-FAH-doh | Ese güey está bien zafado. | cuerdo
+AR.al-horno | ahl OR-noh | Si no estudio, estoy al horno. | tranquilo
+AR.en-el-horno | ehn ehl OR-noh | Con esa deuda, está en el horno. | tranquilo
+UY.al-horno | ahl OR-noh | Perdí las llaves, estoy al horno. | tranquilo
+UY.en-el-horno | ehn ehl OR-noh | Si llega tarde otra vez, está en el horno. | tranquilo
+MX.hasta-la-madre | AHS-tah lah MAH-dreh | Ya estoy hasta la madre del tráfico. | contento
+ES.hasta-las-narices | AHS-tah lahs nah-REE-sehs | Estoy hasta las narices de tanto ruido. | contento
+MX.como-agua-para-chocolate | KOH-moh AH-gwah PAH-rah choh-koh-LAH-teh | Mi mamá está como agua para chocolate por el desorden. | tranquilo
+ES.un-viva-la-pepa | oon BEE-bah lah PEH-pah | Su hermano es un viva la Pepa. | responsable
+CO.un-viva-la-pepa | oon BEE-bah lah PEH-pah | Ese man es un viva la Pepa, no le prestes plata. | juicioso
+VE.un-viva-la-pepa | oon BEE-bah lah PEH-pah | No seas un viva la Pepa y paga lo que debes. | responsable
+ES.la-edad-del-pavo | lah eh-DAHD dehl PAH-boh | Mi hijo está en la edad del pavo. |
+AR.mas-feo-que-pegarle-a-la-madre | mahs FEH-oh keh peh-GAR-leh ah lah MAH-dreh | Ese edificio es más feo que pegarle a la madre. | divino
+MX.a-todo-dar | ah TOH-doh DAHR | El concierto estuvo a todo dar. | gacho
+MX.no-hay-tos | noh eye TOHS | No hay tos, mañana te lo devuelvo. |
+ES.buscarle-tres-pies-al-gato | boos-KAR-leh trehs PYEHS ahl GAH-toh | No le busques tres pies al gato, es así de sencillo. |
+AR.buscarle-la-quinta-pata-al-gato | boos-KAR-leh lah KEEN-tah PAH-tah ahl GAH-toh | Dejá de buscarle la quinta pata al gato. |
+UY.buscarle-la-quinta-pata-al-gato | boos-KAR-leh lah KEEN-tah PAH-tah ahl GAH-toh | No le busques la quinta pata al gato, bo. |
+CL.buscarle-la-quinta-pata-al-gato | boos-KAR-leh lah KEEN-tah PAH-tah ahl GAH-toh | Siempre le buscas la quinta pata al gato. |
+PY.buscarle-la-quinta-pata-al-gato | boos-KAR-leh lah KEEN-tah PAH-tah ahl GAH-toh | No hay que buscarle la quinta pata al gato. |
+MX.buscarle-ruido-al-chicharron | boos-KAR-leh RRWEE-doh ahl chee-chah-RROHN | No le busques ruido al chicharrón. |
+CO.echar-los-perros | eh-CHAR lohs PEH-rrohs | Le está echando los perros a la vecina. |
+VE.echar-los-perros | eh-CHAR lohs PEH-rrohs | Ese chamo le anda echando los perros a mi prima. |
+MX.echar-los-perros | eh-CHAR lohs PEH-rrohs | Le echó los perros en la fiesta. |
+MX.tirar-los-perros | tee-RAR lohs PEH-rrohs | Le está tirando los perros desde la secundaria. |
+CU.tirar-los-perros | tee-RAR lohs PEH-rrohs | Ese muchacho le tira los perros a todas. |
+CO.dar-papaya | DAHR pah-PAH-yah | No des papaya con el celular en la mano. | cuidarse
+AR.tirar-manteca-al-techo | tee-RAR mahn-TEH-kah ahl TEH-choh | En los noventa tiraban manteca al techo. | ahorrar
+AR.meter-la-mula | meh-TEHR lah MOO-lah | Ojo con ese vendedor, que te mete la mula. |
+ES.a-quien-madruga-dios-le-ayuda | ah kyehn mah-DROO-gah DYOHS leh ah-YOO-dah | Me levanto a las seis; a quien madruga, Dios le ayuda. |
+ES.el-que-se-pica-ajos-come | ehl keh seh PEE-kah AH-hohs KOH-meh | No lo decía por ti, pero el que se pica, ajos come. |
+MX.al-que-nace-pa-tamal-del-cielo-le-caen-las-hojas | ahl keh NAH-seh pah tah-MAHL dehl SYEH-loh leh KAH-ehn lahs OH-hahs | Siempre le va bien: al que nace pa' tamal, del cielo le caen las hojas. |
+VE.chivo-que-rompe-tambor-con-su-pellejo-paga | CHEE-boh keh RROHM-peh tahm-BOR kohn soo peh-YEH-hoh PAH-gah | Rompiste el vidrio, chivo que rompe tambor, con su pellejo paga. |
+ES.conducir | kohn-doo-SEER | Aprendí a conducir a los dieciocho. |
+ES.atasco | ah-TAHS-koh | Hay un atasco tremendo en la M-30. |
+CO.trancon | trahn-KOHN | Llegué tarde por el trancón de la séptima. |
+CR.presa | PREH-sah | Hay una presa enorme en la circunvalación. |
+PA.tranque | TRAHN-keh | El tranque en la Transístmica está terrible. |
+AR.estacion-de-servicio | ehs-tah-SYOHN deh sehr-BEE-syoh | Paremos en la estación de servicio a cargar nafta. |
+UY.estacion-de-servicio | ehs-tah-SYOHN deh sehr-BEE-syoh | La estación de servicio de la ruta está abierta toda la noche. |
+CL.estacion-de-servicio | ehs-tah-SYOHN deh sehr-BEE-syoh | Compramos café en la estación de servicio. |
+CL.bencinera | behn-see-NEH-rah | Paremos en la bencinera antes de salir a la carretera. |
+PE.grifo | GREE-foh | El grifo de la esquina abre las veinticuatro horas. |
+AR.nafta | NAHF-tah | Me quedé sin nafta en la ruta. |
+UY.nafta | NAHF-tah | La nafta subió otra vez. |
+PY.nafta | NAHF-tah | Cargá nafta antes del viaje. |
+CL.bencina | behn-SEE-nah | La bencina está carísima. |
+MX.cajuela | kah-HWEH-lah | Mete las maletas en la cajuela. |
+AR.baul | bah-OOL | Guardá las bolsas en el baúl. |
+UY.baul | bah-OOL | El baúl del auto está lleno. |
+CO.baul | bah-OOL | Echa el mercado en el baúl. |
+PE.maletera | mah-leh-TEH-rah | La maletera no cierra bien. |
+CR.cajuela | kah-HWEH-lah | Dejé la sombrilla en la cajuela. |
+MX.banqueta | bahn-KEH-tah | No te estaciones sobre la banqueta. |
+AR.vereda | beh-REH-dah | Los chicos juegan en la vereda. |
+UY.vereda | beh-REH-dah | Barré la vereda esta mañana. |
+CL.vereda | beh-REH-dah | Camina por la vereda, no por la calle. |
+PE.vereda | beh-REH-dah | La vereda está en obras. |
+CO.anden | ahn-DEHN | Caminen por el andén, que viene un carro. |
+MX.alberca | ahl-BEHR-kah | Vamos a nadar a la alberca del club. |
+AR.pileta | pee-LEH-tah | Nos metimos en la pileta toda la tarde. |
+UY.pileta | pee-LEH-tah | La pileta del club abre en diciembre. |
+PY.pileta | pee-LEH-tah | Con este calor, ¡a la pileta! |
+MX.departamento | deh-par-tah-MEHN-toh | Rentamos un departamento en la Roma. |
+MX.depa | DEH-pah | Vente a mi depa el sábado. |
+AR.departamento | deh-par-tah-MEHN-toh | Alquilé un departamento en Palermo. |
+AR.depto | DEHP-toh | El depto tiene dos ambientes. |

@@ -1,0 +1,100 @@
+DO.ey-tu | AY too | ¡Ey tú, ven acá un momentico! |
+AR.che | CHEH | Che, ¿me pasás la yerba? |
+UY.bo | BOH | Bo, ¿vamos a la rambla esta tarde? |
+MX.oye-guey | OH-yeh WEH | Oye güey, ¿ya viste el partido? |
+MX.guey | WEH | No manches, güey, se me olvidó la cartera. |
+MX.wey | WEH | Wey, ya llegué, ábreme. |
+CO.parce | PAR-seh | Parce, ¿nos vemos más tarde? |
+CO.parcero | par-SEH-roh | Ese es mi parcero desde el colegio. |
+VE.pana | PAH-nah | Mi pana, ¿qué más? ¿Todo bien? |
+ES.tio | TEE-oh | Tío, no te vas a creer lo que me ha pasado. |
+ES.tia | TEE-ah | Tía, ¡qué guapa vas hoy! |
+DO.como-tu-ta | KOH-moh too TAH | ¿Cómo tú tá, mi hermano? Tiempo sin verte. |
+DO.que-lo-que | keh loh KEH | ¿Qué lo que, loco? ¿Tú vas pa' la fiesta? |
+AR.como-andas | KOH-moh ahn-DAHS | Hola, ¿cómo andás? ¿Todo bien en el laburo? |
+AR.que-onda | keh OHN-dah | ¿Qué onda? ¿Salimos esta noche? |
+UY.como-andas | KOH-moh ahn-DAHS | ¿Cómo andás, bo? ¿Todo tranqui? |
+UY.que-onda | keh OHN-dah | ¿Qué onda, botija? ¿Venís al partido? |
+MX.que-onda | keh OHN-dah | ¿Qué onda, güey? ¿Qué vas a hacer hoy? |
+MX.que-hubo | keh OO-boh | ¿Qué hubo? ¿Cómo te fue en el examen? |
+MX.quiubo | KYOO-boh | ¿Quiubo, compa? ¿Todo bien? |
+MX.que-hongo | keh OHN-goh | ¿Qué hongo, carnal? ¿Cómo has estado? |
+MX.que-tranza | keh TRAHN-sah | ¿Qué tranza? ¿Vamos por unos tacos? |
+MX.que-pedo | keh PEH-doh | ¿Qué pedo, güey? ¿Ya llegaste? |
+CO.que-mas | keh MAHS | ¡Quiubo, parce! ¿Qué más? |
+CO.quiubo | KYOO-boh | Quiubo, ¿cómo va todo por la casa? |
+CO.que-hubo | keh OO-boh | ¿Qué hubo, pues? ¿Nos tomamos un tinto? |
+VE.que-mas | keh MAHS | Epa, chamo, ¿qué más? |
+PR.que-es-la-que-hay | keh ehs lah keh EYE | ¿Qué es la que hay, bro? ¿Vas pa' la playa? |
+CU.que-vola | keh boh-LAH | ¿Qué volá, asere? ¿Cómo está la familia? |
+CU.que-bola | keh boh-LAH | ¿Qué bolá, mi socio? |
+ES.que-tal | keh TAHL | Hola, ¿qué tal el fin de semana? |
+ES.que-pasa | keh PAH-sah | ¿Qué pasa, tío? ¿Todo bien? |
+GT.que-onda | keh OHN-dah | ¿Qué onda, vos? ¿Vamos a la chamba? |
+SV.que-onda | keh OHN-dah | ¿Qué onda, cipote? ¿Ya comiste? |
+HN.que-onda | keh OHN-dah | ¿Qué onda, maje? ¿Todo tuanis? |
+CL.que-onda | keh OHN-dah | ¿Qué onda, weón? ¿Salimos el viernes? |
+CL.que-hubo | keh OO-boh | ¿Qué hubo? Tanto tiempo sin verte. |
+CL.quiubo | KYOO-boh | ¿Quiubo, compadre? ¿Cómo estái? |
+CL.como-estai | KOH-moh ehs-TIE | Hola, ¿cómo estái? ¿Todo bien? |
+PA.que-xopa | keh SHOH-pah | ¿Qué xopá, fren? ¿Qué vas a hacer hoy? |
+EC.que-fue | keh FWEH | ¿Qué fue, loco? ¿Vamos a la playa? |
+CR.diay | dee-EYE | Diay, mae, ¿qué hacemos hoy? |
+CR.upe | OO-peh | ¡Upe! ¿Hay alguien en la casa? |
+DO.verda | behr-DAH | ¿Verdá que tú no vas a la fiesta? | mentira
+AR.posta | POHS-tah | Posta, no te estoy mintiendo. | chamuyo; verso
+MX.neta | NEH-tah | ¿Neta te vas a vivir a Monterrey? | choro; mentira
+MX.a-poco | ah POH-koh | ¿A poco ya terminaste la tarea? |
+MX.de-veras | deh BEH-rahs | ¿De veras te ganaste la lotería? |
+UY.posta | POHS-tah | ¿Posta que te vas a Montevideo? | verso
+CL.en-serio-weon | ehn SEH-ryoh weh-OHN | ¿En serio, weón? No te puedo creer. |
+CO.si-o-que | SEE oh keh | Estuvo buenísima la fiesta, ¿sí o qué? |
+DO.un-lio | oon LEE-oh | Se formó un lío en el colmado por el cambio. | un relajo
+DO.un-arroz-con-mango | oon ah-RROHS kohn MAHN-goh | Esa reunión fue un arroz con mango, nadie se entendía. |
+UY.quilombo | kee-LOHM-boh | En la oficina se armó un quilombo bárbaro. |
+MX.desmadre | dehs-MAH-dreh | La fiesta terminó en un desmadre total. |
+CO.despelote | dehs-peh-LOH-teh | Ese tráfico es un despelote todos los días. |
+ES.follon | foh-YOHN | Menudo follón se montó en la reunión. |
+DO.hablar-disparate | ah-BLAHR dees-pah-RAH-teh | Deja de hablar disparate y ponte a trabajar. | hablar claro
+AR.mandar-fruta | mahn-DAHR FROO-tah | No sabe nada del tema, está mandando fruta. |
+CO.hablar-paja | ah-BLAHR PAH-hah | Ese man se la pasa hablando paja. |
+VE.hablar-paja | ah-BLAHR PAH-hah | Deja de hablar paja, chamo, que eso no es así. |
+ES.decir-chorradas | deh-SEER choh-RRAH-dahs | Siempre dice chorradas cuando ha bebido. |
+DO.carajito | kah-rah-HEE-toh | Ese carajito no se está quieto ni un minuto. |
+DO.carajita | kah-rah-HEE-tah | La carajita ya va a la escuela. |
+DO.chamaquito | chah-mah-KEE-toh | El chamaquito se comió todo el arroz. |
+DO.chamaquita | chah-mah-KEE-tah | La chamaquita baila bachata muy bien. |
+CO.pelado | peh-LAH-doh | Ese pelado juega fútbol todas las tardes. |
+CO.pelada | peh-LAH-dah | La pelada de la vecina es muy juiciosa. |
+AR.pibe | PEE-beh | El pibe se pasa el día jugando a la pelota. |
+AR.piba | PEE-bah | La piba de al lado canta re bien. |
+AR.guri | goo-REE | El gurí ya está grande, va a la escuela. |
+UY.guri | goo-REE | Los gurises están jugando en la plaza. |
+UY.gurisa | goo-REE-sah | La gurisa ya aprendió a andar en bici. |
+UY.pibe | PEE-beh | Ese pibe es hincha de Peñarol. |
+UY.botija | boh-TEE-hah | De botija me encantaba ir a la playa. |
+MX.chamaco | chah-MAH-koh | El chamaco no quiere hacer la tarea. |
+MX.chamaca | chah-MAH-kah | La chamaca ya entró a la prepa. |
+MX.escuincle | ehs-KWEEN-kleh | Ese escuincle no deja de llorar. |
+VE.chamo | CHAH-moh | El chamo de la esquina vende tequeños. |
+VE.chama | CHAH-mah | Esa chama estudia en la Central. |
+PR.nene | NEH-neh | El nene ya está en kínder. |
+PR.nena | NEH-nah | La nena se quedó dormida en el carro. |
+ES.chaval | chah-BAHL | El chaval quiere ser futbolista. |
+ES.chavala | chah-BAH-lah | Esa chavala es la hija de mi vecina. |
+ES.crio | KREE-oh | El crío no para de preguntar. |
+CL.cabro-chico | KAH-broh CHEE-koh | El cabro chico se fue a jugar a la pelota. |
+CL.cabra-chica | KAH-brah CHEE-kah | La cabra chica ya sabe leer. |
+PE.chibolo | chee-BOH-loh | Ese chibolo es bien vivo. |
+PE.chibola | chee-BOH-lah | La chibola está en el colegio. |
+GT.patojo | pah-TOH-hoh | El patojo ya va a cumplir diez años. |
+HN.cipote | see-POH-teh | Los cipotes están jugando en la calle. |
+SV.cipote | see-POH-teh | El cipote se comió tres pupusas. |
+NI.cipote | see-POH-teh | Ese cipote es bien inquieto. |
+NI.chiguin | chee-GWEEN | El chigüín se quedó dormido en la hamaca. |
+CR.guila | GWEE-lah | La güila ya va para la escuela. |
+CR.carajillo | kah-rah-HEE-yoh | Ese carajillo es muy tuanis. |
+BO.chango | CHAHN-goh | El chango ya terminó el colegio. |
+PA.pelao | peh-LAH-oh | El pelao se fue a la playa con los primos. |
+DO.nitido | NEE-tee-doh | Todo está nítido, no te preocupes. | malo; feo
+DO.chevere | CHEH-beh-reh | La fiesta estuvo chévere. | aburrido

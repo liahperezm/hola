@@ -1,0 +1,110 @@
+AR.pichicho | pee-CHEE-choh | El pichicho me sigue a todos lados. |
+CL.quiltro | KEEL-troh | Adoptamos un quiltro de la calle. |
+PR.sato | SAH-toh | Ese sato vive en la playa. |
+PE.chusco | CHOOS-koh | Un perro chusco se metió a la casa. |
+UY.cuzco | KOOS-koh | El cuzco de la vecina no para de ladrar. |
+CO.zancudo | sahn-KOO-doh | Anoche me picaron los zancudos. |
+VE.zancudo | sahn-KOO-doh | Ponte repelente, que hay zancudos. |
+PE.zancudo | sahn-KOO-doh | En la selva hay muchos zancudos. |
+MX.zancudo | sahn-KOO-doh | Un zancudo no me dejó dormir. |
+GT.zancudo | sahn-KOO-doh | Cerrá la puerta, que entran zancudos. |
+HN.zancudo | sahn-KOO-doh | Los zancudos están terribles con la lluvia. |
+SV.zancudo | sahn-KOO-doh | Prendé el ventilador para los zancudos. |
+NI.zancudo | sahn-KOO-doh | Dormí con mosquitero por los zancudos. |
+CR.zancudo | sahn-KOO-doh | En Guanacaste hay muchos zancudos. |
+EC.zancudo | sahn-KOO-doh | En la costa hay zancudos todo el año. |
+MX.guajolote | gwah-hoh-LOH-teh | Mi abuela cría guajolotes en el rancho. |
+GT.chompipe | chohm-PEE-peh | En Navidad comemos chompipe relleno. |
+HN.chompipe | chohm-PEE-peh | Mataron un chompipe para la cena. |
+SV.chompipe | chohm-PEE-peh | El pan con chompipe es típico de diciembre. |
+NI.chompipe | chohm-PEE-peh | El chompipe se escapó del patio. |
+CR.chompipe | chohm-PEE-peh | Hicimos chompipe para Navidad. |
+CU.guanajo | gwah-NAH-hoh | Asaron un guanajo para la fiesta. |
+MX.tiendita | tyehn-DEE-tah | Voy a la tiendita por unas tortillas. |
+MX.abarrotes | ah-bah-RROH-tehs | La tienda de abarrotes cierra a las diez. |
+PE.abarrotes | ah-bah-RROH-tehs | Compra arroz en la tienda de abarrotes. |
+DO.colmado | kohl-MAH-doh | Ve al colmado y trae pan y salami. |
+PR.colmado | kohl-MAH-doh | El colmado de la esquina fía. |
+CR.pulperia | pool-peh-REE-ah | Fui a la pulpería por leche. |
+HN.pulperia | pool-peh-REE-ah | En la pulpería venden baleadas. |
+NI.pulperia | pool-peh-REE-ah | Mandame a la pulpería por tortillas. |
+SV.pulperia | pool-peh-REE-ah | Compré una gaseosa en la pulpería. |
+MX.antro | AHN-troh | Vamos al antro el viernes. |
+AR.boliche | boh-LEE-cheh | Salimos del boliche a las seis. |
+UY.boliche | boh-LEE-cheh | El boliche abre a la una. |
+ES.discote | dees-KOH-teh | Nos vemos en la discote. |
+CO.rumbeadero | room-beh-ah-DEH-roh | Ese rumbeadero se llena los sábados. |
+ES.guiri | GHEE-ree | La playa está llena de guiris. | local
+CU.yuma | YOO-mah | Los yumas llegan en el crucero. |
+VE.musiu | moo-SYOO | Ese musiú habla bien español. |
+ES.pitillo | pee-TEE-yoh | Salió a fumarse un pitillo. |
+ES.piti | PEE-tee | ¿Me das un piti? |
+AR.pucho | POO-choh | Salió a fumar un pucho al balcón. |
+UY.pucho | POO-choh | Dejé el pucho hace un año. |
+CL.pucho | POO-choh | ¿Tenís un pucho? |
+PE.pucho | POO-choh | Prendió un pucho en la esquina. |
+MX.frajo | FRAH-hoh | Me echo un frajo y regreso. |
+AR.boludo | boh-LOO-doh | Che, boludo, ¿venís al asado? |
+EC.pana | PAH-nah | Mi pana me ayudó con la mudanza. |
+PR.pana | PAH-nah | Ese es mi pana de toda la vida. |
+PR.broder | BROH-dehr | ¿Qué es la que hay, bróder? |
+DO.pana | PAH-nah | Mi pana me prestó el carro. |
+DO.broder | BROH-dehr | Tranquilo, bróder, que eso se arregla. |
+PA.pana | PAH-nah | Mi pana me invitó a la playa. |
+CL.weon | weh-OHN | ¿Qué onda, weón? ¿Vamos al carrete? |
+CU.asere | ah-seh-REH | ¿Qué volá, asere? |
+CU.broder | BROH-dehr | Mi bróder me consiguió la pieza. |
+SV.chero | cheh-ROH | Vamos al partido, cheró. |
+HN.alero | ah-LEH-roh | Mi alero me acompañó al centro. |
+CL.al-tiro | ahl TEE-roh | Voy al tiro, espérame. | más rato
+MX.no-manches | noh MAHN-chehs | ¡No manches! ¿Te ganaste la rifa? |
+MX.hijole | EE-hoh-leh | ¡Híjole! Se me olvidó la cartera. |
+MX.no-mames | noh MAH-mehs | ¡No mames! ¿En serio? |
+ES.que-fuerte | keh FWEHR-teh | ¡Qué fuerte! ¿Se han separado? |
+ES.no-jodas | noh HOH-dahs | ¡No jodas! ¿Te han despedido? |
+ES.ni-de-cona | nee deh KOH-nyah | ¿Yo bailar? ¡Ni de coña! | por supuesto
+VE.na-guara | nah gwah-RAH | ¡Na' guará! ¡Qué calor está haciendo! |
+VE.no-jodas | noh HOH-dahs | ¡No jodas! ¿Te mudas a Mérida? |
+VE.nojoda | noh-HOH-dah | ¡Nojoda, qué tráfico! |
+CO.no-jodas | noh HOH-dahs | ¡No jodas! ¿Ganó el Junior? |
+CO.nojoda | noh-HOH-dah | ¡Nojoda, qué calor hace en Barranquilla! |
+AR.ni-en-pedo | nee ehn PEH-doh | ¿Ir a trabajar el domingo? ¡Ni en pedo! | obvio
+AR.ni-cagando | nee kah-GAHN-doh | ¿Prestarle plata otra vez? ¡Ni cagando! | obvio
+CL.ni-cagando | nee kah-GAHN-doh | ¿Ir a esa fiesta fome? ¡Ni cagando! | obvio
+GT.a-la-gran | ah lah GRAHN | ¡A la gran! Se fue la luz otra vez. |
+GT.puchica | poo-CHEE-kah | ¡Puchica! Se me olvidó el celular. |
+SV.a-la-gran | ah lah GRAHN | ¡A la gran! Qué grande está tu cipote. |
+SV.puchica | poo-CHEE-kah | ¡Puchica, qué calor! |
+HN.a-la-gran | ah lah GRAHN | ¡A la gran! Ya llegó la lluvia. |
+HN.puchica | poo-CHEE-kah | ¡Puchica, maje! Perdimos el bus. |
+PY.nderakore | ndeh-rah-koh-REH | ¡Nderakore! ¿Otra vez llueve? |
+NI.ponete-chiva | poh-NEH-teh CHEE-bah | ¡Ponete chiva, que viene el bus! | despreocúpate
+CL.cachai | kah-CHAI | Hay que llegar temprano, ¿cachái? |
+MX.me-captas | meh KAHP-tahs | Así no se hace, ¿me captas? |
+AR.me-entendes | meh ehn-tehn-DEHS | No es así, ¿me entendés? |
+UY.me-entendes | meh ehn-tehn-DEHS | Tenés que doblar en la esquina, ¿me entendés? |
+ES.me-pillas | meh PEE-yahs | Es por aquí, ¿me pillas? |
+CO.me-copias | meh KOH-pyahs | Nos vemos a las ocho, ¿me copias? |
+VE.me-copias | meh KOH-pyahs | Pasa por mí temprano, ¿me copias? |
+MX.mande | MAHN-deh | ¿Mande? No te escuché. |
+EC.mande | MAHN-deh | ¿Mande? ¿Me repite, por favor? |
+CR.chunche | CHOON-cheh | Pasame ese chunche de la mesa. |
+GT.chunche | CHOON-cheh | ¿Qué es ese chunche que trajiste? |
+HN.chunche | CHOON-cheh | Guardá tus chunches en la mochila. |
+SV.chunche | CHOON-cheh | Ese chunche ya no sirve. |
+NI.chunche | CHOON-cheh | Sacá tus chunches del carro. |
+NI.chereque | cheh-REH-keh | ¿Para qué sirve este chereque? |
+CL.huevada | weh-BAH-dah | Pásame esa huevada de la mesa. |
+MX.chingadera | cheen-gah-DEH-rah | ¿Qué es esta chingadera? |
+AR.cosito | koh-SEE-toh | Dame el cosito ese para abrir la lata. |
+UY.cosito | koh-SEE-toh | ¿Dónde está el cosito del control? |
+ES.mogollon | moh-goh-YOHN | Había un mogollón de gente en el concierto. | poquito
+MX.un-chingo | oon CHEEN-goh | Hay un chingo de tráfico. | poquito
+AR.en-pedo | ehn PEH-doh | Volvió en pedo de la fiesta. | sobrio
+UY.en-pedo | ehn PEH-doh | Estaba en pedo y no se acuerda de nada. | sobrio
+EC.chumado | choo-MAH-doh | Llegó chumado a la casa. | sobrio
+VE.con-una-pea | kohn OO-nah PEH-ah | Salió de la fiesta con una pea. | sobrio
+AR.yuta | SHOO-tah | Cayó la yuta a la fiesta. |
+HN.chepo | CHEH-poh | Los chepos pararon el bus. |
+ES.racano | RRAH-kah-noh | No seas rácano y paga una ronda. | generoso
+AR.amarrete | ah-mah-RREH-teh | Es tan amarrete que no invita ni un café. | generoso

@@ -1,0 +1,100 @@
+SV.lapicero | lah-pee-SEH-roh | Apuntá el número con el lapicero. |
+NI.lapicero | lah-pee-SEH-roh | Firmá aquí con el lapicero. |
+EC.esfero | ehs-FEH-roh | Se me acabó la tinta del esfero. |
+MX.engrapadora | ehn-grah-pah-DOH-rah | Pásame la engrapadora para juntar las hojas. |
+AR.abrochadora | ah-broh-chah-DOH-rah | La abrochadora se quedó sin ganchitos. |
+CO.cosedora | koh-seh-DOH-rah | ¿Dónde dejaste la cosedora? |
+ES.grapadora | grah-pah-DOH-rah | La grapadora está en el cajón de arriba. |
+ES.movil | MOH-beel | Me he dejado el móvil en casa. |
+MX.cel | SEHL | Se me descargó el cel. |
+AR.celu | SEH-loo | Te mando un mensaje al celu. |
+UY.celu | SEH-loo | Perdí el celu en el ómnibus. |
+DO.guagua | GWAH-gwah | Vamos a coger la guagua para el centro. |
+PR.guagua | GWAH-gwah | La guagua de AMA pasa cada media hora. |
+CU.guagua | GWAH-gwah | La guagua venía llenísima. |
+AR.colectivo | koh-lehk-TEE-boh | Me tomo el colectivo en la esquina. |
+AR.bondi | BOHN-dee | El bondi tardó una banda en pasar. |
+UY.omnibus | OHM-nee-boos | El ómnibus a Pocitos sale cada diez minutos. |
+UY.bondi | BOHN-dee | Me subí al bondi equivocado. |
+MX.camion | kah-MYOHN | Me tardé una hora en el camión. |
+CO.buseta | boo-SEH-tah | Cogí la buseta hasta el centro. |
+VE.camionetica | kah-myoh-neh-TEE-kah | La camionetica me deja frente a la universidad. |
+VE.buseta | boo-SEH-tah | Esa buseta va hasta Petare. |
+CL.micro | MEE-kroh | La micro venía repleta. |
+PE.combi | KOHM-bee | Me fui en combi hasta Miraflores. |
+PE.omnibus | OHM-nee-boos | El ómnibus a Arequipa sale en la noche. |
+ES.autobus | ow-toh-BOOS | Cojo el autobús a las ocho. |
+PY.colectivo | koh-lehk-TEE-boh | El colectivo pasa por la avenida. |
+EC.buseta | boo-SEH-tah | La buseta del colegio llega a las siete. |
+ES.coche | KOH-cheh | He aparcado el coche en el garaje. |
+AR.auto | OW-toh | Dejé el auto en el estacionamiento. |
+UY.auto | OW-toh | Vamos en auto a Punta del Este. |
+CL.auto | OW-toh | Se me echó a perder el auto. |
+MX.coche | KOH-cheh | Se me descompuso el coche en la carretera. |
+ES.billete | bee-YEH-teh | Ya tengo el billete de tren a Sevilla. |
+CO.tiquete | tee-KEH-teh | Compré el tiquete de avión a Cartagena. |
+AR.pasaje | pah-SAH-heh | Saqué el pasaje para Córdoba. |
+CR.tiquete | tee-KEH-teh | El tiquete de bus a Limón está barato. |
+AR.valija | bah-LEE-hah | Armé la valija para el viaje. |
+UY.valija | bah-LEE-hah | La valija no entra en el baúl. |
+DO.concho | KOHN-choh | Me fui en concho hasta la 27. |
+DO.carro-publico | KAH-rroh POO-blee-koh | El carro público iba con seis personas. |
+MX.pesero | peh-SEH-roh | Tomé un pesero hasta el metro. |
+VE.por-puesto | por PWEHS-toh | Me fui en por puesto hasta Chacao. |
+CL.colectivo | koh-lehk-TEE-boh | Tomé un colectivo hasta el centro. |
+DO.motoconcho | moh-toh-KOHN-choh | Llegué rápido en motoconcho. |
+MX.rentar | rehn-TAHR | Vamos a rentar un departamento cerca del trabajo. |
+DO.guineo | ghee-NEH-oh | Un guineo maduro para el desayuno. |
+PR.guineo | ghee-NEH-oh | Hice guineítos en escabeche. |
+VE.cambur | kahm-BOOR | Cómete un cambur, que tiene potasio. |
+CO.banano | bah-NAH-noh | Echa un banano al batido. |
+MX.platano | PLAH-tah-noh | Le puse plátano a la avena. |
+ES.platano | PLAH-tah-noh | Los plátanos de Canarias son los mejores. |
+CL.platano | PLAH-tah-noh | Compré plátanos en la feria. |
+AR.banana | bah-NAH-nah | Me comí una banana antes de correr. |
+CU.platano | PLAH-tah-noh | El plátano fruta está caro. |
+CR.banano | bah-NAH-noh | El banano de aquí es dulcísimo. |
+GT.banano | bah-NAH-noh | Desayuné banano con atol. |
+EC.guineo | ghee-NEH-oh | Mi abuela siempre tiene guineo en la cocina. |
+AR.palta | PAHL-tah | Tostadas con palta, por favor. |
+CL.palta | PAHL-tah | El completo con harta palta. |
+PE.palta | PAHL-tah | Pon palta a la causa. |
+UY.palta | PAHL-tah | Le puse palta a la ensalada. |
+BO.palta | PAHL-tah | La palta está bien madura. |
+MX.elote | eh-LOH-teh | Un elote con mayonesa y chile, por favor. |
+AR.choclo | CHOH-kloh | Hice humita con choclo. |
+CL.choclo | CHOH-kloh | El pastel de choclo de mi mamá es el mejor. |
+PE.choclo | CHOH-kloh | El choclo con queso es típico de Cusco. |
+ES.mazorca | mah-SOR-kah | Asamos unas mazorcas en la barbacoa. |
+CO.mazorca | mah-SOR-kah | Compramos mazorca asada en la calle. |
+GT.elote | eh-LOH-teh | El elote cocido con limón es delicioso. |
+HN.elote | eh-LOH-teh | En la feria venden elotes asados. |
+SV.elote | eh-LOH-teh | Hicimos atol de elote. |
+NI.elote | eh-LOH-teh | El elote asado sabe mejor con sal. |
+CR.elote | eh-LOH-teh | Comimos elote en el turno del pueblo. |
+BO.choclo | CHOH-kloh | El choclo con queso es para la merienda. |
+EC.choclo | CHOH-kloh | Unos choclos con queso fresco, por favor. |
+UY.choclo | CHOH-kloh | Hice una tarta de choclo. |
+VE.jojoto | hoh-HOH-toh | Las cachapas se hacen con jojoto tierno. |
+DO.habichuelas | ah-bee-CHWEH-lahs | Arroz con habichuelas y pollo guisado. |
+PR.habichuelas | ah-bee-CHWEH-lahs | Las habichuelas guisadas de abuela no tienen igual. |
+MX.frijoles | free-HOH-lehs | Unos frijoles refritos con queso. |
+AR.porotos | poh-ROH-tohs | El locro lleva porotos. |
+CL.porotos | poh-ROH-tohs | Hoy almorzamos porotos con riendas. |
+UY.porotos | poh-ROH-tohs | Hice un guiso de porotos. |
+VE.caraotas | kah-rah-OH-tahs | El pabellón lleva caraotas negras. |
+ES.alubias | ah-LOO-byahs | Las alubias con chorizo están buenísimas. |
+ES.judias | hoo-DEE-ahs | Hoy hay judías blancas para comer. |
+PY.porotos | poh-ROH-tohs | Compré porotos para el guiso. |
+BO.porotos | poh-ROH-tohs | La sopa lleva porotos. |
+PE.frejoles | freh-HOH-lehs | Los frejoles con seco son un clásico. |
+EC.frejoles | freh-HOH-lehs | Hicimos menestra de frejoles. |
+AR.frutilla | froo-TEE-yah | Licuado de frutilla con leche. |
+UY.frutilla | froo-TEE-yah | Compré frutillas en la feria. |
+CL.frutilla | froo-TEE-yah | Kuchen de frutilla para la once. |
+BO.frutilla | froo-TEE-yah | Las frutillas están dulces este año. |
+PY.frutilla | froo-TEE-yah | Hice jugo de frutilla. |
+EC.frutilla | froo-TEE-yah | Frutillas con crema, por favor. |
+MX.palomitas | pah-loh-MEE-tahs | Compra palomitas para la película. |
+ES.palomitas | pah-loh-MEE-tahs | Unas palomitas para el cine. |
+AR.pochoclo | poh-CHOH-kloh | Hagamos pochoclo para ver la peli. |

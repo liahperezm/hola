@@ -1,0 +1,94 @@
+UY.amarrete | ah-mah-RREH-teh | No seas amarrete y poné para el asado. | generoso
+PE.amarrete | ah-mah-RREH-teh | Ese pata es bien amarrete. | generoso
+VE.pichirre | pee-CHEE-rreh | No seas pichirre, invita algo. | espléndido
+CR.pinche | PEEN-cheh | Ese mae es muy pinche, nunca invita. | generoso
+CL.conete | koh-NYEH-teh | No seai coñete y comparte las papas. | generoso
+ES.pijo | PEE-hoh | Va de pijo con su náutico y su jersey al hombro. | hortera
+PE.pituco | pee-TOO-koh | Se cree pituco porque vive en San Isidro. | huachafo
+CL.pituco | pee-TOO-koh | Ese restaurante es muy pituco. | flaite
+AR.pituco | pee-TOO-koh | Se juntan en un bar re pituco de Recoleta. | grasa
+CO.gomelo | goh-MEH-loh | Esos gomelos solo van a fiestas en el norte. | ñero
+VE.sifrino | see-FREE-noh | No seas sifrino y come arepa. | niche
+BO.jailon | hai-LOHN | Se fue a un colegio jailón. |
+EC.pelucon | peh-loo-KOHN | Los pelucones viven en Cumbayá. |
+CU.comemierda | koh-meh-MYEHR-dah | Ese comemierda se cree mejor que todos. |
+PR.comemierda | koh-meh-MYEHR-dah | No seas comemierda, saluda a la gente. |
+MX.pipirisnais | pee-pee-rees-NAIS | Se fue a una boda bien pipirisnais. | naco
+ES.hortera | or-TEH-rah | Ese jersey es un poco hortera. | elegante
+ES.cutre | KOO-treh | El hotel era bastante cutre. | pijo; elegante
+MX.naco | NAH-koh | Qué naco ponerse eso para la boda. | fresa
+CL.flaite | FLAI-teh | Ese estilo es muy flaite. | cuico; pituco
+PE.huachafo | wah-CHAH-foh | La decoración de la fiesta era bien huachafa. | elegante
+CO.nero | NYEH-roh | No hables tan ñero. | gomelo
+VE.mane | mah-NYEH | Esa camisa es mañé. | sifrino
+AR.mandarse-una-macana | mahn-DAR-seh OO-nah mah-KAH-nah | Me mandé una macana con el auto de mi viejo. | acertar
+AR.mandarse-una-cagada | mahn-DAR-seh OO-nah kah-GAH-dah | Se mandó una cagada en el laburo. | acertar
+UY.mandarse-una-macana | mahn-DAR-seh OO-nah mah-KAH-nah | Me mandé una macana con la fecha del vuelo. | acertar
+MX.chingarla | cheen-GAR-lah | La chingué con el pedido del cliente. | atinarle
+ES.sin-un-duro | seen oon DOO-roh | Me he quedado sin un duro. | forrado
+ES.sin-blanca | seen BLAHN-kah | Estoy sin blanca hasta que cobre. | forrado
+AR.sin-un-mango | seen oon MAHN-goh | Estoy sin un mango hasta el viernes. | forrado
+UY.sin-un-mango | seen oon MAHN-goh | Quedé sin un mango después del viaje. |
+ES.enfadarse | ehn-fah-DAR-seh | No te enfades, era una broma. | contentarse
+ES.cabrearse | kah-breh-AR-seh | Se cabreó porque llegamos tarde. | calmarse
+MX.emputarse | ehm-poo-TAR-seh | Se emputó cuando vio el tráfico. | calmarse
+CO.emputarse | ehm-poo-TAR-seh | Mi papá se emputó por la cuenta de la luz. | calmarse
+VE.arrecharse | ah-rreh-CHAR-seh | No te arreches, chamo, que no fue con mala intención. | calmarse
+PE.achorarse | ah-choh-RAR-seh | No te achores, causa, ya te pago. | calmarse
+MX.que-pena | keh PEH-nah | Qué pena, se me olvidó tu nombre. |
+MX.que-oso | keh OH-soh | ¡Qué oso! Me caí enfrente de todos. |
+CO.que-pena | keh PEH-nah | Qué pena con usted, llegué tarde. |
+CO.que-oso | keh OH-soh | Qué oso, me equivoqué de salón. |
+CO.que-plancha | keh PLAHN-chah | ¡Qué plancha! Le dije el nombre de la ex. |
+CR.que-pena | keh PEH-nah | Qué pena, no le avisé. |
+GT.que-pena | keh PEH-nah | Qué pena, se me derramó el café. |
+HN.que-pena | keh PEH-nah | Qué pena, no traje el regalo. |
+SV.que-pena | keh PEH-nah | Qué pena con vos, se me olvidó. |
+NI.que-pena | keh PEH-nah | Qué pena, llegamos tarde. |
+VE.que-pena | keh PEH-nah | Qué pena contigo, no te vi. |
+PE.que-roche | keh RROH-cheh | ¡Qué roche! Me caí en plena fiesta. |
+PE.que-palta | keh PAHL-tah | Qué palta, no me acordé de su cumpleaños. |
+ES.que-corte | keh KOR-teh | ¡Qué corte! Me ha visto cantando sola. |
+AR.que-papelon | keh pah-peh-LOHN | ¡Qué papelón! Me equivoqué de casamiento. |
+UY.que-papelon | keh pah-peh-LOHN | Qué papelón el de anoche. |
+ES.cotilla | koh-TEE-yah | Mi vecina es muy cotilla. | discreto
+GT.shute | SHOO-teh | No seas shute, eso no es asunto tuyo. | discreto
+SV.chambroso | chahm-BROH-soh | Ese vecino es bien chambroso. | discreto
+CL.copuchento | koh-poo-CHEHN-toh | Mi tía es súper copuchenta. | discreto
+PR.bochinchero | boh-cheen-CHEH-roh | Ese bochinchero se entera de todo. | discreto
+VE.bochinchero | boh-cheen-CHEH-roh | No le cuentes nada, que es bochinchero. | discreto
+ES.ligar | lee-GAR | Fue a la discoteca a ligar. |
+MX.ligar | lee-GAR | Intentó ligar con la chava del gimnasio. |
+AR.tirar-onda | tee-RAR OHN-dah | Le estuvo tirando onda toda la noche. |
+AR.chamuyar | chah-moo-SHAR | Se pasó la fiesta chamuyando a la amiga. |
+CL.tirar-onda | tee-RAR OHN-dah | Le tiró onda en el carrete. |
+CL.jotear | hoh-teh-AR | Están joteando en la plaza. |
+UY.chamuyar | chah-moo-SHAR | La estaba chamuyando en el boliche. |
+PR.janguear | hahn-geh-AR | Vamos a janguear en Santurce. |
+DO.janguear | hahn-geh-AR | Nos quedamos jangueando en el malecón. |
+PA.parkear | par-keh-AR | Nos quedamos parkeando en la Cinta Costera. |
+MX.cotorrear | koh-toh-rreh-AR | Nos quedamos cotorreando hasta tarde. |
+ES.currar | koo-RRAR | Mañana me toca currar temprano. | vaguear
+MX.chambear | chahm-beh-AR | Tengo que chambear el fin de semana. | flojear
+PE.chambear | chahm-beh-AR | Estoy chambeando en Miraflores. |
+GT.chambear | chahm-beh-AR | Me fui a chambear a la capital. |
+SV.chambear | chahm-beh-AR | Mi primo chambea en San Salvador. |
+HN.chambear | chahm-beh-AR | Hay que chambear para pagar la renta. |
+AR.laburar | lah-boo-RAR | Laburo de nueve a seis. | vaguear
+UY.laburar | lah-boo-RAR | Mañana no laburo, es feriado. |
+CO.camellar | kah-meh-YAR | Me toca camellar todo el sábado. |
+CR.bretear | breh-teh-AR | Tengo que bretear temprano. |
+AR.morfar | mor-FAR | Vamos a morfar algo a la esquina. |
+UY.morfar | mor-FAR | Morfamos unas milanesas. |
+CU.jamar | hah-MAR | Vamos a jamar, que tengo hambre. |
+PE.jamar | hah-MAR | Ya, vamos a jamar un cebiche. |
+MX.chante | CHAHN-teh | Vente a mi chante a ver el partido. |
+PE.jato | HAH-toh | Me voy a mi jato a descansar. |
+PA.chantin | chahn-TEEN | Nos vemos en el chantin. |
+EC.caleta | kah-LEH-tah | Vamos a la caleta a ver una película. |
+ES.pasarlo-bomba | pah-SAR-loh BOHM-bah | Lo pasamos bomba en la boda. | pasarlo fatal
+MX.pasarla-de-pelos | pah-SAR-lah deh PEH-lohs | La pasamos de pelos en Acapulco. | pasarla gacho
+AR.pasarla-bomba | pah-SAR-lah BOHM-bah | La pasamos bomba en el recital. | pasarla mal
+CL.pasarlo-chancho | pah-SAR-loh CHAHN-choh | Lo pasamos chancho en el paseo. | pasarlo pésimo
+VE.pasarla-chevere | pah-SAR-lah CHEH-beh-reh | La pasamos chévere en la playa. |
+CO.pasarla-chevere | pah-SAR-lah CHEH-beh-reh | La pasamos chévere en el paseo de olla. |

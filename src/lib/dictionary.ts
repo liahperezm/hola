@@ -1,4 +1,5 @@
 import { DIALECTS, type DialectCode } from "./dialects";
+import { DETAILS } from "./details.generated";
 import { IMPORTED_CONCEPTS } from "./lexicon.generated";
 
 export type GuideId = "basicos" | "oficina" | "viaje" | "comida" | "dichos";
@@ -1154,7 +1155,15 @@ function buildEntries(): Map<string, Entry> {
           (index === 0 ? concept.details?.[dialect] : undefined) ??
           concept.wordDetails?.[text];
         const researched = ORIGIN_BY_ID.get(id);
-        const detail = own || researched ? { ...own, ...researched } : undefined;
+        // Written for every word; hand-written details win.
+        const written = DETAILS[id];
+        const detail =
+          own || researched || written
+            ? {
+                ...written,
+                ...Object.fromEntries(Object.entries({ ...own, ...researched }).filter(([, v]) => v !== undefined)),
+              }
+            : undefined;
         entries.set(id, {
           id,
           dialect,
