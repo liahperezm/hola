@@ -147,15 +147,38 @@ function matchesWord(token: string, word: string): "exact" | "plural" | null {
 
 type Match = { start: number; end: number; pattern: Pattern; plural: boolean };
 
+/**
+ * Patterns by their first word, so each word of the text is only compared
+ * with the phrases that could start there (and in the dictionary's order:
+ * longest first). A plural like "camiones" looks under "camion" too.
+ */
+const indexCache = new Map<Source, Map<string, number[]>>();
+
+function candidates(dialect: Source, token: string): Pattern[] {
+  const patterns = patternsFor(dialect);
+  let index = indexCache.get(dialect);
+  if (!index) {
+    index = new Map();
+    patterns.forEach((p, i) => {
+      const first = p.tokens[0] ?? "";
+      index!.set(first, [...(index!.get(first) ?? []), i]);
+    });
+    indexCache.set(dialect, index);
+  }
+  const keys = new Set([token, token.replace(/s$/, ""), token.replace(/es$/, ""), token.replace(/ses$/, "")]);
+  const found: number[] = [];
+  for (const key of keys) found.push(...(index.get(key) ?? []));
+  return found.sort((a, b) => a - b).map((i) => patterns[i]);
+}
+
 function findMatches(text: string, dialect: Source): Match[] {
   const tokens = tokenize(text);
-  const patterns = patternsFor(dialect);
   const matches: Match[] = [];
   let i = 0;
   while (i < tokens.length) {
     let found: Match | null = null;
     let length = 0;
-    for (const pattern of patterns) {
+    for (const pattern of candidates(dialect, tokens[i].norm)) {
       const words = pattern.tokens;
       if (i + words.length > tokens.length) continue;
       if (words.length === 1) {

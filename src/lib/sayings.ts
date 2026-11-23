@@ -40,6 +40,10 @@ const PATTERNS = SAYINGS.map((saying) => ({
   words: (saying.text.match(WORD) ?? []).map(loose),
 })).sort((a, b) => b.words.length - a.words.length);
 
+/** Sayings by their first word (which must match), longest first. */
+const BY_FIRST = new Map<string, typeof PATTERNS>();
+for (const p of PATTERNS) BY_FIRST.set(p.words[0], [...(BY_FIRST.get(p.words[0]) ?? []), p]);
+
 /**
  * Sayings said the same everywhere, found in a text however they are spelled,
  * so the translation can say what they mean. Sayings that belong to some
@@ -57,7 +61,7 @@ export function findSayings(text: string): SayingMatch[] {
   let i = 0;
   while (i < tokens.length) {
     let hit: { saying: Saying; length: number } | null = null;
-    for (const { saying, words } of PATTERNS) {
+    for (const { saying, words } of BY_FIRST.get(tokens[i].word) ?? []) {
       if (i + words.length > tokens.length) continue;
       const misses = words.filter((w, k) => tokens[i + k].word !== w).length;
       const allowed = words.length >= 6 ? 1 : 0;

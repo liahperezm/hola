@@ -35,6 +35,12 @@ Settings → Extensions.
 
 ## Build
 
-The scripts are in `extension-src/` (TypeScript, sharing Hola's dictionary
-code); `pnpm extension:zip` bundles them into `extension/dist` and writes the
-download.
+The scripts are in `extension-src/` (TypeScript), built from the same code
+and dictionary as the app. Every deploy (`pnpm build`) rebuilds the extension
+into `extension-build/` and the download at `/hola-extension.zip`, with a
+version stamped from the date (shown at the bottom of the popup), so the
+extension always has the app's latest words and fixes. `pnpm extension:zip`
+does the same by hand.
+
+An extension loaded with "Load unpacked" doesn't update itself: download the
+zip again. Published on the Chrome Web Store, it would update on its own.

@@ -131,7 +131,7 @@ async function start() {
   $("from-label").textContent = TEXT.from;
   $("to-label").textContent = TEXT.to;
   $("swap").setAttribute("aria-label", TEXT.swap);
-  $<HTMLAnchorElement>("open").textContent = TEXT.open;
+  $<HTMLAnchorElement>("open").textContent = `${TEXT.open} · v${chrome.runtime.getManifest().version}`;
   fill(fromSelect, true);
   fill(toSelect, false);
 

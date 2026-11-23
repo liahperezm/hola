@@ -131,7 +131,10 @@ async function translateNodes(nodes: Text[], from: Side, to: Side, cache: Map<st
   const label = (s: Side) => (s.kind === "dialect" ? DIALECTS[s.code].name : s.code.toUpperCase());
 
   if (from.kind === "dialect" && to.kind === "dialect") {
-    for (const node of nodes) {
+    for (const [i, node] of nodes.entries()) {
+      // Let the page breathe between batches, so long pages never freeze.
+      if (i > 0 && i % 150 === 0) await new Promise((r) => setTimeout(r, 0));
+      if (!node.isConnected) continue;
       const r = translateWithDictionary(node.nodeValue ?? "", from.code, to.code);
       if (r.via === "none") continue;
       const originals = r.source.filter((s) => s.highlight).map((s) => s.text);
@@ -203,7 +206,15 @@ function offerDownload(from: Side, to: Side) {
 const style = document.createElement("style");
 style.id = "hola-style";
 style.textContent = `
-  .hola-word { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+  .hola-word {
+    background: rgb(255 214 64 / 0.38);
+    box-shadow: inset 0 -2px 0 rgb(3 0 80 / 0.55);
+    border-radius: 3px;
+    padding: 0 2px;
+    margin: 0 -2px;
+    font-weight: 600;
+    cursor: help;
+  }
   #hola-download { position: fixed; z-index: 2147483647; left: 50%; bottom: 20px; transform: translateX(-50%);
     background: #030050; color: #fff; border: 0; border-radius: 999px; padding: 12px 20px;
     font: 600 15px system-ui, sans-serif; box-shadow: 0 6px 20px rgb(0 0 0 / .25); cursor: pointer; }

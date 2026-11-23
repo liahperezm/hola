@@ -6,3 +6,8 @@ next-env.d.ts
 .env
 .env*.local
 .vercel
+
+# Built on every deploy (scripts/build-extension.mjs)
+/extension-build/
+/extension/dist/
+/public/hola-extension.zip
