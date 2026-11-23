@@ -58,7 +58,8 @@ function PhraseView({
     : [];
   const tabs: { id: Tab; label: string }[] = [
     { id: "definicion", label: "Definición" },
-    { id: "origen", label: "Origen" },
+    // Only the sections there is something to show in.
+    ...(entry.origin ? [{ id: "origen" as const, label: "Origen" }] : []),
     ...(others.length > 0 ? [{ id: "otros" as const, label: "Otros países" }] : []),
   ];
   const [tab, setTab] = useState<Tab>("definicion");
@@ -124,6 +125,7 @@ function PhraseView({
         </button>
       </div>
 
+      {tabs.length > 1 && (
       <div
         role="tablist"
         aria-label={t("Secciones de la palabra")}
@@ -165,12 +167,12 @@ function PhraseView({
           </button>
         ))}
       </div>
+      )}
 
       <div
-        role="tabpanel"
-        id={`panel-${tab}`}
-        aria-labelledby={`tab-${tab}`}
-        tabIndex={0}
+        {...(tabs.length > 1
+          ? { role: "tabpanel", id: `panel-${tab}`, "aria-labelledby": `tab-${tab}`, tabIndex: 0 }
+          : {})}
         className="rounded-[22px]"
       >
         {tab === "definicion" && (
@@ -210,14 +212,10 @@ function PhraseView({
         {tab === "origen" && (
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <CountryLabel code={entry.dialect} />
-            <p lang={entry.origin ? "es" : undefined} className="mt-4 text-[17px] leading-relaxed text-body">
-              {entry.origin ? (
-                <Rich text={entry.origin} />
-              ) : (
-                t("Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo.")
-              )}
+            <p lang="es" className="mt-4 text-[17px] leading-relaxed text-body">
+              <Rich text={entry.origin ?? ""} />
             </p>
-            {learner && entry.origin && (
+            {learner && (
               <p className="mt-3 text-[13.5px] text-muted">{t("La historia está en español.")}</p>
             )}
             {entry.origin && entry.source && (
@@ -269,7 +267,7 @@ function PhraseView({
       </div>
       <SuggestButton
         variant="card"
-        label="¿Conoces otra forma de decirlo?"
+        label="¿Conoces su historia u otra forma de decirlo?"
         className="mt-6"
         word={entry.text}
         country={entry.dialect}

@@ -106,8 +106,6 @@ export const EN: Record<string, string> = {
   "Significa": "Means",
   "En español": "In Spanish",
   "Lo contrario": "Opposite",
-  "Todavía no tenemos la historia de esta palabra. ¿La conoces? Cuéntanos abajo.":
-    "We don't have this word's story yet. Do you know it? Tell us below.",
   "Fuente: {source}": "Source: {source}",
   "La historia está en español.": "The story is in Spanish.",
   "Explicación generada con IA. Puede contener errores.":
@@ -179,7 +177,7 @@ export const EN: Record<string, string> = {
   "Soy de {country}": "I'm from {country}",
   "Enviando…": "Sending…",
   "Enviar sugerencia": "Send suggestion",
-  "¿Conoces otra forma de decirlo?": "Know another way to say it?",
+  "¿Conoces su historia u otra forma de decirlo?": "Know its story or another way to say it?",
   "Ayuda a Hola a crecer": "Help Hola grow",
   // Hola Plus
   "Para quien habla con medio mundo hispano.": "For anyone who talks with half the Spanish-speaking world.",
