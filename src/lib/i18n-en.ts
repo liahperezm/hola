@@ -221,7 +221,6 @@ export const EN: Record<string, string> = {
   "No pudimos guardarte en la lista. Intenta más tarde.": "We couldn't add you to the list. Try again later.",
   "Hola Plus": "Hola Plus",
   Dichos: "Sayings",
-  "¿Qué cambió?": "What changed?",
   Refrán: "Saying",
   refrán: "saying",
   "1 refrán": "1 saying",

@@ -33,7 +33,8 @@ export async function POST(request: Request) {
 
   // Asked before: the saved answer costs nothing.
   type Answer = { translation: Translation; entries: PhraseEntry[] };
-  const question = ["translate", text, from, to];
+  // Bumped when the AI instructions change, so older answers are not reused.
+  const question = ["translate-2", text, from, to];
   const saved = await recall<Answer>("traducir", question);
   if (saved) return Response.json({ ...saved, aiAvailable: true, saved: true });
 

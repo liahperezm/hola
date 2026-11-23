@@ -57,6 +57,7 @@ const AiTranslationSchema = z.object({
       definition: z.string(),
       pronunciation: z.string(),
       example: z.string(),
+      antonyms: z.array(z.string()),
       origin: z.string(),
     }),
   ),
@@ -72,9 +73,10 @@ Reglas:
 - Los refranes, dichos y frases hechas se traducen enteros, nunca palabra por palabra: si en el país de destino hay un refrán equivalente, usa ese tal como se dice allí; si se dice igual, déjalo igual. No cambies palabras sueltas dentro de un refrán (por ejemplo, no cambies «sombrero» por «saco»: el refrán entero es otro). En "terms" pon el refrán completo como un solo término.
 - En "terms" pon cada palabra o expresión regional que cambiaste: "source" tal como aparece en el texto original, "target" tal como aparece en tu traducción.
 - "meaning": qué significa en español neutro, en pocas palabras.
-- "definition": una o dos frases que expliquen el uso en el país de origen.
+- "definition": una o dos frases sobre la palabra o expresión original: qué significa y cómo se usa en el país de origen. Habla solo de ella: no menciones el país de destino ni cómo se dice allí (eso ya se ve en la traducción).
 - "pronunciation": guía de pronunciación en sílabas al estilo inglés, con la sílaba tónica en mayúsculas (ej. "pah-ree-GWAH-yoh").
-- "example": una frase corta de ejemplo en el dialecto de origen.
+- "example": una frase corta de ejemplo en el dialecto de origen, con la palabra tal cual.
+- "antonyms": hasta tres palabras o expresiones de sentido contrario usadas en el país de origen; lista vacía si no tiene sentido hablar de contrario.
 - "origin": de dónde viene la palabra, solo si lo sabes con seguridad; si no, cadena vacía. Nunca inventes historias.
 - Todo en español.`;
 
@@ -150,6 +152,7 @@ export async function translateWithAi(
     definition: term.definition,
     pronunciation: term.pronunciation || undefined,
     example: term.example || undefined,
+    antonyms: term.antonyms.length > 0 ? term.antonyms.slice(0, 3) : undefined,
     origin: term.origin || undefined,
   }));
 
