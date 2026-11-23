@@ -9,6 +9,7 @@ import {
   type Entry,
 } from "./dictionary";
 import { findFalseFriends, type FalseFriendWarning } from "./false-friends";
+import { findSayings, type SayingMatch } from "./sayings";
 import {
   agreeAfter,
   agreeBefore,
@@ -186,7 +187,8 @@ function matchCase(replacement: string, original: string): string {
 
 type Edit =
   | { kind: "word"; start: number; end: number; match: Match }
-  | { kind: "false-friend"; start: number; end: number; friend: FalseFriendWarning };
+  | { kind: "false-friend"; start: number; end: number; friend: FalseFriendWarning }
+  | { kind: "saying"; start: number; end: number; saying: SayingMatch };
 
 /**
  * Swaps every regional word or phrase the dictionary knows, and writes words
@@ -211,9 +213,21 @@ export function localizeFromNeutral(text: string, to: DialectCode): Translation 
 
 function translateFrom(text: string, origin: Source, to: DialectCode): Translation {
   const from: DialectCode = origin === "neutral" ? to : origin;
-  const friends = origin === "neutral" ? [] : findFalseFriends(text, origin, to);
-  const overlaps = (m: Match) => friends.some((f) => m.start < f.end && m.end > f.start);
+  const sayings = findSayings(text);
+  const inSaying = (x: { start: number; end: number }) =>
+    sayings.some((m) => x.start < m.end && x.end > m.start);
+  const friends = (origin === "neutral" ? [] : findFalseFriends(text, origin, to)).filter(
+    (f) => !inSaying(f),
+  );
+  const overlaps = (m: Match) =>
+    inSaying(m) || friends.some((f) => m.start < f.end && m.end > f.start);
   const edits: Edit[] = [
+    ...sayings.map((saying) => ({
+      kind: "saying" as const,
+      start: saying.start,
+      end: saying.end,
+      saying,
+    })),
     ...friends.map((friend) => ({
       kind: "false-friend" as const,
       start: friend.start,
@@ -262,6 +276,27 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
     const before = text.slice(cursor, edit.start);
     const original = text.slice(edit.start, edit.end);
     cursor = edit.end;
+
+    if (edit.kind === "saying") {
+      const { saying, replacement } = edit.saying;
+      if (before) {
+        source.push({ text: before });
+        pushTarget({ text: before });
+      }
+      source.push({ text: original, highlight: true });
+      pushTarget({ text: matchCase(replacement, original), highlight: true });
+      if (!seen.has(`saying.${replacement}`)) {
+        seen.add(`saying.${replacement}`);
+        pairs.push({
+          from: { text: saying.text, id: "refran" },
+          to: { text: replacement },
+          // The translation already says what it means.
+          meaning: replacement === saying.es ? "refrán" : saying.es,
+          en: saying.en,
+        });
+      }
+      continue;
+    }
 
     if (edit.kind === "false-friend") {
       const { friend } = edit;
@@ -357,6 +392,10 @@ export function neutralize(
   text: string,
   from: DialectCode,
 ): { text: string; found: Entry[] } {
+  // Sayings in their usual form, so a service understands "regalao".
+  for (const m of findSayings(text).reverse()) {
+    text = text.slice(0, m.start) + m.saying.text + text.slice(m.end);
+  }
   const found: Entry[] = [];
   let out = "";
   let cursor = 0;

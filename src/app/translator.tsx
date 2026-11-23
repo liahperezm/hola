@@ -425,10 +425,18 @@ export function Translator() {
 function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) {
   const { t, language } = useT();
   if (pairs.length === 0) return null;
+  const sayings = pairs.filter((p) => p.from.id === "refran").length;
+  const words = pairs.length - sayings;
   const heading = () =>
-    pairs.length === 1
-      ? t("1 palabra regional")
-      : t("{count} palabras regionales", { count: pairs.length });
+    sayings === 0
+      ? words === 1
+        ? t("1 palabra regional")
+        : t("{count} palabras regionales", { count: words })
+      : words === 0
+        ? sayings === 1
+          ? t("1 refrán")
+          : t("{count} refranes", { count: sayings })
+        : t("Palabras y refranes");
   return (
     <section>
       <SectionTitle>
@@ -436,7 +444,18 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
       </SectionTitle>
       <ListCard>
         {pairs.map((p) => {
-          const content = (
+          const saying = p.from.id === "refran";
+          const content = saying ? (
+            <>
+              <div className="min-w-0 flex-1">
+                <p className="text-[15.5px] font-extrabold">{capitalizeFirst(p.from.text)}</p>
+                <p className="mt-0.5 text-sm text-muted">
+                  {t("Refrán")}
+                  {language === "en" && p.en ? ` · ${p.en}` : ""}
+                </p>
+              </div>
+            </>
+          ) : (
             <>
               <div className="min-w-0 flex-1">
                 <p className="flex flex-wrap items-center gap-x-2 text-[15.5px]">
@@ -462,7 +481,7 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
             </>
           );
           // A plain word has no page of its own; open the other country's word.
-          const id = p.from.id ?? p.to.id;
+          const id = saying ? undefined : (p.from.id ?? p.to.id);
           return (
             <li key={`${p.from.text}-${p.to.text}`}>
               {id ? (

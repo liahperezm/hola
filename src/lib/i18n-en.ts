@@ -223,6 +223,13 @@ export const EN: Record<string, string> = {
   "No pudimos guardarte en la lista. Intenta más tarde.": "We couldn't add you to the list. Try again later.",
   "Hola Plus": "Hola Plus",
   Dichos: "Sayings",
+  "El ejemplo y lo contrario los escribió la IA. Pueden contener errores.":
+    "The example and opposites were written by AI. They may contain mistakes.",
+  Refrán: "Saying",
+  refrán: "saying",
+  "1 refrán": "1 saying",
+  "{count} refranes": "{count} sayings",
+  "Palabras y refranes": "Words and sayings",
   "Expresiones y refranes de cada país": "Each country's expressions and sayings",
   "De compras": "Shopping",
   "Tiendas, precios y regateo": "Stores, prices and haggling",

@@ -3,7 +3,7 @@
 import { Rich } from "@/components/rich";
 import Link from "next/link";
 import { ChevronRight, Heart, Share, Volume2 } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
 import { DIALECTS, termLabel, termLabelEn } from "@/lib/dialects";
@@ -45,13 +45,47 @@ export function Phrase({ id }: { id: string }) {
   return <PhraseView entry={entry} dictionaryEntry={dictionaryEntry} />;
 }
 
+type Details = { pronunciation?: string; example?: string; antonyms?: string[] };
+
+/**
+ * The example, opposites and pronunciation a dictionary word is missing,
+ * written by the AI the first time anyone opens the word and saved for
+ * everyone after.
+ */
+function useMissingDetails(entry: Entry | undefined): Details | null {
+  const [details, setDetails] = useState<Details | null>(null);
+  const missing = entry && !(entry.example && entry.antonyms && entry.pronunciation);
+  useEffect(() => {
+    if (!entry || !missing) return;
+    let live = true;
+    fetch(`/api/details?id=${encodeURIComponent(entry.id)}`)
+      .then((r) => r.json() as Promise<{ details?: Details | null }>)
+      .then((r) => {
+        if (live && r.details) setDetails(r.details);
+      })
+      .catch(() => {});
+    return () => {
+      live = false;
+    };
+  }, [entry, missing]);
+  return details;
+}
+
 function PhraseView({
-  entry,
+  entry: given,
   dictionaryEntry,
 }: {
   entry: PhraseEntry;
   dictionaryEntry?: Entry;
 }) {
+  const extra = useMissingDetails(dictionaryEntry);
+  const entry: PhraseEntry = {
+    ...given,
+    pronunciation: given.pronunciation ?? extra?.pronunciation,
+    example: given.example ?? extra?.example,
+    antonyms: given.antonyms?.length ? given.antonyms : extra?.antonyms,
+  };
+  const aiWrote = Boolean(extra && (!given.example || !given.antonyms?.length));
   const others = dictionaryEntry
     ? otherWays(dictionaryEntry.conceptId, entry.dialect)
     : [];
@@ -201,6 +235,11 @@ function PhraseView({
                   {t("Lo contrario")}
                 </span>
                 {entry.antonyms.join(", ")}
+              </p>
+            )}
+            {aiWrote && (
+              <p className="mt-4 text-[13px] text-muted">
+                {t("El ejemplo y lo contrario los escribió la IA. Pueden contener errores.")}
               </p>
             )}
           </div>

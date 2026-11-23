@@ -1,8 +1,10 @@
 import { z } from "zod";
 import { AiRefusedError, aiAvailable, translateWithAi } from "@/lib/ai";
 import { DIALECT_CODES } from "@/lib/dialects";
+import { recall, remember, rememberNewWords } from "@/lib/memory";
+import type { PhraseEntry } from "@/lib/phrase";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
-import { translateWithDictionary } from "@/lib/translate";
+import { translateWithDictionary, type Translation } from "@/lib/translate";
 
 const Body = z.object({
   text: z.string().trim().min(1).max(2000),
@@ -29,6 +31,12 @@ export async function POST(request: Request) {
     });
   }
 
+  // Asked before: the saved answer costs nothing.
+  type Answer = { translation: Translation; entries: PhraseEntry[] };
+  const question = ["translate", text, from, to];
+  const saved = await recall<Answer>("traducir", question);
+  if (saved) return Response.json({ ...saved, aiAvailable: true, saved: true });
+
   if (!allowRequest(clientKey(request))) {
     return Response.json(
       {
@@ -48,6 +56,12 @@ export async function POST(request: Request) {
       to,
       dictionary.pairs,
     );
+    await Promise.all([
+      remember("traducir", question, { translation, entries }),
+      rememberNewWords(
+        entries.map((e) => ({ dialect: e.dialect, text: e.text, meaning: e.meaning, en: e.en, sentence: text })),
+      ),
+    ]);
     return Response.json({ translation, entries, aiAvailable: true });
   } catch (error) {
     if (!(error instanceof AiRefusedError)) console.error("AI translation failed", error);

@@ -2,8 +2,9 @@ import { z } from "zod";
 import { AiRefusedError, aiAvailable, translateForLearner } from "@/lib/ai";
 import { DIALECT_CODES } from "@/lib/dialects";
 import { LANGUAGE_CODES } from "@/lib/languages";
-import { learnWithDictionary } from "@/lib/learn";
+import { learnWithDictionary, type LearnResult } from "@/lib/learn";
 import { learnWithService, serviceAvailable } from "@/lib/learn-service";
+import { recall, remember, rememberNewWords } from "@/lib/memory";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
 
 const Body = z.object({
@@ -52,6 +53,11 @@ async function translate(request: Request, input: unknown) {
   if (dictionary.target.length > 0 || !which) {
     return Response.json({ result: dictionary });
   }
+  // Asked before: the saved answer costs nothing.
+  const question = [which, text, dialect, direction, language];
+  const saved = await recall<LearnResult>("aprender", question);
+  if (saved) return Response.json({ result: { ...saved, source: text }, saved: true });
+
   // Keeps one person from using up the free allowance (or the AI budget).
   if (!allowRequest(`learn:${clientKey(request)}`, which === "ai" ? 20 : 60)) {
     return Response.json(
@@ -64,6 +70,15 @@ async function translate(request: Request, input: unknown) {
       which === "ai"
         ? await translateForLearner(text, dialect, direction, language)
         : await learnWithService(text, dialect, direction, language);
+    await Promise.all([
+      remember("aprender", question, result),
+      // Words the AI explained that have no page yet.
+      rememberNewWords(
+        result.words
+          .filter((w) => !w.id)
+          .map((w) => ({ dialect, text: w.spanish, en: w.english, sentence: text })),
+      ),
+    ]);
     return Response.json({ result });
   } catch (error) {
     if (!(error instanceof AiRefusedError)) console.error("Learner translation failed", error);

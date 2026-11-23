@@ -323,3 +323,11 @@ describe("dichos", () => {
     expect(rows).toContainEqual(["como una cabra", "del tomate"]);
   });
 });
+
+describe("sayings said everywhere", () => {
+  it("come out as what they mean, however they were spelled", () => {
+    const r = translateWithDictionary("A caballo regalao no se le miran lo diente", "DO", "AR");
+    expect(join(r.target)).toBe("No hay que ponerle defectos a lo que te regalan");
+    expect(r.pairs[0]).toMatchObject({ from: { text: "a caballo regalado no se le mira el diente" }, meaning: "refrán" });
+  });
+});
