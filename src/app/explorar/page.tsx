@@ -21,6 +21,7 @@ import { termLabel, termLabelEn } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
 import { useDialectPair } from "@/lib/storage";
 import { LearningChip } from "@/components/learning";
+import { allSayings, sayingSlug } from "@/lib/sayings";
 import {
   GUIDES,
   allEntries,
@@ -41,6 +42,7 @@ export default function Explore() {
   const { t, language, country } = useT();
   const [query, setQuery] = useState("");
   const results = useMemo(() => search(query), [query]);
+  const sayings = useMemo(() => searchSayings(query), [query]);
 
   return (
     <TabScreen>
@@ -50,9 +52,9 @@ export default function Explore() {
         <SearchField value={query} onChange={setQuery} />
       </div>
 
-      <ResultCount count={results.length} active={query.trim() !== ""} />
+      <ResultCount count={results.length + sayings.length} active={query.trim() !== ""} />
       {query.trim() ? (
-        results.length === 0 ? (
+        results.length + sayings.length === 0 ? (
           <>
             <EmptyState title={t("No encontramos «{query}»", { query: query.trim() })}>
               {t("Prueba con otra palabra o tradúcela en la pestaña Traducir.")}
@@ -68,6 +70,20 @@ export default function Explore() {
         ) : (
           <div className="mt-4">
             <ListCard>
+              {sayings.map((s) => (
+                <li key={s.text}>
+                  <Link href={`/refranes/${sayingSlug(s)}`} className="flex items-center gap-3 py-3">
+                    <span aria-hidden className="w-6 text-center text-lg">🗣️</span>
+                    <div className="min-w-0 flex-1">
+                      <p className="font-bold">{capitalize(s.text)}</p>
+                      <p className="truncate text-sm text-muted">
+                        {t("Refrán")} · {language === "en" ? s.en : s.es}
+                      </p>
+                    </div>
+                    <ChevronRight className="size-[18px] shrink-0 text-muted" />
+                  </Link>
+                </li>
+              ))}
               {results.map((entry) => (
                 <li key={entry.id}>
                   <Link
@@ -97,17 +113,35 @@ export default function Explore() {
               <li key={guide.id}>
                 <Link
                   href={`/guias/${guide.id}`}
-                  className={`relative flex h-[126px] flex-col justify-end rounded-[24px] px-[18px] py-4 transition active:scale-[0.98] ${TILE_COLORS[guide.id]}`}
+                  className={`flex min-h-[126px] flex-col rounded-[24px] px-[18px] pt-3 pb-4 transition active:scale-[0.98] ${TILE_COLORS[guide.id]}`}
                 >
-                  <span aria-hidden className="absolute top-3 left-4 text-[32px]">
+                  <span aria-hidden className="text-[30px] leading-none">
                     {guide.emoji}
                   </span>
-                  <span className="text-[18px] font-bold">{t(guide.title)}</span>
+                  <span className="mt-auto pt-3 text-[18px] leading-tight font-bold">{t(guide.title)}</span>
                   <span className="text-[12.5px] text-body">{t(guide.subtitle)}</span>
                 </Link>
               </li>
             ))}
+            <li className="col-span-2">
+              <Link
+                href="/refranes"
+                className="flex items-center gap-4 rounded-[24px] bg-peach px-[18px] py-4 transition active:scale-[0.99]"
+              >
+                <span aria-hidden className="text-[30px] leading-none">
+                  🗣️
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[18px] leading-tight font-bold">{t("Refranes y dichos")}</span>
+                  <span className="block text-[12.5px] text-body">
+                    {t("Lo que se dice en cada país, y lo que quiere decir")}
+                  </span>
+                </span>
+                <ChevronRight aria-hidden className="size-5 shrink-0" />
+              </Link>
+            </li>
           </ul>
+          <SectionTitle>{t("Con Hola Plus")}</SectionTitle>
           <PlusGuideTiles />
           <SuggestButton
             variant="card"
@@ -179,6 +213,12 @@ function WordOfTheDay() {
       </p>
     </Link>
   );
+}
+
+function searchSayings(query: string) {
+  const q = normalize(query);
+  if (q.length < 3) return [];
+  return allSayings().filter((s) => [s.text, s.es, s.en].some((f) => normalize(f).includes(q))).slice(0, 10);
 }
 
 function search(query: string) {

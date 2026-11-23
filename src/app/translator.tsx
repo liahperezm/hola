@@ -297,18 +297,6 @@ export function Translator() {
 
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 
-          {!loading && result.via === "dictionary" && aiAvailable && (
-            <button
-              type="button"
-              onClick={() =>
-                void askAi(join(result.source), result.from, result.to, true)
-              }
-              className="mx-auto mt-4 flex items-center gap-2 text-[13.5px] font-semibold text-muted hover:text-navy"
-            >
-              <Sparkles className="size-4" />
-              {t("Revisar toda la frase con IA")}
-            </button>
-          )}
           {!loading && result.via === "ai" && (
             <p className="mt-4 flex items-center justify-center gap-2 text-[13.5px] text-muted">
               <Sparkles className="size-4" />
@@ -437,17 +425,38 @@ export function Translator() {
 function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) {
   const { t, language } = useT();
   if (pairs.length === 0) return null;
+  const sayings = pairs.filter((p) => p.from.id?.startsWith("refran.")).length;
+  const words = pairs.length - sayings;
+  const heading = () =>
+    sayings === 0
+      ? words === 1
+        ? t("1 palabra regional")
+        : t("{count} palabras regionales", { count: words })
+      : words === 0
+        ? sayings === 1
+          ? t("1 refrán")
+          : t("{count} refranes", { count: sayings })
+        : t("Palabras y refranes");
   return (
     <section>
       <SectionTitle>
-        {title ??
-          (pairs.length === 1
-            ? t("1 palabra regional")
-            : t("{count} palabras regionales", { count: pairs.length }))}
+        {title ?? heading()}
       </SectionTitle>
       <ListCard>
         {pairs.map((p) => {
-          const content = (
+          const saying = p.from.id?.startsWith("refran.");
+          const content = saying ? (
+            <>
+              <div className="min-w-0 flex-1">
+                <p className="text-[15.5px] font-extrabold">{capitalizeFirst(p.from.text)}</p>
+                <p className="mt-0.5 text-sm text-muted">
+                  {t("Refrán")}
+                  {language === "en" && p.en ? ` · ${p.en}` : ""}
+                </p>
+              </div>
+              <ChevronRight className="size-[18px] shrink-0 text-muted" />
+            </>
+          ) : (
             <>
               <div className="min-w-0 flex-1">
                 <p className="flex flex-wrap items-center gap-x-2 text-[15.5px]">
@@ -478,7 +487,7 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
             <li key={`${p.from.text}-${p.to.text}`}>
               {id ? (
                 <Link
-                  href={`/frase/${id}`}
+                  href={id.startsWith("refran.") ? `/refranes/${id.slice(7)}` : `/frase/${id}`}
                   className="flex items-center gap-3 py-3"
                 >
                   {content}

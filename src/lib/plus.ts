@@ -53,10 +53,10 @@ export function useSentenceAllowance() {
 
 /** Phrasebooks that come with Plus, shown locked in Explore. */
 export const PLUS_GUIDES = [
-  { id: "jerga", emoji: "😎", title: "Jerga y dichos", subtitle: "Calle y refranes", color: "bg-lavender" },
-  { id: "salir", emoji: "🎉", title: "De fiesta", subtitle: "Bares, música y planes", color: "bg-sky" },
-  { id: "medico", emoji: "🩺", title: "En el médico", subtitle: "Síntomas y farmacia", color: "bg-mint" },
-  { id: "familia", emoji: "💛", title: "Familia y amor", subtitle: "Cariño, apodos y la suegra", color: "bg-butter" },
+  { id: "jerga", emoji: "😎", title: "Jerga y dichos", subtitle: "Como se habla en la calle", color: "bg-stone" },
+  { id: "salir", emoji: "🎉", title: "De fiesta", subtitle: "Bares, música y planes", color: "bg-fog" },
+  { id: "medico", emoji: "🩺", title: "En el médico", subtitle: "Síntomas y farmacia", color: "bg-sage" },
+  { id: "familia", emoji: "💛", title: "Familia y amor", subtitle: "Cariño, apodos y la suegra", color: "bg-sand" },
 ] as const;
 
 export const PLUS_FEATURES = [

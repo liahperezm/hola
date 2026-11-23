@@ -9,7 +9,7 @@ import {
   type Entry,
 } from "./dictionary";
 import { findFalseFriends, type FalseFriendWarning } from "./false-friends";
-import { findSayings, type SayingMatch } from "./sayings";
+import { findSayings, sayingSlug, type SayingMatch } from "./sayings";
 import {
   agreeAfter,
   agreeBefore,
@@ -288,7 +288,7 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
       if (!seen.has(`saying.${replacement}`)) {
         seen.add(`saying.${replacement}`);
         pairs.push({
-          from: { text: saying.text },
+          from: { text: saying.text, id: `refran.${sayingSlug(saying)}` },
           to: { text: replacement },
           // The translation already says what it means.
           meaning: replacement === saying.es ? "refrán" : saying.es,

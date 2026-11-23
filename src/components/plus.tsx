@@ -56,21 +56,21 @@ export function PlusCard() {
 export function PlusGuideTiles() {
   const { t } = useT();
   return (
-    <ul className="mt-3 grid grid-cols-2 gap-3">
+    <ul className="grid grid-cols-2 gap-3">
       {PLUS_GUIDES.map((guide) => (
         <li key={guide.id}>
           <Link
             href="/plus"
-            className={`relative flex h-[126px] flex-col justify-end rounded-[24px] px-[18px] py-4 transition active:scale-[0.98] ${guide.color}`}
+            className={`relative flex min-h-[126px] flex-col rounded-[24px] px-[18px] pt-3 pb-4 transition active:scale-[0.98] ${guide.color}`}
           >
-            <span aria-hidden className="absolute top-3 left-4 text-[32px]">
+            <span aria-hidden className="text-[30px] leading-none">
               {guide.emoji}
             </span>
             <span className="absolute top-3.5 right-3.5 flex items-center gap-1 rounded-full bg-white px-2 py-1 text-[11.5px] font-bold">
               <Lock aria-hidden className="size-3" />
               Plus
             </span>
-            <span className="text-[18px] font-bold">{t(guide.title)}</span>
+            <span className="mt-auto pt-3 text-[18px] leading-tight font-bold">{t(guide.title)}</span>
             <span className="text-[12.5px] text-body">{t(guide.subtitle)}</span>
           </Link>
         </li>

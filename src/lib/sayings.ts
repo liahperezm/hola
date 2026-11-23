@@ -20,6 +20,24 @@ export type SayingMatch = {
   replacement: string;
 };
 
+/** The saying's address: "a-caballo-regalado-no-se-le-mira-el-diente". */
+export function sayingSlug(saying: Saying): string {
+  return normalize(saying.text).replace(/\s+/g, "-");
+}
+
+export function allSayings(): Saying[] {
+  return [...SAYINGS].sort((a, b) => a.text.localeCompare(b.text, "es"));
+}
+
+export function getSaying(slug: string): Saying | undefined {
+  return SAYINGS.find((s) => sayingSlug(s) === slug);
+}
+
+/** Other sayings that mean the same ("a quien madruga…" and "el que madruga…"). */
+export function sameMeaning(saying: Saying): Saying[] {
+  return SAYINGS.filter((s) => s.en === saying.en && s.text !== saying.text);
+}
+
 const ARTICLES = new Set(["el", "la", "lo", "los", "las"]);
 
 /**
