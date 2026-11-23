@@ -3,7 +3,7 @@ import { sharedText } from "./draft";
 import type { DialectCode } from "./dialects";
 import { allEntries, getEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { warningText } from "./false-friends";
-import { translateWithDictionary } from "./translate";
+import { translateAnyCountry, translateWithDictionary, worthAskingAi } from "./translate";
 
 const join = (segments: { text: string }[]) =>
   segments.map((s) => s.text).join("");
@@ -359,5 +359,19 @@ describe("sayings with their own version in each country", () => {
     expect(t("Al que le quede el saco, que se lo ponga", "AR", "MX")).toBe(
       "Al que le quede el saco, que se lo ponga",
     );
+  });
+});
+
+describe("words from another country", () => {
+  it("are found even when the text's country doesn't use them", () => {
+    const r = translateAnyCountry("palta", "MX", "DO");
+    expect(join(r.target)).toBe("aguacate");
+    expect(r.via).toBe("dictionary");
+  });
+
+  it("only sentences are worth the AI", () => {
+    expect(worthAskingAi("palta")).toBe(false);
+    expect(worthAskingAi("diablo mami")).toBe(false);
+    expect(worthAskingAi("ta de todo el día")).toBe(true);
   });
 });

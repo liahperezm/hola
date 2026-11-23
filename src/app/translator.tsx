@@ -31,7 +31,9 @@ import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
 import { rememberAiEntries, useDialectPair, useOtherLanguage, useSeen } from "@/lib/storage";
 import {
+  translateAnyCountry,
   translateWithDictionary,
+  worthAskingAi,
   type Segment,
   type TermPair,
   type Translation,
@@ -140,10 +142,10 @@ export function Translator() {
       request.current++;
       setLoading(null);
       setError(null);
-      const local = translateWithDictionary(clean, from, to);
+      const local = translateAnyCountry(clean, from, to);
       setResult(local);
       tip.markSeen();
-      if (local.via === "none" && aiAvailable && from !== to) {
+      if (local.via === "none" && aiAvailable && from !== to && worthAskingAi(clean)) {
         void askAi(clean, from, to, false);
       }
     },

@@ -4,7 +4,7 @@ import { DIALECT_CODES } from "@/lib/dialects";
 import { recall, remember, rememberNewWords } from "@/lib/memory";
 import type { PhraseEntry } from "@/lib/phrase";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
-import { translateWithDictionary, type Translation } from "@/lib/translate";
+import { translateAnyCountry, worthAskingAi, type Translation } from "@/lib/translate";
 
 const Body = z.object({
   text: z.string().trim().min(1).max(2000),
@@ -21,8 +21,9 @@ export async function POST(request: Request) {
   }
   const { text, from, to, useAi } = parsed.data;
 
-  const dictionary = translateWithDictionary(text, from, to);
-  const wantsAi = useAi || dictionary.via === "none";
+  const dictionary = translateAnyCountry(text, from, to);
+  // Words and short phrases are dictionary lookups; the AI is for sentences.
+  const wantsAi = (useAi || dictionary.via === "none") && worthAskingAi(text);
   if (!wantsAi || !aiAvailable() || from === to) {
     return Response.json({
       translation: dictionary,

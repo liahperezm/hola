@@ -6,6 +6,7 @@ import { learnWithDictionary, type LearnResult } from "@/lib/learn";
 import { learnWithService, serviceAvailable } from "@/lib/learn-service";
 import { recall, remember, rememberNewWords } from "@/lib/memory";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
+import { worthAskingAi } from "@/lib/translate";
 
 const Body = z.object({
   text: z.string().trim().min(1).max(2000),
@@ -47,7 +48,8 @@ async function translate(request: Request, input: unknown) {
   }
   const { text, dialect, direction, language } = parsed.data;
   const dictionary = learnWithDictionary(text, dialect, direction, language);
-  const which = engine();
+  // A word or two is a lookup: the free service handles it, never the AI.
+  const which = worthAskingAi(text) ? engine() : serviceAvailable() ? "service" : null;
 
   // A single word the dictionary knows needs no service at all.
   if (dictionary.target.length > 0 || !which) {

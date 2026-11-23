@@ -1,4 +1,4 @@
-import { DIALECTS, type DialectCode } from "./dialects";
+import { DIALECTS, PICKABLE_DIALECTS, type DialectCode } from "./dialects";
 import {
   entriesFor,
   equivalent,
@@ -201,6 +201,34 @@ export function translateWithDictionary(
   to: DialectCode,
 ): Translation {
   return translateFrom(text, from, to);
+}
+
+/**
+ * Like translateWithDictionary, but when the chosen country's words find
+ * nothing, the text may use another country's words ("palta" typed with
+ * Mexico chosen): the country whose dictionary explains the most of it
+ * translates it, before anyone thinks of asking the AI.
+ */
+export function translateAnyCountry(text: string, from: DialectCode, to: DialectCode): Translation {
+  const own = translateWithDictionary(text, from, to);
+  if (own.via !== "none") return own;
+  let best = own;
+  let found = 0;
+  for (const other of PICKABLE_DIALECTS) {
+    if (other === from || other === to) continue;
+    const result = translateWithDictionary(text, other, to);
+    const words = result.pairs.filter((p) => p.from.id).length;
+    if (words > found) {
+      best = result;
+      found = words;
+    }
+  }
+  return best;
+}
+
+/** Few words: a lookup, not a sentence. The AI is only worth it for sentences. */
+export function worthAskingAi(text: string): boolean {
+  return (text.match(/[\p{L}\p{N}]+/gu) ?? []).length >= 3;
 }
 
 /**
