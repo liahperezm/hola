@@ -10,7 +10,25 @@ import { findFalseFriends } from "./false-friends";
 import type { PhraseEntry } from "./phrase";
 import type { Segment, TermPair, Translation } from "./translate";
 
-const MODEL = "claude-opus-5-5";
+/*
+ * AI_MODEL picks the model: claude-haiku-5-5 (default, cheapest),
+ * claude-sonnet-5-5, or claude-opus-5-5. Sonnet and Opus fall back to another
+ * model when they decline; Haiku has no fallback, so a decline shows the
+ * dictionary's words instead.
+ */
+const MODELS = ["claude-haiku-5-5", "claude-sonnet-5-5", "claude-opus-5-5"] as const;
+
+export function aiModel(): (typeof MODELS)[number] {
+  const chosen = process.env.AI_MODEL;
+  return MODELS.find((m) => m === chosen) ?? "claude-haiku-5-5";
+}
+
+function modelSettings() {
+  const model = aiModel();
+  return model === "claude-haiku-5-5"
+    ? { model }
+    : { model, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const };
+}
 
 export function aiAvailable(): boolean {
   return Boolean(process.env.ANTHROPIC_API_KEY);
@@ -103,10 +121,8 @@ export async function translateWithAi(
     .join("\n\n");
 
   const response = await getClient().beta.messages.parse({
-    model: MODEL,
+    ...modelSettings(),
     max_tokens: 8000,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
     output_config: {
       effort: "low",
       format: betaZodOutputFormat(AiTranslationSchema),
@@ -157,10 +173,8 @@ export async function readPhoto(
   mediaType: PhotoMediaType,
 ): Promise<string> {
   const response = await getClient().beta.messages.parse({
-    model: MODEL,
+    ...modelSettings(),
     max_tokens: 8000,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
     output_config: {
       effort: "low",
       format: betaZodOutputFormat(PhotoTextSchema),
@@ -232,10 +246,8 @@ export async function translateForLearner(
 ): Promise<LearnResult> {
   const country = DIALECTS[dialect].name;
   const response = await getClient().beta.messages.parse({
-    model: MODEL,
+    ...modelSettings(),
     max_tokens: 8000,
-    betas: ["server-side-fallback-2026-07-01"],
-    fallbacks: "default",
     output_config: { effort: "low", format: betaZodOutputFormat(LearnerSchema) },
     system: learnerSystem(country, direction, dictionaryHints(dialect), LANGUAGE_NAMES_ES[language]),
     messages: [{ role: "user", content: text }],
