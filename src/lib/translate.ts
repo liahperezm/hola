@@ -395,7 +395,11 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
     }
     let clean = word.replace(EDGE_PUNCTUATION, "");
     // "¡Qué chimba!" → "¡Qué copado!", not "¡Copado!"
-    if (normalize(pattern.text).startsWith("que ") && !normalize(clean).startsWith("que ")) {
+    if (
+      ADJECTIVE_CONCEPTS.has(pattern.conceptId) &&
+      normalize(pattern.text).startsWith("que ") &&
+      !normalize(clean).startsWith("que ")
+    ) {
       clean = `qué ${clean}`;
     }
     // People keep their gender ("la canche" → "la rubia", "su jeva" → "su

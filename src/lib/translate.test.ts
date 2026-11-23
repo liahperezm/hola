@@ -429,3 +429,10 @@ describe("Dominican 'ta'", () => {
     expect(suggestCountry("eso ta de to", "DO", "AR")).toBeNull();
   });
 });
+
+describe("set phrases with qué", () => {
+  it("keep their own words: «¡Qué onda!» isn't «¡Qué cómo tú tá!»", () => {
+    expect(join(translateWithDictionary("¡Qué onda, güey!", "MX", "DO").target)).toBe("¡Cómo tú tá, ey tú!");
+    expect(join(translateWithDictionary("¡Qué chimba de rumba!", "CO", "AR").target)).toBe("¡Qué copado de joda!");
+  });
+});
