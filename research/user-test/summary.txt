@@ -1,0 +1,53 @@
+Personas: 117. Phrases: 234.
+Regional words expected: 268; recognized: 250 (93%).
+Wrong country hints: 0. Wrong language hints: 0. Would ask the AI: 20.
+
+AR: 19/20  missed: mandar una macana
+BO: 11/12  missed: casera
+CL: 14/16  missed: once, harto
+CO: 14/15  missed: mamera
+CR: 12/13  missed: rojos
+CU: 14/15  missed: fula
+EC: 12/12  missed: -
+SV: 10/10  missed: -
+ES: 14/18  missed: vale, mola, flipar, la leche
+GT: 10/10  missed: -
+GQ: 0/0  missed: -
+HN: 14/14  missed: -
+MX: 15/16  missed: aguas
+NI: 10/10  missed: -
+PA: 10/11  missed: juega vivo
+PY: 9/10  missed: tereré
+PE: 12/12  missed: -
+PR: 11/13  missed: wepa, chinchorreo
+DO: 14/14  missed: -
+UY: 12/12  missed: -
+VE: 13/15  missed: ladilla, arrecho
+
+Wrong hints:
+
+Foreign speakers:
+  en→DO «I want popcorn before we take the bus» detected=en ok=true offline=""
+  en→DO «Where is the nearest pharmacy?» detected=en ok=true offline=""
+  en→MX «I will send you the proposal tomorrow» detected=en ok=true offline=""
+  en→MX «Let's grab a beer after the meeting» detected=en ok=true offline=""
+  en→PR «My grandma always says I should visit the island» detected=en ok=true offline=""
+  en→PR «Let's hang out at the beach this weekend» detected=en ok=true offline=""
+  pt→AR «Eu quero alugar um apartamento perto do trabalho» detected=pt ok=true offline=""
+  pt→AR «Você sabe onde fica o ponto de ônibus?» detected=pt ok=true offline=""
+  fr→CU «Je veux prendre le bus pour aller à la plage» detected=fr ok=true offline=""
+  fr→CU «Combien coûte une bière?» detected=fr ok=true offline=""
+  ht→DO «Mwen bezwen travay demen maten» detected=ht ok=true offline=""
+  ht→DO «Kote mwen ka pran bis la?» detected=ht ok=true offline=""
+  de→CO «Ich möchte heute Abend mit meinen Freunden feiern» detected=de ok=true offline=""
+  de→CO «Wo ist die nächste Bushaltestelle?» detected=de ok=true offline=""
+  it→AR «Voglio prendere un caffè prima della riunione» detected=it ok=true offline=""
+  it→AR «Dove posso comprare una SIM per il telefono?» detected=it ok=true offline=""
+  zh→PE «我想在会议之前喝杯咖啡» detected=zh ok=true offline=""
+  zh→PE «公交车站在哪里» detected=zh ok=true offline=""
+  ja→MX «バスはどこから出ますか» detected=ja ok=true offline=""
+  ja→MX «この料理は辛いですか» detected=ja ok=true offline=""
+  ko→CL «버스 정류장이 어디예요» detected=ko ok=true offline=""
+  ko→CL «회의 전에 커피를 마시고 싶어요» detected=ko ok=true offline=""
+  ar→ES «أريد أن أشرب القهوة قبل الاجتماع» detected=ar ok=true offline=""
+  ar→ES «أين محطة الحافلات» detected=ar ok=true offline=""

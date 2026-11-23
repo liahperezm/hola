@@ -15,7 +15,7 @@ import {
   Volume2,
   X,
 } from "lucide-react";
-import { detectDialect } from "@/lib/detect";
+import { suggestCountry } from "@/lib/detect";
 import { detectLanguage } from "@/lib/detect-language";
 import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
 import { DidYouMean } from "@/components/did-you-mean";
@@ -33,7 +33,6 @@ import { photoToJpegBase64 } from "@/lib/photo";
 import { speak, useDictation } from "@/lib/speech";
 import { rememberAiEntries, useDialectPair, useOtherLanguage, useSeen } from "@/lib/storage";
 import {
-  translateAnyCountry,
   translateWithDictionary,
   worthAskingAi,
   type Segment,
@@ -134,10 +133,7 @@ export function Translator() {
       // Another language, or another country's Spanish: ask, don't switch.
       const language = detect ? detectLanguage(clean) : null;
       const country =
-        !detect || (language && language !== "es")
-          ? null
-          : (detectDialect(clean, from)?.dialect ??
-            (local.via === "none" ? translateAnyCountry(clean, from, to) : null)?.from);
+        !detect || (language && language !== "es") ? null : suggestCountry(clean, from, to);
       const next: Hint | null =
         language && language !== "es"
           ? { kind: "language", code: language }
@@ -169,7 +165,7 @@ export function Translator() {
     if (lastPair.current.from === pair.from && lastPair.current.to === pair.to) return;
     lastPair.current = pair;
     setHint(null);
-    if (result) translate(text, { detect: false });
+    if (result) translate(text);
   }, [pair, result, text, translate]);
 
   useEffect(() => {
@@ -358,7 +354,7 @@ export function Translator() {
             e.preventDefault();
             translate(text);
           }}
-          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] bg-white px-[22px] py-[22px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy"
+          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] [@media(max-height:700px)]:min-h-[280px] bg-white px-[22px] py-[22px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy"
         >
           <div className="flex items-center justify-between">
             <CountryLabel code={pair.from} />

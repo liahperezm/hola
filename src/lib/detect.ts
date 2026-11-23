@@ -1,5 +1,6 @@
 import { DIALECT_CODES, type DialectCode } from "./dialects";
 import { allEntries, neutralWords, normalize } from "./dictionary";
+import { translateAnyCountry, translateWithDictionary } from "./translate";
 
 /*
  * Which country's Spanish a text is in, from its regional words. A word used
@@ -78,4 +79,21 @@ export function detectDialect(text: string, current?: DialectCode): Detection | 
   const second = ranked[1]?.[1] ?? 0;
   if (top - second < 0.25) return null;
   return { dialect: best, words: evidence.get(best) ?? [] };
+}
+
+/**
+ * Whether to ask "¿Es español de …?" for a text typed as `from`'s Spanish.
+ * A short text needs one word from the other country; a sentence needs two,
+ * since one word can belong to many places ("coche", "bocadillos").
+ */
+export function suggestCountry(text: string, from: DialectCode, to: DialectCode): DialectCode | null {
+  const long = normalize(text).split(" ").filter(Boolean).length > 4;
+  const found = detectDialect(text, from);
+  if (found) return !long || new Set(found.words).size >= 2 ? found.dialect : null;
+  if (translateWithDictionary(text, from, to).via !== "none") return null;
+  const elsewhere = translateAnyCountry(text, from, to);
+  const words = elsewhere.pairs.filter((p) => p.from.id).length;
+  return elsewhere.via !== "none" && elsewhere.from !== from && (!long || words >= 2)
+    ? elsewhere.from
+    : null;
 }

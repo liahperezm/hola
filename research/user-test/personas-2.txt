@@ -1,0 +1,224 @@
+@ GQ
+Teresa Nchama | 34 | Malabo | funcionaria de un ministerio | trabajo | ES
+> Voy a mandar el informe al ministerio de Madrid | 
+> El taxi me cobró mil francos | 
+Pedro Ondo | 29 | Bata | taxista | viaje | ES
+> Mi hermano está en España, me mandó dinero | 
+> Vamos al mercado de Malabo | 
+Esperanza Mangue | 21 | Malabo | estudiante en la UNGE | aprender | ES
+> Quiero estudiar en Madrid el año que viene | 
+> Mi cuñado me prestó el coche | 
+Santiago Obiang | 47 | Ebebiyín | profesor | curiosidad | MX
+> En mi pueblo hablamos fang y español | 
+> Ese chico es muy listo | 
+Rosa Bindang | 38 | Bata | dueña de un restaurante | familia | ES
+> Hice pescado con yuca para la familia | 
+> La comida está muy rica | 
+
+@ HN
+Carlos Mejía | 33 | Tegucigalpa | ingeniero de sistemas | trabajo | MX
+> Qué macizo quedó el proyecto, maje | macizo; maje
+> Tengo que chambear el sábado | chambear
+María Zelaya | 26 | San Pedro Sula | vendedora | social | SV
+> Mi alero me acompañó al centro | alero
+> ¡Puchica, maje, perdimos el bus! | puchica; maje
+Luis Banegas | 50 | La Ceiba | pescador | viaje | CR
+> Los chepos pararon el bus | chepos
+> Compré una baleada en la pulpería | pulpería
+Ana Flores | 21 | Comayagua | estudiante en Houston | familia | MX
+> El cipote está jugando con un chunche | cipote; chunche
+> Ese chele es gringo | chele
+Jorge Aguilar | 42 | Choluteca | taxista | curiosidad | ES
+> ¿Tenés pisto para la pulpería? | pisto; pulpería
+> Llegó bolo a la casa | bolo
+
+@ MX
+Mariana López | 29 | Ciudad de México | gerente de marketing | trabajo | AR
+> Neta, la presentación quedó bien chida | neta; chida
+> Ahorita te mando el archivo | ahorita
+José Hernández | 38 | Guadalajara | viajero que va a Santo Domingo | viaje | DO
+> Vamos a tomar el camión al centro | camión
+> Quiero unas chelas bien frías, güey | chelas; güey
+Fernanda Ruiz | 20 | Monterrey | estudiante | social | CO
+> ¡No manches, güey! Qué oso | no manches; güey; qué oso
+> Esa fiesta estuvo bien padre | padre
+Guadalupe Torres | 64 | Puebla | abuela con hija en Madrid | familia | ES
+> El chamaco no quiere hacer la tarea | chamaco
+> Ponte la chamarra, que va a llover | chamarra
+Ricardo Silva | 45 | Tijuana | contratista | curiosidad | CL
+> ¡Aguas! Que viene el camión | aguas; camión
+> Ese cuate tiene mucha lana | cuate; lana
+
+@ NI
+Karen Úbeda | 28 | Managua | contadora | trabajo | CR
+> Ese chunche ya no sirve | chunche
+> Dale pues, nos vemos a las tres | dale pues
+Róger Sandino | 46 | León | taxista | viaje | HN
+> Ese chele pagó en dólares | chele
+> La moto está tuani | tuani
+Mayra Cruz | 23 | Granada | estudiante | social | SV
+> Vino con la jaña al concierto | jaña
+> ¡Ponete chiva, que viene el bus! | ponete chiva
+Francisco Gómez | 57 | Masaya | artesano | familia | CR
+> El chigüín se quedó dormido en la hamaca | chigüín
+> No tengo reales para el pasaje | reales
+Lesbia Pérez | 35 | Estelí | maestra | curiosidad | ES
+> ¡Chocho, qué calor hace! | chocho
+> ¿Qué onda, maje? | maje
+
+@ PA
+Ana Batista | 30 | Ciudad de Panamá | abogada | trabajo | CO
+> ¿Qué xopá, fren? Te mando el contrato | qué xopá; fren
+> El tranque en la Transístmica está terrible | tranque
+Luis Castillo | 26 | Colón | DJ | social | PR
+> Nos vemos en el chantin | chantin
+> Ese celular está priti | priti
+Yaritza Gómez | 41 | David | enfermera | familia | CR
+> El pelao se fue a la playa con los primos | pelao
+> Hay buco de gente en el mercado | buco
+Roberto Arosemena | 52 | Panamá | empresario | viaje | MX
+> Nos quedamos parkeando en la Cinta Costera | parkear
+> Ese man juega vivo con todo | juega vivo
+Kathia Ríos | 20 | Chitré | estudiante | curiosidad | ES
+> Un chicheme con carrizo, por favor | carrizo
+> ¡Chuleta, se me olvidó la cartera! | chuleta
+
+@ PY
+Lorena Benítez | 32 | Asunción | ingeniera | trabajo | AR
+> Cargá nafta antes del viaje | nafta
+> Se me perdió la birome | birome
+Carlos Giménez | 45 | Ciudad del Este | comerciante | viaje | UY
+> ¡Nderakore! ¿Otra vez llueve? | nderakore
+> Tomemos tereré en la plaza | tereré
+Romina Villalba | 24 | Encarnación | estudiante | social | AR
+> Hicimos pororó para ver la peli | pororó
+> Con este calor, ¡a la pileta! | pileta
+Juan Ortiz | 60 | Luque | jubilado con hijos en España | familia | ES
+> El mitaí está jugando en el patio | mitaí
+> ¡Chake! Que viene el auto | chake
+Gabriela Duarte | 28 | San Lorenzo | periodista | curiosidad | MX
+> No hay que buscarle la quinta pata al gato | buscarle la quinta pata al gato
+> Ese chico es un vyrorei | vyrorei
+
+@ PE
+Lucía Huamán | 30 | Lima | analista financiera | trabajo | MX
+> Tengo chamba hasta las seis, causa | chamba; causa
+> Al toque te paso el reporte | al toque
+Diego Quispe | 25 | Cusco | guía turístico | viaje | AR
+> Llévate la casaca, que hay garúa | casaca
+> El cebiche viene con canchita | canchita
+Rosa Salazar | 47 | Arequipa | dueña de una picantería | familia | ES
+> Mi pata me ayudó con la mudanza | pata
+> ¡Qué roche! Me caí en plena fiesta | qué roche
+Andrés Torres | 34 | Trujillo | ingeniero | social | CL
+> Unas chelas para ver el partido | chelas
+> Me voy a mi jato a descansar | jato
+Valeria Chávez | 21 | Piura | estudiante | curiosidad | CO
+> Ese chibolo es bien pituco | chibolo; pituco
+> Qué palta, no me acordé de su cumpleaños | qué palta
+
+@ PR
+Gabriela Rivera | 27 | San Juan | publicista | trabajo | MX
+> ¡Wepa! Nos fue brutal en la presentación | wepa; brutal
+> Acho, se me olvidó el informe | acho
+Luis Colón | 35 | Ponce | chef | social | DO
+> Vamos a janguear en Santurce | janguear
+> Mi pana trajo a su jeva | pana; jeva
+Carmen Ortiz | 66 | Mayagüez | abuela con nietos en Nueva York | familia | ES
+> Echa eso en el zafacón | zafacón
+> La guagua de AMA pasa cada media hora | guagua
+José Santiago | 42 | Bayamón | mecánico | viaje | CO
+> No tengo chavos para la gasolina | chavos
+> Esa playa está nítida | nítida
+Andrea Vélez | 22 | Arecibo | estudiante | curiosidad | AR
+> Fuimos de chinchorreo con el corillo | chinchorreo; corillo
+> Qué bochinche se formó | bochinche
+
+@ DO
+Yolanda Peña | 33 | Santo Domingo | gerente de banco | trabajo | AR
+> Esa vaina está nítida, mañana se la presento al cliente | vaina; nítida
+> Dame un chin de tiempo para revisar | un chin
+Rafael Almonte | 28 | Santiago | motoconchista | viaje | MX
+> Me fui en concho hasta la 27 | concho
+> ¿Klk, mi pana? ¿Tú vas pa' la fiesta? | klk; pana
+Esther Jiménez | 61 | San Pedro de Macorís | abuela con hijos en Nueva York | familia | PR
+> El carajito no se está quieto | carajito
+> Vamos a hacer cocaleca para la película | cocaleca
+Junior Castillo | 22 | La Romana | estudiante | social | CO
+> Ese tíguere es un pariguayo | tíguere; pariguayo
+> La fiesta estuvo jevi | jevi
+Ana Rosario | 37 | Puerto Plata | maestra | curiosidad | ES
+> Al que le sirva el sombrero, que se lo ponga | al que le sirva el sombrero, que se lo ponga
+> No tengo cuartos para la guagua | cuartos; guagua
+
+@ UY
+Florencia Silva | 29 | Montevideo | contadora | trabajo | AR
+> Ta, te mando el informe a la tarde | ta
+> Estoy con pila de laburo | pila; laburo
+Martín Rodríguez | 34 | Salto | profesor | viaje | ES
+> El ómnibus a Salto sale en una hora | ómnibus
+> Ponete los championes | championes
+Lucía Pereira | 21 | Montevideo | estudiante | social | AR
+> Bo, ¿vamos a la rambla? | bo
+> Esa campera está salada | campera; salada
+Jorge Fernández | 58 | Paysandú | carnicero | familia | ES
+> El botija ya entró a la escuela | botija
+> Los gurises están en la plaza | gurises
+Camila Núñez | 26 | Punta del Este | moza en un restaurante | curiosidad | MX
+> ¡Bárbaro! Nos vemos mañana | bárbaro
+> El cuzco no para de ladrar | cuzco
+
+@ VE
+Andreína Pérez | 31 | Caracas | gerente de proyectos remota | trabajo | CO
+> Chamo, esa vaina está burda de buena | chamo; vaina; burda
+> Qué ladilla la reunión de hoy | ladilla
+José Rodríguez | 40 | Maracaibo | ingeniero petrolero en Bogotá | viaje | CO
+> ¡Na' guará! Qué calor | na' guará
+> Se me espichó un caucho | caucho
+María Fernández | 24 | Valencia | estudiante | social | MX
+> La rumba estuvo fina | rumba; fina
+> Hay pasapalos en la mesa | pasapalos
+Luis González | 63 | Mérida | abuelo con nietos en Madrid | familia | ES
+> Cómete un cambur, mijo | cambur
+> Vamos a hacer cotufas | cotufas
+Gabriela Rojas | 27 | Barquisimeto | periodista | curiosidad | AR
+> Ese chamo es un arrecho | chamo; arrecho
+> Estoy pelando, no tengo reales | pelando; reales
+
+@ FOREIGN
+Emily Carter | 29 | Austin (Estados Unidos) | enfermera que viaja a Santo Domingo | en:DO | 
+> I want popcorn before we take the bus | 
+> Where is the nearest pharmacy? | 
+James Whitfield | 46 | Londres (Reino Unido) | director comercial con clientes en México | en:MX | 
+> I will send you the proposal tomorrow | 
+> Let's grab a beer after the meeting | 
+Mia Johnson | 20 | Nueva York (Estados Unidos) | estudiante de herencia boricua | en:PR | 
+> My grandma always says I should visit the island | 
+> Let's hang out at the beach this weekend | 
+Lucas Oliveira | 33 | São Paulo (Brasil) | desarrollador que se muda a Buenos Aires | pt:AR | 
+> Eu quero alugar um apartamento perto do trabalho | 
+> Você sabe onde fica o ponto de ônibus? | 
+Chloé Martin | 27 | Montreal (Canadá) | fotógrafa que viaja a Cuba | fr:CU | 
+> Je veux prendre le bus pour aller à la plage | 
+> Combien coûte une bière? | 
+Jean-Baptiste Pierre | 38 | Puerto Príncipe (Haití) | albañil que trabaja en Santiago (RD) | ht:DO | 
+> Mwen bezwen travay demen maten | 
+> Kote mwen ka pran bis la? | 
+Jonas Weber | 24 | Berlín (Alemania) | estudiante de intercambio en Medellín | de:CO | 
+> Ich möchte heute Abend mit meinen Freunden feiern | 
+> Wo ist die nächste Bushaltestelle? | 
+Giulia Rossi | 35 | Milán (Italia) | arquitecta que trabaja en Buenos Aires | it:AR | 
+> Voglio prendere un caffè prima della riunione | 
+> Dove posso comprare una SIM per il telefono? | 
+Wei Zhang | 42 | Shanghái (China) | importador que viaja a Lima | zh:PE | 
+> 我想在会议之前喝杯咖啡 | 
+> 公交车站在哪里 | 
+Yuki Tanaka | 26 | Osaka (Japón) | mochilera en México | ja:MX | 
+> バスはどこから出ますか | 
+> この料理は辛いですか | 
+Min-jun Park | 31 | Seúl (Corea del Sur) | ingeniero en Santiago de Chile | ko:CL | 
+> 버스 정류장이 어디예요 | 
+> 회의 전에 커피를 마시고 싶어요 | 
+Amina Benali | 28 | Rabat (Marruecos) | traductora que vive en Madrid | ar:ES | 
+> أريد أن أشرب القهوة قبل الاجتماع | 
+> أين محطة الحافلات | 

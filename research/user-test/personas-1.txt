@@ -1,0 +1,176 @@
+# Format: "@ CODE" starts a country. A persona line is
+#   name | age | city | role | scenario | target country
+# followed by phrases: "> phrase | expected regional words, separated by ;"
+# Scenarios come from the case study: viaje (travel), trabajo (work and
+# presentations), curiosidad (where words come from), social (friends,
+# chat), familia (family abroad), aprender (learning).
+
+@ AR
+Valentina Ruiz | 27 | Buenos Aires | diseñadora UX en una agencia | trabajo | ES
+> Che, mañana tengo la presentación y no me quiero mandar una macana | che; mandar una macana
+> La propuesta está buenísima, posta | posta
+Martín Gómez | 45 | Córdoba | vendedor que viaja a Santo Domingo | viaje | DO
+> Me tomo el colectivo hasta el laburo | colectivo; laburo
+> Che boludo, ¿me prestás guita para el bondi? | che; boludo; guita; bondi
+Sofía Lema | 19 | Rosario | estudiante de periodismo | curiosidad | MX
+> Qué quilombo se armó en la facu | quilombo; facu
+> Ese pibe es un chanta, no le creas | pibe; chanta
+Rosa Ferreyra | 68 | Mendoza | jubilada con nietos en Madrid | familia | ES
+> Ponete la campera, que hace frío | campera
+> Hice una torta de frutilla para la merienda | torta; frutilla
+Diego Paz | 33 | Buenos Aires | programador que trabaja con un equipo en Bogotá | trabajo | CO
+> Estoy a full con el laburo, después te escribo al celu | a full; laburo; celu
+> El recital estuvo re copado | copado
+
+@ BO
+Ana Quispe | 31 | La Paz | contadora en una empresa minera | trabajo | AR
+> Le voy a mandar la presentación a mi cliente argentino, ¿está bien dicho? | 
+> El chango de mi hermana ya entró al colegio | chango
+Jorge Mamani | 52 | El Alto | dueño de un minibús | viaje | PE
+> Ese jailón no saluda a nadie | jailón
+> Dame la yapa, casera | yapa; casera
+Camila Rojas | 24 | Santa Cruz | estudiante de medicina | social | CL
+> Qué k'encha tengo hoy, todo me sale mal | k'encha
+> Vamos a farrear el sábado | farrear
+Luis Choque | 40 | Cochabamba | chef que viaja a Lima | viaje | PE
+> Pásame la palta y el choclo | palta; choclo
+> Estoy chupando con los cuates | cuates
+Daniela Vargas | 36 | Sucre | maestra que vive en Buenos Aires | familia | AR
+> La polera del chango está sucia | polera; chango
+> Pucha, se me olvidó el celular | pucha
+
+@ CL
+Catalina Soto | 29 | Santiago | ingeniera comercial | trabajo | MX
+> Cachái que la pega está fome, weón | cachái; pega; fome; weón
+> Al tiro te mando el informe | al tiro
+Felipe Araya | 23 | Valparaíso | estudiante de música | social | AR
+> El carrete estuvo bacán | carrete; bacán
+> Compremos unas chelas y cabritas | chelas; cabritas
+Marisol Pino | 55 | Concepción | dueña de una panadería | familia | ES
+> Mi polola... perdón, la polola de mi hijo es española | polola
+> Tomemos once con kuchen | once
+Benjamín Reyes | 34 | Santiago | consultor que viaja a Ciudad de México | viaje | MX
+> Había un taco terrible en la Alameda | taco
+> Me subí a la micro equivocada | micro
+Javiera Núñez | 41 | Antofagasta | enfermera | curiosidad | CO
+> Me costó diez lucas, harto caro | lucas; harto
+> Ese cabro chico es muy pillo | cabro chico
+
+@ CO
+Laura Restrepo | 28 | Medellín | productora audiovisual | social | AR
+> ¡Qué chimba de rumba, parce! | qué chimba; rumba; parce
+> Amanecí con un guayabo terrible | guayabo
+Andrés Gómez | 37 | Bogotá | gerente de ventas para Centroamérica | trabajo | MX
+> Mañana tengo camello temprano, nos tomamos un tinto | camello; tinto
+> Qué pena con usted, el trancón estaba terrible | qué pena; trancón
+Valeria Ospina | 22 | Cali | estudiante de diseño | curiosidad | ES
+> Ese man es un berraco | man; berraco
+> No des papaya con el celular en la calle | dar papaya
+Carlos Pérez | 60 | Barranquilla | taxista | viaje | DO
+> ¡Nojoda, qué calor! | nojoda
+> Esa vaina está buenísima, compa | vaina; compa
+Mariana Duque | 33 | Pereira | enfermera en Miami | familia | PR
+> Mi mamá me mandó un paquete con bocadillos y arepas | 
+> Qué mamera esperar el bus | mamera
+
+@ CR
+Sofía Mora | 30 | San José | desarrolladora | trabajo | MX
+> Tengo mucho brete esta semana, mae | brete; mae
+> Pura vida, nos vemos mañana | pura vida
+Daniel Vargas | 25 | Heredia | barista | social | ES
+> Qué tuanis la playa, mae | tuanis; mae
+> Pasame ese chunche | chunche
+Ana Solís | 48 | Cartago | dueña de una pulpería | familia | NI
+> La güila está en la escuela | güila
+> Hay una presa terrible en la circunvalación | presa
+Esteban Rojas | 35 | Liberia | guía de turismo | viaje | AR
+> ¡Upe! ¿Hay alguien? | upe
+> Diay, ¿qué hacemos hoy? | diay
+Valeria Jiménez | 21 | Alajuela | estudiante | curiosidad | CO
+> Me costó cinco rojos | rojos
+> Ese mae es muy pinche, nunca invita | mae; pinche
+
+@ CU
+Yanet Pérez | 34 | La Habana | guía turística | viaje | MX
+> ¿Qué bolá, asere? | qué bolá; asere
+> La guagua venía llenísima | guagua
+Ernesto Díaz | 58 | Santiago de Cuba | músico | social | ES
+> Vamos a jamar algo, que tengo hambre | jamar
+> Ese yuma pagó en fula | yuma; fula
+Lisandra Gómez | 26 | Matanzas | estudiante de enfermería que vive en Miami | familia | PR
+> Mi jevo trabaja en la pincha hasta tarde | jevo; pincha
+> No tengo baro para la guagua | baro; guagua
+Raúl Martínez | 42 | Holguín | ingeniero | trabajo | VE
+> Ese proyecto está en candela | en candela
+> Asere, qué volá con la reunión | asere; qué volá
+Dayana Rodríguez | 20 | Cienfuegos | estudiante | curiosidad | AR
+> Ponte la trusa que vamos a la playa | trusa
+> Hice rositas de maíz | rositas de maíz
+
+@ EC
+María Andrade | 32 | Quito | arquitecta | trabajo | CO
+> Achachay, qué frío hace en la oficina | achachay
+> ¿Mande? No le escuché | mande
+José Zambrano | 27 | Guayaquil | vendedor | social | PE
+> Amanecí con chuchaqui | chuchaqui
+> Ese pana es bien chévere | pana; chévere
+Gabriela Torres | 45 | Cuenca | profesora en Madrid | familia | ES
+> Mi ñaño está chiro, no tiene plata | ñaño; chiro
+> La guagua no deja de llorar | guagua
+Luis Cedeño | 38 | Manta | pescador que viaja a Lima | viaje | PE
+> Arrarray, qué caliente está la sopa | arrarray
+> Cogí la buseta hasta el centro | buseta
+Paula Vega | 23 | Loja | estudiante | curiosidad | MX
+> Llegó chumado a la casa | chumado
+> Prestame un esfero | esfero
+
+@ SV
+Karla Hernández | 29 | San Salvador | diseñadora | trabajo | MX
+> Está bien chivo el proyecto | chivo
+> Tengo que chambear el fin de semana | chambear
+José Martínez | 41 | Santa Ana | panadero en Los Ángeles | familia | MX
+> Ya no tengo pisto para el bus | pisto
+> El cipote se comió tres pupusas | cipote
+Andrea López | 24 | San Miguel | estudiante | social | GT
+> Vamos al partido, cheró | cheró
+> ¡Puchica, qué calor! | puchica
+Carlos Rivas | 55 | La Libertad | surfista y dueño de hostal | viaje | CR
+> Ese chucho no presta nada | chucho
+> Vaya pues, nos vemos mañana | vaya pues
+Gabriela Flores | 33 | Soyapango | maestra | curiosidad | ES
+> El bicho no quiere ir a la escuela | bicho
+> Qué cachimbón el partido | cachimbón
+
+@ ES
+Lucía Fernández | 31 | Madrid | consultora con clientes en México | trabajo | MX
+> Tío, el curro está fatal, me han pillado en un atasco | tío; curro; atasco
+> Vale, quedamos a las ocho | vale
+Pablo García | 24 | Barcelona | estudiante de Erasmus en Buenos Aires | viaje | AR
+> Me he dejado el móvil en el coche | móvil; coche
+> Qué guay, me mola mucho | guay; mola
+Carmen López | 63 | Sevilla | abuela con nietos en Miami | familia | PR
+> Ese chaval es muy majo | chaval; majo
+> Ponte el bañador, que vamos a la piscina | bañador
+Javier Martín | 38 | Valencia | profesor de español para extranjeros | aprender | CO
+> Hay un follón en la ofi | follón
+> No tengo pasta, estoy sin blanca | pasta; sin blanca
+Elena Sánchez | 27 | Bilbao | periodista | curiosidad | DO
+> Flipé con el concierto, fue la leche | flipar; la leche
+> Ese guiri es un pijo | guiri; pijo
+
+@ GT
+Marta Chávez | 30 | Ciudad de Guatemala | abogada | trabajo | MX
+> Qué chilero tu celular | chilero
+> Tengo mucha chamba hoy | chamba
+Pedro Ixcoy | 44 | Quetzaltenango | dueño de una tienda | familia | MX
+> El patojo ya va a cumplir diez años | patojo
+> No seas shute, eso no es asunto tuyo | shute
+Lucía Morales | 22 | Antigua | guía turística | viaje | ES
+> Llevá chumpa, que en Xela hace frío | chumpa
+> La canche de la clase es nueva | canche
+Diego Ramírez | 35 | Escuintla | mecánico | social | SV
+> ¡A la gran! Se fue la luz otra vez | a la gran
+> Ya no tengo pisto | pisto
+Sofía Castillo | 27 | Cobán | maestra | curiosidad | CO
+> Llevé poporopo al cine | poporopo
+> El ishto está jugando afuera | ishto

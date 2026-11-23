@@ -15,13 +15,13 @@ const FEMININE = new Set([
   "clase", "parte", "muerte", "suerte", "llave", "nube", "fuente", "frase",
   "base", "fe", "tarde", "sangre", "torre", "nave", "flor", "miel", "sal",
   "piel", "cárcel", "señal", "luz", "vez", "nariz", "paz", "voz", "cruz",
-  "red", "pared", "sed", "imagen", "razón", "canción",
+  "red", "pared", "sed", "imagen", "razón", "canción", "birome",
 ]);
 
 const MASCULINE = new Set([
   "día", "mapa", "problema", "sistema", "programa", "tema", "idioma", "clima",
   "sofá", "planeta", "pijama", "lápiz", "maíz", "pez", "arroz", "bus",
-  "ómnibus", "celu", "bondi", "taxi", "menú", "champú", "colibrí",
+  "ómnibus", "autobús", "autobus", "celu", "bondi", "taxi", "menú", "champú", "colibrí",
 ]);
 
 /** A noun's gender from its spelling, or undefined when it can't tell. */
@@ -170,7 +170,10 @@ const COPULA_NUMBER: [string, string][] = [
   ["estaba", "estaban"], ["fue", "fueron"], ["parece", "parecen"],
   ["parecía", "parecían"], ["queda", "quedan"], ["quedó", "quedaron"],
   ["cuesta", "cuestan"], ["sabe", "saben"], ["huele", "huelen"],
+  ["estuvo", "estuvieron"], ["venía", "venían"], ["iba", "iban"], ["anda", "andan"],
 ];
+// Words after a noun that look like adjectives but say how or when.
+const ADVERBS = new Set(["temprano", "rápido", "despacio", "pronto"]);
 const TO_PLURAL_VERB = new Map(COPULA_NUMBER);
 const TO_SINGULAR_VERB = new Map(COPULA_NUMBER.map(([s, p]) => [p, s === "esta" ? "está" : s]));
 const COPULAS = new Set([...TO_PLURAL_VERB.keys(), ...TO_SINGULAR_VERB.keys(), "se", "ve", "veía"]);
@@ -233,6 +236,7 @@ export function agreeAfter(after: string, from: NounForm, to: NounForm): string 
     const lower = t.toLowerCase();
     if (/^[.;:!?¡¿()]+$/.test(t)) break;
     if (lower === "y" || lower === "e") continue;
+    if (ADVERBS.has(lower)) break;
     const adjective = reinflectAdjective(t, from, target);
     if (adjective) {
       tokens[i] = keepCase(adjective, t);

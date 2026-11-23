@@ -106,7 +106,8 @@ export function LearnerTranslator() {
       setText(carried);
       void translate(carried, { detect: false });
     } else {
-      void translate(text, { detect: false });
+      // Still ask if the text doesn't fit the new choice.
+      void translate(text);
     }
   }, [dialect, direction, language]);
 
@@ -366,7 +367,7 @@ export function LearnerTranslator() {
             e.preventDefault();
             void translate(text);
           }}
-          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] bg-white px-[22px] py-[22px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy"
+          className="mt-4 flex min-h-[420px] flex-1 flex-col rounded-[26px] [@media(max-height:700px)]:min-h-[280px] bg-white px-[22px] py-[22px] shadow-card focus-within:outline-3 focus-within:outline-offset-3 focus-within:outline-navy"
         >
           <p className="text-[13.5px] font-semibold text-muted">{label("from")}</p>
           <textarea

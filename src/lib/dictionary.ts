@@ -1012,7 +1012,97 @@ const DICHOS: Concept[] = [
   },
 ];
 
-const CONCEPTS = mergeConcepts([...HAND_CONCEPTS, ...DICHOS], IMPORTED_CONCEPTS);
+/*
+ * Words from the user test (research/user-test): everyday words people from
+ * each country used that the dictionary didn't have. FIELD_WORDS adds
+ * countries' words to existing concepts; FIELD_CONCEPTS are new ones.
+ */
+const FIELD_WORDS: Record<string, Partial<Record<DialectCode, string[]>>> = {
+  amigo: {
+    CR: ["mae"], HN: ["maje"], NI: ["maje"], SV: ["maje"], PE: ["causa", "pata"],
+    MX: ["cuate", "compa"], BO: ["cuate"], CO: ["compa"], PA: ["fren"],
+  },
+  cosa: { DO: ["vaina"], VE: ["vaina"], CO: ["vaina"], PA: ["vaina"] },
+  genial: { CR: ["pura vida"], PR: ["brutal", "nítido"], AR: ["bárbaro"], UY: ["bárbaro"] },
+  trabajo: { GT: ["chamba"], SV: ["chamba"], HN: ["chamba"] },
+  nino: { GT: ["ishto"], SV: ["bicho"], HN: ["bicho"], PY: ["mitaí"] },
+  bebe: { EC: ["guagua"] },
+  borracho: { HN: ["bolo"], SV: ["bolo"], GT: ["bolo"] },
+  tacano: { SV: ["chucho"] },
+  "sin-dinero": { EC: ["chiro"], VE: ["pelando"] },
+  "como-estas": { DO: ["klk"] },
+  oye: { PR: ["acho"] },
+  lio: { PR: ["bochinche"] },
+  "ahora-mismo": { PE: ["al toque"], AR: ["al toque"], MX: ["ahorita"] },
+  cuidado: { PY: ["chake"] },
+  "dicho-en-problemas": { CU: ["en candela"] },
+  dinero: { NI: ["reales"] },
+  tonto: { PY: ["vyrorei"], CO: ["bobo"] },
+  embotellamiento: { CL: ["taco"] },
+};
+
+/** Words filed under the wrong meaning: "lucas" are thousands, not money. */
+const FIELD_REMOVALS: Record<string, Partial<Record<DialectCode, string[]>>> = {
+  dinero: { CL: ["lucas"] },
+  "como-estas": { CR: ["diay", "upe"] },
+};
+
+const FIELD_CONCEPTS: Concept[] = [
+  { id: "facultad", meaning: "la universidad", en: "college, university", terms: { AR: ["la facu"], UY: ["la facu"] } },
+  { id: "chanta", meaning: "mentiroso", en: "a con artist, a bluffer", terms: { AR: ["chanta"], UY: ["chanta"] } },
+  { id: "muy-ocupado", meaning: "muy ocupado", en: "swamped, flat out", terms: { AR: ["a full"], UY: ["a full"], ES: ["a tope"] } },
+  { id: "yapa", meaning: "un poco extra", en: "a little extra, thrown in for free", terms: { BO: ["la yapa"], PE: ["la yapa"], EC: ["la yapa"], AR: ["la yapa"], MX: ["el pilón"] } },
+  { id: "mala-suerte", meaning: "mala suerte", en: "bad luck", terms: { BO: ["k'encha"] } },
+  { id: "ir-de-fiesta", meaning: "ir de fiesta", en: "to go partying", terms: { BO: ["farrear"], EC: ["farrear"], PE: ["juerguear"], ES: ["salir de marcha"] } },
+  { id: "caramba", meaning: "caramba", en: "darn!, wow!", terms: { BO: ["pucha"], AR: ["pucha"], CL: ["pucha"], PE: ["pucha"], UY: ["pucha"], NI: ["chocho"], PA: ["chuleta"] } },
+  { id: "tipo", meaning: "tipo", en: "guy, dude", terms: { CO: ["man"], PA: ["man"], ES: ["tío"] } },
+  { id: "valiente", meaning: "valiente", en: "brave, tough", terms: { CO: ["berraco", "verraco"] } },
+  { id: "de-acuerdo", meaning: "de acuerdo", en: "OK, all right", terms: { UY: ["ta"], SV: ["vaya pues"], HN: ["vaya pues"], NI: ["dale pues"], MX: ["órale"] } },
+  { id: "un-monton-de", meaning: "un montón de", en: "a lot of", terms: { PA: ["buco de"], UY: ["pila de"], AR: ["una banda de"], ES: ["un mogollón de"] } },
+  { id: "un-poco", meaning: "un poco", en: "a little bit", terms: { DO: ["un chin"] } },
+  { id: "picaro", meaning: "pícaro", en: "a street-smart guy", terms: { DO: ["tíguere"] } },
+  { id: "muy", meaning: "muy", en: "very", terms: { VE: ["burda de"], AR: ["re"], UY: ["re"] } },
+  { id: "mil-pesos", meaning: "mil pesos", en: "a thousand pesos", terms: { CL: ["lucas"], CO: ["lucas"], AR: ["lucas"] } },
+  { id: "upe", meaning: "¡hola!", en: "hello? anybody home?", terms: { CR: ["upe"] } },
+  { id: "bueno-pues", meaning: "bueno", en: "well…, so…", terms: { CR: ["diay"] } },
+  { id: "neumatico", meaning: "neumático", en: "tire", terms: { VE: ["caucho"], MX: ["llanta"], ES: ["neumático"] } },
+  { id: "caro", meaning: "caro", en: "expensive", terms: { AR: ["salado"], UY: ["salado"] } },
+  { id: "simpatico", meaning: "simpático", en: "nice, likable", terms: { ES: ["majo"] } },
+  { id: "que-frio", meaning: "¡qué frío!", en: "brr, it's cold!", terms: { EC: ["achachay"] } },
+  { id: "que-calor", meaning: "¡qué calor!", en: "ouch, it's hot!", terms: { EC: ["arrarray"] } },
+  { id: "grupo-de-amigos", meaning: "grupo de amigos", en: "group of friends", terms: { PR: ["corillo"] } },
+  { id: "hermano", meaning: "hermano", en: "brother", terms: { EC: ["ñaño"] } },
+];
+
+/** Adjectives: their feminine form ("chida", "nítida") is the same word. */
+export const ADJECTIVE_CONCEPTS = new Set([
+  "genial", "aburrido", "tonto", "tacano", "borracho", "caro", "simpatico", "esnob",
+  "de-mal-gusto", "chismoso", "rubio", "dicho-loco", "valiente",
+]);
+
+function withFieldWords(concepts: Concept[]): Concept[] {
+  return [
+    ...concepts.map((c) => {
+      const extra = FIELD_WORDS[c.id];
+      const removed = FIELD_REMOVALS[c.id];
+      if (!extra && !removed) return c;
+      const terms = { ...c.terms };
+      for (const [code, words] of Object.entries(removed ?? {})) {
+        const left = (terms[code as DialectCode] ?? []).filter((w) => !words?.includes(w));
+        if (left.length) terms[code as DialectCode] = left;
+        else delete terms[code as DialectCode];
+      }
+      for (const [code, words] of Object.entries(extra ?? {})) {
+        const have = terms[code as DialectCode] ?? [];
+        terms[code as DialectCode] = [...have, ...(words ?? []).filter((w) => !have.includes(w))];
+      }
+      return { ...c, terms };
+    }),
+    ...FIELD_CONCEPTS,
+  ];
+}
+
+const CONCEPTS = withFieldWords(mergeConcepts([...HAND_CONCEPTS, ...DICHOS], IMPORTED_CONCEPTS));
 
 /*
  * Everyday objects whose plain Spanish word is also translated, so "gasolina"

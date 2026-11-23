@@ -76,7 +76,7 @@ export function SidesBar({ onChange }: { onChange?: () => void }) {
       <button
         type="button"
         onClick={() => setPicking(side)}
-        className="flex h-12 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-[14.5px] font-semibold whitespace-nowrap shadow-card transition hover:bg-lavender/50"
+        className="flex h-12 min-w-0 items-center justify-center gap-2 rounded-full bg-white px-3 text-[14.5px] font-semibold whitespace-nowrap shadow-card transition hover:bg-lavender/50 max-[359px]:gap-1 max-[359px]:px-2 max-[359px]:text-[13px]"
       >
         {c.kind === "language" ? <LanguageBadge code={c.code} /> : <Flag code={c.code} />}
         <span className="sr-only">{side === "from" ? t("Traducir de") : t("Traducir a")}: </span>
@@ -91,7 +91,7 @@ export function SidesBar({ onChange }: { onChange?: () => void }) {
 
   return (
     <>
-      <div className="grid grid-cols-[1fr_40px_1fr] items-center gap-2">
+      <div className="grid grid-cols-[1fr_40px_1fr] items-center gap-2 max-[359px]:gap-1">
         <Chip side="from" />
         <button
           type="button"

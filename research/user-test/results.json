@@ -1,0 +1,3921 @@
+[
+  {
+    "persona": "Valentina Ruiz",
+    "country": "AR",
+    "target": "ES",
+    "scenario": "trabajo",
+    "text": "Che, mañana tengo la presentación y no me quiero mandar una macana",
+    "output": "Tío, mañana tengo la presentación y no me quiero mandar una macana",
+    "via": "dictionary",
+    "expected": [
+      "che",
+      "mandar una macana"
+    ],
+    "missed": [
+      "mandar una macana"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valentina Ruiz",
+    "country": "AR",
+    "target": "ES",
+    "scenario": "trabajo",
+    "text": "La propuesta está buenísima, posta",
+    "output": "La propuesta está buenísima, de verdad",
+    "via": "dictionary",
+    "expected": [
+      "posta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Martín Gómez",
+    "country": "AR",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "Me tomo el colectivo hasta el laburo",
+    "output": "Me tomo la guagua hasta el trabajo",
+    "via": "dictionary",
+    "expected": [
+      "colectivo",
+      "laburo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Martín Gómez",
+    "country": "AR",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "Che boludo, ¿me prestás guita para el bondi?",
+    "output": "Ey tú pana, ¿me prestás cuartos para la guagua?",
+    "via": "dictionary",
+    "expected": [
+      "che",
+      "boludo",
+      "guita",
+      "bondi"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Sofía Lema",
+    "country": "AR",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Qué quilombo se armó en la facu",
+    "output": "Qué desmadre se armó en la universidad",
+    "via": "dictionary",
+    "expected": [
+      "quilombo",
+      "facu"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Sofía Lema",
+    "country": "AR",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Ese pibe es un chanta, no le creas",
+    "output": "Ese chamaco es un mentiroso, no le creas",
+    "via": "dictionary",
+    "expected": [
+      "pibe",
+      "chanta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rosa Ferreyra",
+    "country": "AR",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Ponete la campera, que hace frío",
+    "output": "Ponete la chaqueta, que hace frío",
+    "via": "dictionary",
+    "expected": [
+      "campera"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rosa Ferreyra",
+    "country": "AR",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Hice una torta de frutilla para la merienda",
+    "output": "Hice una tarta de fresa para la merienda",
+    "via": "dictionary",
+    "expected": [
+      "torta",
+      "frutilla"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Paz",
+    "country": "AR",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "Estoy a full con el laburo, después te escribo al celu",
+    "output": "Estoy muy ocupado con el camello, después te escribo al teléfono celular",
+    "via": "dictionary",
+    "expected": [
+      "a full",
+      "laburo",
+      "celu"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Paz",
+    "country": "AR",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "El recital estuvo re copado",
+    "output": "El recital estuvo muy bacano",
+    "via": "dictionary",
+    "expected": [
+      "copado"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Quispe",
+    "country": "BO",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Le voy a mandar la presentación a mi cliente argentino, ¿está bien dicho?",
+    "output": "Le voy a mandar la presentación a mi cliente argentino, ¿está bien dicho?",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Ana Quispe",
+    "country": "BO",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "El chango de mi hermana ya entró al colegio",
+    "output": "El pibe de mi hermana ya entró al colegio",
+    "via": "dictionary",
+    "expected": [
+      "chango"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Mamani",
+    "country": "BO",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Ese jailón no saluda a nadie",
+    "output": "Ese pituco no saluda a nadie",
+    "via": "dictionary",
+    "expected": [
+      "jailón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Mamani",
+    "country": "BO",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Dame la yapa, casera",
+    "output": "Dame la yapa, casera",
+    "via": "dictionary",
+    "expected": [
+      "yapa",
+      "casera"
+    ],
+    "missed": [
+      "casera"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Camila Rojas",
+    "country": "BO",
+    "target": "CL",
+    "scenario": "social",
+    "text": "Qué k'encha tengo hoy, todo me sale mal",
+    "output": "Qué mala suerte tengo hoy, todo me sale mal",
+    "via": "dictionary",
+    "expected": [
+      "k'encha"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Camila Rojas",
+    "country": "BO",
+    "target": "CL",
+    "scenario": "social",
+    "text": "Vamos a farrear el sábado",
+    "output": "Vamos a ir de fiesta el sábado",
+    "via": "dictionary",
+    "expected": [
+      "farrear"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Choque",
+    "country": "BO",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Pásame la palta y el choclo",
+    "output": "Pásame la palta y el choclo",
+    "via": "dictionary",
+    "expected": [
+      "palta",
+      "choclo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Choque",
+    "country": "BO",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Estoy chupando con los cuates",
+    "output": "Estoy chupando con los causas",
+    "via": "dictionary",
+    "expected": [
+      "cuates"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Daniela Vargas",
+    "country": "BO",
+    "target": "AR",
+    "scenario": "familia",
+    "text": "La polera del chango está sucia",
+    "output": "La remera del pibe está sucia",
+    "via": "dictionary",
+    "expected": [
+      "polera",
+      "chango"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Daniela Vargas",
+    "country": "BO",
+    "target": "AR",
+    "scenario": "familia",
+    "text": "Pucha, se me olvidó el celular",
+    "output": "Pucha, se me olvidó el celu",
+    "via": "dictionary",
+    "expected": [
+      "pucha"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Catalina Soto",
+    "country": "CL",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Cachái que la pega está fome, weón",
+    "output": "Me captas que la chamba está aburrida, cuate",
+    "via": "dictionary",
+    "expected": [
+      "cachái",
+      "pega",
+      "fome",
+      "weón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Catalina Soto",
+    "country": "CL",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Al tiro te mando el informe",
+    "output": "Ahorita te mando el informe",
+    "via": "dictionary",
+    "expected": [
+      "al tiro"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Felipe Araya",
+    "country": "CL",
+    "target": "AR",
+    "scenario": "social",
+    "text": "El carrete estuvo bacán",
+    "output": "La joda estuvo copada",
+    "via": "dictionary",
+    "expected": [
+      "carrete",
+      "bacán"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Felipe Araya",
+    "country": "CL",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Compremos unas chelas y cabritas",
+    "output": "Compremos unas birras y pochoclo",
+    "via": "dictionary",
+    "expected": [
+      "chelas",
+      "cabritas"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Marisol Pino",
+    "country": "CL",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Mi polola... perdón, la polola de mi hijo es española",
+    "output": "Mi novia... perdón, la novia de mi hijo es española",
+    "via": "dictionary",
+    "expected": [
+      "polola"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Marisol Pino",
+    "country": "CL",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Tomemos once con kuchen",
+    "output": "Tomemos once con kuchen",
+    "via": "none",
+    "expected": [
+      "once"
+    ],
+    "missed": [
+      "once"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Benjamín Reyes",
+    "country": "CL",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "Había un taco terrible en la Alameda",
+    "output": "Había un embotellamiento terrible en la Alameda",
+    "via": "dictionary",
+    "expected": [
+      "taco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Benjamín Reyes",
+    "country": "CL",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "Me subí a la micro equivocada",
+    "output": "Me subí al camión equivocado",
+    "via": "dictionary",
+    "expected": [
+      "micro"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Javiera Núñez",
+    "country": "CL",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Me costó diez lucas, harto caro",
+    "output": "Me costó diez lucas, harto caro",
+    "via": "dictionary",
+    "expected": [
+      "lucas",
+      "harto"
+    ],
+    "missed": [
+      "harto"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Javiera Núñez",
+    "country": "CL",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Ese cabro chico es muy pillo",
+    "output": "Ese pelado es muy pillo",
+    "via": "dictionary",
+    "expected": [
+      "cabro chico"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Laura Restrepo",
+    "country": "CO",
+    "target": "AR",
+    "scenario": "social",
+    "text": "¡Qué chimba de rumba, parce!",
+    "output": "¡Qué copado de joda, che!",
+    "via": "dictionary",
+    "expected": [
+      "qué chimba",
+      "rumba",
+      "parce"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Laura Restrepo",
+    "country": "CO",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Amanecí con un guayabo terrible",
+    "output": "Amanecí con una resaca terrible",
+    "via": "dictionary",
+    "expected": [
+      "guayabo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrés Gómez",
+    "country": "CO",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Mañana tengo camello temprano, nos tomamos un tinto",
+    "output": "Mañana tengo chamba temprano, nos tomamos un café americano",
+    "via": "dictionary",
+    "expected": [
+      "camello",
+      "tinto"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrés Gómez",
+    "country": "CO",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Qué pena con usted, el trancón estaba terrible",
+    "output": "Qué pena con usted, el embotellamiento estaba terrible",
+    "via": "dictionary",
+    "expected": [
+      "qué pena",
+      "trancón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valeria Ospina",
+    "country": "CO",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "Ese man es un berraco",
+    "output": "Ese tío es un valiente",
+    "via": "dictionary",
+    "expected": [
+      "man",
+      "berraco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valeria Ospina",
+    "country": "CO",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "No des papaya con el celular en la calle",
+    "output": "No des papaya con el móvil en la calle",
+    "via": "dictionary",
+    "expected": [
+      "dar papaya"
+    ],
+    "missed": [],
+    "shared": [
+      "dar papaya"
+    ],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Pérez",
+    "country": "CO",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "¡Nojoda, qué calor!",
+    "output": "¡No me digas, qué calor!",
+    "via": "dictionary",
+    "expected": [
+      "nojoda"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Pérez",
+    "country": "CO",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "Esa vaina está buenísima, compa",
+    "output": "Esa vaina está buenísima, pana",
+    "via": "dictionary",
+    "expected": [
+      "vaina",
+      "compa"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Mariana Duque",
+    "country": "CO",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Mi mamá me mandó un paquete con bocadillos y arepas",
+    "output": "Mi mamá me mandó un paquete con bocadillos y arepas",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Mariana Duque",
+    "country": "CO",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Qué mamera esperar el bus",
+    "output": "Qué mamera esperar el bus",
+    "via": "none",
+    "expected": [
+      "mamera"
+    ],
+    "missed": [
+      "mamera"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Sofía Mora",
+    "country": "CR",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tengo mucho brete esta semana, mae",
+    "output": "Tengo mucha chamba esta semana, cuate",
+    "via": "dictionary",
+    "expected": [
+      "brete",
+      "mae"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Sofía Mora",
+    "country": "CR",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Pura vida, nos vemos mañana",
+    "output": "Chido, nos vemos mañana",
+    "via": "dictionary",
+    "expected": [
+      "pura vida"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Daniel Vargas",
+    "country": "CR",
+    "target": "ES",
+    "scenario": "social",
+    "text": "Qué tuanis la playa, mae",
+    "output": "Qué guay la playa, amigo",
+    "via": "dictionary",
+    "expected": [
+      "tuanis",
+      "mae"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Daniel Vargas",
+    "country": "CR",
+    "target": "ES",
+    "scenario": "social",
+    "text": "Pasame ese chunche",
+    "output": "Pasame esa cosa",
+    "via": "dictionary",
+    "expected": [
+      "chunche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Solís",
+    "country": "CR",
+    "target": "NI",
+    "scenario": "familia",
+    "text": "La güila está en la escuela",
+    "output": "La cipote está en la escuela",
+    "via": "dictionary",
+    "expected": [
+      "güila"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Solís",
+    "country": "CR",
+    "target": "NI",
+    "scenario": "familia",
+    "text": "Hay una presa terrible en la circunvalación",
+    "output": "Hay un embotellamiento terrible en la circunvalación",
+    "via": "dictionary",
+    "expected": [
+      "presa"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Esteban Rojas",
+    "country": "CR",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "¡Upe! ¿Hay alguien?",
+    "output": "¡Hola! ¿Hay alguien?",
+    "via": "dictionary",
+    "expected": [
+      "upe"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Esteban Rojas",
+    "country": "CR",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "Diay, ¿qué hacemos hoy?",
+    "output": "Bueno, ¿qué hacemos hoy?",
+    "via": "dictionary",
+    "expected": [
+      "diay"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valeria Jiménez",
+    "country": "CR",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Me costó cinco rojos",
+    "output": "Me costó cinco rojos",
+    "via": "none",
+    "expected": [
+      "rojos"
+    ],
+    "missed": [
+      "rojos"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Valeria Jiménez",
+    "country": "CR",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Ese mae es muy pinche, nunca invita",
+    "output": "Ese compa es muy tacaño, nunca invita",
+    "via": "dictionary",
+    "expected": [
+      "mae",
+      "pinche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yanet Pérez",
+    "country": "CU",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "¿Qué bolá, asere?",
+    "output": "¿Qué onda, cuate?",
+    "via": "dictionary",
+    "expected": [
+      "qué bolá",
+      "asere"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yanet Pérez",
+    "country": "CU",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "La guagua venía llenísima",
+    "output": "El camión venía llenísimo",
+    "via": "dictionary",
+    "expected": [
+      "guagua"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ernesto Díaz",
+    "country": "CU",
+    "target": "ES",
+    "scenario": "social",
+    "text": "Vamos a jamar algo, que tengo hambre",
+    "output": "Vamos a comer algo, que tengo hambre",
+    "via": "dictionary",
+    "expected": [
+      "jamar"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ernesto Díaz",
+    "country": "CU",
+    "target": "ES",
+    "scenario": "social",
+    "text": "Ese yuma pagó en fula",
+    "output": "Ese guiri pagó en fula",
+    "via": "dictionary",
+    "expected": [
+      "yuma",
+      "fula"
+    ],
+    "missed": [
+      "fula"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lisandra Gómez",
+    "country": "CU",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Mi jevo trabaja en la pincha hasta tarde",
+    "output": "Mi jevo trabaja en el trabajo hasta tarde",
+    "via": "dictionary",
+    "expected": [
+      "jevo",
+      "pincha"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lisandra Gómez",
+    "country": "CU",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "No tengo baro para la guagua",
+    "output": "No tengo chavos para la guagua",
+    "via": "dictionary",
+    "expected": [
+      "baro",
+      "guagua"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Raúl Martínez",
+    "country": "CU",
+    "target": "VE",
+    "scenario": "trabajo",
+    "text": "Ese proyecto está en candela",
+    "output": "Ese proyecto está en problemas",
+    "via": "dictionary",
+    "expected": [
+      "en candela"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Raúl Martínez",
+    "country": "CU",
+    "target": "VE",
+    "scenario": "trabajo",
+    "text": "Asere, qué volá con la reunión",
+    "output": "Amigo, qué más con la reunión",
+    "via": "dictionary",
+    "expected": [
+      "asere",
+      "qué volá"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Dayana Rodríguez",
+    "country": "CU",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Ponte la trusa que vamos a la playa",
+    "output": "Ponte la malla que vamos a la playa",
+    "via": "dictionary",
+    "expected": [
+      "trusa"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Dayana Rodríguez",
+    "country": "CU",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Hice rositas de maíz",
+    "output": "Hice pochoclo",
+    "via": "dictionary",
+    "expected": [
+      "rositas de maíz"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Andrade",
+    "country": "EC",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "Achachay, qué frío hace en la oficina",
+    "output": "Qué frío, qué frío hace en la oficina",
+    "via": "dictionary",
+    "expected": [
+      "achachay"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Andrade",
+    "country": "EC",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "¿Mande? No le escuché",
+    "output": "¿Perdón? No le escuché",
+    "via": "dictionary",
+    "expected": [
+      "mande"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Zambrano",
+    "country": "EC",
+    "target": "PE",
+    "scenario": "social",
+    "text": "Amanecí con chuchaqui",
+    "output": "Amanecí con resaca",
+    "via": "dictionary",
+    "expected": [
+      "chuchaqui"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Zambrano",
+    "country": "EC",
+    "target": "PE",
+    "scenario": "social",
+    "text": "Ese pana es bien chévere",
+    "output": "Ese causa es bien bacán",
+    "via": "dictionary",
+    "expected": [
+      "pana",
+      "chévere"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Torres",
+    "country": "EC",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Mi ñaño está chiro, no tiene plata",
+    "output": "Mi hermano está sin un duro, no tiene plata",
+    "via": "dictionary",
+    "expected": [
+      "ñaño",
+      "chiro"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Torres",
+    "country": "EC",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "La guagua no deja de llorar",
+    "output": "La bebé no deja de llorar",
+    "via": "dictionary",
+    "expected": [
+      "guagua"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Cedeño",
+    "country": "EC",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Arrarray, qué caliente está la sopa",
+    "output": "Qué calor, qué caliente está la sopa",
+    "via": "dictionary",
+    "expected": [
+      "arrarray"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Cedeño",
+    "country": "EC",
+    "target": "PE",
+    "scenario": "viaje",
+    "text": "Cogí la buseta hasta el centro",
+    "output": "Cogí la combi hasta el centro",
+    "via": "dictionary",
+    "expected": [
+      "buseta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Paula Vega",
+    "country": "EC",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Llegó chumado a la casa",
+    "output": "Llegó borracho a la casa",
+    "via": "dictionary",
+    "expected": [
+      "chumado"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Paula Vega",
+    "country": "EC",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Prestame un esfero",
+    "output": "Prestame una pluma",
+    "via": "dictionary",
+    "expected": [
+      "esfero"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Karla Hernández",
+    "country": "SV",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Está bien chivo el proyecto",
+    "output": "Está bien chido el proyecto",
+    "via": "dictionary",
+    "expected": [
+      "chivo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Karla Hernández",
+    "country": "SV",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tengo que chambear el fin de semana",
+    "output": "Tengo que chambear el fin de semana",
+    "via": "dictionary",
+    "expected": [
+      "chambear"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Martínez",
+    "country": "SV",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "Ya no tengo pisto para el bus",
+    "output": "Ya no tengo lana para el bus",
+    "via": "dictionary",
+    "expected": [
+      "pisto"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Martínez",
+    "country": "SV",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "El cipote se comió tres pupusas",
+    "output": "El chamaco se comió tres pupusas",
+    "via": "dictionary",
+    "expected": [
+      "cipote"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrea López",
+    "country": "SV",
+    "target": "GT",
+    "scenario": "social",
+    "text": "Vamos al partido, cheró",
+    "output": "Vamos al partido, amigo",
+    "via": "dictionary",
+    "expected": [
+      "cheró"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrea López",
+    "country": "SV",
+    "target": "GT",
+    "scenario": "social",
+    "text": "¡Puchica, qué calor!",
+    "output": "¡A la gran, qué calor!",
+    "via": "dictionary",
+    "expected": [
+      "puchica"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Rivas",
+    "country": "SV",
+    "target": "CR",
+    "scenario": "viaje",
+    "text": "Ese chucho no presta nada",
+    "output": "Ese pinche no presta nada",
+    "via": "dictionary",
+    "expected": [
+      "chucho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Rivas",
+    "country": "SV",
+    "target": "CR",
+    "scenario": "viaje",
+    "text": "Vaya pues, nos vemos mañana",
+    "output": "De acuerdo, nos vemos mañana",
+    "via": "dictionary",
+    "expected": [
+      "vaya pues"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Flores",
+    "country": "SV",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "El bicho no quiere ir a la escuela",
+    "output": "El chaval no quiere ir a la escuela",
+    "via": "dictionary",
+    "expected": [
+      "bicho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Flores",
+    "country": "SV",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "Qué cachimbón el partido",
+    "output": "Qué guay el partido",
+    "via": "dictionary",
+    "expected": [
+      "cachimbón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Fernández",
+    "country": "ES",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tío, el curro está fatal, me han pillado en un atasco",
+    "output": "Oye güey, la chamba está fatal, me han pillado en un embotellamiento",
+    "via": "dictionary",
+    "expected": [
+      "tío",
+      "curro",
+      "atasco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Fernández",
+    "country": "ES",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Vale, quedamos a las ocho",
+    "output": "Vale, quedamos a las ocho",
+    "via": "none",
+    "expected": [
+      "vale"
+    ],
+    "missed": [
+      "vale"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Pablo García",
+    "country": "ES",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "Me he dejado el móvil en el coche",
+    "output": "Me he dejado el celu en el auto",
+    "via": "dictionary",
+    "expected": [
+      "móvil",
+      "coche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Pablo García",
+    "country": "ES",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "Qué guay, me mola mucho",
+    "output": "Qué copado, me mola mucho",
+    "via": "dictionary",
+    "expected": [
+      "guay",
+      "mola"
+    ],
+    "missed": [
+      "mola"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carmen López",
+    "country": "ES",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Ese chaval es muy majo",
+    "output": "Ese nene es muy simpático",
+    "via": "dictionary",
+    "expected": [
+      "chaval",
+      "majo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carmen López",
+    "country": "ES",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Ponte el bañador, que vamos a la piscina",
+    "output": "Ponte el traje de baño, que vamos a la piscina",
+    "via": "dictionary",
+    "expected": [
+      "bañador"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Javier Martín",
+    "country": "ES",
+    "target": "CO",
+    "scenario": "aprender",
+    "text": "Hay un follón en la ofi",
+    "output": "Hay un despelote en la ofi",
+    "via": "dictionary",
+    "expected": [
+      "follón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Javier Martín",
+    "country": "ES",
+    "target": "CO",
+    "scenario": "aprender",
+    "text": "No tengo pasta, estoy sin blanca",
+    "output": "No tengo dinero, estoy sin dinero",
+    "via": "dictionary",
+    "expected": [
+      "pasta",
+      "sin blanca"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Elena Sánchez",
+    "country": "ES",
+    "target": "DO",
+    "scenario": "curiosidad",
+    "text": "Flipé con el concierto, fue la leche",
+    "output": "Flipé con el concierto, fue la leche",
+    "via": "none",
+    "expected": [
+      "flipar",
+      "la leche"
+    ],
+    "missed": [
+      "flipar",
+      "la leche"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Elena Sánchez",
+    "country": "ES",
+    "target": "DO",
+    "scenario": "curiosidad",
+    "text": "Ese guiri es un pijo",
+    "output": "Ese extranjero es un esnob",
+    "via": "dictionary",
+    "expected": [
+      "guiri",
+      "pijo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Marta Chávez",
+    "country": "GT",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Qué chilero tu celular",
+    "output": "Qué chido tu cel",
+    "via": "dictionary",
+    "expected": [
+      "chilero"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Marta Chávez",
+    "country": "GT",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tengo mucha chamba hoy",
+    "output": "Tengo mucha chamba hoy",
+    "via": "dictionary",
+    "expected": [
+      "chamba"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Pedro Ixcoy",
+    "country": "GT",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "El patojo ya va a cumplir diez años",
+    "output": "El chamaco ya va a cumplir diez años",
+    "via": "dictionary",
+    "expected": [
+      "patojo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Pedro Ixcoy",
+    "country": "GT",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "No seas shute, eso no es asunto tuyo",
+    "output": "No seas chismoso, eso no es asunto tuyo",
+    "via": "dictionary",
+    "expected": [
+      "shute"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Morales",
+    "country": "GT",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "Llevá chumpa, que en Xela hace frío",
+    "output": "Llevá chaqueta, que en Xela hace frío",
+    "via": "dictionary",
+    "expected": [
+      "chumpa"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Morales",
+    "country": "GT",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "La canche de la clase es nueva",
+    "output": "La rubia de la clase es nueva",
+    "via": "dictionary",
+    "expected": [
+      "canche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Ramírez",
+    "country": "GT",
+    "target": "SV",
+    "scenario": "social",
+    "text": "¡A la gran! Se fue la luz otra vez",
+    "output": "¡A la gran! Se fue la luz otra vez",
+    "via": "dictionary",
+    "expected": [
+      "a la gran"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Ramírez",
+    "country": "GT",
+    "target": "SV",
+    "scenario": "social",
+    "text": "Ya no tengo pisto",
+    "output": "Ya no tengo pisto",
+    "via": "dictionary",
+    "expected": [
+      "pisto"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Sofía Castillo",
+    "country": "GT",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Llevé poporopo al cine",
+    "output": "Llevé crispetas al cine",
+    "via": "dictionary",
+    "expected": [
+      "poporopo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Sofía Castillo",
+    "country": "GT",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "El ishto está jugando afuera",
+    "output": "El pelado está jugando afuera",
+    "via": "dictionary",
+    "expected": [
+      "ishto"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Teresa Nchama",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "trabajo",
+    "text": "Voy a mandar el informe al ministerio de Madrid",
+    "output": "Voy a mandar el informe al ministerio de Madrid",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Teresa Nchama",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "trabajo",
+    "text": "El taxi me cobró mil francos",
+    "output": "El taxi me cobró mil francos",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Pedro Ondo",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "Mi hermano está en España, me mandó dinero",
+    "output": "Mi hermano está en España, me mandó dinero",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Pedro Ondo",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "Vamos al mercado de Malabo",
+    "output": "Vamos al mercado de Malabo",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Esperanza Mangue",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "aprender",
+    "text": "Quiero estudiar en Madrid el año que viene",
+    "output": "Quiero estudiar en Madrid el año que viene",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Esperanza Mangue",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "aprender",
+    "text": "Mi cuñado me prestó el coche",
+    "output": "Mi cuñado me prestó el coche",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Santiago Obiang",
+    "country": "GQ",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "En mi pueblo hablamos fang y español",
+    "output": "En mi pueblo hablamos fang y español",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Santiago Obiang",
+    "country": "GQ",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Ese chico es muy listo",
+    "output": "Ese chico es muy listo",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Rosa Bindang",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Hice pescado con yuca para la familia",
+    "output": "Hice pescado con yuca para la familia",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Rosa Bindang",
+    "country": "GQ",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "La comida está muy rica",
+    "output": "La comida está muy rica",
+    "via": "none",
+    "expected": [],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Carlos Mejía",
+    "country": "HN",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Qué macizo quedó el proyecto, maje",
+    "output": "Qué chido quedó el proyecto, cuate",
+    "via": "dictionary",
+    "expected": [
+      "macizo",
+      "maje"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Mejía",
+    "country": "HN",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tengo que chambear el sábado",
+    "output": "Tengo que chambear el sábado",
+    "via": "dictionary",
+    "expected": [
+      "chambear"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Zelaya",
+    "country": "HN",
+    "target": "SV",
+    "scenario": "social",
+    "text": "Mi alero me acompañó al centro",
+    "output": "Mi cheró me acompañó al centro",
+    "via": "dictionary",
+    "expected": [
+      "alero"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Zelaya",
+    "country": "HN",
+    "target": "SV",
+    "scenario": "social",
+    "text": "¡Puchica, maje, perdimos el bus!",
+    "output": "¡A la gran, cheró, perdimos el bus!",
+    "via": "dictionary",
+    "expected": [
+      "puchica",
+      "maje"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Banegas",
+    "country": "HN",
+    "target": "CR",
+    "scenario": "viaje",
+    "text": "Los chepos pararon el bus",
+    "output": "Los policías pararon el bus",
+    "via": "dictionary",
+    "expected": [
+      "chepos"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Banegas",
+    "country": "HN",
+    "target": "CR",
+    "scenario": "viaje",
+    "text": "Compré una baleada en la pulpería",
+    "output": "Compré una baleada en la pulpería",
+    "via": "dictionary",
+    "expected": [
+      "pulpería"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Flores",
+    "country": "HN",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "El cipote está jugando con un chunche",
+    "output": "El chamaco está jugando con una cosa",
+    "via": "dictionary",
+    "expected": [
+      "cipote",
+      "chunche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Flores",
+    "country": "HN",
+    "target": "MX",
+    "scenario": "familia",
+    "text": "Ese chele es gringo",
+    "output": "Ese güero es gringo",
+    "via": "dictionary",
+    "expected": [
+      "chele"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Aguilar",
+    "country": "HN",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "¿Tenés pisto para la pulpería?",
+    "output": "¿Tenés pasta para la tienda?",
+    "via": "dictionary",
+    "expected": [
+      "pisto",
+      "pulpería"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Aguilar",
+    "country": "HN",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "Llegó bolo a la casa",
+    "output": "Llegó borracho a la casa",
+    "via": "dictionary",
+    "expected": [
+      "bolo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Mariana López",
+    "country": "MX",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Neta, la presentación quedó bien chida",
+    "output": "Posta, la presentación quedó bien copada",
+    "via": "dictionary",
+    "expected": [
+      "neta",
+      "chida"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Mariana López",
+    "country": "MX",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Ahorita te mando el archivo",
+    "output": "Al toque te mando el archivo",
+    "via": "dictionary",
+    "expected": [
+      "ahorita"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Hernández",
+    "country": "MX",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "Vamos a tomar el camión al centro",
+    "output": "Vamos a tomar la guagua al centro",
+    "via": "dictionary",
+    "expected": [
+      "camión"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Hernández",
+    "country": "MX",
+    "target": "DO",
+    "scenario": "viaje",
+    "text": "Quiero unas chelas bien frías, güey",
+    "output": "Quiero unas cervezas bien frías, ey tú",
+    "via": "dictionary",
+    "expected": [
+      "chelas",
+      "güey"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Fernanda Ruiz",
+    "country": "MX",
+    "target": "CO",
+    "scenario": "social",
+    "text": "¡No manches, güey! Qué oso",
+    "output": "¡No me digas, parce! Qué pena",
+    "via": "dictionary",
+    "expected": [
+      "no manches",
+      "güey",
+      "qué oso"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Fernanda Ruiz",
+    "country": "MX",
+    "target": "CO",
+    "scenario": "social",
+    "text": "Esa fiesta estuvo bien padre",
+    "output": "Esa fiesta estuvo bien bacana",
+    "via": "dictionary",
+    "expected": [
+      "padre"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Guadalupe Torres",
+    "country": "MX",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "El chamaco no quiere hacer la tarea",
+    "output": "El chaval no quiere hacer la tarea",
+    "via": "dictionary",
+    "expected": [
+      "chamaco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Guadalupe Torres",
+    "country": "MX",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Ponte la chamarra, que va a llover",
+    "output": "Ponte la chaqueta, que va a llover",
+    "via": "dictionary",
+    "expected": [
+      "chamarra"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ricardo Silva",
+    "country": "MX",
+    "target": "CL",
+    "scenario": "curiosidad",
+    "text": "¡Aguas! Que viene el camión",
+    "output": "¡Aguas! Que viene el micro",
+    "via": "dictionary",
+    "expected": [
+      "aguas",
+      "camión"
+    ],
+    "missed": [
+      "aguas"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ricardo Silva",
+    "country": "MX",
+    "target": "CL",
+    "scenario": "curiosidad",
+    "text": "Ese cuate tiene mucha lana",
+    "output": "Ese weón tiene mucho dinero",
+    "via": "dictionary",
+    "expected": [
+      "cuate",
+      "lana"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Karen Úbeda",
+    "country": "NI",
+    "target": "CR",
+    "scenario": "trabajo",
+    "text": "Ese chunche ya no sirve",
+    "output": "Ese chunche ya no sirve",
+    "via": "dictionary",
+    "expected": [
+      "chunche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Karen Úbeda",
+    "country": "NI",
+    "target": "CR",
+    "scenario": "trabajo",
+    "text": "Dale pues, nos vemos a las tres",
+    "output": "De acuerdo, nos vemos a las tres",
+    "via": "dictionary",
+    "expected": [
+      "dale pues"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Róger Sandino",
+    "country": "NI",
+    "target": "HN",
+    "scenario": "viaje",
+    "text": "Ese chele pagó en dólares",
+    "output": "Ese chele pagó en dólares",
+    "via": "dictionary",
+    "expected": [
+      "chele"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Róger Sandino",
+    "country": "NI",
+    "target": "HN",
+    "scenario": "viaje",
+    "text": "La moto está tuani",
+    "output": "La moto está maciza",
+    "via": "dictionary",
+    "expected": [
+      "tuani"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Mayra Cruz",
+    "country": "NI",
+    "target": "SV",
+    "scenario": "social",
+    "text": "Vino con la jaña al concierto",
+    "output": "Vino con la novia al concierto",
+    "via": "dictionary",
+    "expected": [
+      "jaña"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Mayra Cruz",
+    "country": "NI",
+    "target": "SV",
+    "scenario": "social",
+    "text": "¡Ponete chiva, que viene el bus!",
+    "output": "¡Cuidado, que viene el bus!",
+    "via": "dictionary",
+    "expected": [
+      "ponete chiva"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Francisco Gómez",
+    "country": "NI",
+    "target": "CR",
+    "scenario": "familia",
+    "text": "El chigüín se quedó dormido en la hamaca",
+    "output": "El güila se quedó dormido en la hamaca",
+    "via": "dictionary",
+    "expected": [
+      "chigüín"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Francisco Gómez",
+    "country": "NI",
+    "target": "CR",
+    "scenario": "familia",
+    "text": "No tengo reales para el pasaje",
+    "output": "No tengo dinero para el pasaje",
+    "via": "dictionary",
+    "expected": [
+      "reales"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lesbia Pérez",
+    "country": "NI",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "¡Chocho, qué calor hace!",
+    "output": "¡Caramba, qué calor hace!",
+    "via": "dictionary",
+    "expected": [
+      "chocho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lesbia Pérez",
+    "country": "NI",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "¿Qué onda, maje?",
+    "output": "¿Qué onda, amigo?",
+    "via": "dictionary",
+    "expected": [
+      "maje"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Batista",
+    "country": "PA",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "¿Qué xopá, fren? Te mando el contrato",
+    "output": "¿Qué más, compa? Te mando el contrato",
+    "via": "dictionary",
+    "expected": [
+      "qué xopá",
+      "fren"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Batista",
+    "country": "PA",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "El tranque en la Transístmica está terrible",
+    "output": "El trancón en la Transístmica está terrible",
+    "via": "dictionary",
+    "expected": [
+      "tranque"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Castillo",
+    "country": "PA",
+    "target": "PR",
+    "scenario": "social",
+    "text": "Nos vemos en el chantin",
+    "output": "Nos vemos en la casa",
+    "via": "dictionary",
+    "expected": [
+      "chantin"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Castillo",
+    "country": "PA",
+    "target": "PR",
+    "scenario": "social",
+    "text": "Ese celular está priti",
+    "output": "Ese teléfono celular está chévere",
+    "via": "dictionary",
+    "expected": [
+      "priti"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yaritza Gómez",
+    "country": "PA",
+    "target": "CR",
+    "scenario": "familia",
+    "text": "El pelao se fue a la playa con los primos",
+    "output": "El güila se fue a la playa con los primos",
+    "via": "dictionary",
+    "expected": [
+      "pelao"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yaritza Gómez",
+    "country": "PA",
+    "target": "CR",
+    "scenario": "familia",
+    "text": "Hay buco de gente en el mercado",
+    "output": "Hay un montón de gente en el mercado",
+    "via": "dictionary",
+    "expected": [
+      "buco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Roberto Arosemena",
+    "country": "PA",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "Nos quedamos parkeando en la Cinta Costera",
+    "output": "Nos quedamos parkeando en la Cinta Costera",
+    "via": "none",
+    "expected": [
+      "parkear"
+    ],
+    "missed": [],
+    "shared": [
+      "parkear"
+    ],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Roberto Arosemena",
+    "country": "PA",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "Ese man juega vivo con todo",
+    "output": "Ese tipo juega vivo con todo",
+    "via": "dictionary",
+    "expected": [
+      "juega vivo"
+    ],
+    "missed": [
+      "juega vivo"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Kathia Ríos",
+    "country": "PA",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "Un chicheme con carrizo, por favor",
+    "output": "Un chicheme con pajita, por favor",
+    "via": "dictionary",
+    "expected": [
+      "carrizo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Kathia Ríos",
+    "country": "PA",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "¡Chuleta, se me olvidó la cartera!",
+    "output": "¡Caramba, se me olvidó la cartera!",
+    "via": "dictionary",
+    "expected": [
+      "chuleta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lorena Benítez",
+    "country": "PY",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Cargá nafta antes del viaje",
+    "output": "Cargá nafta antes del viaje",
+    "via": "dictionary",
+    "expected": [
+      "nafta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lorena Benítez",
+    "country": "PY",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Se me perdió la birome",
+    "output": "Se me perdió la birome",
+    "via": "dictionary",
+    "expected": [
+      "birome"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Giménez",
+    "country": "PY",
+    "target": "UY",
+    "scenario": "viaje",
+    "text": "¡Nderakore! ¿Otra vez llueve?",
+    "output": "¡No me digas! ¿Otra vez llueve?",
+    "via": "dictionary",
+    "expected": [
+      "nderakore"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carlos Giménez",
+    "country": "PY",
+    "target": "UY",
+    "scenario": "viaje",
+    "text": "Tomemos tereré en la plaza",
+    "output": "Tomemos tereré en la plaza",
+    "via": "none",
+    "expected": [
+      "tereré"
+    ],
+    "missed": [
+      "tereré"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "Romina Villalba",
+    "country": "PY",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Hicimos pororó para ver la peli",
+    "output": "Hicimos pochoclo para ver la peli",
+    "via": "dictionary",
+    "expected": [
+      "pororó"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Romina Villalba",
+    "country": "PY",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Con este calor, ¡a la pileta!",
+    "output": "Con este calor, ¡a la pileta!",
+    "via": "dictionary",
+    "expected": [
+      "pileta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Juan Ortiz",
+    "country": "PY",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "El mitaí está jugando en el patio",
+    "output": "El chaval está jugando en el patio",
+    "via": "dictionary",
+    "expected": [
+      "mitaí"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Juan Ortiz",
+    "country": "PY",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "¡Chake! Que viene el auto",
+    "output": "¡Cuidado! Que viene el auto",
+    "via": "dictionary",
+    "expected": [
+      "chake"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Duarte",
+    "country": "PY",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "No hay que buscarle la quinta pata al gato",
+    "output": "No hay que buscarle ruido al chicharrón",
+    "via": "dictionary",
+    "expected": [
+      "buscarle la quinta pata al gato"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Duarte",
+    "country": "PY",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "Ese chico es un vyrorei",
+    "output": "Ese chico es un menso",
+    "via": "dictionary",
+    "expected": [
+      "vyrorei"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Huamán",
+    "country": "PE",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Tengo chamba hasta las seis, causa",
+    "output": "Tengo chamba hasta las seis, cuate",
+    "via": "dictionary",
+    "expected": [
+      "chamba",
+      "causa"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Huamán",
+    "country": "PE",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Al toque te paso el reporte",
+    "output": "Ahorita te paso el reporte",
+    "via": "dictionary",
+    "expected": [
+      "al toque"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Quispe",
+    "country": "PE",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "Llévate la casaca, que hay garúa",
+    "output": "Llévate la campera, que hay garúa",
+    "via": "dictionary",
+    "expected": [
+      "casaca"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Diego Quispe",
+    "country": "PE",
+    "target": "AR",
+    "scenario": "viaje",
+    "text": "El cebiche viene con canchita",
+    "output": "El cebiche viene con pochoclo",
+    "via": "dictionary",
+    "expected": [
+      "canchita"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rosa Salazar",
+    "country": "PE",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Mi pata me ayudó con la mudanza",
+    "output": "Mi amiga me ayudó con la mudanza",
+    "via": "dictionary",
+    "expected": [
+      "pata"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rosa Salazar",
+    "country": "PE",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "¡Qué roche! Me caí en plena fiesta",
+    "output": "¡Qué corte! Me caí en plena fiesta",
+    "via": "dictionary",
+    "expected": [
+      "qué roche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrés Torres",
+    "country": "PE",
+    "target": "CL",
+    "scenario": "social",
+    "text": "Unas chelas para ver el partido",
+    "output": "Unas chelas para ver el partido",
+    "via": "dictionary",
+    "expected": [
+      "chelas"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrés Torres",
+    "country": "PE",
+    "target": "CL",
+    "scenario": "social",
+    "text": "Me voy a mi jato a descansar",
+    "output": "Me voy a mi casa a descansar",
+    "via": "dictionary",
+    "expected": [
+      "jato"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valeria Chávez",
+    "country": "PE",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Ese chibolo es bien pituco",
+    "output": "Ese pelado es bien gomelo",
+    "via": "dictionary",
+    "expected": [
+      "chibolo",
+      "pituco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Valeria Chávez",
+    "country": "PE",
+    "target": "CO",
+    "scenario": "curiosidad",
+    "text": "Qué palta, no me acordé de su cumpleaños",
+    "output": "Qué pena, no me acordé de su cumpleaños",
+    "via": "dictionary",
+    "expected": [
+      "qué palta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Rivera",
+    "country": "PR",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "¡Wepa! Nos fue brutal en la presentación",
+    "output": "¡Wepa! Nos fue chido en la presentación",
+    "via": "dictionary",
+    "expected": [
+      "wepa",
+      "brutal"
+    ],
+    "missed": [
+      "wepa"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Rivera",
+    "country": "PR",
+    "target": "MX",
+    "scenario": "trabajo",
+    "text": "Acho, se me olvidó el informe",
+    "output": "Oye güey, se me olvidó el informe",
+    "via": "dictionary",
+    "expected": [
+      "acho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Colón",
+    "country": "PR",
+    "target": "DO",
+    "scenario": "social",
+    "text": "Vamos a janguear en Santurce",
+    "output": "Vamos a janguear en Santurce",
+    "via": "dictionary",
+    "expected": [
+      "janguear"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis Colón",
+    "country": "PR",
+    "target": "DO",
+    "scenario": "social",
+    "text": "Mi pana trajo a su jeva",
+    "output": "Mi pana trajo a su jeva",
+    "via": "dictionary",
+    "expected": [
+      "pana",
+      "jeva"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carmen Ortiz",
+    "country": "PR",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Echa eso en el zafacón",
+    "output": "Echa eso en el cubo de la basura",
+    "via": "dictionary",
+    "expected": [
+      "zafacón"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Carmen Ortiz",
+    "country": "PR",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "La guagua de AMA pasa cada media hora",
+    "output": "El autobús de AMA pasa cada media hora",
+    "via": "dictionary",
+    "expected": [
+      "guagua"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Santiago",
+    "country": "PR",
+    "target": "CO",
+    "scenario": "viaje",
+    "text": "No tengo chavos para la gasolina",
+    "output": "No tengo dinero para la gasolina",
+    "via": "dictionary",
+    "expected": [
+      "chavos"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Santiago",
+    "country": "PR",
+    "target": "CO",
+    "scenario": "viaje",
+    "text": "Esa playa está nítida",
+    "output": "Esa playa está bacana",
+    "via": "dictionary",
+    "expected": [
+      "nítida"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrea Vélez",
+    "country": "PR",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Fuimos de chinchorreo con el corillo",
+    "output": "Fuimos de chinchorreo con el grupo de amigos",
+    "via": "dictionary",
+    "expected": [
+      "chinchorreo",
+      "corillo"
+    ],
+    "missed": [
+      "chinchorreo"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andrea Vélez",
+    "country": "PR",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Qué bochinche se formó",
+    "output": "Qué quilombo se formó",
+    "via": "dictionary",
+    "expected": [
+      "bochinche"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yolanda Peña",
+    "country": "DO",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Esa vaina está nítida, mañana se la presento al cliente",
+    "output": "Ese cosito está copado, mañana se la presento al cliente",
+    "via": "dictionary",
+    "expected": [
+      "vaina",
+      "nítida"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Yolanda Peña",
+    "country": "DO",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Dame un chin de tiempo para revisar",
+    "output": "Dame un poco de tiempo para revisar",
+    "via": "dictionary",
+    "expected": [
+      "un chin"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rafael Almonte",
+    "country": "DO",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "Me fui en concho hasta la 27",
+    "output": "Me fui en pesero hasta la 27",
+    "via": "dictionary",
+    "expected": [
+      "concho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Rafael Almonte",
+    "country": "DO",
+    "target": "MX",
+    "scenario": "viaje",
+    "text": "¿Klk, mi pana? ¿Tú vas pa' la fiesta?",
+    "output": "¿Qué onda, mi cuate? ¿Tú vas pa' la fiesta?",
+    "via": "dictionary",
+    "expected": [
+      "klk",
+      "pana"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Esther Jiménez",
+    "country": "DO",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "El carajito no se está quieto",
+    "output": "El nene no se está quieto",
+    "via": "dictionary",
+    "expected": [
+      "carajito"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Esther Jiménez",
+    "country": "DO",
+    "target": "PR",
+    "scenario": "familia",
+    "text": "Vamos a hacer cocaleca para la película",
+    "output": "Vamos a hacer palomitas de maíz para la película",
+    "via": "dictionary",
+    "expected": [
+      "cocaleca"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Junior Castillo",
+    "country": "DO",
+    "target": "CO",
+    "scenario": "social",
+    "text": "Ese tíguere es un pariguayo",
+    "output": "Ese pícaro es un bobo",
+    "via": "dictionary",
+    "expected": [
+      "tíguere",
+      "pariguayo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Junior Castillo",
+    "country": "DO",
+    "target": "CO",
+    "scenario": "social",
+    "text": "La fiesta estuvo jevi",
+    "output": "La fiesta estuvo bacana",
+    "via": "dictionary",
+    "expected": [
+      "jevi"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Rosario",
+    "country": "DO",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "Al que le sirva el sombrero, que se lo ponga",
+    "output": "El que se pica, ajos come",
+    "via": "dictionary",
+    "expected": [
+      "al que le sirva el sombrero, que se lo ponga"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Ana Rosario",
+    "country": "DO",
+    "target": "ES",
+    "scenario": "curiosidad",
+    "text": "No tengo cuartos para la guagua",
+    "output": "No tengo pasta para el autobús",
+    "via": "dictionary",
+    "expected": [
+      "cuartos",
+      "guagua"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Florencia Silva",
+    "country": "UY",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Ta, te mando el informe a la tarde",
+    "output": "De acuerdo, te mando el informe a la tarde",
+    "via": "dictionary",
+    "expected": [
+      "ta"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Florencia Silva",
+    "country": "UY",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Estoy con pila de laburo",
+    "output": "Estoy con una banda de laburo",
+    "via": "dictionary",
+    "expected": [
+      "pila",
+      "laburo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Martín Rodríguez",
+    "country": "UY",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "El ómnibus a Salto sale en una hora",
+    "output": "El autobús a Salto sale en una hora",
+    "via": "dictionary",
+    "expected": [
+      "ómnibus"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Martín Rodríguez",
+    "country": "UY",
+    "target": "ES",
+    "scenario": "viaje",
+    "text": "Ponete los championes",
+    "output": "Ponete las zapatillas",
+    "via": "dictionary",
+    "expected": [
+      "championes"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Pereira",
+    "country": "UY",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Bo, ¿vamos a la rambla?",
+    "output": "Che, ¿vamos a la rambla?",
+    "via": "dictionary",
+    "expected": [
+      "bo"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Lucía Pereira",
+    "country": "UY",
+    "target": "AR",
+    "scenario": "social",
+    "text": "Esa campera está salada",
+    "output": "Esa campera está salada",
+    "via": "dictionary",
+    "expected": [
+      "campera",
+      "salada"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Fernández",
+    "country": "UY",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "El botija ya entró a la escuela",
+    "output": "El chaval ya entró a la escuela",
+    "via": "dictionary",
+    "expected": [
+      "botija"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Jorge Fernández",
+    "country": "UY",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Los gurises están en la plaza",
+    "output": "Los chavales están en la plaza",
+    "via": "dictionary",
+    "expected": [
+      "gurises"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Camila Núñez",
+    "country": "UY",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "¡Bárbaro! Nos vemos mañana",
+    "output": "¡Chido! Nos vemos mañana",
+    "via": "dictionary",
+    "expected": [
+      "bárbaro"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Camila Núñez",
+    "country": "UY",
+    "target": "MX",
+    "scenario": "curiosidad",
+    "text": "El cuzco no para de ladrar",
+    "output": "El chucho no para de ladrar",
+    "via": "dictionary",
+    "expected": [
+      "cuzco"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andreína Pérez",
+    "country": "VE",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "Chamo, esa vaina está burda de buena",
+    "output": "Pelado, esa vaina está muy buena",
+    "via": "dictionary",
+    "expected": [
+      "chamo",
+      "vaina",
+      "burda"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Andreína Pérez",
+    "country": "VE",
+    "target": "CO",
+    "scenario": "trabajo",
+    "text": "Qué ladilla la reunión de hoy",
+    "output": "Qué ladilla la reunión de hoy",
+    "via": "none",
+    "expected": [
+      "ladilla"
+    ],
+    "missed": [
+      "ladilla"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": true
+  },
+  {
+    "persona": "José Rodríguez",
+    "country": "VE",
+    "target": "CO",
+    "scenario": "viaje",
+    "text": "¡Na' guará! Qué calor",
+    "output": "¡No me digas! Qué calor",
+    "via": "dictionary",
+    "expected": [
+      "na' guará"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "José Rodríguez",
+    "country": "VE",
+    "target": "CO",
+    "scenario": "viaje",
+    "text": "Se me espichó un caucho",
+    "output": "Se me espichó un neumático",
+    "via": "dictionary",
+    "expected": [
+      "caucho"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Fernández",
+    "country": "VE",
+    "target": "MX",
+    "scenario": "social",
+    "text": "La rumba estuvo fina",
+    "output": "La pachanga estuvo chida",
+    "via": "dictionary",
+    "expected": [
+      "rumba",
+      "fina"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "María Fernández",
+    "country": "VE",
+    "target": "MX",
+    "scenario": "social",
+    "text": "Hay pasapalos en la mesa",
+    "output": "Hay botana en la mesa",
+    "via": "dictionary",
+    "expected": [
+      "pasapalos"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis González",
+    "country": "VE",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Cómete un cambur, mijo",
+    "output": "Cómete un plátano, mijo",
+    "via": "dictionary",
+    "expected": [
+      "cambur"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Luis González",
+    "country": "VE",
+    "target": "ES",
+    "scenario": "familia",
+    "text": "Vamos a hacer cotufas",
+    "output": "Vamos a hacer palomitas",
+    "via": "dictionary",
+    "expected": [
+      "cotufas"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Rojas",
+    "country": "VE",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Ese chamo es un arrecho",
+    "output": "Ese pibe es un arrecho",
+    "via": "dictionary",
+    "expected": [
+      "chamo",
+      "arrecho"
+    ],
+    "missed": [
+      "arrecho"
+    ],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Gabriela Rojas",
+    "country": "VE",
+    "target": "AR",
+    "scenario": "curiosidad",
+    "text": "Estoy pelando, no tengo reales",
+    "output": "Estoy sin un mango, no tengo guita",
+    "via": "dictionary",
+    "expected": [
+      "pelando",
+      "reales"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
+    "persona": "Emily Carter",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "DO",
+    "text": "I want popcorn before we take the bus",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Emily Carter",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "DO",
+    "text": "Where is the nearest pharmacy?",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "James Whitfield",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "MX",
+    "text": "I will send you the proposal tomorrow",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "James Whitfield",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "MX",
+    "text": "Let's grab a beer after the meeting",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Mia Johnson",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "PR",
+    "text": "My grandma always says I should visit the island",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Mia Johnson",
+    "country": "FOREIGN",
+    "language": "en",
+    "dialect": "PR",
+    "text": "Let's hang out at the beach this weekend",
+    "detectedLanguage": "en",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Lucas Oliveira",
+    "country": "FOREIGN",
+    "language": "pt",
+    "dialect": "AR",
+    "text": "Eu quero alugar um apartamento perto do trabalho",
+    "detectedLanguage": "pt",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Lucas Oliveira",
+    "country": "FOREIGN",
+    "language": "pt",
+    "dialect": "AR",
+    "text": "Você sabe onde fica o ponto de ônibus?",
+    "detectedLanguage": "pt",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Chloé Martin",
+    "country": "FOREIGN",
+    "language": "fr",
+    "dialect": "CU",
+    "text": "Je veux prendre le bus pour aller à la plage",
+    "detectedLanguage": "fr",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Chloé Martin",
+    "country": "FOREIGN",
+    "language": "fr",
+    "dialect": "CU",
+    "text": "Combien coûte une bière?",
+    "detectedLanguage": "fr",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Jean-Baptiste Pierre",
+    "country": "FOREIGN",
+    "language": "ht",
+    "dialect": "DO",
+    "text": "Mwen bezwen travay demen maten",
+    "detectedLanguage": "ht",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Jean-Baptiste Pierre",
+    "country": "FOREIGN",
+    "language": "ht",
+    "dialect": "DO",
+    "text": "Kote mwen ka pran bis la?",
+    "detectedLanguage": "ht",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Jonas Weber",
+    "country": "FOREIGN",
+    "language": "de",
+    "dialect": "CO",
+    "text": "Ich möchte heute Abend mit meinen Freunden feiern",
+    "detectedLanguage": "de",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Jonas Weber",
+    "country": "FOREIGN",
+    "language": "de",
+    "dialect": "CO",
+    "text": "Wo ist die nächste Bushaltestelle?",
+    "detectedLanguage": "de",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Giulia Rossi",
+    "country": "FOREIGN",
+    "language": "it",
+    "dialect": "AR",
+    "text": "Voglio prendere un caffè prima della riunione",
+    "detectedLanguage": "it",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Giulia Rossi",
+    "country": "FOREIGN",
+    "language": "it",
+    "dialect": "AR",
+    "text": "Dove posso comprare una SIM per il telefono?",
+    "detectedLanguage": "it",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Wei Zhang",
+    "country": "FOREIGN",
+    "language": "zh",
+    "dialect": "PE",
+    "text": "我想在会议之前喝杯咖啡",
+    "detectedLanguage": "zh",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Wei Zhang",
+    "country": "FOREIGN",
+    "language": "zh",
+    "dialect": "PE",
+    "text": "公交车站在哪里",
+    "detectedLanguage": "zh",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Yuki Tanaka",
+    "country": "FOREIGN",
+    "language": "ja",
+    "dialect": "MX",
+    "text": "バスはどこから出ますか",
+    "detectedLanguage": "ja",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Yuki Tanaka",
+    "country": "FOREIGN",
+    "language": "ja",
+    "dialect": "MX",
+    "text": "この料理は辛いですか",
+    "detectedLanguage": "ja",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Min-jun Park",
+    "country": "FOREIGN",
+    "language": "ko",
+    "dialect": "CL",
+    "text": "버스 정류장이 어디예요",
+    "detectedLanguage": "ko",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Min-jun Park",
+    "country": "FOREIGN",
+    "language": "ko",
+    "dialect": "CL",
+    "text": "회의 전에 커피를 마시고 싶어요",
+    "detectedLanguage": "ko",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Amina Benali",
+    "country": "FOREIGN",
+    "language": "ar",
+    "dialect": "ES",
+    "text": "أريد أن أشرب القهوة قبل الاجتماع",
+    "detectedLanguage": "ar",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  },
+  {
+    "persona": "Amina Benali",
+    "country": "FOREIGN",
+    "language": "ar",
+    "dialect": "ES",
+    "text": "أين محطة الحافلات",
+    "detectedLanguage": "ar",
+    "languageOk": true,
+    "offline": "",
+    "needsService": true
+  }
+]

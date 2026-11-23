@@ -137,7 +137,8 @@ describe("vulgar and offensive words", () => {
 
   it("can be a translation, after a country's other words", () => {
     expect(join(translateWithDictionary("Está copado", "AR", "MX").target)).toBe("Está chido");
-    expect(join(translateWithDictionary("¡Qué cosito!", "AR", "CL").target)).toBe("¡Qué huevada!");
+    // A plain word never becomes a vulgar one.
+    expect(join(translateWithDictionary("¡Qué cosito!", "AR", "CL").target)).toBe("¡Qué cosa!");
   });
 });
 
@@ -381,5 +382,42 @@ describe("knownEntry", () => {
     expect(knownEntry("Palta", "MX")?.text).toBe("palta");
     expect(knownEntry("guagua", "CL")?.id).toBe("CL.guagua");
     expect(knownEntry("no existe")).toBeUndefined();
+  });
+});
+
+// From the user test (research/user-test): phrases people from each country
+// typed, and what must come out.
+describe("user test phrases", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("people keep their gender", () => {
+    expect(t("La canche de la clase es nueva", "GT", "ES")).toBe("La rubia de la clase es nueva");
+    expect(t("Vino con la jaña al concierto", "NI", "SV")).toBe("Vino con la novia al concierto");
+    expect(t("Estoy chupando con los cuates", "BO", "PE")).toBe("Estoy chupando con los causas");
+  });
+
+  it("adjectives agree with the translated noun", () => {
+    expect(t("El carrete estuvo bacán", "CL", "AR")).toBe("La joda estuvo copada");
+    expect(t("Esa fiesta estuvo bien padre", "MX", "CO")).toBe("Esa fiesta estuvo bien bacana");
+    expect(t("La moto está tuani", "NI", "HN")).toBe("La moto está maciza");
+  });
+
+  it("feminine forms and plurals are recognized", () => {
+    expect(t("Neta, la presentación quedó bien chida", "MX", "AR")).toBe("Posta, la presentación quedó bien copada");
+    expect(t("Los gurises están en la plaza", "UY", "ES")).toBe("Los chavales están en la plaza");
+  });
+
+  it("words that mean something else are filed right", () => {
+    expect(t("Diay, ¿qué hacemos hoy?", "CR", "AR")).toBe("Bueno, ¿qué hacemos hoy?");
+    expect(t("La guagua de AMA pasa cada media hora", "PR", "ES")).toBe("El autobús de AMA pasa cada media hora");
+    expect(t("Se me perdió la birome", "PY", "AR")).toBe("Se me perdió la birome");
+    expect(t("Mañana tengo camello temprano", "CO", "MX")).toBe("Mañana tengo chamba temprano");
+  });
+
+  it("everyday words from every country", () => {
+    expect(t("¿Qué xopá, fren? Te mando el contrato", "PA", "CO")).toBe("¿Qué más, compa? Te mando el contrato");
+    expect(t("Dame un chin de tiempo para revisar", "DO", "AR")).toBe("Dame un poco de tiempo para revisar");
+    expect(t("Tengo mucho brete esta semana, mae", "CR", "MX")).toBe("Tengo mucha chamba esta semana, cuate");
   });
 });

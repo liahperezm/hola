@@ -132,7 +132,7 @@ function PhraseView({
       <div
         role="tablist"
         aria-label={t("Secciones de la palabra")}
-        className="mx-1 mb-6 flex gap-[26px] border-b border-line"
+        className="mx-1 mb-6 flex gap-[26px] border-b border-line max-[359px]:gap-4"
       >
         {tabs.map((tab_, i) => (
           <button
@@ -160,7 +160,7 @@ function PhraseView({
               setTab(tabs[next].id);
               tabRefs.current[next]?.focus();
             }}
-            className={`-mb-px border-b-[3px] pb-3 text-[15.5px] transition ${
+            className={`-mb-px border-b-[3px] pb-3 text-[15.5px] whitespace-nowrap transition max-[359px]:text-[14.5px] ${
               tab === tab_.id
                 ? "border-navy font-bold text-navy"
                 : "border-transparent font-semibold text-muted hover:text-navy"

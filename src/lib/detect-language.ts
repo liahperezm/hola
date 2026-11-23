@@ -9,12 +9,12 @@ import type { LanguageCode } from "./languages";
 
 const WORDS: Record<"es" | "en" | "pt" | "fr" | "de" | "it" | "ht", string> = {
   es: "el los las del al y es está estoy estás están por para pero muy qué cómo dónde cuándo quiero quieres tengo tiene hay hola gracias mucho mucha muchos muchas antes después también ahora aquí bueno buena usted ustedes nosotros ellos ellas eso esto esta este cuando donde porque señor sí ya hacer voy vas va vamos tenemos puedo puede",
-  en: "the and is are was were you i to of what it this that with have has my we want before take do don't how where for be can not your our they them there their just like about will would should could from but if when who which hello thanks please very much bus need go going",
+  en: "the and is are was were you i to of what it this that with have has my we want before take do don't how where for be can not your our they them there their just like about will would should could from but if when who which hello thanks please very much bus need go going let's after at on i'm it's grab meeting",
   pt: "não você vocês é uma um com eu ele ela isso isto muito muita obrigado obrigada olá tem são também quero onde nós meu minha ônibus agora aqui depois antes então mas pelo pela fazer vou",
-  fr: "le les est et je vous nous une des du pas avec pour dans ce cette suis veux avant prendre bonjour merci très il elle sont ai avez mon ma mes où mais aussi maintenant ici c'est",
+  fr: "le les est et je vous nous une des du pas avec pour dans ce cette suis veux avant prendre bonjour merci très il elle sont ai avez mon ma mes où mais aussi maintenant ici c'est combien comment pourquoi quand voudrais",
   de: "der die das und ist ich du nicht ein eine mit zu wir sie was wie auf den dem bin möchte bitte danke hallo vor nehmen haben habe auch jetzt hier aber oder ja nein",
   it: "è di che non sono gli della io voglio prima prendere ciao grazie molto questo ho sei siamo anche dove adesso qui ma il",
-  ht: "mwen ou li nou pa ak nan sa ki pou vle bonjou mèsi anvan pran bis kounye kijan kote tanpri anpil",
+  ht: "mwen ou li nou pa ak nan sa ki pou vle bonjou mèsi anvan pran bis kounye kijan kote tanpri anpil bezwen demen maten travay konnen manje ale",
 };
 
 const LISTS = Object.fromEntries(

@@ -1,0 +1,100 @@
+PR.acho | AH-choh | Acho, se me olvidó el informe en la casa. |
+DO.klk | keh loh KEH | Klk, mi pana, ¿tú vas pa' la playa? |
+PR.bochinche | boh-CHEEN-cheh | Qué bochinche se formó en la reunión. | calma
+GT.ishto | EESH-toh | El ishto está jugando afuera. |
+HN.bicho | BEE-choh | El bicho no quiere ir a la escuela. |
+SV.bicho | BEE-choh | Los bichos están jugando pelota. |
+PY.mitai | mee-tah-EE | El mitaí está jugando en el patio. |
+AR.barbaro | BAR-bah-roh | ¡Bárbaro! Nos vemos mañana a las diez. | horrible
+PR.brutal | broo-TAHL | La fiesta estuvo brutal. | malísimo
+PR.nitido | NEE-tee-doh | Esa playa está nítida. | malo
+UY.barbaro | BAR-bah-roh | Estuvo bárbaro el asado. | horrible
+CR.pura-vida | POO-rah BEE-dah | ¡Pura vida, mae! Nos vemos mañana. |
+NI.reales | reh-AH-lehs | No tengo reales para el pasaje. |
+PY.vyrorei | vih-roh-REH-ee | Ese chico es un vyrorei. | vivo
+GT.chamba | CHAHM-bah | Tengo mucha chamba hoy. |
+SV.chamba | CHAHM-bah | Conseguí chamba en San Salvador. |
+HN.chamba | CHAHM-bah | La chamba empieza a las siete. |
+CU.en-candela | ehn kahn-DEH-lah | Ese proyecto está en candela. | tranquilo
+CL.taco | TAH-koh | Había un taco terrible en la Alameda. |
+EC.guagua | WAH-wah | La guagua no deja de llorar. |
+PA.fren | FREHN | ¿Qué xopá, fren? |
+SV.maje | MAH-heh | ¿Qué onda, maje? ¿Vamos al partido? |
+HN.maje | MAH-heh | Puchica, maje, perdimos el bus. |
+CR.mae | MAH-eh | Qué tuanis, mae. |
+NI.maje | MAH-heh | ¿Qué onda, maje? ¿Todo bien? |
+PE.causa | KOW-sah | Tengo chamba hasta las seis, causa. |
+PE.pata | PAH-tah | Mi pata me ayudó con la mudanza. |
+MX.cuate | KWAH-teh | Ese cuate es mi amigo desde la prepa. |
+MX.compa | KOHM-pah | ¿Qué onda, compa? ¿Vamos por unos tacos? |
+BO.cuate | KWAH-teh | Estoy con los cuates en la plaza. |
+CO.compa | KOHM-pah | Esa vaina está buenísima, compa. |
+PE.al-toque | ahl TOH-keh | Al toque te paso el reporte. | más tarde
+AR.al-toque | ahl TOH-keh | Te lo mando al toque. | más tarde
+MX.ahorita | ah-oh-REE-tah | Ahorita te mando el archivo. |
+PY.chake | chah-KEH | ¡Chake! Que viene el auto. |
+DO.vaina | BAI-nah | Esa vaina está nítida. |
+VE.vaina | BAI-nah | Chamo, ¿qué vaina es esa? |
+CO.vaina | BAI-nah | Pásame esa vaina, que la necesito. |
+PA.vaina | BAI-nah | Esa vaina ya no sirve. |
+HN.bolo | BOH-loh | Llegó bolo a la casa. | sobrio
+SV.bolo | BOH-loh | Anoche andaba bien bolo. | sobrio
+GT.bolo | BOH-loh | Ese señor está bolo. | sobrio
+SV.chucho | CHOO-choh | Ese chucho no presta nada. | generoso
+EC.chiro | CHEE-roh | Mi ñaño está chiro, no tiene plata. |
+VE.pelando | peh-LAHN-doh | Estoy pelando, no tengo reales. |
+AR.la-facu | lah FAH-koo | Qué quilombo se armó en la facu. |
+UY.la-facu | lah FAH-koo | Hoy no voy a la facu. |
+AR.chanta | CHAHN-tah | Ese pibe es un chanta, no le creas. | honesto
+UY.chanta | CHAHN-tah | No le compres nada, es un chanta. | honesto
+AR.a-full | ah FOOL | Estoy a full con el laburo. | al pedo
+UY.a-full | ah FOOL | Esta semana estoy a full. |
+ES.a-tope | ah TOH-peh | Esta semana voy a tope de trabajo. |
+BO.la-yapa | lah YAH-pah | Dame la yapa, casera. |
+PE.la-yapa | lah YAH-pah | El casero me dio la yapa. |
+EC.la-yapa | lah YAH-pah | ¿Y la yapa, vecina? |
+AR.la-yapa | lah SHAH-pah | En la verdulería siempre te dan la yapa. |
+MX.el-pilon | ehl pee-LOHN | Y de pilón, te regalo un aguacate. |
+BO.k-encha | KEHN-chah | Qué k'encha tengo hoy, todo me sale mal. | suerte
+BO.farrear | fah-rreh-AR | Vamos a farrear el sábado. |
+EC.farrear | fah-rreh-AR | Se fueron a farrear después del partido. |
+PE.juerguear | hwehr-geh-AR | Nos fuimos a juerguear a Barranco. |
+ES.salir-de-marcha | sah-LEER deh MAR-chah | Este finde salimos de marcha. |
+BO.pucha | POO-chah | Pucha, se me olvidó el celular. |
+AR.pucha | POO-chah | ¡Pucha! Perdimos el colectivo. |
+CL.pucha | POO-chah | Pucha, no alcancé a llegar. |
+PE.pucha | POO-chah | ¡Pucha, qué mala suerte! |
+UY.pucha | POO-chah | Pucha, se largó a llover. |
+NI.chocho | CHOH-choh | ¡Chocho, qué calor hace! |
+PA.chuleta | choo-LEH-tah | ¡Chuleta, se me olvidó la cartera! |
+CO.man | MAHN | Ese man es un berraco. |
+PA.man | MAHN | Ese man siempre llega tarde. |
+CO.berraco | beh-RRAH-koh | Mi mamá es una berraca para el trabajo. | flojo
+CO.verraco | beh-RRAH-koh | Ese equipo está verraco. | flojo
+UY.ta | TAH | Ta, te mando el informe a la tarde. |
+SV.vaya-pues | BAH-yah pwehs | Vaya pues, nos vemos mañana. |
+HN.vaya-pues | BAH-yah pwehs | Vaya pues, te llamo más tarde. |
+NI.dale-pues | DAH-leh pwehs | Dale pues, nos vemos a las tres. |
+MX.orale | OH-rah-leh | ¡Órale! Vamos por unos tacos. |
+PA.buco-de | BOO-koh deh | Hay buco de gente en el mercado. | poquito
+UY.pila-de | PEE-lah deh | Estoy con pila de laburo. | poquito
+AR.una-banda-de | OO-nah BAHN-dah deh | Había una banda de gente en el recital. | poquito
+ES.un-mogollon-de | oon moh-goh-YOHN deh | Había un mogollón de gente en el concierto. | poquito
+DO.un-chin | oon CHEEN | Dame un chin de tiempo para revisar. | un montón
+DO.tiguere | TEE-geh-reh | Ese tíguere se las sabe todas. | pariguayo
+VE.burda-de | BOOR-dah deh | Esa vaina está burda de buena. |
+VE.caucho | KOW-choh | Se me espichó un caucho en la autopista. |
+MX.llanta | YAHN-tah | Se me ponchó una llanta. |
+ES.neumatico | neh-oo-MAH-tee-koh | Hay que cambiar los neumáticos del coche. |
+AR.salado | sah-LAH-doh | Esa campera está salada. | barato
+UY.salado | sah-LAH-doh | Está todo salado en Punta del Este. | barato
+ES.majo | MAH-hoh | Ese chaval es muy majo. | borde
+EC.achachay | ah-chah-CHAI | Achachay, qué frío hace en la oficina. | arrarray
+EC.arrarray | ah-rrah-RRAI | Arrarray, qué caliente está la sopa. | achachay
+PR.corillo | koh-REE-yoh | Fuimos a la playa con el corillo. |
+EC.nano | NYAH-nyoh | Mi ñaño estudia en Quito. |
+CO.bobo | BOH-boh | No seas bobo, eso no se hace así. | avispado
+AR.re | REH | El recital estuvo re copado. |
+UY.re | REH | Está re lindo el día. |
+CO.lucas | LOO-kahs | Eso le cuesta veinte lucas. |
+AR.lucas | LOO-kahs | La entrada salió diez lucas. |

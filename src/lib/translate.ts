@@ -1,5 +1,6 @@
 import { DIALECTS, PICKABLE_DIALECTS, type DialectCode } from "./dialects";
 import {
+  ADJECTIVE_CONCEPTS,
   entriesFor,
   equivalent,
   conceptMeaning,
@@ -57,6 +58,8 @@ type Pattern = {
   meaning: string;
   en?: string;
   entry?: Entry;
+  /** The feminine form of an adjective ("chida" for "chido"). */
+  feminine?: boolean;
 };
 
 const WORD = /[\p{L}\p{N}]+/gu;
@@ -91,14 +94,23 @@ function patternsFor(dialect: Source): Pattern[] {
   }
   if (!patterns) {
     dialect = dialect as DialectCode;
-    const own: Pattern[] = entriesFor(dialect).map((entry) => ({
-      tokens: normalize(entry.text).split(" "),
-      conceptId: entry.conceptId,
-      text: entry.text,
-      meaning: entry.meaning,
-      en: entry.en,
-      entry,
-    }));
+    const own: Pattern[] = entriesFor(dialect).flatMap((entry) => {
+      const pattern: Pattern = {
+        tokens: normalize(entry.text).split(" "),
+        conceptId: entry.conceptId,
+        text: entry.text,
+        meaning: entry.meaning,
+        en: entry.en,
+        entry,
+      };
+      // Adjectives also match their feminine form: "chida", "nítida".
+      const last = pattern.tokens.at(-1) ?? "";
+      if (!ADJECTIVE_CONCEPTS.has(entry.conceptId) || !last.endsWith("o")) return [pattern];
+      return [
+        pattern,
+        { ...pattern, tokens: [...pattern.tokens.slice(0, -1), `${last.slice(0, -1)}a`], feminine: true },
+      ];
+    });
     const plain: Pattern[] = plainWordsFor(dialect).map((w) => ({
       tokens: normalize(w.text).split(" "),
       conceptId: w.conceptId,
@@ -128,6 +140,8 @@ function pluralize(phrase: string): string {
 function matchesWord(token: string, word: string): "exact" | "plural" | null {
   if (token === word) return "exact";
   if (token === `${word}s` || token === `${word}es`) return "plural";
+  // "gurí" → "gurises"
+  if (/[iu]$/.test(word) && token === `${word}ses`) return "plural";
   return null;
 }
 
@@ -175,6 +189,22 @@ function findMatches(text: string, dialect: Source): Match[] {
     }
   }
   return matches;
+}
+
+/** Words for people: their gender is the person's, not the word's. */
+const PERSON_CONCEPTS = new Set([
+  "nino", "bebe", "amigo", "novio", "tipo", "policia", "rubio", "esnob", "tonto",
+  "chismoso", "tacano", "borracho", "hermano", "picaro", "extranjero", "chanta",
+]);
+
+/** The article of the last noun in the sentence so far: "la fiesta estuvo …". */
+function subjectForm(before: string): NounForm | undefined {
+  const sentence = before.split(/[.!?¡¿]/).at(-1) ?? "";
+  const articles = [...sentence.matchAll(/\b(el|la|los|las|un|una|unos|unas|ese|esa|esos|esas|este|esta|estos|estas|mi|mis)\b/gi)];
+  const last = articles.at(-1);
+  if (!last) return undefined;
+  const form = formFromArticle(`${last[0]} `);
+  return form.gender || form.number === "p" ? { gender: form.gender, number: form.number ?? "s" } : undefined;
 }
 
 function matchCase(replacement: string, original: string): string {
@@ -298,6 +328,8 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
   };
   const pairs: TermPair[] = [];
   const seen = new Set<string>();
+  // Swapped adjectives, to agree with their noun at the end.
+  const adjectives: { index: number; base: string; original: string }[] = [];
   let cursor = 0;
 
   for (const edit of edits) {
@@ -355,9 +387,34 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
     }
     const { match } = edit;
     const { pattern } = match;
-    const { text: word, entry: toEntry } = equivalent(pattern.conceptId, to);
-    const clean = word.replace(EDGE_PUNCTUATION, "");
-    const replaced = matchCase(match.plural ? pluralize(clean) : clean, original);
+    let { text: word, entry: toEntry } = equivalent(pattern.conceptId, to);
+    // A plain word never becomes a vulgar one: use its plain meaning instead.
+    if (toEntry?.register && !pattern.entry?.register) {
+      word = conceptMeaning(pattern.conceptId) ?? pattern.meaning;
+      toEntry = undefined;
+    }
+    let clean = word.replace(EDGE_PUNCTUATION, "");
+    // "¡Qué chimba!" → "¡Qué copado!", not "¡Copado!"
+    if (normalize(pattern.text).startsWith("que ") && !normalize(clean).startsWith("que ")) {
+      clean = `qué ${clean}`;
+    }
+    // People keep their gender ("la canche" → "la rubia", "su jeva" → "su
+    // jeva"), and so do adjectives: from the word's own ending, or for a word
+    // like "bacán" from the noun it describes ("la fiesta estuvo bacana").
+    let keep: Gender | undefined;
+    const adjective = ADJECTIVE_CONCEPTS.has(pattern.conceptId) && !PERSON_CONCEPTS.has(pattern.conceptId);
+    if (PERSON_CONCEPTS.has(pattern.conceptId)) {
+      const last = normalize(original).split(" ").at(-1) ?? "";
+      keep = formFromArticle(before).gender ?? (/a$/.test(last) ? "f" : /o$/.test(last) ? "m" : undefined);
+      if (keep === "f") clean = clean.replace(/o$/, "a");
+    } else if (adjective) {
+      // Settled at the end, once the nouns around it are in place.
+      keep = pattern.feminine ? "f" : /o$/.test(normalize(original)) ? "m" : undefined;
+      if (keep === "f") clean = clean.replace(/o$/, "a");
+      adjectives.push({ index: target.length, base: clean.replace(/a$/, "o"), original });
+    }
+    const plural = match.plural;
+    const replaced = matchCase(plural ? pluralize(clean) : clean, original);
 
     // A plain word the other country also uses stays as ordinary text.
     if (!pattern.entry && normalize(clean) === normalize(pattern.text)) {
@@ -366,7 +423,12 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
       continue;
     }
     source.push({ text: original, highlight: true });
-    pushTarget({ text: replaced, highlight: true }, formsOf(before, original, clean, match.plural));
+    // The same word in both countries leaves everything around it alone.
+    const same = normalize(clean) === normalize(original);
+    pushTarget(
+      { text: replaced, highlight: true },
+      same ? null : formsOf(before, original, clean, match.plural, keep),
+    );
 
     const key = pattern.entry?.id ?? `plain.${pattern.conceptId}`;
     if (!seen.has(key)) {
@@ -396,6 +458,16 @@ function translateFrom(text: string, origin: Source, to: DialectCode): Translati
     if (prev && !prev.highlight) prev.text = agreeBefore(prev.text, shift.from, shift.to);
     if (next && !next.highlight) next.text = agreeAfter(next.text, shift.from, shift.to);
   });
+  // "la joda estuvo bacán" → "la joda estuvo copada": an adjective takes the
+  // gender and number of the last noun before it in the translation.
+  for (const { index, base, original } of adjectives) {
+    if (!/o$/.test(base)) continue;
+    const subject = subjectForm(target.slice(0, index).map((s) => s.text).join(""));
+    if (!subject) continue;
+    let word = subject.gender === "f" ? base.replace(/o$/, "a") : base;
+    if (subject.number === "p") word = pluralize(word);
+    target[index].text = matchCase(word, original);
+  }
   for (const segment of target) {
     if (!segment.highlight) segment.text = fixAccents(segment.text);
   }

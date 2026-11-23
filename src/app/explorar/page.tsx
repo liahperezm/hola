@@ -157,7 +157,8 @@ function WordOfTheDay() {
     return <div className="mt-4 h-[146px] rounded-[26px] bg-white shadow-card" />;
   }
   // Every country unless one is chosen; learners start with the Spanish they learn.
-  const entry = wordForDay(today, chosen ?? (language === "en" ? pair.to : undefined));
+  const shown = chosen ?? (language === "en" ? pair.to : "all");
+  const entry = wordForDay(today, shown === "all" ? undefined : shown);
   return (
     <div className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card">
       <div className="flex items-center justify-between gap-3">
@@ -165,11 +166,11 @@ function WordOfTheDay() {
         <label className="relative">
           <span className="sr-only">{t("De qué país")}</span>
           <select
-            value={chosen ?? ""}
-            onChange={(e) => setChosen(isDialectCode(e.target.value) ? e.target.value : null)}
+            value={shown}
+            onChange={(e) => setChosen(isDialectCode(e.target.value) ? e.target.value : "all")}
             className="h-9 appearance-none rounded-full bg-bg py-0 pr-8 pl-3 text-[13px] font-semibold text-navy"
           >
-            <option value="">{t("Todos los países")}</option>
+            <option value="all">{t("Todos los países")}</option>
             {countries.map((code) => (
               <option key={code} value={code}>
                 {country(code)}
