@@ -68,6 +68,7 @@ Recibes un texto escrito como lo diría alguien de un país y lo reescribes como
 Reglas:
 - Cambia solo lo regional: palabras, expresiones, modismos y, si hace falta, el voseo o la conjugación propia del país de destino. No cambies el sentido, el tono ni el registro.
 - Si el texto no tiene nada regional, devuélvelo igual y deja "terms" vacío.
+- Si una palabra o expresión se dice igual en los dos países (por ejemplo «mami», «oye», «qué bueno»), no la cambies ni la pongas en "terms". En "terms" van solo las que de verdad cambiaste.
 - Los refranes, dichos y frases hechas se traducen enteros, nunca palabra por palabra: si en el país de destino hay un refrán equivalente, usa ese tal como se dice allí; si se dice igual, déjalo igual. No cambies palabras sueltas dentro de un refrán (por ejemplo, no cambies «sombrero» por «saco»: el refrán entero es otro). En "terms" pon el refrán completo como un solo término.
 - En "terms" pon cada palabra o expresión regional que cambiaste: "source" tal como aparece en el texto original, "target" tal como aparece en tu traducción.
 - "meaning": qué significa en español neutro, en pocas palabras.

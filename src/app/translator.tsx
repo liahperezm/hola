@@ -6,6 +6,7 @@ import {
   ArrowRight,
   Camera,
   Check,
+  ChevronDown,
   ChevronRight,
   Copy,
   LoaderCircle,
@@ -437,11 +438,15 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
           ? t("1 refrán")
           : t("{count} refranes", { count: sayings })
         : t("Palabras y refranes");
+  // Learners come for the words; everyone else sees the translation first and
+  // can open the list to see what changed.
   return (
-    <section>
-      <SectionTitle>
-        {title ?? heading()}
-      </SectionTitle>
+    <details open={language === "en" || undefined} className="group mt-5">
+      <summary className="mx-auto flex w-fit cursor-pointer list-none items-center gap-1.5 rounded-full px-3 py-2 text-[14px] font-semibold text-muted hover:text-navy [&::-webkit-details-marker]:hidden">
+        {title ?? `${t("¿Qué cambió?")} · ${heading()}`}
+        <ChevronDown aria-hidden className="size-4 transition group-open:rotate-180" />
+      </summary>
+      <div className="mt-2">
       <ListCard>
         {pairs.map((p) => {
           const saying = p.from.id === "refran";
@@ -498,7 +503,8 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
           );
         })}
       </ListCard>
-    </section>
+      </div>
+    </details>
   );
 }
 
