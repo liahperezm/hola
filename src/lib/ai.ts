@@ -30,13 +30,18 @@ function modelSettings() {
     : { model, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" as const };
 }
 
+/** The key as pasted into the host's settings, without stray spaces or quotes. */
+function apiKey(): string {
+  return (process.env.ANTHROPIC_API_KEY ?? "").trim().replace(/^["']|["']$/g, "").trim();
+}
+
 export function aiAvailable(): boolean {
-  return Boolean(process.env.ANTHROPIC_API_KEY);
+  return apiKey() !== "";
 }
 
 let client: Anthropic | undefined;
 function getClient(): Anthropic {
-  client ??= new Anthropic();
+  client ??= new Anthropic({ apiKey: apiKey() });
   return client;
 }
 
