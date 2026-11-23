@@ -16,7 +16,9 @@ function buildIndex() {
   const map = new Map<string, Set<DialectCode>>();
   for (const entry of allEntries()) {
     const key = normalize(entry.text);
-    if (!key || standard.has(key) || entry.dialect === "US") continue;
+    // Two-letter words ("ta", "bo", "re") mean different things in different
+    // countries ("ta" is Uruguay's "OK" and the Caribbean's "está").
+    if (!key || key.length <= 2 || standard.has(key) || entry.dialect === "US") continue;
     const set = map.get(key) ?? new Set<DialectCode>();
     set.add(entry.dialect);
     map.set(key, set);

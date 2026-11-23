@@ -931,4 +931,7 @@ export const DETAILS: Record<string, TermDetail> = {
   "UY.re": {"pronunciation": "REH", "example": "Está re lindo el día."},
   "CO.lucas": {"pronunciation": "LOO-kahs", "example": "Eso le cuesta veinte lucas."},
   "AR.lucas": {"pronunciation": "LOO-kahs", "example": "La entrada salió diez lucas."},
+  "DO.ta-de-to": {"pronunciation": "TAH deh TOH", "example": "Esa bachata ta de to.", "antonyms": ["ta feo"]},
+  "DO.esta-de-to": {"pronunciation": "ehs-TAH deh TOH", "example": "La comida está de to."},
+  "PR.esta-de-show": {"pronunciation": "ehs-TAH deh SHOH", "example": "Esa fiesta está de show."},
 };

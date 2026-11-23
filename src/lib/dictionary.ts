@@ -1060,6 +1060,7 @@ const FIELD_CONCEPTS: Concept[] = [
   { id: "de-acuerdo", meaning: "de acuerdo", en: "OK, all right", terms: { UY: ["ta"], SV: ["vaya pues"], HN: ["vaya pues"], NI: ["dale pues"], MX: ["órale"] } },
   { id: "un-monton-de", meaning: "un montón de", en: "a lot of", terms: { PA: ["buco de"], UY: ["pila de"], AR: ["una banda de"], ES: ["un mogollón de"] } },
   { id: "un-poco", meaning: "un poco", en: "a little bit", terms: { DO: ["un chin"] } },
+  { id: "esta-buenisimo", meaning: "está buenísimo", en: "it's great, it's the best", terms: { DO: ["ta de to", "está de to"], PR: ["está de show"] } },
   { id: "picaro", meaning: "pícaro", en: "a street-smart guy", terms: { DO: ["tíguere"] } },
   { id: "muy", meaning: "muy", en: "very", terms: { VE: ["burda de"], AR: ["re"], UY: ["re"] } },
   { id: "mil-pesos", meaning: "mil pesos", en: "a thousand pesos", terms: { CL: ["lucas"], CO: ["lucas"], AR: ["lucas"] } },

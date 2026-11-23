@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import { sharedText } from "./draft";
 import type { DialectCode } from "./dialects";
 import { allEntries, getEntry, knownEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
+import { suggestCountry } from "./detect";
 import { warningText } from "./false-friends";
 import { translateAnyCountry, translateWithDictionary, worthAskingAi } from "./translate";
 
@@ -419,5 +420,12 @@ describe("user test phrases", () => {
     expect(t("¿Qué xopá, fren? Te mando el contrato", "PA", "CO")).toBe("¿Qué más, compa? Te mando el contrato");
     expect(t("Dame un chin de tiempo para revisar", "DO", "AR")).toBe("Dame un poco de tiempo para revisar");
     expect(t("Tengo mucho brete esta semana, mae", "CR", "MX")).toBe("Tengo mucha chamba esta semana, cuate");
+  });
+});
+
+describe("Dominican 'ta'", () => {
+  it("translates and isn't taken for Uruguay's 'ta'", () => {
+    expect(join(translateWithDictionary("Eso ta de to", "DO", "AR").target)).toBe("Eso está buenísimo");
+    expect(suggestCountry("eso ta de to", "DO", "AR")).toBeNull();
   });
 });

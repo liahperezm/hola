@@ -1,5 +1,5 @@
-Personas: 117. Phrases: 234.
-Regional words expected: 268; recognized: 250 (93%).
+Personas: 117. Phrases: 235.
+Regional words expected: 269; recognized: 251 (93%).
 Wrong country hints: 0. Wrong language hints: 0. Would ask the AI: 20.
 
 AR: 19/20  missed: mandar una macana
@@ -20,7 +20,7 @@ PA: 10/11  missed: juega vivo
 PY: 9/10  missed: tereré
 PE: 12/12  missed: -
 PR: 11/13  missed: wepa, chinchorreo
-DO: 14/14  missed: -
+DO: 15/15  missed: -
 UY: 12/12  missed: -
 VE: 13/15  missed: ladilla, arrecho
 

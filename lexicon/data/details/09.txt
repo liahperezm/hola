@@ -98,3 +98,6 @@ AR.re | REH | El recital estuvo re copado. |
 UY.re | REH | Está re lindo el día. |
 CO.lucas | LOO-kahs | Eso le cuesta veinte lucas. |
 AR.lucas | LOO-kahs | La entrada salió diez lucas. |
+DO.ta-de-to | TAH deh TOH | Esa bachata ta de to. | ta feo
+DO.esta-de-to | ehs-TAH deh TOH | La comida está de to. |
+PR.esta-de-show | ehs-TAH deh SHOH | Esa fiesta está de show. |

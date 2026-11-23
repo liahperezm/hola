@@ -3165,6 +3165,23 @@
     "wouldAskAi": false
   },
   {
+    "persona": "Yolanda Peña",
+    "country": "DO",
+    "target": "AR",
+    "scenario": "trabajo",
+    "text": "Eso ta de to",
+    "output": "Eso está buenísimo",
+    "via": "dictionary",
+    "expected": [
+      "ta de to"
+    ],
+    "missed": [],
+    "shared": [],
+    "wrongCountryHint": null,
+    "wrongLanguageHint": null,
+    "wouldAskAi": false
+  },
+  {
     "persona": "Rafael Almonte",
     "country": "DO",
     "target": "MX",
