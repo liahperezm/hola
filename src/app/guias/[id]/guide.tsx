@@ -39,10 +39,12 @@ export function Guide({
     const q = normalize(query);
     return guideRows(id, pair.from, pair.to).filter(
       (r) =>
-        !q ||
+        // Expressions belong to some countries: show those either country has.
+        (id !== "dichos" || r.from.entry || r.to.entry) &&
+        (!q ||
         normalize(r.from.display).includes(q) ||
         normalize(r.to.display).includes(q) ||
-        (r.en ? normalize(r.en).includes(q) : false),
+        (r.en ? normalize(r.en).includes(q) : false)),
     );
   }, [id, pair.from, pair.to, query]);
 

@@ -2,7 +2,7 @@
 
 import { ArrowLeftRight, Check } from "lucide-react";
 import { useState } from "react";
-import { DIALECT_CODES, type DialectCode } from "@/lib/dialects";
+import { PICKABLE_DIALECTS, type DialectCode } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
 import { LANGUAGE_CODES, LANGUAGES, type LanguageCode } from "@/lib/languages";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
@@ -131,7 +131,7 @@ function SideList({
   onChoose: (choice: Choice) => void;
 }) {
   const { t, country, language } = useT();
-  const dialects = [...DIALECT_CODES].sort((a, b) => country(a).localeCompare(country(b), language));
+  const dialects = [...PICKABLE_DIALECTS].sort((a, b) => country(a).localeCompare(country(b), language));
   const row = "flex w-full items-center gap-4 rounded-2xl px-2 py-3 text-left text-[16px] font-medium hover:bg-bg";
   const isSelected = (c: Choice) => c.kind === selected.kind && c.code === selected.code;
   return (

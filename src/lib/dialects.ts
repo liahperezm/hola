@@ -25,6 +25,13 @@ export const DIALECT_CODES = [
 
 export type DialectCode = (typeof DIALECT_CODES)[number];
 
+/**
+ * The countries people pick from. US Spanish stays in the dictionary but isn't
+ * offered as a Spanish of its own: people in the US pick English or the
+ * country their Spanish comes from.
+ */
+export const PICKABLE_DIALECTS = DIALECT_CODES.filter((code) => code !== "US");
+
 export type Dialect = {
   code: DialectCode;
   /** Full country name, shown above each text. */

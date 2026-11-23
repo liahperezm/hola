@@ -425,18 +425,10 @@ export function Translator() {
 function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) {
   const { t, language } = useT();
   if (pairs.length === 0) return null;
-  const sayings = pairs.filter((p) => p.from.id?.startsWith("refran.")).length;
-  const words = pairs.length - sayings;
   const heading = () =>
-    sayings === 0
-      ? words === 1
-        ? t("1 palabra regional")
-        : t("{count} palabras regionales", { count: words })
-      : words === 0
-        ? sayings === 1
-          ? t("1 refrán")
-          : t("{count} refranes", { count: sayings })
-        : t("Palabras y refranes");
+    pairs.length === 1
+      ? t("1 palabra regional")
+      : t("{count} palabras regionales", { count: pairs.length });
   return (
     <section>
       <SectionTitle>
@@ -444,19 +436,7 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
       </SectionTitle>
       <ListCard>
         {pairs.map((p) => {
-          const saying = p.from.id?.startsWith("refran.");
-          const content = saying ? (
-            <>
-              <div className="min-w-0 flex-1">
-                <p className="text-[15.5px] font-extrabold">{capitalizeFirst(p.from.text)}</p>
-                <p className="mt-0.5 text-sm text-muted">
-                  {t("Refrán")}
-                  {language === "en" && p.en ? ` · ${p.en}` : ""}
-                </p>
-              </div>
-              <ChevronRight className="size-[18px] shrink-0 text-muted" />
-            </>
-          ) : (
+          const content = (
             <>
               <div className="min-w-0 flex-1">
                 <p className="flex flex-wrap items-center gap-x-2 text-[15.5px]">
@@ -487,7 +467,7 @@ function RegionalWords({ pairs, title }: { pairs: TermPair[]; title?: string }) 
             <li key={`${p.from.text}-${p.to.text}`}>
               {id ? (
                 <Link
-                  href={id.startsWith("refran.") ? `/refranes/${id.slice(7)}` : `/frase/${id}`}
+                  href={`/frase/${id}`}
                   className="flex items-center gap-3 py-3"
                 >
                   {content}

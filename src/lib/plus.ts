@@ -53,7 +53,7 @@ export function useSentenceAllowance() {
 
 /** Phrasebooks that come with Plus, shown locked in Explore. */
 export const PLUS_GUIDES = [
-  { id: "jerga", emoji: "😎", title: "Jerga y dichos", subtitle: "Como se habla en la calle", color: "bg-stone" },
+  { id: "compras", emoji: "🛍️", title: "De compras", subtitle: "Tiendas, precios y regateo", color: "bg-stone" },
   { id: "salir", emoji: "🎉", title: "De fiesta", subtitle: "Bares, música y planes", color: "bg-fog" },
   { id: "medico", emoji: "🩺", title: "En el médico", subtitle: "Síntomas y farmacia", color: "bg-sage" },
   { id: "familia", emoji: "💛", title: "Familia y amor", subtitle: "Cariño, apodos y la suegra", color: "bg-sand" },
@@ -63,5 +63,5 @@ export const PLUS_FEATURES = [
   { emoji: "∞", title: "Frases sin límite", detail: "Gratis: {free} frases al día. Las palabras siempre son gratis." },
   { emoji: "📴", title: "Sin conexión", detail: "Descarga el español de un país para viajar sin datos." },
   { emoji: "🃏", title: "Tarjetas de repaso", detail: "Repasa tus favoritos hasta que te salgan solos." },
-  { emoji: "📚", title: "Más mini guías", detail: "Jerga, fiesta, médico, familia y más." },
+  { emoji: "📚", title: "Más mini guías", detail: "Compras, fiesta, médico, familia y más." },
 ] as const;

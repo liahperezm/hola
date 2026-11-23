@@ -2,7 +2,7 @@
 
 import { ArrowLeftRight, Check } from "lucide-react";
 import { useState } from "react";
-import { DIALECT_CODES, DIALECTS, type DialectCode } from "@/lib/dialects";
+import { DIALECTS, PICKABLE_DIALECTS, type DialectCode } from "@/lib/dialects";
 import type { DialectPair } from "@/lib/storage";
 import { useT } from "@/lib/i18n";
 import { Flag } from "./flag";
@@ -124,7 +124,7 @@ export function CountryList({
   exclude?: DialectCode;
 }) {
   const { country, language } = useT();
-  const codes = DIALECT_CODES.filter((code) => code !== exclude).sort((a, b) =>
+  const codes = PICKABLE_DIALECTS.filter((code) => code !== exclude).sort((a, b) =>
     country(a).localeCompare(country(b), language),
   );
   return (

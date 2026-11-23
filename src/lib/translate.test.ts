@@ -304,16 +304,22 @@ describe("sharing into Hola", () => {
   });
 });
 
-describe("sayings", () => {
-  it("translates a saying into what it means, however it was spelled", () => {
-    const r = translateWithDictionary("A caballo regalao no se le miran lo diente", "DO", "AR");
-    expect(join(r.target)).toBe("No hay que ponerle defectos a lo que te regalan");
-    expect(r.via).toBe("dictionary");
-    expect(r.pairs[0]).toMatchObject({ from: { text: "a caballo regalado no se le mira el diente" }, meaning: "refrán" });
+
+describe("dichos", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("swap a country's expression for the other country's, like words", () => {
+    expect(t("Tu primo está como una cabra", "ES", "AR")).toBe("Tu primo está del tomate");
+    expect(t("Mañana vamos a hacer novillos", "ES", "PE")).toBe("Mañana vamos a hacer la vaca");
   });
 
-  it("uses the other country's own saying", () => {
-    const r = translateWithDictionary("Ya sabes, a quien madruga, Dios le ayuda", "ES", "AR");
-    expect(join(r.target)).toBe("Ya sabes, el que madruga, Dios lo ayuda");
+  it("use plain words where the other country has no expression of its own", () => {
+    expect(t("No hay tos, mañana lo vemos", "MX", "CO")).toBe("No hay problema, mañana lo vemos");
+  });
+
+  it("are listed in their guide", () => {
+    const rows = guideRows("dichos", "ES", "AR").map((r) => [r.from.display, r.to.display]);
+    expect(rows).toContainEqual(["como una cabra", "del tomate"]);
   });
 });

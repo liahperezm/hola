@@ -2,7 +2,7 @@
 
 import { Check, MessageSquarePlus } from "lucide-react";
 import { useEffect, useId, useState, type FormEvent } from "react";
-import { DIALECT_CODES, DIALECTS, type DialectCode } from "@/lib/dialects";
+import { DIALECTS, PICKABLE_DIALECTS, type DialectCode } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
 import { Sheet } from "./sheet";
 
@@ -238,7 +238,7 @@ export function SuggestSheet({
               onChange={(e) => setCountry(e.target.value as DialectCode)}
               className={field}
             >
-              {DIALECT_CODES.map((code) => (
+              {PICKABLE_DIALECTS.map((code) => (
                 <option key={code} value={code}>
                   {countryName(code)}
                 </option>

@@ -15,7 +15,7 @@ function buildIndex() {
   const map = new Map<string, Set<DialectCode>>();
   for (const entry of allEntries()) {
     const key = normalize(entry.text);
-    if (!key || standard.has(key)) continue;
+    if (!key || standard.has(key) || entry.dialect === "US") continue;
     const set = map.get(key) ?? new Set<DialectCode>();
     set.add(entry.dialect);
     map.set(key, set);

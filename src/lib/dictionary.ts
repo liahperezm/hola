@@ -1,7 +1,7 @@
 import { DIALECTS, type DialectCode } from "./dialects";
 import { IMPORTED_CONCEPTS } from "./lexicon.generated";
 
-export type GuideId = "basicos" | "oficina" | "viaje" | "comida";
+export type GuideId = "basicos" | "oficina" | "viaje" | "comida" | "dichos";
 
 export const GUIDES: {
   id: GuideId;
@@ -13,6 +13,7 @@ export const GUIDES: {
   { id: "viaje", title: "Viaje", emoji: "✈️", subtitle: "Transporte y hoteles" },
   { id: "comida", title: "Comida", emoji: "🍲", subtitle: "Mercado y mesa" },
   { id: "oficina", title: "Oficina", emoji: "💼", subtitle: "Reuniones y trabajo" },
+  { id: "dichos", title: "Dichos", emoji: "🗣️", subtitle: "Expresiones y refranes de cada país" },
 ];
 
 export type TermDetail = {
@@ -835,7 +836,176 @@ function mergeConcepts(hand: Concept[], imported: ImportedConcept[]): Concept[] 
   return [...byId.values()];
 }
 
-const CONCEPTS = mergeConcepts(HAND_CONCEPTS, IMPORTED_CONCEPTS);
+
+/*
+ * Sayings and expressions that belong to some countries. A saying said the
+ * same way everywhere isn't here: there is nothing to translate. Where an
+ * expression follows "estar" or "ser", only the part after it is listed, so
+ * "está como una cabra" becomes "está del tomate" with the verb untouched.
+ */
+const DICHOS: Concept[] = [
+  {
+    id: "dicho-faltar-a-clase",
+    meaning: "faltar a clase",
+    en: "to skip school",
+    guide: "dichos",
+    terms: {
+      MX: ["irse de pinta"],
+      AR: ["hacerse la rata", "hacerse la rabona"],
+      UY: ["hacerse la rabona"],
+      CL: ["hacer la cimarra"],
+      PE: ["hacer la vaca"],
+      CO: ["capar clase"],
+      ES: ["hacer novillos", "hacer pellas"],
+    },
+  },
+  {
+    id: "dicho-loco",
+    meaning: "loco",
+    en: "crazy (estar …)",
+    guide: "dichos",
+    terms: {
+      ES: ["como una cabra"],
+      AR: ["del tomate"],
+      UY: ["del tomate"],
+      MX: ["zafado"],
+    },
+  },
+  {
+    id: "dicho-en-problemas",
+    meaning: "en problemas",
+    en: "in big trouble (estar …)",
+    guide: "dichos",
+    terms: { AR: ["al horno", "en el horno"], UY: ["al horno", "en el horno"] },
+  },
+  {
+    id: "dicho-harto",
+    meaning: "harto",
+    en: "fed up (estar …)",
+    guide: "dichos",
+    terms: { MX: ["hasta la madre"], ES: ["hasta las narices"] },
+    registers: { "hasta la madre": "vulgar" },
+  },
+  {
+    id: "dicho-furioso",
+    meaning: "furioso",
+    en: "boiling mad (estar …)",
+    guide: "dichos",
+    terms: { MX: ["como agua para chocolate"] },
+  },
+  {
+    id: "dicho-irresponsable",
+    meaning: "un irresponsable",
+    en: "a carefree, irresponsible person (ser …)",
+    guide: "dichos",
+    terms: { ES: ["un viva la Pepa"], CO: ["un viva la Pepa"], VE: ["un viva la Pepa"] },
+  },
+  {
+    id: "dicho-adolescencia",
+    meaning: "la adolescencia",
+    en: "the awkward teenage years",
+    guide: "dichos",
+    terms: { ES: ["la edad del pavo"] },
+  },
+  {
+    id: "dicho-feisimo",
+    meaning: "feísimo",
+    en: "really ugly or really bad",
+    guide: "dichos",
+    terms: { AR: ["más feo que pegarle a la madre"] },
+  },
+  {
+    id: "dicho-excelente",
+    meaning: "excelente",
+    en: "awesome",
+    guide: "dichos",
+    terms: { MX: ["a todo dar"] },
+  },
+  {
+    id: "dicho-no-hay-problema",
+    meaning: "no hay problema",
+    en: "no problem",
+    guide: "dichos",
+    terms: { MX: ["no hay tos"] },
+  },
+  {
+    id: "dicho-complicar",
+    meaning: "complicar las cosas",
+    en: "to overcomplicate things",
+    guide: "dichos",
+    terms: {
+      ES: ["buscarle tres pies al gato"],
+      AR: ["buscarle la quinta pata al gato"],
+      UY: ["buscarle la quinta pata al gato"],
+      CL: ["buscarle la quinta pata al gato"],
+      PY: ["buscarle la quinta pata al gato"],
+      MX: ["buscarle ruido al chicharrón"],
+    },
+  },
+  {
+    id: "dicho-coquetear",
+    meaning: "coquetear",
+    en: "to flirt with someone",
+    guide: "dichos",
+    terms: {
+      CO: ["echar los perros"],
+      VE: ["echar los perros"],
+      MX: ["echar los perros", "tirar los perros"],
+      CU: ["tirar los perros"],
+    },
+  },
+  {
+    id: "dicho-dar-papaya",
+    meaning: "ponérsela fácil a los demás",
+    en: "to make yourself an easy target",
+    guide: "dichos",
+    terms: { CO: ["dar papaya"] },
+  },
+  {
+    id: "dicho-derrochar",
+    meaning: "derrochar dinero",
+    en: "to waste money extravagantly",
+    guide: "dichos",
+    terms: { AR: ["tirar manteca al techo"] },
+  },
+  {
+    id: "dicho-enganar",
+    meaning: "engañar",
+    en: "to cheat, to scam",
+    guide: "dichos",
+    terms: { AR: ["meter la mula"] },
+  },
+  {
+    id: "dicho-madrugar",
+    meaning: "el que madruga, Dios lo ayuda",
+    en: "the early bird catches the worm",
+    guide: "dichos",
+    terms: { ES: ["a quien madruga, Dios le ayuda"] },
+  },
+  {
+    id: "dicho-el-que-se-pica",
+    meaning: "al que le quede el saco, que se lo ponga",
+    en: "if the shoe fits, wear it",
+    guide: "dichos",
+    terms: { ES: ["el que se pica, ajos come"] },
+  },
+  {
+    id: "dicho-destino",
+    meaning: "nadie escapa de su destino",
+    en: "you can't escape your destiny",
+    guide: "dichos",
+    terms: { MX: ["al que nace pa' tamal, del cielo le caen las hojas"] },
+  },
+  {
+    id: "dicho-el-que-rompe-paga",
+    meaning: "el que rompe, paga",
+    en: "you break it, you pay for it",
+    guide: "dichos",
+    terms: { VE: ["chivo que rompe tambor, con su pellejo paga"] },
+  },
+];
+
+const CONCEPTS = mergeConcepts([...HAND_CONCEPTS, ...DICHOS], IMPORTED_CONCEPTS);
 
 /*
  * Everyday objects whose plain Spanish word is also translated, so "gasolina"
