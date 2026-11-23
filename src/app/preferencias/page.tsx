@@ -109,6 +109,11 @@ export default function Settings() {
         <p>
           {t("No necesitas una cuenta: tus países y tus favoritos se quedan en este teléfono.")}
         </p>
+        <p>
+          {t(
+            "Para que el diccionario aprenda, guardamos sin ningún dato tuyo las frases que Hola no supo traducir sola.",
+          )}
+        </p>
         {aiAvailable !== null && (
           <p>
             {aiAvailable

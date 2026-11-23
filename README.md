@@ -162,3 +162,17 @@ if one fails, Vercel doesn't publish and the live site stays as it was.
   grow with the dictionary on their own.
 - **The full user test report:** `npx vitest run --config research/vitest.config.mts`
   writes `research/user-test/summary.txt` (coverage per country).
+
+## Learning from real use
+
+Phrases Hola couldn't translate on its own are kept for review, without
+anything about the person (numbers and email addresses are blanked out):
+Vercel → Storage → hola-suggestions → `revisar/<day>/`. Each file says the
+phrase, the two countries or languages, and what happened: `sin-resultado`
+(nothing found), `ia` or `servicio` (the AI or the translation service had to
+step in). Regional words the AI found are under `aprendido/`, and people's own
+suggestions under `sugerencias/`.
+
+Review them weekly: add the words to the dictionary and the phrases to the
+personas files (`research/user-test/`), then `pnpm test -u`, so each one is
+checked on every deploy from then on.

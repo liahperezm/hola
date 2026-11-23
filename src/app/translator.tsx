@@ -141,8 +141,16 @@ export function Translator() {
             ? { kind: "country", dialect: country }
             : null;
       setHint(next);
-      if (!next && local.via === "none" && aiAvailable && from !== to && worthAskingAi(clean)) {
+      const asksAi = !next && local.via === "none" && aiAvailable && from !== to && worthAskingAi(clean);
+      if (asksAi) {
         void askAi(clean, from, to, false);
+      } else if (detect && !next && local.via === "none" && from !== to) {
+        // Nothing found and no AI: keep it (anonymously) so the dictionary can learn it.
+        void fetch("/api/revisar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ text: clean.slice(0, 300), from, to, outcome: "sin-resultado" }),
+        }).catch(() => {});
       }
     },
     [aiAvailable, askAi, pair, tip.markSeen],

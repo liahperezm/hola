@@ -5,6 +5,7 @@ import { LANGUAGE_CODES } from "@/lib/languages";
 import { learnWithDictionary, type LearnResult } from "@/lib/learn";
 import { learnWithService, serviceAvailable } from "@/lib/learn-service";
 import { recall, remember, rememberNewWords } from "@/lib/memory";
+import { saveForReview } from "@/lib/review-queue";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
 import { worthAskingAi } from "@/lib/translate";
 
@@ -74,6 +75,12 @@ async function translate(request: Request, input: unknown) {
         : await learnWithService(text, dialect, direction, language);
     await Promise.all([
       remember("aprender", question, result),
+      saveForReview({
+        text,
+        from: direction === "to-spanish" ? language : dialect,
+        to: direction === "to-spanish" ? dialect : language,
+        outcome: which === "ai" ? "ia" : "servicio",
+      }),
       // Words the AI explained that have no page yet.
       rememberNewWords(
         result.words

@@ -1027,7 +1027,8 @@ const FIELD_WORDS: Record<string, Partial<Record<DialectCode, string[]>>> = {
   trabajo: { GT: ["chamba"], SV: ["chamba"], HN: ["chamba"] },
   nino: { GT: ["ishto"], SV: ["bicho"], HN: ["bicho"], PY: ["mitaí"] },
   bebe: { EC: ["guagua"] },
-  borracho: { HN: ["bolo"], SV: ["bolo"], GT: ["bolo"] },
+  // "como un suape": as drunk as a wet mop. The longer phrase wins over the mop.
+  borracho: { HN: ["bolo"], SV: ["bolo"], GT: ["bolo"], DO: ["como un suape", "hecho un suape"] },
   tacano: { SV: ["chucho"] },
   "sin-dinero": { EC: ["chiro"], VE: ["pelando"] },
   "como-estas": { DO: ["klk"] },
@@ -1060,6 +1061,16 @@ const FIELD_CONCEPTS: Concept[] = [
   { id: "de-acuerdo", meaning: "de acuerdo", en: "OK, all right", terms: { UY: ["ta"], SV: ["vaya pues"], HN: ["vaya pues"], NI: ["dale pues"], MX: ["órale"] } },
   { id: "un-monton-de", meaning: "un montón de", en: "a lot of", terms: { PA: ["buco de"], UY: ["pila de"], AR: ["una banda de"], ES: ["un mogollón de"] } },
   { id: "un-poco", meaning: "un poco", en: "a little bit", terms: { DO: ["un chin"] } },
+  {
+    id: "trapeador",
+    meaning: "trapeador",
+    en: "mop",
+    guide: "basicos",
+    terms: {
+      DO: ["suape"], MX: ["trapeador"], ES: ["fregona"], CO: ["trapero"], VE: ["coleto"],
+      PR: ["mapo"], CU: ["frazada de piso"], AR: ["trapo de piso"], CL: ["trapero"],
+    },
+  },
   { id: "esta-buenisimo", meaning: "está buenísimo", en: "it's great, it's the best", terms: { DO: ["ta de to", "está de to"], PR: ["está de show"] } },
   { id: "picaro", meaning: "pícaro", en: "a street-smart guy", terms: { DO: ["tíguere"] } },
   { id: "muy", meaning: "muy", en: "very", terms: { VE: ["burda de"], AR: ["re"], UY: ["re"] } },

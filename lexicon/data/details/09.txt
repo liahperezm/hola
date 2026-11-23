@@ -101,3 +101,14 @@ AR.lucas | LOO-kahs | La entrada salió diez lucas. |
 DO.ta-de-to | TAH deh TOH | Esa bachata ta de to. | ta feo
 DO.esta-de-to | ehs-TAH deh TOH | La comida está de to. |
 PR.esta-de-show | ehs-TAH deh SHOH | Esa fiesta está de show. |
+DO.suape | SWAH-peh | Pásale el suape al piso de la cocina. |
+DO.como-un-suape | KOH-moh oon SWAH-peh | Salió de la fiesta como un suape. | sobrio
+DO.hecho-un-suape | EH-choh oon SWAH-peh | Anoche llegó hecho un suape. | sobrio
+MX.trapeador | trah-peh-ah-DOR | Pásale el trapeador al baño. |
+ES.fregona | freh-GOH-nah | Pasa la fregona por el pasillo. |
+CO.trapero | trah-PEH-roh | Trapee con el trapero mojado. |
+VE.coleto | koh-LEH-toh | Pásale el coleto a la sala. |
+PR.mapo | MAH-poh | Mapea con el mapo nuevo. |
+CU.frazada-de-piso | frah-SAH-dah deh PEE-soh | Pasa la frazada de piso por la cocina. |
+AR.trapo-de-piso | TRAH-poh deh PEE-soh | Pasá el trapo de piso por la cocina. |
+CL.trapero | trah-PEH-roh | Pasa el trapero por el living. |

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { AiRefusedError, aiAvailable, translateWithAi } from "@/lib/ai";
 import { DIALECT_CODES } from "@/lib/dialects";
 import { recall, remember, rememberNewWords } from "@/lib/memory";
+import { saveForReview } from "@/lib/review-queue";
 import type { PhraseEntry } from "@/lib/phrase";
 import { allowRequest, clientKey } from "@/lib/rate-limit";
 import { translateAnyCountry, worthAskingAi, type Translation } from "@/lib/translate";
@@ -60,6 +61,7 @@ export async function POST(request: Request) {
     );
     await Promise.all([
       remember("traducir", question, { translation, entries }),
+      saveForReview({ text, from, to, outcome: "ia" }),
       rememberNewWords(
         entries.map((e) => ({ dialect: e.dialect, text: e.text, meaning: e.meaning, en: e.en, sentence: text })),
       ),

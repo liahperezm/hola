@@ -221,6 +221,8 @@ export const EN: Record<string, string> = {
   "No pudimos guardarte en la lista. Intenta más tarde.": "We couldn't add you to the list. Try again later.",
   "Hola Plus": "Hola Plus",
   Dichos: "Sayings",
+  "Para que el diccionario aprenda, guardamos sin ningún dato tuyo las frases que Hola no supo traducir sola.":
+    "So the dictionary can learn, we keep the phrases Hola couldn't translate on its own, with nothing about you.",
   "De qué país": "Which country",
   "Todos los países": "All countries",
   "No, gracias": "No, thanks",
