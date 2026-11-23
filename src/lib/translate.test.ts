@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { sharedText } from "./draft";
 import type { DialectCode } from "./dialects";
-import { allEntries, getEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
+import { allEntries, getEntry, knownEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { warningText } from "./false-friends";
 import { translateAnyCountry, translateWithDictionary, worthAskingAi } from "./translate";
 
@@ -373,5 +373,13 @@ describe("words from another country", () => {
     expect(worthAskingAi("palta")).toBe(false);
     expect(worthAskingAi("diablo mami")).toBe(false);
     expect(worthAskingAi("ta de todo el día")).toBe(true);
+  });
+});
+
+describe("knownEntry", () => {
+  it("finds the dictionary's word for a page the AI wrote", () => {
+    expect(knownEntry("Palta", "MX")?.text).toBe("palta");
+    expect(knownEntry("guagua", "CL")?.id).toBe("CL.guagua");
+    expect(knownEntry("no existe")).toBeUndefined();
   });
 });

@@ -8,7 +8,7 @@ import { CountryLabel, Flag } from "@/components/flag";
 import { EmptyState, IconButton, ListCard, PageHeader, capitalize } from "@/components/ui";
 import { DIALECTS, termLabel, termLabelEn } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
-import { getEntry, normalize, otherWays, otherWaysByWord, type Entry } from "@/lib/dictionary";
+import { getEntry, knownEntry, normalize, otherWays, otherWaysByWord, type Entry } from "@/lib/dictionary";
 import type { PhraseEntry } from "@/lib/phrase";
 import { speak } from "@/lib/speech";
 import { useAiEntry, useFavorites, useHydrated, useSeen } from "@/lib/storage";
@@ -20,12 +20,15 @@ type Tab = "definicion" | "origen" | "otros";
 
 export function Phrase({ id }: { id: string }) {
   const { t } = useT();
-  const dictionaryEntry = getEntry(id);
   const aiEntry = useAiEntry(id);
   const { favorites } = useFavorites();
   const hydrated = useHydrated();
-  const entry: PhraseEntry | undefined =
-    dictionaryEntry ?? aiEntry ?? favorites.find((f) => f.id === id);
+  const saved = favorites.find((f) => f.id === id);
+  // A page the AI wrote for a word the dictionary knows shows the dictionary's.
+  const written = aiEntry ?? saved;
+  const dictionaryEntry =
+    getEntry(id) ?? (written ? knownEntry(written.text, written.dialect) : undefined);
+  const entry: PhraseEntry | undefined = dictionaryEntry ?? written;
 
   if (!entry) {
     return (

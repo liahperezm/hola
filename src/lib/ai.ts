@@ -77,6 +77,7 @@ Reglas:
 - "pronunciation": guía de pronunciación en sílabas al estilo inglés, con la sílaba tónica en mayúsculas (ej. "pah-ree-GWAH-yoh").
 - "example": una frase corta de ejemplo en el dialecto de origen, con la palabra tal cual.
 - "antonyms": hasta tres palabras o expresiones de sentido contrario usadas en el país de origen; lista vacía si no tiene sentido hablar de contrario.
+- No afirmes que una palabra se usa en el país de origen si no lo sabes: si es de otro país (por ejemplo «palta», que es de Sudamérica y no de México), dilo así en "definition".
 - "origin": de dónde viene la palabra, solo si lo sabes con seguridad; si no, cadena vacía. Nunca inventes historias.
 - Todo en español.`;
 

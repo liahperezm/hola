@@ -1196,6 +1196,21 @@ export function getEntry(id: string): Entry | undefined {
   return ENTRIES.get(id);
 }
 
+/**
+ * The dictionary's entry for a word, preferring the given country's: lets a
+ * page the AI wrote for a word Hola knows ("palta") open the real one.
+ */
+export function knownEntry(text: string, dialect?: DialectCode): Entry | undefined {
+  const key = normalize(text);
+  let found: Entry | undefined;
+  for (const entry of ENTRIES.values()) {
+    if (normalize(entry.text) !== key) continue;
+    if (entry.dialect === dialect) return entry;
+    found ??= entry;
+  }
+  return found;
+}
+
 export function entriesFor(dialect: DialectCode): Entry[] {
   return [...ENTRIES.values()].filter((e) => e.dialect === dialect);
 }
