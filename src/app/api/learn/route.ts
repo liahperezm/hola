@@ -32,6 +32,9 @@ function engine(): "ai" | "service" | null {
  * say so. With ?text=&dialect=&direction=: the same as POST, for sharing a
  * translation as a link.
  */
+/** Where answers are kept; renamed when old answers mustn't be served again. */
+const MEMORY = "aprender-v2";
+
 export async function GET(request: Request) {
   const query = Object.fromEntries(new URL(request.url).searchParams);
   if (!query.text) return Response.json({ sentences: engine() !== null });
@@ -58,7 +61,7 @@ async function translate(request: Request, input: unknown) {
   }
   // Asked before: the saved answer costs nothing.
   const question = [which, text, dialect, direction, language];
-  const saved = await recall<LearnResult>("aprender", question);
+  const saved = await recall<LearnResult>(MEMORY, question);
   if (saved) return Response.json({ result: { ...saved, source: text }, saved: true });
 
   // Keeps one person from using up the free allowance (or the AI budget).
@@ -74,7 +77,7 @@ async function translate(request: Request, input: unknown) {
         ? await translateForLearner(text, dialect, direction, language)
         : await learnWithService(text, dialect, direction, language);
     await Promise.all([
-      remember("aprender", question, result),
+      remember(MEMORY, question, result),
       saveForReview({
         text,
         from: direction === "to-spanish" ? language : dialect,
