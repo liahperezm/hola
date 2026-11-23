@@ -37,7 +37,6 @@ export const SAYINGS: Saying[] = [
   {"text": "aunque la mona se vista de seda, mona se queda", "es": "las apariencias no cambian lo que alguien es", "en": "you can't make a silk purse from a sow's ear"},
   {"text": "a falta de pan, buenas son tortas", "es": "si no hay lo que quieres, confórmate con lo que hay", "en": "beggars can't be choosers"},
   {"text": "no todo lo que brilla es oro", "es": "no todo lo que parece bueno lo es", "en": "all that glitters is not gold"},
-  {"text": "al que le quede el saco, que se lo ponga", "es": "si la crítica te toca, es para ti", "en": "if the shoe fits, wear it"},
   {"text": "no es moco de pavo", "es": "no es poca cosa", "en": "it's no small thing"},
   {"text": "el flojo trabaja doble", "es": "por hacerlo mal o tarde, el perezoso acaba trabajando más", "en": "the lazy man works twice"},
   {"text": "cada loco con su tema", "es": "cada quien con sus manías o gustos", "en": "to each their own"},

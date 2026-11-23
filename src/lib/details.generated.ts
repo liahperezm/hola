@@ -366,7 +366,6 @@ export const DETAILS: Record<string, TermDetail> = {
   "AR.tirar-manteca-al-techo": {"pronunciation": "tee-RAR mahn-TEH-kah ahl TEH-choh", "example": "En los noventa tiraban manteca al techo.", "antonyms": ["ahorrar"]},
   "AR.meter-la-mula": {"pronunciation": "meh-TEHR lah MOO-lah", "example": "Ojo con ese vendedor, que te mete la mula."},
   "ES.a-quien-madruga-dios-le-ayuda": {"pronunciation": "ah kyehn mah-DROO-gah DYOHS leh ah-YOO-dah", "example": "Me levanto a las seis; a quien madruga, Dios le ayuda."},
-  "ES.el-que-se-pica-ajos-come": {"pronunciation": "ehl keh seh PEE-kah AH-hohs KOH-meh", "example": "No lo decía por ti, pero el que se pica, ajos come."},
   "MX.al-que-nace-pa-tamal-del-cielo-le-caen-las-hojas": {"pronunciation": "ahl keh NAH-seh pah tah-MAHL dehl SYEH-loh leh KAH-ehn lahs OH-hahs", "example": "Siempre le va bien: al que nace pa' tamal, del cielo le caen las hojas."},
   "VE.chivo-que-rompe-tambor-con-su-pellejo-paga": {"pronunciation": "CHEE-boh keh RROHM-peh tahm-BOR kohn soo peh-YEH-hoh PAH-gah", "example": "Rompiste el vidrio, chivo que rompe tambor, con su pellejo paga."},
   "ES.conducir": {"pronunciation": "kohn-doo-SEER", "example": "Aprendí a conducir a los dieciocho."},
@@ -827,4 +826,9 @@ export const DETAILS: Record<string, TermDetail> = {
   "CL.pasarlo-chancho": {"pronunciation": "pah-SAR-loh CHAHN-choh", "example": "Lo pasamos chancho en el paseo.", "antonyms": ["pasarlo pésimo"]},
   "VE.pasarla-chevere": {"pronunciation": "pah-SAR-lah CHEH-beh-reh", "example": "La pasamos chévere en la playa."},
   "CO.pasarla-chevere": {"pronunciation": "pah-SAR-lah CHEH-beh-reh", "example": "La pasamos chévere en el paseo de olla."},
+  "DO.al-que-le-sirva-el-sombrero-que-se-lo-ponga": {"pronunciation": "ahl keh leh SEER-bah ehl sohm-BREH-roh keh seh loh POHN-gah", "example": "No lo digo por nadie, pero al que le sirva el sombrero, que se lo ponga."},
+  "AR.al-que-le-quede-el-saco-que-se-lo-ponga": {"pronunciation": "ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah", "example": "No dije nombres; al que le quede el saco, que se lo ponga."},
+  "UY.al-que-le-quede-el-saco-que-se-lo-ponga": {"pronunciation": "ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah", "example": "Yo hablé en general; al que le quede el saco, que se lo ponga."},
+  "MX.al-que-le-quede-el-saco-que-se-lo-ponga": {"pronunciation": "ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah", "example": "No mencioné a nadie, pero al que le quede el saco, que se lo ponga."},
+  "ES.el-que-se-pica-ajos-come": {"pronunciation": "ehl keh seh PEE-kah AH-hohs KOH-meh", "example": "No lo decía por ti, pero el que se pica, ajos come."},
 };

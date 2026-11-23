@@ -984,11 +984,17 @@ const DICHOS: Concept[] = [
     terms: { ES: ["a quien madruga, Dios le ayuda"] },
   },
   {
-    id: "dicho-el-que-se-pica",
+    id: "dicho-al-que-le-quede-el-saco",
     meaning: "al que le quede el saco, que se lo ponga",
     en: "if the shoe fits, wear it",
     guide: "dichos",
-    terms: { ES: ["el que se pica, ajos come"] },
+    terms: {
+      DO: ["al que le sirva el sombrero, que se lo ponga"],
+      AR: ["al que le quede el saco, que se lo ponga"],
+      UY: ["al que le quede el saco, que se lo ponga"],
+      MX: ["al que le quede el saco, que se lo ponga"],
+      ES: ["el que se pica, ajos come"],
+    },
   },
   {
     id: "dicho-destino",

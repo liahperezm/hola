@@ -343,3 +343,21 @@ describe("word details", () => {
     expect(getEntry("AR.del-tomate")?.antonyms).toEqual(["cuerdo"]);
   });
 });
+
+describe("sayings with their own version in each country", () => {
+  const t = (s: string, from: DialectCode, to: DialectCode) =>
+    join(translateWithDictionary(s, from, to).target);
+
+  it("swap the whole saying, never word by word", () => {
+    expect(t("Al que le sirva el sombrero que se lo ponga", "DO", "AR")).toBe(
+      "Al que le quede el saco, que se lo ponga",
+    );
+    expect(t("Al que le quede el saco, que se lo ponga", "AR", "ES")).toBe("El que se pica, ajos come");
+  });
+
+  it("stay the same where it is said the same", () => {
+    expect(t("Al que le quede el saco, que se lo ponga", "AR", "MX")).toBe(
+      "Al que le quede el saco, que se lo ponga",
+    );
+  });
+});

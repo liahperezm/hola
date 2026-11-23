@@ -68,6 +68,7 @@ Recibes un texto escrito como lo diría alguien de un país y lo reescribes como
 Reglas:
 - Cambia solo lo regional: palabras, expresiones, modismos y, si hace falta, el voseo o la conjugación propia del país de destino. No cambies el sentido, el tono ni el registro.
 - Si el texto no tiene nada regional, devuélvelo igual y deja "terms" vacío.
+- Los refranes, dichos y frases hechas se traducen enteros, nunca palabra por palabra: si en el país de destino hay un refrán equivalente, usa ese tal como se dice allí; si se dice igual, déjalo igual. No cambies palabras sueltas dentro de un refrán (por ejemplo, no cambies «sombrero» por «saco»: el refrán entero es otro). En "terms" pon el refrán completo como un solo término.
 - En "terms" pon cada palabra o expresión regional que cambiaste: "source" tal como aparece en el texto original, "target" tal como aparece en tu traducción.
 - "meaning": qué significa en español neutro, en pocas palabras.
 - "definition": una o dos frases que expliquen el uso en el país de origen.
@@ -237,6 +238,7 @@ Reglas:
 - "translation": solo la traducción, sin comillas ni notas.
 - "words": las palabras o expresiones regionales o propias de ${country} que aparecen en el texto en español (la traducción o el original), las que un estudiante de inglés querría aprender. "spanish" tal como aparece, "english" su significado en ${language}, "pronunciation" una guía en sílabas al estilo inglés con la sílaba tónica en mayúsculas (ej. "GWAH-gwah"). Si no hay nada regional, deja la lista vacía.
 - No agregues groserías que no estén en el original.
+- Los refranes, dichos y frases hechas se traducen enteros, por su equivalente o su sentido, nunca palabra por palabra. En "words" van como una sola expresión.
 
 Palabras de ${country} del diccionario de Hola (inglés → ${country}); úsalas cuando correspondan:
 ${hints.join("\n")}`;

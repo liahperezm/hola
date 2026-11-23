@@ -61,7 +61,6 @@ CO.dar-papaya | DAHR pah-PAH-yah | No des papaya con el celular en la mano. | cu
 AR.tirar-manteca-al-techo | tee-RAR mahn-TEH-kah ahl TEH-choh | En los noventa tiraban manteca al techo. | ahorrar
 AR.meter-la-mula | meh-TEHR lah MOO-lah | Ojo con ese vendedor, que te mete la mula. |
 ES.a-quien-madruga-dios-le-ayuda | ah kyehn mah-DROO-gah DYOHS leh ah-YOO-dah | Me levanto a las seis; a quien madruga, Dios le ayuda. |
-ES.el-que-se-pica-ajos-come | ehl keh seh PEE-kah AH-hohs KOH-meh | No lo decía por ti, pero el que se pica, ajos come. |
 MX.al-que-nace-pa-tamal-del-cielo-le-caen-las-hojas | ahl keh NAH-seh pah tah-MAHL dehl SYEH-loh leh KAH-ehn lahs OH-hahs | Siempre le va bien: al que nace pa' tamal, del cielo le caen las hojas. |
 VE.chivo-que-rompe-tambor-con-su-pellejo-paga | CHEE-boh keh RROHM-peh tahm-BOR kohn soo peh-YEH-hoh PAH-gah | Rompiste el vidrio, chivo que rompe tambor, con su pellejo paga. |
 ES.conducir | kohn-doo-SEER | Aprendí a conducir a los dieciocho. |

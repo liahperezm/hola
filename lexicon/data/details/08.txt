@@ -92,3 +92,8 @@ AR.pasarla-bomba | pah-SAR-lah BOHM-bah | La pasamos bomba en el recital. | pasa
 CL.pasarlo-chancho | pah-SAR-loh CHAHN-choh | Lo pasamos chancho en el paseo. | pasarlo pésimo
 VE.pasarla-chevere | pah-SAR-lah CHEH-beh-reh | La pasamos chévere en la playa. |
 CO.pasarla-chevere | pah-SAR-lah CHEH-beh-reh | La pasamos chévere en el paseo de olla. |
+DO.al-que-le-sirva-el-sombrero-que-se-lo-ponga | ahl keh leh SEER-bah ehl sohm-BREH-roh keh seh loh POHN-gah | No lo digo por nadie, pero al que le sirva el sombrero, que se lo ponga. |
+AR.al-que-le-quede-el-saco-que-se-lo-ponga | ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah | No dije nombres; al que le quede el saco, que se lo ponga. |
+UY.al-que-le-quede-el-saco-que-se-lo-ponga | ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah | Yo hablé en general; al que le quede el saco, que se lo ponga. |
+MX.al-que-le-quede-el-saco-que-se-lo-ponga | ahl keh leh KEH-deh ehl SAH-koh keh seh loh POHN-gah | No mencioné a nadie, pero al que le quede el saco, que se lo ponga. |
+ES.el-que-se-pica-ajos-come | ehl keh seh PEE-kah AH-hohs KOH-meh | No lo decía por ti, pero el que se pica, ajos come. |
