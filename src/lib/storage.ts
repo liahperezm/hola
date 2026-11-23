@@ -193,6 +193,13 @@ const asOtherLanguage = (v: unknown): OtherLanguage => {
     : null;
 };
 
+/** The country the word of the day comes from; null for every country. */
+export function useWordOfDayCountry() {
+  return useStored<DialectCode | null>("hola.word-of-day-country", null, (v) =>
+    isDialectCode(v) ? v : null,
+  );
+}
+
 export function useOtherLanguage() {
   return useStored<OtherLanguage>("hola.other-language", null, asOtherLanguage);
 }

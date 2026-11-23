@@ -13,7 +13,7 @@ import {
   capitalize,
 } from "@/components/ui";
 import { DIALECT_CODES, DIALECTS } from "@/lib/dialects";
-import { normalize } from "@/lib/dictionary";
+import { knownEntry, normalize } from "@/lib/dictionary";
 import { useT } from "@/lib/i18n";
 import { useFavorites, useHydrated } from "@/lib/storage";
 
@@ -25,7 +25,12 @@ export default function Favorites() {
 
   const groups = useMemo(() => {
     const q = normalize(query);
-    const shown = favorites.filter(
+    // A word saved from an AI page goes under the country it really comes from.
+    const placed = favorites.map((f) => {
+      const known = f.id.startsWith("ai.") ? knownEntry(f.text, f.dialect) : undefined;
+      return known ? { ...f, dialect: known.dialect, meaning: known.meaning } : f;
+    });
+    const shown = placed.filter(
       (f) =>
         !q || normalize(f.text).includes(q) || normalize(f.meaning).includes(q),
     );

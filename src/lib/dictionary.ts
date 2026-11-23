@@ -1351,8 +1351,14 @@ export function wordOfTheDayPool(dialect?: DialectCode): Entry[] {
   const all = [...ENTRIES.values()]
     .filter((e) => e.origin)
     .sort((a, b) => a.id.localeCompare(b.id));
-  const local = dialect ? all.filter((e) => e.dialect === dialect) : [];
-  return local.length >= 3 ? local : all;
+  if (!dialect) return all;
+  // A country's words with a story, or else all its words.
+  const told = all.filter((e) => e.dialect === dialect);
+  if (told.length >= 3) return told;
+  const local = [...ENTRIES.values()]
+    .filter((e) => e.dialect === dialect)
+    .sort((a, b) => a.id.localeCompare(b.id));
+  return local.length >= 2 ? local : all;
 }
 
 /**

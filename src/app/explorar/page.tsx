@@ -2,7 +2,7 @@
 
 import { Rich } from "@/components/rich";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { Flag } from "@/components/flag";
 import { PlusGuideTiles } from "@/components/plus";
@@ -17,9 +17,9 @@ import {
   TopBar,
   capitalize,
 } from "@/components/ui";
-import { termLabel, termLabelEn } from "@/lib/dialects";
+import { PICKABLE_DIALECTS, isDialectCode, termLabel, termLabelEn } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
-import { useDialectPair } from "@/lib/storage";
+import { useDialectPair, useWordOfDayCountry } from "@/lib/storage";
 import { LearningChip } from "@/components/learning";
 import {
   GUIDES,
@@ -145,20 +145,41 @@ function useToday(): number | null {
 
 function WordOfTheDay() {
   const today = useToday();
-  const { t, language } = useT();
+  const { t, language, country } = useT();
   const [pair] = useDialectPair();
+  const [chosen, setChosen] = useWordOfDayCountry();
+  const countries = useMemo(
+    () => [...PICKABLE_DIALECTS].sort((a, b) => country(a).localeCompare(country(b), language)),
+    [country, language],
+  );
   // The day comes from the reader's own clock, so it is chosen after hydration.
   if (today === null) {
     return <div className="mt-4 h-[146px] rounded-[26px] bg-white shadow-card" />;
   }
-  // Learners get a word from the Spanish they are learning.
-  const entry = wordForDay(today, language === "en" ? pair.to : undefined);
+  // Every country unless one is chosen; learners start with the Spanish they learn.
+  const entry = wordForDay(today, chosen ?? (language === "en" ? pair.to : undefined));
   return (
-    <Link
-      href={`/frase/${entry.id}`}
-      className="mt-4 block rounded-[26px] bg-white px-5 py-[18px] shadow-card transition active:scale-[0.99]"
-    >
-      <p className="text-[13px] font-semibold text-muted">{t("Palabra del día")}</p>
+    <div className="mt-4 rounded-[26px] bg-white px-5 py-[18px] shadow-card">
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-[13px] font-semibold text-muted">{t("Palabra del día")}</p>
+        <label className="relative">
+          <span className="sr-only">{t("De qué país")}</span>
+          <select
+            value={chosen ?? ""}
+            onChange={(e) => setChosen(isDialectCode(e.target.value) ? e.target.value : null)}
+            className="h-9 appearance-none rounded-full bg-bg py-0 pr-8 pl-3 text-[13px] font-semibold text-navy"
+          >
+            <option value="">{t("Todos los países")}</option>
+            {countries.map((code) => (
+              <option key={code} value={code}>
+                {country(code)}
+              </option>
+            ))}
+          </select>
+          <ChevronDown aria-hidden className="pointer-events-none absolute top-1/2 right-2.5 size-4 -translate-y-1/2" />
+        </label>
+      </div>
+      <Link href={`/frase/${entry.id}`} className="block transition active:scale-[0.99]">
       <div className="mt-2 flex items-center justify-between gap-3">
         <div className="min-w-0">
           <p className="text-[26px] leading-tight font-extrabold tracking-[-0.02em]">
@@ -180,7 +201,8 @@ function WordOfTheDay() {
           <Rich text={entry.definition ?? entry.meaning} />
         )}
       </p>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
