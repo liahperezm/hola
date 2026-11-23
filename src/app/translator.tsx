@@ -17,7 +17,9 @@ import {
 } from "lucide-react";
 import { detectDialect } from "@/lib/detect";
 import { detectLanguage } from "@/lib/detect-language";
-import { noteLanguageDetected, sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
+import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
+import { DidYouMean } from "@/components/did-you-mean";
+import { LANGUAGE_NAMES, type LanguageCode } from "@/lib/languages";
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import { SidesBar } from "@/components/sides";
 import { CountryLabel } from "@/components/flag";
@@ -47,6 +49,8 @@ type ApiResponse = {
 };
 
 const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
+
+type Hint = { kind: "language"; code: LanguageCode } | { kind: "country"; dialect: DialectCode };
 
 export function Translator() {
   const { t, country, language, countryInSentence } = useT();
@@ -113,50 +117,58 @@ export function Translator() {
   );
 
   const lastPair = useRef(pair);
-  const [detected, setDetected] = useState<DialectCode | null>(null);
+  // What the text looks like, when that isn't what was chosen.
+  const [hint, setHint] = useState<Hint | null>(null);
 
   const translate = useCallback(
     (input: string, { detect = true }: { detect?: boolean } = {}) => {
       const clean = input.trim();
       if (!clean) return;
-      let { from, to } = pair;
-      // Another language entirely: open the translator for that language.
-      const language = detect ? detectLanguage(clean) : null;
-      if (language && language !== "es") {
-        setDraft({ text: clean, shown: true });
-        noteLanguageDetected();
-        setOther({ code: language, side: "from" });
-        return;
-      }
-      // Text clearly in another country's Spanish switches "from" to it.
-      const found = detect ? detectDialect(clean, from) : null;
-      if (found) {
-        to = to === found.dialect ? from : to;
-        from = found.dialect;
-        lastPair.current = { from, to };
-        setPair({ from, to });
-        setDetected(from);
-      } else if (detect) {
-        setDetected(null);
-      }
+      const { from, to } = pair;
       request.current++;
       setLoading(null);
       setError(null);
-      const local = translateAnyCountry(clean, from, to);
+      const local = translateWithDictionary(clean, from, to);
       setResult(local);
       tip.markSeen();
-      if (local.via === "none" && aiAvailable && from !== to && worthAskingAi(clean)) {
+      // Another language, or another country's Spanish: ask, don't switch.
+      const language = detect ? detectLanguage(clean) : null;
+      const country =
+        !detect || (language && language !== "es")
+          ? null
+          : (detectDialect(clean, from)?.dialect ??
+            (local.via === "none" ? translateAnyCountry(clean, from, to) : null)?.from);
+      const next: Hint | null =
+        language && language !== "es"
+          ? { kind: "language", code: language }
+          : country && country !== from
+            ? { kind: "country", dialect: country }
+            : null;
+      setHint(next);
+      if (!next && local.via === "none" && aiAvailable && from !== to && worthAskingAi(clean)) {
         void askAi(clean, from, to, false);
       }
     },
-    [aiAvailable, askAi, pair, setPair, setDraft, setOther, tip.markSeen],
+    [aiAvailable, askAi, pair, tip.markSeen],
   );
+
+  const acceptHint = () => {
+    if (!hint) return;
+    setHint(null);
+    if (hint.kind === "language") {
+      setDraft({ text, shown: true });
+      setOther({ code: hint.code, side: "from" });
+    } else {
+      // Changing the countries translates the text again.
+      setPair({ from: hint.dialect, to: pair.to === hint.dialect ? pair.from : pair.to });
+    }
+  };
 
   // When the countries change, translate the same text again.
   useEffect(() => {
     if (lastPair.current.from === pair.from && lastPair.current.to === pair.to) return;
     lastPair.current = pair;
-    setDetected(null);
+    setHint(null);
     if (result) translate(text, { detect: false });
   }, [pair, result, text, translate]);
 
@@ -235,11 +247,6 @@ export function Translator() {
               <CountryLabel code={result.from} />
               <ClearButton onClick={clear} />
             </div>
-            {detected === result.from && (
-              <p className="mt-1 text-[13px] font-semibold text-muted">
-                {t("Reconocimos el país por sus palabras")}
-              </p>
-            )}
             <button
               type="button"
               onClick={edit}
@@ -273,7 +280,7 @@ export function Translator() {
                   <p className="mt-2.5 text-[23px] leading-snug font-medium tracking-[-0.01em]">
                     <Highlighted segments={result.target} />
                   </p>
-                  {result.via === "none" && (
+                  {result.via === "none" && !hint && (
                     <p className="mt-2 text-sm text-muted">
                       {t("No encontramos palabras que se digan distinto en {country}.", { country: countryInSentence(result.to) })}
                     </p>
@@ -296,6 +303,23 @@ export function Translator() {
               )}
             </div>
           </section>
+
+          {hint && (
+            <DidYouMean
+              question={
+                hint.kind === "language"
+                  ? t("¿Está en {language}?", { language: LANGUAGE_NAMES[language][hint.code] })
+                  : t("¿Es español de {country}?", { country: countryInSentence(hint.dialect) })
+              }
+              action={
+                hint.kind === "language"
+                  ? t("Traducir desde el {language}", { language: LANGUAGE_NAMES[language][hint.code] })
+                  : t("Traducir desde {country}", { country: country(hint.dialect) })
+              }
+              onAccept={acceptHint}
+              onDismiss={() => setHint(null)}
+            />
+          )}
 
           {errorMessage && <ErrorText>{errorMessage}</ErrorText>}
 

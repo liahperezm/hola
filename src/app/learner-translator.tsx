@@ -16,11 +16,13 @@ import { ListCard, SectionTitle, TabScreen, TopBar, capitalize } from "@/compone
 import { useT } from "@/lib/i18n";
 import { learnWithDictionary, speechLangFor, type LearnDirection, type LearnResult } from "@/lib/learn";
 import { speak, useDictation } from "@/lib/speech";
-import { LANGUAGES } from "@/lib/languages";
+import { LANGUAGE_NAMES, LANGUAGES, type LanguageCode } from "@/lib/languages";
+import type { DialectCode } from "@/lib/dialects";
 import { useSentenceAllowance } from "@/lib/plus";
 import { detectDialect } from "@/lib/detect";
 import { detectLanguage } from "@/lib/detect-language";
-import { sharedTextDone, takeLanguageNote, takePendingText, useDraft } from "@/lib/draft";
+import { sharedTextDone, takePendingText, useDraft } from "@/lib/draft";
+import { DidYouMean } from "@/components/did-you-mean";
 import { useDialectPair, useOtherLanguage } from "@/lib/storage";
 import type { Segment } from "@/lib/translate";
 
@@ -31,11 +33,17 @@ const join = (segments: Segment[]) => segments.map((s) => s.text).join("");
  * learned. Sentences go to the AI; single words come straight from the
  * dictionary, and without the AI the dictionary lists the words it knows.
  */
+type Hint =
+  | { kind: "language"; other: { code: LanguageCode; side: "from" | "to" } }
+  | { kind: "country"; dialect: DialectCode };
+
 export function LearnerTranslator() {
-  const { t, countryInSentence } = useT();
+  const { t, countryInSentence, country, language: ui } = useT();
   const [pair, setPair] = useDialectPair();
   const [other, setOther] = useOtherLanguage();
-  const [languageNote, setLanguageNote] = useState(false);
+  const [hint, setHint] = useState<Hint | null>(null);
+  // Text to translate once a switch the person accepted has taken effect.
+  const [pending, setPending] = useState<string | null>(null);
   const dialect = pair.to;
   const language = other?.code ?? "en";
   const direction: LearnDirection = other?.side === "to" ? "from-spanish" : "to-spanish";
@@ -48,7 +56,6 @@ export function LearnerTranslator() {
   // Text shared into Hola, or carried over from the other translator.
   useEffect(() => {
     restore.current = takePendingText();
-    setLanguageNote(takeLanguageNote());
   }, []);
   const [ready, setReady] = useState(false);
   const [result, setResult] = useState<LearnResult | null>(null);
@@ -103,6 +110,40 @@ export function LearnerTranslator() {
     }
   }, [dialect, direction, language]);
 
+  const acceptHint = () => {
+    if (!hint) return;
+    setHint(null);
+    if (hint.kind === "language") {
+      const dir: LearnDirection = hint.other.side === "to" ? "from-spanish" : "to-spanish";
+      last.current = { dialect, direction: dir, language: hint.other.code };
+      setOther(hint.other);
+    } else {
+      last.current = { dialect: hint.dialect, direction, language };
+      setPair({ from: pair.from === hint.dialect ? pair.to : pair.from, to: hint.dialect });
+    }
+    setPending(text);
+  };
+
+  useEffect(() => {
+    if (pending === null) return;
+    setPending(null);
+    void translate(pending, { detect: false });
+    // translate is redefined every render; the switch is what matters here.
+  }, [pending, dialect, direction, language]);
+
+  const hintQuestion = (h: Hint) =>
+    h.kind === "country"
+      ? t("¿Es español de {country}?", { country: countryInSentence(h.dialect) })
+      : h.other.side === "to"
+        ? t("¿Está en español?")
+        : t("¿Está en {language}?", { language: LANGUAGE_NAMES[ui][h.other.code] });
+  const hintAction = (h: Hint) =>
+    h.kind === "country"
+      ? t("Traducir desde {country}", { country: country(h.dialect) })
+      : h.other.side === "to"
+        ? t("Traducir desde el español")
+        : t("Traducir desde el {language}", { language: LANGUAGE_NAMES[ui][h.other.code] });
+
   const toSpanish = direction === "to-spanish";
   const spanishLang = speechLangFor(dialect);
   const dictation = useDictation(toSpanish ? LANGUAGES[language].speech : spanishLang, (heard, final) => {
@@ -113,35 +154,28 @@ export function LearnerTranslator() {
   async function translate(input: string, { detect = true }: { detect?: boolean } = {}) {
     const clean = input.trim();
     if (!clean) return;
-    let dir = direction;
-    let lang = language;
-    let to = dialect;
-    // Typed in a language other than the one chosen: switch to it.
+    const dir = direction;
+    const lang = language;
+    const to = dialect;
+    // Typed in another language, or another country's Spanish: ask first.
     const typed = detect ? detectLanguage(clean) : null;
-    const switchTo =
+    const next: Hint | null =
       typed === "es" && dir === "to-spanish"
-        ? ({ code: language, side: "to" } as const)
+        ? { kind: "language", other: { code: language, side: "to" } }
         : typed && typed !== "es" && (dir === "from-spanish" || typed !== language)
-          ? ({ code: typed, side: "from" } as const)
-          : null;
-    if (switchTo) {
-      dir = switchTo.side === "to" ? "from-spanish" : "to-spanish";
-      lang = switchTo.code;
-      last.current = { dialect: to, direction: dir, language: lang };
-      setOther(switchTo);
-    }
-    if (switchTo) setLanguageNote(true);
-    // Spanish clearly from another country switches to that country.
-    const found = detect && dir === "from-spanish" ? detectDialect(clean, to) : null;
-    if (found) {
-      to = found.dialect;
-      last.current = { dialect: to, direction: dir, language: lang };
-      setPair({ from: pair.from === to ? pair.to : pair.from, to });
-    }
+          ? { kind: "language", other: { code: typed, side: "from" } }
+          : detect && dir === "from-spanish"
+            ? ((found) => (found ? { kind: "country" as const, dialect: found.dialect } : null))(
+                detectDialect(clean, to),
+              )
+            : null;
+    setHint(next);
     const id = ++request.current;
     setError(null);
     const local = learnWithDictionary(clean, to, dir, lang);
     setResult(local);
+    // Asking the service in the wrong language would waste it.
+    if (next?.kind === "language") return;
     if (local.target.length > 0 || !aiAvailable) return;
     if (!allowance.spend()) {
       setLimitOpen(true);
@@ -166,7 +200,7 @@ export function LearnerTranslator() {
   }
 
   const edit = () => {
-    setLanguageNote(false);
+    setHint(null);
     request.current++;
     setResult(null);
     setLoading(false);
@@ -210,11 +244,6 @@ export function LearnerTranslator() {
                 <X className="size-4" />
               </button>
             </div>
-            {languageNote && (
-              <p className="mt-1 text-[13px] font-semibold text-muted">
-                {t("Reconocimos el idioma por sus palabras")}
-              </p>
-            )}
             <button
               type="button"
               onClick={edit}
@@ -274,6 +303,15 @@ export function LearnerTranslator() {
               )}
             </div>
           </section>
+
+          {hint && (
+            <DidYouMean
+              question={hintQuestion(hint)}
+              action={hintAction(hint)}
+              onAccept={acceptHint}
+              onDismiss={() => setHint(null)}
+            />
+          )}
 
           {error && (
             <p role="alert" className="mt-3 text-center text-sm text-danger">

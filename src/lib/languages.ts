@@ -19,6 +19,18 @@ export const LANGUAGES: Record<LanguageCode, { name: string; short: string; spee
   ar: { name: "العربية", short: "ع", speech: "ar-SA" },
 };
 
+/** The language's name in the app's own language, for sentences. */
+export const LANGUAGE_NAMES: Record<"es" | "en", Record<LanguageCode, string>> = {
+  es: {
+    en: "inglés", pt: "portugués", fr: "francés", de: "alemán", it: "italiano",
+    ht: "criollo haitiano", zh: "chino", ja: "japonés", ko: "coreano", ar: "árabe",
+  },
+  en: {
+    en: "English", pt: "Portuguese", fr: "French", de: "German", it: "Italian",
+    ht: "Haitian Creole", zh: "Chinese", ja: "Japanese", ko: "Korean", ar: "Arabic",
+  },
+};
+
 export function isLanguageCode(value: unknown): value is LanguageCode {
   return typeof value === "string" && (LANGUAGE_CODES as readonly string[]).includes(value);
 }
