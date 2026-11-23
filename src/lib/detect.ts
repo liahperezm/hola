@@ -8,6 +8,23 @@ import { translateAnyCountry, translateWithDictionary } from "./translate";
  * each. Standard Spanish words count for nothing.
  */
 
+/*
+ * Regional words that are also everyday words everywhere ("taco" is Chile's
+ * traffic jam and everyone's taco; "causa" is Peru's buddy and a cause): they
+ * translate as usual but don't count as a sign of the country.
+ */
+const EVERYDAY_HOMOGRAPHS = new Set([
+  "taco", "pata", "causa", "man", "bolo", "chucho", "bicho", "reales", "salado", "caucho",
+  "llanta", "bobo", "padre", "fino", "pluma", "foco", "torta", "boca", "pega", "micro",
+  "camion", "chaleco", "vaina", "tio", "tia", "pana",
+]);
+
+/** Whether a word can be a sign of a country at all. */
+function telling(word: string): boolean {
+  const key = normalize(word);
+  return key.length > 2 && !EVERYDAY_HOMOGRAPHS.has(key);
+}
+
 let index: Map<string, Set<DialectCode>> | null = null;
 let longest = 1;
 
@@ -18,7 +35,7 @@ function buildIndex() {
     const key = normalize(entry.text);
     // Two-letter words ("ta", "bo", "re") mean different things in different
     // countries ("ta" is Uruguay's "OK" and the Caribbean's "está").
-    if (!key || key.length <= 2 || standard.has(key) || entry.dialect === "US") continue;
+    if (!key || !telling(key) || standard.has(key) || entry.dialect === "US") continue;
     const set = map.get(key) ?? new Set<DialectCode>();
     set.add(entry.dialect);
     map.set(key, set);
@@ -94,8 +111,8 @@ export function suggestCountry(text: string, from: DialectCode, to: DialectCode)
   if (found) return !long || new Set(found.words).size >= 2 ? found.dialect : null;
   if (translateWithDictionary(text, from, to).via !== "none") return null;
   const elsewhere = translateAnyCountry(text, from, to);
-  const words = elsewhere.pairs.filter((p) => p.from.id).length;
-  return elsewhere.via !== "none" && elsewhere.from !== from && (!long || words >= 2)
+  const words = elsewhere.pairs.filter((p) => p.from.id && telling(p.from.text)).length;
+  return words > 0 && elsewhere.from !== from && (!long || words >= 2)
     ? elsewhere.from
     : null;
 }

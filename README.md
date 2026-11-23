@@ -140,3 +140,25 @@ editing.
 
 The starter dictionary should be reviewed by native speakers from each country
 before launch, especially the origin stories.
+
+## Tests that catch regressions
+
+Every deploy runs the tests first (`pnpm build` is `vitest run && next build`):
+if one fails, Vercel doesn't publish and the live site stays as it was.
+
+- **Phrases that must keep working.** Every phrase in
+  `research/user-test/personas-*.txt` is translated on each run and compared
+  with `research/user-test/approved.txt`. A changed translation fails the
+  test and shows the old and new text. If the change is right, accept it with
+  `pnpm test -u` and commit `approved.txt`; if not, it's a regression to fix.
+  None of these phrases may ever ask "¿Es español de…?", since each persona
+  speaks their own country's Spanish.
+- **When something breaks or is reported, add the phrase** under the right
+  country in the personas file (`> phrase | expected regional words`) and run
+  `pnpm test -u`. From then on it is checked on every deploy.
+- **Checks over the whole dictionary** (`src/lib/invariants.test.ts`): every
+  word's example sentence must never look like another country's Spanish or
+  another language, and must never come out vulgar when the word isn't. These
+  grow with the dictionary on their own.
+- **The full user test report:** `npx vitest run --config research/vitest.config.mts`
+  writes `research/user-test/summary.txt` (coverage per country).
