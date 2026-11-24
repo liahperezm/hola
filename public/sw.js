@@ -1,6 +1,8 @@
 // Offline support: pages are network-first with a cached fallback, static
 // assets are cache-first. API calls always go to the network.
-const CACHE = "hola-v4";
+// One cache per deploy (?v= is the deploy's version), so a new deploy drops
+// the old offline copy when it activates.
+const CACHE = `hola-${new URL(self.location.href).searchParams.get("v") || "v4"}`;
 const PRECACHE = ["/", "/explorar", "/favoritos", "/preferencias"];
 
 self.addEventListener("install", (event) => {

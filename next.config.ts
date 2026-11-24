@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 
+/** This deploy's version: the commit on Vercel, "dev" locally. */
+const BUILD = (process.env.VERCEL_GIT_COMMIT_SHA ?? "dev").slice(0, 12);
+
 const nextConfig: NextConfig = {
+  env: { HOLA_BUILD: BUILD },
   async redirects() {
     return [
       { source: "/diccionario", destination: "/explorar", permanent: true },
