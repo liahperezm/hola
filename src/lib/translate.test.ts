@@ -3,6 +3,7 @@ import { sharedText } from "./draft";
 import type { DialectCode } from "./dialects";
 import { allEntries, getEntry, knownEntry, guideRows, otherWaysByWord, wordOfTheDay, wordOfTheDayPool, unknownPlainWordConcepts, unknownOriginIds } from "./dictionary";
 import { suggestCountry } from "./detect";
+import { definitionIn, originIn, untranslated } from "./english";
 import { warningText } from "./false-friends";
 import { translateAnyCountry, translateWithDictionary, worthAskingAi } from "./translate";
 
@@ -434,5 +435,24 @@ describe("set phrases with qué", () => {
   it("keep their own words: «¡Qué onda!» isn't «¡Qué cómo tú tá!»", () => {
     expect(join(translateWithDictionary("¡Qué onda, güey!", "MX", "DO").target)).toBe("¡Cómo tú tá, ey tú!");
     expect(join(translateWithDictionary("¡Qué chimba de rumba!", "CO", "AR").target)).toBe("¡Qué copado de joda!");
+  });
+});
+
+describe("word pages in English", () => {
+  it("every hand-written definition and origin story has its English", () => {
+    const entries = allEntries();
+    expect(
+      untranslated({
+        definitions: entries.map((e) => e.definition ?? "").filter(Boolean),
+        origins: entries.map((e) => e.origin ?? "").filter(Boolean),
+      }),
+    ).toEqual({ definitions: [], origins: [] });
+  });
+
+  it("explain a word in English", () => {
+    const palta = getEntry("AR.palta")!;
+    expect(definitionIn(palta, "en")).toBe("Avocado.");
+    expect(originIn(palta, "en")).toEqual({ text: "From the Quechua «pallta».", translated: true });
+    expect(definitionIn(getEntry("CL.fome")!, "en")).toBe("Used in Chile to say «boring».");
   });
 });

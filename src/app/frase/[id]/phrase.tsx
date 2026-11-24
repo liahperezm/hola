@@ -10,6 +10,7 @@ import { DIALECTS, termLabel, termLabelEn } from "@/lib/dialects";
 import { useT } from "@/lib/i18n";
 import { getEntry, knownEntry, normalize, otherWays, otherWaysByWord, type Entry } from "@/lib/dictionary";
 import type { PhraseEntry } from "@/lib/phrase";
+import { definitionIn, originIn, writtenEnglish } from "@/lib/english";
 import { speak } from "@/lib/speech";
 import { useAiEntry, useFavorites, useHydrated, useSeen } from "@/lib/storage";
 import { isInstalled } from "@/lib/install";
@@ -190,12 +191,12 @@ function PhraseView({
                 {t("Significa")}: {entry.en}
               </p>
             )}
-            {learner && (
-              <p className="mb-1 text-[13px] font-bold text-muted">{t("En español")}</p>
+            {/* English speakers have "Means" above; below it, the longer explanation when there is one. */}
+            {(!learner || !entry.en || writtenEnglish(entry)) && (
+              <p lang={learner ? "en" : "es"} className="text-[17px] leading-relaxed text-body">
+                <Rich text={definitionIn(entry, language)} />
+              </p>
             )}
-            <p lang="es" className="text-[17px] leading-relaxed text-body">
-              <Rich text={entry.definition ?? entry.meaning} />
-            </p>
             {entry.example && (
               <blockquote className="mt-5 border-l-[3px] border-lavender pl-4 text-[16.5px] leading-normal text-muted italic">
                 <Example text={entry.example} term={entry.text} />
@@ -215,10 +216,13 @@ function PhraseView({
         {tab === "origen" && (
           <div className="rounded-[22px] bg-white px-5 py-5 shadow-card">
             <CountryLabel code={entry.dialect} />
-            <p lang="es" className="mt-4 text-[17px] leading-relaxed text-body">
-              <Rich text={entry.origin ?? ""} />
+            <p
+              lang={learner && originIn(entry, language)?.translated ? "en" : "es"}
+              className="mt-4 text-[17px] leading-relaxed text-body"
+            >
+              <Rich text={originIn(entry, language)?.text ?? ""} />
             </p>
-            {learner && (
+            {learner && originIn(entry, language)?.translated === false && (
               <p className="mt-3 text-[13.5px] text-muted">{t("La historia está en español.")}</p>
             )}
             {entry.origin && entry.source && (

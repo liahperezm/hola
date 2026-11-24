@@ -18,7 +18,7 @@ import { useT } from "@/lib/i18n";
 import { useFavorites, useHydrated } from "@/lib/storage";
 
 export default function Favorites() {
-  const { t } = useT();
+  const { t, language } = useT();
   const { favorites, toggle } = useFavorites();
   const hydrated = useHydrated();
   const [query, setQuery] = useState("");
@@ -28,7 +28,9 @@ export default function Favorites() {
     // A word saved from an AI page goes under the country it really comes from.
     const placed = favorites.map((f) => {
       const known = f.id.startsWith("ai.") ? knownEntry(f.text, f.dialect) : undefined;
-      return known ? { ...f, dialect: known.dialect, meaning: known.meaning } : f;
+      if (known) return { ...f, dialect: known.dialect, meaning: known.meaning, en: known.en };
+      // Older favorites were saved before every word had its English.
+      return f.en ? f : { ...f, en: knownEntry(f.text, f.dialect)?.en };
     });
     const shown = placed.filter(
       (f) =>
@@ -75,7 +77,9 @@ export default function Favorites() {
                           className="min-w-0 flex-1 py-3.5"
                         >
                           <p className="font-bold">{capitalize(entry.text)}</p>
-                          <p className="truncate text-sm text-muted">{entry.meaning}</p>
+                          <p className="truncate text-sm text-muted" lang={language === "en" && entry.en ? "en" : "es"}>
+                            {(language === "en" && entry.en) || entry.meaning}
+                          </p>
                         </Link>
                         <button
                           type="button"
